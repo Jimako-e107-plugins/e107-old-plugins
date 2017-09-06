@@ -22,7 +22,7 @@
  * @package e107Helper
  * @subpackage e107HelperDB
  */
-class e107HelperDB extends db {
+class e107HelperDB extends e_db_mysql {
    /**
     * Insert a row into the table allowing for incomplete set of columns<br />
     * <br />

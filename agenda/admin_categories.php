@@ -156,7 +156,7 @@
 
    // Get details from DB if Edit, otherwise set from POST data
    if (isset($_POST['edit'])) {
-      $agn_sql1->db_Select($agenda->getCategoryTable(), "*", "$primaryid='".$_POST['existing']."'", true, $agenda->isDebug());
+      $agn_sql1->select($agenda->getCategoryTable(), "*", " WHERE $primaryid='".$_POST['existing']."'", true, $agenda->isDebug());
       $row = $agn_sql1->db_Fetch();
    } else {
       if (isset($_POST['add']) || isset($_POST['update'])) {
@@ -166,7 +166,7 @@
 
    // Try the delete
    if (isset($_POST['delete'])) {
-      $agn_sql1->db_Select($agenda->getAgendaTable(), "*", "category='".$_POST['existing']."'", true, $agenda->isDebug());
+      $agn_sql1->select($agenda->getAgendaTable(), "*", " WHERE agn_category='".$_POST['existing']."'", true, $agenda->isDebug());
       if (!$agn_sql1->db_Fetch()) {
          $msg = ($agn_sql1->db_Delete($agenda->getCategoryTable(), "$primaryid='".$_POST['existing']."'", $agenda->isDebug())) ? LAN_DELETED : LAN_DELETED_FAILED;
       } else {
@@ -197,7 +197,7 @@
 
    $text .= "<tr><td colspan='2' class='forumheader' style='text-align:center'>";
 
-   $table_total = $agn_sql1->db_Select($agenda->getCategoryTable(), "*", "order by cat_name asc", "", $agenda->isDebug());
+   $table_total = $agn_sql1->select($agenda->getCategoryTable(), "*", "order by cat_name asc", "no-where", $agenda->isDebug());
    if (!$table_total) {
       $text .= LAN_EMPTY;
    } else {

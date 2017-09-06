@@ -33,7 +33,7 @@ function agendaGetDayEntries($day_ds) {
 function agendaSetFilterSQL() {
    global $agenda, $agn_sql1, $agn_field, $currentUser;
    if ($currentUser) {  // Only logged on users can use filter
-      $agn_sql1->db_Select($agenda->getUserTable(), "*", " WHERE usr_id=".$currentUser["user_id"], true, $agenda->isDebug());
+      $agn_sql1->select($agenda->getUserTable(), "*", " WHERE usr_id=".$currentUser["user_id"], true, $agenda->isDebug());
       if ($agn_urow = $agn_sql1->db_Fetch()) {
          extract($agn_urow, EXTR_OVERWRITE);
       } else {
@@ -277,7 +277,7 @@ function agendaDrawFormRow($rs, $item, $value="") {
 function agendaEntryAdd() {
    global $agenda, $agn_sql1, $agn_field, $agn_required_fields, $agn_required_fields_timed;
 
-   $agn_sql1->db_Select($agenda->getTypeTable(), "*", "typ_id=".$agenda->getP5(), true, $agenda->isDebug());
+   $agn_sql1->select($agenda->getTypeTable(), "*", "typ_id=".$agenda->getP5(), true, $agenda->isDebug());
    if ($trow = $agn_sql1->db_Fetch()) {
       extract($trow, EXTR_OVERWRITE);
       $allfields = array_merge($agn_required_fields, $agn_required_fields_timed[$typ_timed], array_filter(explode(",", $typ_fields), "agendaRemoveBlank"));

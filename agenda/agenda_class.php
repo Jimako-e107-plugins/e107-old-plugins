@@ -349,7 +349,7 @@ class Agenda {
                           ;
 
       $sql = new e107HelperDB();
-      $sql->db_Select($this->getTypeTable(), "*", " order by typ_name asc", "", $this->isDebug());
+      $sql->select($this->getTypeTable(), "*", " order by typ_name asc", "no-where", $this->isDebug());
       $this->types = ":[select]";
       $comma = "";
       while ($agn_trow = $sql->db_Fetch()) {
@@ -362,7 +362,7 @@ class Agenda {
          }
       }
 
-      $sql->db_Select($this->getCategoryTable(), "*", " order by cat_name asc", "", $this->isDebug());
+      $sql->select($this->getCategoryTable(), "*", " order by cat_name asc", "no-where", $this->isDebug());
       $this->categories = array();
       while ($row = $sql->db_Fetch()) {
          extract($row, EXTR_OVERWRITE);
@@ -372,8 +372,8 @@ class Agenda {
       }
       $this->categories = implode(",", $this->categories);
 			 
-      //$sql->db_Select($this->getAgendaTable(), "DISTINCT agn_owner", " agn_owner<>'' order by agn_owner asc", true, $this->isDebug());  ISSUE?
-      $sql->db_Select($this->getAgendaTable(), "DISTINCT agn_owner", " WHERE agn_owner<>'' order by agn_owner asc", true, $this->isDebug());
+      //$sql->select($this->getAgendaTable(), "DISTINCT agn_owner", " agn_owner<>'' order by agn_owner asc", true, $this->isDebug());  ISSUE?
+      $sql->select($this->getAgendaTable(), "DISTINCT agn_owner", " WHERE agn_owner<>'' order by agn_owner asc", true, $this->isDebug());
       $this->owners = "";
       if ($agn_row = $sql->db_Fetch()) {
          extract($agn_row, EXTR_OVERWRITE);
@@ -384,7 +384,7 @@ class Agenda {
          }
       }
 
-      $sql->db_Select($this->getRegTable(), "*", " order by reg_question asc", false, $this->isDebug());
+      $sql->select($this->getRegTable(), "*", " order by reg_question asc", "no-where", $this->isDebug());
       $this->questions = "";
       if ($agn_row = $sql->db_Fetch()) {
          extract($agn_row, EXTR_OVERWRITE);
@@ -399,7 +399,7 @@ class Agenda {
    function initEvents() {
 //      $sql = new db();
 //      $this->events = array();
-//      $entries = $sql->db_Select_gen($this->getSQL2($this->getTodayMonthStartDS(), $this->getTodayMonthEndDS(), $this->getFilter()), $this->isDebug());
+//      $entries = $sql->select_gen($this->getSQL2($this->getTodayMonthStartDS(), $this->getTodayMonthEndDS(), $this->getFilter()), $this->isDebug());
 //      while ($row = $sql->db_Fetch()) {
 //         extract($row);
 //         $key = mktime(0,0,0, date("m", $agn_start), date("d", $agn_start), date("Y", $agn_start));
@@ -965,7 +965,7 @@ class Agenda {
       if (!isset($this->usr_filter_state)) {
          $this->usr_filter_state = false;
          $sql = new db();
-         $sql->db_Select($this->getUserTable(), "*", " WHERE usr_id=".$currentUser["user_id"], true, $this->isDebug());
+         $sql->select($this->getUserTable(), "*", " WHERE usr_id=".$currentUser["user_id"], true, $this->isDebug());
          if ($row = $sql->db_Fetch()) {
             extract($row, EXTR_OVERWRITE);
             $this->usr_filter_state = $usr_filter_state==1 ? true : false;
@@ -982,21 +982,21 @@ class Agenda {
       $sql = new e107HelperDB();
 
       $agn_responses = array();
-      $sql->db_Select($this->getAgendaTable(), "agn_question, agn_responses", "agn_id=$id", true, $this->isDebug());
+      $sql->select($this->getAgendaTable(), "agn_question, agn_responses", " WHERE agn_id=$id", true, $this->isDebug());
       $row = $sql->db_Fetch();
 
       if (strlen($row["agn_responses"])) {
          $agn_responses = explode(",", $row["agn_responses"]);
       }
 
-      $sql->db_Select($this->getRegTable(), "reg_answers", "reg_id=".$row["agn_question"], true, $this->isDebug());
+      $sql->select($this->getRegTable(), "reg_answers", " WHERE reg_id=".$row["agn_question"], true, $this->isDebug());
       $row = $sql->db_Fetch();
       $reg_answers = explode("\n", $row["reg_answers"]);
 
       $count = 0;
       for ($i=0; $i<count($agn_responses); $i++) {
          $tmp = explode("=", $agn_responses[$i]);
-         $sql->db_Select("user", "*", "user_id=".$tmp[0], true, $this->isDebug());
+         $sql->select("user", "*", " WHERE user_id=".$tmp[0], true, $this->isDebug());
          if ($row = $sql->db_Fetch()) {
             // Increment count of number of responses and get user link
             $_userresponse[$reg_answers[$tmp[1]]]["count"]++;
@@ -1029,7 +1029,7 @@ class Agenda {
 
       $rs = new agenda_form;
       $filter = array();
-      $sql->db_Select($this->getUserTable(), "*", " WHERE usr_id=".USERID, true, $this->isDebug());
+      $sql->select($this->getUserTable(), "*", " WHERE usr_id=".USERID, true, $this->isDebug());
       if ($row = $sql->db_Fetch()) {
          extract($row);
          $filters = explode(";", $usr_filter);
@@ -1078,12 +1078,12 @@ class Agenda {
       $sql = new e107HelperDB();
 
       $subs = array();
-      $sql->db_Select($this->getSubsTable(), "subs_cat", " WHERE subs_userid='".USERID."'", true, $this->isDebug());
+      $sql->select($this->getSubsTable(), "subs_cat", " WHERE subs_userid='".USERID."'", true, $this->isDebug());
       while ($row = $sql->db_Fetch()) {
          $subs[] = $row[0];
       }
 
-      if ($sql->db_Select($this->getCategoryTable(), "*", " WHERE cat_subs>0 and find_in_set(cat_class,'".$e107Helper->getUserClassList()."') order by cat_name asc", true, $this->isDebug())) {
+      if ($sql->select($this->getCategoryTable(), "*", " WHERE cat_subs>0 and find_in_set(cat_class,'".$e107Helper->getUserClassList()."') order by cat_name asc", true, $this->isDebug())) {
 
          $optsubs = 0;
          $autosubs = 0;

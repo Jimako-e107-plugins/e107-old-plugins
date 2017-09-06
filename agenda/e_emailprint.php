@@ -16,7 +16,7 @@ function email_item($id)
 {
 	$plugintable = "pcontent";
 	if(!is_object($sql)){ $sql = new db; }
-	if($sql -> db_Select($plugintable, "content_id, content_heading, content_subheading, content_text, content_author, content_parent, content_datestamp, content_class", "content_id='$id' ")){
+	if($sql -> select($plugintable, "content_id, content_heading, content_subheading, content_text, content_author, content_parent, content_datestamp, content_class", "content_id='$id' ")){
 		while($row = $sql -> db_Fetch()){
 			$tmp = explode(".",$row['content_parent']);
 			if(!check_class($row['content_class'])){

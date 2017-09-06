@@ -120,7 +120,7 @@
                   $res = false;
                }
             } else { // Add new
-               $agn_sql1->db_Select($agenda->getTypeTable(), "*", "typ_id=".$agenda->getP5(), true, $agenda->isDebug());
+               $agn_sql1->select($agenda->getTypeTable(), "*", " WHERE typ_id=".$agenda->getP5(), true, $agenda->isDebug());
                if ($trow = $agn_sql1->db_Fetch()) {
                   extract($trow, EXTR_OVERWRITE);
                   $allfields = array_merge($agn_required_fields, $agn_required_fields_timed[$typ_timed], array_filter(explode(",", $typ_fields), "agendaRemoveBlank"));
@@ -211,7 +211,7 @@
       }
       case "register" : {
          $pagetitle .= " : ".AGENDA_LAN_127;
-         $agn_sql1->db_Select($agenda->getAgendaTable(), "agn_responses", "agn_id=".$agenda->getP3(), true, $agenda->isDebug());
+         $agn_sql1->select($agenda->getAgendaTable(), "agn_responses", " WHERE agn_id=".$agenda->getP3(), true, $agenda->isDebug());
          $agn_erow = $agn_sql1->db_Fetch();
          $agn_responses = array();
          if (strlen($agn_erow["agn_responses"])) {
@@ -240,7 +240,7 @@
       }
       case "setfilter" : {
          $rs = new agenda_form;
-         $update = $agn_sql1->db_Select($agenda->getUserTable(), "*", " WHERE usr_id=".$currentUser["user_id"], true, $agenda->isDebug());
+         $update = $agn_sql1->select($agenda->getUserTable(), "*", " WHERE usr_id=".$currentUser["user_id"], true, $agenda->isDebug());
          for ($i=0; $i<count($agn_filter_fields); $i++) {
             $value = $rs->getfieldvalue($agn_field[$agn_filter_fields[$i]]["name"], $agn_field[$agn_filter_fields[$i]]["type"], $agenda->isDebug());
             if (strlen($value) > 0) {
@@ -262,7 +262,7 @@
       }
       case "typehelp" : {
          $pagetitle .= " : ".AGENDA_LAN_34;
-         $agn_sql1->db_Select($agenda->getTypeTable(), "*", "order by typ_name", false, $agenda->isDebug());
+         $agn_sql1->select($agenda->getTypeTable(), "*", "order by typ_name", "no-where", $agenda->isDebug());
          $text  = "<div style='text-align:center'>";
          $text .= "<table style='width:100%' class='fborder'>";
          $text .= "<tr style='vertical-align:top'><td class='".$agenda->getPrefHeaderCSS()."'>".AGENDA_LAN_MSG_02."</td></tr>";

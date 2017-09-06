@@ -148,7 +148,7 @@ class agenda_form {
             $ret ="<select class='tbox' style='width:200px' name='$fieldname' id='$fieldname'><option></option>";
             $fieldid = $row[$u_values[1]];
             $fieldvalue = $row[$u_values[2]];
-            $sql -> db_Select($u_values[0],"*","$u_values[1] !='' ORDER BY $u_values[2]");
+            $sql -> select($u_values[0],"*"," $u_values[1] !='' ORDER BY $u_values[2]");
             while($row = $sql-> db_Fetch()) {
                $fieldid = $row[$u_values[1]];
                $fieldvalue = $row[$u_values[2]];
@@ -158,7 +158,7 @@ class agenda_form {
             $ret .= "</select>";
             break;
          case "table-readonly":
-            $sql -> db_Select($u_values[0],"*"," $u_values[1] = '$presetvalue'");
+            $sql -> select($u_values[0],"*"," $u_values[1] = '$presetvalue'");
             $row = $sql -> db_Fetch();
             $fieldvalue = $row[$u_values[2]];
             $fieldvalue .= ($u_values[3])? " - ".$row[$u_values[3]]:"";
@@ -211,7 +211,7 @@ class agenda_form {
             $ret .= "<option value='254' $checked > Administrators Only </option>";
             $checked = ($presetvalue == 255)? " selected" : "";
             $ret .= "<option value='255' $checked > No One (inactive) </option>";
-            $sql -> db_Select('userclass_classes',"userclass_id, userclass_name"," ORDER BY userclass_name", "no_where");
+            $sql -> select('userclass_classes',"userclass_id, userclass_name"," ORDER BY userclass_name", "no_where");
             while($row = $sql-> db_Fetch()) {
                extract($row);
                $checked = ($userclass_id == $presetvalue)? " selected " : "";

@@ -146,7 +146,7 @@
          global $agenda;
          $sql = new db();
          $qry = "";
-         $update = $sql->db_Select($agenda->getUserTable(), "usr_id", " WHERE usr_id=".USERID, true, $agenda->isDebug());
+         $update = $sql->select($agenda->getUserTable(), "usr_id", " WHERE usr_id=".USERID, true, $agenda->isDebug());
          if (strlen($types)) {
             $qry[]  = "51:$types";
          }
@@ -185,7 +185,7 @@
          global $agenda;
          $sql = new db();
          $qry = "";
-         $update = $sql->db_Select($agenda->getUserTable(), "usr_id", "usr_id=".USERID, true, $agenda->isDebug());
+         $update = $sql->select($agenda->getUserTable(), "usr_id", " WHERE usr_id=".USERID, true, $agenda->isDebug());
          if ($update) {
             $qry  = "usr_filter_state='$filter'";
             $res = $sql->db_Update($agenda->getUserTable(), $qry, $agenda->isDebug());
@@ -199,7 +199,7 @@
          global $agenda;
          $sql = new e107HelperDB();
 
-         $sql->db_Select($agenda->getAgendaTable(), "agn_responses", "agn_id=$id", true);
+         $sql->select($agenda->getAgendaTable(), "agn_responses", " WHERE agn_id=$id", true);
          if ($row = $sql->db_Fetch()) {
             $agn_responses = array();
             if (strlen($row["agn_responses"])) {
@@ -235,7 +235,7 @@
          if ($userid=="") {
             $userid = USERID;
          }
-         $sql->db_Select($agenda->getAgendaTable(), "agn_responses", "agn_id=$id", true);
+         $sql->select($agenda->getAgendaTable(), "agn_responses", " WHERE agn_id=$id", true);
          if ($row = $sql->db_Fetch()) {
             $agn_responses = array();
             if (strlen($row["agn_responses"])) {
@@ -273,7 +273,7 @@
       function sendEmail($id, $emailTo, $subject="", $emailMessage="") {
          global $agenda;
          $sql = new e107HelperDB();
-         if ($sql->db_Select($agenda->getAgendaTable(), "*", "agn_id=$id", true)) {
+         if ($sql->select($agenda->getAgendaTable(), "*", " WHERE agn_id=$id", true)) {
             $row = $sql->db_Fetch();
             extract($row);
             $agn_responses = strlen($agn_responses) > 0 ? explode(",", $agn_responses) : array();
@@ -349,7 +349,7 @@
       function getFieldsForType($type, $messageid="") {
          global $agenda, $agn_required_fields, $agn_required_fields_timed;
          $mysql = new e107HelperDB();
-         if ($mysql->db_Select($agenda->getTypeTable(), "typ_name, typ_fields, typ_timed", "typ_id=$type", true, $agenda->isDebug())
+         if ($mysql->select($agenda->getTypeTable(), "typ_name, typ_fields, typ_timed", " WHERE typ_id=$type", true, $agenda->isDebug())
          && $row = $mysql->db_Fetch()) {
             extract($row, EXTR_OVERWRITE);
             $this->_currentTypeName = $typ_name;

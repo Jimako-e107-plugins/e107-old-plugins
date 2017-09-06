@@ -102,7 +102,7 @@
          if (isset($_POST['agenda_import_calendar']) && $_POST['agenda_import_calendar'] == "Y") {
             // Import Categories
             $message .= "<h4>Importing from e107 v0.7 Calendar</h4>";
-            $table_total = $agn_sql1->db_Select("event_cat", "*", "", false, $agenda->isDebug());
+            $table_total = $agn_sql1->select("event_cat", "*", "", false, $agenda->isDebug());
             if ($table_total) {
                $message .= "Importing categories<ul>";
                while ($trow = $agn_sql1->db_Fetch()) {
@@ -122,7 +122,7 @@
                $message .= "</ul>";
             }
             // Import entries
-            $table_total = $agn_sql1->db_Select("event", "*", "", false, $agenda->isDebug());
+            $table_total = $agn_sql1->select("event", "*", "", false, $agenda->isDebug());
             if ($table_total) {
                $message .= "Importing entries<ul>";
                while ($trow = $agn_sql1->db_Fetch()) {
@@ -178,7 +178,7 @@
          if (isset($_POST['agenda_import_ecalendar']) && $_POST['agenda_import_ecalendar'] == "Y") {
             // Import Categories
             $message .= "<h4>Importing from eCalendar plugin</h4>";
-            $table_total = $agn_sql1->db_Select("ecal_cats", "*", "", false, $agenda->isDebug());
+            $table_total = $agn_sql1->select("ecal_cats", "*", "", false, $agenda->isDebug());
             if ($table_total) {
                $message .= "Importing categories<ul>";
                while ($trow = $agn_sql1->db_Fetch()) {
@@ -194,7 +194,7 @@
                $message .= "</ul>";
             }
             // Import entries
-            $table_total = $agn_sql1->db_Select("ecal_events", "*", "", false, $agenda->isDebug());
+            $table_total = $agn_sql1->select("ecal_events", "*", "", false, $agenda->isDebug());
             if ($table_total) {
                $message .= "Importing entries<ul>";
                while ($trow = $agn_sql1->db_Fetch()) {
