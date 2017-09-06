@@ -240,7 +240,7 @@
       }
       case "setfilter" : {
          $rs = new agenda_form;
-         $update = $agn_sql1->db_Select($agenda->getUserTable(), "*", " WHERE usr_id=".$currentUser["user_id"], true, $agenda->isDebug());
+         $update = $agn_sql1->db_Select($agenda->getUserTable(), "*", "usr_id=".$currentUser["user_id"], true, $agenda->isDebug());
          for ($i=0; $i<count($agn_filter_fields); $i++) {
             $value = $rs->getfieldvalue($agn_field[$agn_filter_fields[$i]]["name"], $agn_field[$agn_filter_fields[$i]]["type"], $agenda->isDebug());
             if (strlen($value) > 0) {
