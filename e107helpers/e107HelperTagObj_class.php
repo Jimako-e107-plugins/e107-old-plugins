@@ -1283,7 +1283,7 @@ class e107HelperTagObj {
     * @return           true if the value is valid, otherwise false
     */
    function validateTag_decimal($value, $formmode) {
-      if (!ereg("^[+-]?[0-9]*\.?[0-9]+$", $value)) {
+      if (!preg_match("%^[+-]?[0-9]*\.?[0-9]+$%", $value)) {
          $this->_message[$this->_getIX()] = $this->_formatMessage(HELPER_LAN_ERR_VAL_DECIMAL_01);
          return false;
       }
@@ -1298,7 +1298,7 @@ class e107HelperTagObj {
     * @return           true if the value is valid, otherwise false
     */
    function validateTag_integer($value, $formmode) {
-      if (!ereg("^[+-]?[0-9]*$", $value)) {
+      if (!preg_match("%^[+-]?[0-9]*$%", $value)) {
          $this->_message[$this->_getIX()] = $this->_formatMessage(HELPER_LAN_ERR_VAL_INTEGER_01);
          return false;
       }
@@ -1313,7 +1313,7 @@ class e107HelperTagObj {
     * @return           true if the value is valid, otherwise false
     */
    function validateTag_numeric($value, $formmode) {
-      if (!ereg("^[0-9]*$", $value)) {
+      if (!preg_match("%^[0-9]*$%", $value)) {
          $this->_message[$this->_getIX()] = $this->_formatMessage(HELPER_LAN_ERR_VAL_NUMERIC_01);
          return false;
       }
@@ -1372,7 +1372,7 @@ class e107HelperTagObj {
          $tempfile = $_FILES[$this->getName()]['tmp_name'][$this->_getIX()];
          $tempfilename = $_FILES[$this->getName()]['name'][$this->_getIX()];
          if (is_uploaded_file($tempfile)) {
-            $file = $this->getDir().ereg_replace("[^a-z0-9._]", "", str_replace(" ", "_", str_replace("%20", "_", $tempfilename)));
+            $file = $this->getDir().preg_replace("%[^a-z0-9._]%", "", str_replace(" ", "_", str_replace("%20", "_", $tempfilename)));
             $file = $this->getDir().$tempfilename;
             if (move_uploaded_file($tempfile, $file)) {
                $this->setDefault($file);
