@@ -146,7 +146,7 @@
          global $agenda;
          $sql = new db();
          $qry = "";
-         $update = $sql->db_Select($agenda->getUserTable(), "usr_id", "usr_id=".USERID, true, $agenda->isDebug());
+         $update = $sql->db_Select($agenda->getUserTable(), "usr_id", " WHERE usr_id=".USERID, true, $agenda->isDebug());
          if (strlen($types)) {
             $qry[]  = "51:$types";
          }

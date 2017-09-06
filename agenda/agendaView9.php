@@ -26,7 +26,7 @@
    $filter = array();
    $usr_filter_state = "";
    if ($currentUser) {
-      $agn_sql1->db_Select($agenda->getUserTable(), "*", "usr_id=".$currentUser["user_id"], true, $agenda->isDebug());
+      $agn_sql1->db_Select($agenda->getUserTable(), "*", " WHERE usr_id=".$currentUser["user_id"], true, $agenda->isDebug());
       if ($agn_urow = $agn_sql1->db_Fetch()) {
          extract($agn_urow);
          $filters = explode(";", $usr_filter);

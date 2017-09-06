@@ -371,8 +371,9 @@ class Agenda {
          }
       }
       $this->categories = implode(",", $this->categories);
-
-      $sql->db_Select($this->getAgendaTable(), "DISTINCT agn_owner", " agn_owner<>'' order by agn_owner asc", true, $this->isDebug());
+			 
+      //$sql->db_Select($this->getAgendaTable(), "DISTINCT agn_owner", " agn_owner<>'' order by agn_owner asc", true, $this->isDebug());  ISSUE?
+      $sql->db_Select($this->getAgendaTable(), "DISTINCT agn_owner", " WHERE agn_owner<>'' order by agn_owner asc", true, $this->isDebug());
       $this->owners = "";
       if ($agn_row = $sql->db_Fetch()) {
          extract($agn_row, EXTR_OVERWRITE);
@@ -964,7 +965,7 @@ class Agenda {
       if (!isset($this->usr_filter_state)) {
          $this->usr_filter_state = false;
          $sql = new db();
-         $sql->db_Select($this->getUserTable(), "*", "usr_id=".$currentUser["user_id"], true, $this->isDebug());
+         $sql->db_Select($this->getUserTable(), "*", " WHERE usr_id=".$currentUser["user_id"], true, $this->isDebug());
          if ($row = $sql->db_Fetch()) {
             extract($row, EXTR_OVERWRITE);
             $this->usr_filter_state = $usr_filter_state==1 ? true : false;
@@ -1028,7 +1029,7 @@ class Agenda {
 
       $rs = new agenda_form;
       $filter = array();
-      $sql->db_Select($this->getUserTable(), "*", "usr_id=".USERID, true, $this->isDebug());
+      $sql->db_Select($this->getUserTable(), "*", " WHERE usr_id=".USERID, true, $this->isDebug());
       if ($row = $sql->db_Fetch()) {
          extract($row);
          $filters = explode(";", $usr_filter);
@@ -1077,12 +1078,12 @@ class Agenda {
       $sql = new e107HelperDB();
 
       $subs = array();
-      $sql->db_Select($this->getSubsTable(), "subs_cat", "subs_userid='".USERID."'", true, $this->isDebug());
+      $sql->db_Select($this->getSubsTable(), "subs_cat", " WHERE subs_userid='".USERID."'", true, $this->isDebug());
       while ($row = $sql->db_Fetch()) {
          $subs[] = $row[0];
       }
 
-      if ($sql->db_Select($this->getCategoryTable(), "*", "cat_subs>0 and find_in_set(cat_class,'".$e107Helper->getUserClassList()."') order by cat_name asc", true, $this->isDebug())) {
+      if ($sql->db_Select($this->getCategoryTable(), "*", " WHERE cat_subs>0 and find_in_set(cat_class,'".$e107Helper->getUserClassList()."') order by cat_name asc", true, $this->isDebug())) {
 
          $optsubs = 0;
          $autosubs = 0;
