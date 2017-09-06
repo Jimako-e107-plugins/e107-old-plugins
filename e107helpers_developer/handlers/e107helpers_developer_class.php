@@ -25,7 +25,7 @@ require_once(EHDC_HANDLERS_DIR."e107helpers_developer_model.php");
 
 // Warning and error handling
 require_once(EHDC_HANDLERS_DIR."e107helpers_developer_status_info.php");
-
+													 
 // Include the e107 Helper classes
 if (file_exists(e_PLUGIN."e107helpers/e107Helper.php")) {
    $e107HelperIncludeJS = false;
@@ -37,7 +37,7 @@ if (file_exists(e_PLUGIN."e107helpers/e107Helper.php")) {
    print "<p>Please download it from <a href='http://e107coders.org'>http://e107coders.org</a> and try this plugin again.</p>";
    exit;
 }
-
+						 
 // Load the shortcodes file - template will be loaded when we know which template to load
 require_once(EHDC_PLUGIN_DIR."e107helpers_developer_shortcodes.php");
 
@@ -53,7 +53,7 @@ class e107helpers_developer {
    /**
     * Constructor
     */
-   function e107helpers_developer() {
+   function __construct() {
    }
 
    /**

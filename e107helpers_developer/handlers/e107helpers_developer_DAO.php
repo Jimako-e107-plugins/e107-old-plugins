@@ -29,7 +29,7 @@ class e107helpers_developerDAO {
    /**
     * Constructor
     */
-   function e107helpers_developerDAO() {
+   function __construct() {
       global $pref;
       $this->debug = false; //"now";
    }

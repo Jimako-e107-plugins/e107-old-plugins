@@ -27,7 +27,7 @@ class e107helpers_developerElection {
     * Constructor
     * @param $e107helpers_developer a row from the e107helpers_developers table
     */
-   function e107helpers_developerElection($e107helpers_developer) {
+   function __construct($e107helpers_developer) {
       $this->debug = false;
       $this->e107helpers_developer = $e107helpers_developer;
    }

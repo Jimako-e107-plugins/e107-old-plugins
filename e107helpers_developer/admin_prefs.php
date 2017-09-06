@@ -20,10 +20,11 @@
    // Check to see if the current user has admin permissions for this plugin
    if (!getperms("P")) {
       // No permissions set, redirect to site front page
-      header("location:".e_BASE."index.php");
+      //headerx("location:".e_BASE."index.php");
+      e107::redirect();
       exit;
    }
-
+   
    // Required files
    require_once(e_PLUGIN."e107helpers_developer/handlers/e107helpers_developer_class.php");
    require_once(EHDC_HANDLERS_DIR."/e107helpers_developer_utils.php");
