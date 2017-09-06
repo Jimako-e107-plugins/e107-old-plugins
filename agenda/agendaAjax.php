@@ -85,13 +85,17 @@
          }
 
          // Control and hidden from user fields
-         $colstr[] = "agn_type";
-         $valstr[] = "'$type'";
-         $colstr[] = "agn_author";
-         $valstr[] = "'".USERID.".".USERNAME."'";
-         $colstr[] = "agn_datestamp";
-         $valstr[] = "'".time()."'";
-
+         //$colstr[] = "agn_type";
+         //$valstr[] = "'$type'";
+         //$colstr[] = "agn_author";
+         //$valstr[] = "'".USERID.".".USERNAME."'";
+         //$colstr[] = "agn_datestamp";
+         //$valstr[] = "'".time()."'";
+         $tmp['data']['agn_datestamp'] = $type;
+         $tmp['data']['agn_type'] = $agenda->getP5();
+				 $tmp['data']['agn_author'] = USERID.".".USERNAME;
+				  
+					
          $qry = "(".implode(", ", $colstr).") values (".implode(", ", $valstr).")";
 
          $text = "<e107helperajax>";
@@ -104,7 +108,8 @@
 
          $text .= "<response type='timedmessage' msecs='3000'><![CDATA[";
          $mysql = new e107HelperDB();
-         $res = $mysql->db_InsertPart($agenda->getAgendaTable(), $qry, $agenda->isDebug());
+         //$res = $mysql->db_InsertPart($agenda->getAgendaTable(), $tmp, $agenda->isDebug());
+         $res 	= $mysql->insert($agenda->getAgendaTable(), $tmp, $agenda->isDebug());
          $text .= $res ? AGENDA_LAN_MSG_00 : AGENDA_LAN_MSG_01."(".mysqli_error().")";
          $text .= "]]></response>";
 

@@ -173,7 +173,6 @@ function agendaDrawNavigation($next, $prev, $centertext) {
       $text .= $rs->user_extended_element_edit($agn_navformname[2]."|".$agn_navformtype[2]."|".$agn_navformvalu[2], "", $agn_navformname[2], $agn_navformjs[2]);
       $text .= "</td>";
       $colspan++;
-
       if (check_class($pref['agenda_add_entry'])) {
          // Add entry type combo box
          $text .= "<td class='forumheader3' style='text-align:center;'>".$agn_navformcapt[3];
@@ -277,7 +276,7 @@ function agendaDrawFormRow($rs, $item, $value="") {
 function agendaEntryAdd() {
    global $agenda, $agn_sql1, $agn_field, $agn_required_fields, $agn_required_fields_timed;
 
-   $agn_sql1->select($agenda->getTypeTable(), "*", "typ_id=".$agenda->getP5(), true, $agenda->isDebug());
+   $agn_sql1->select($agenda->getTypeTable(), "*", "typ_id=".$agenda->getP5(), "default", $agenda->isDebug());
    if ($trow = $agn_sql1->db_Fetch()) {
       extract($trow, EXTR_OVERWRITE);
       $allfields = array_merge($agn_required_fields, $agn_required_fields_timed[$typ_timed], array_filter(explode(",", $typ_fields), "agendaRemoveBlank"));

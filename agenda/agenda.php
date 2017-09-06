@@ -30,7 +30,7 @@
 
    $text = generateJS();
    $pagetitle = isset($pref["agenda_page_title"]) && strlen($pref["agenda_page_title"]) > 0 ? $pref["agenda_page_title"] : AGENDA_LAN_NAME;
-
+ 
    $agn_error = "";
    switch ($agenda->getP1()) {
       case "add" : {
@@ -75,7 +75,8 @@
 
             if (isset($_POST['id'])) { // Update
                $qry = $agenda->getTableJoin()."where e.agn_id=".$agenda->getP3();
-               if ($agn_sql1->db_Select_gen($qry, $agenda->isDebug()) && $agn_erow = $agn_sql1->db_Fetch()) {
+               if ($agn_sql1->gen($qry, $agenda->isDebug()) && $agn_erow = $agn_sql1->db_Fetch()) {
+
                   extract($agn_erow, EXTR_OVERWRITE);
                   $allfields = array_merge($agn_required_fields, $agn_required_fields_timed[$typ_timed], array_filter(explode(",", $typ_fields), "agendaRemoveBlank"));
 
@@ -120,11 +121,13 @@
                   $res = false;
                }
             } else { // Add new
+                                              
+                  
                $agn_sql1->select($agenda->getTypeTable(), "*", " WHERE typ_id=".$agenda->getP5(), true, $agenda->isDebug());
                if ($trow = $agn_sql1->db_Fetch()) {
                   extract($trow, EXTR_OVERWRITE);
                   $allfields = array_merge($agn_required_fields, $agn_required_fields_timed[$typ_timed], array_filter(explode(",", $typ_fields), "agendaRemoveBlank"));
-
+ 
                   // Process all fields for this type
                   for ($i=0; $i<count($allfields); $i++) {
                      $field = $agn_field[$allfields[$i]];
@@ -138,20 +141,28 @@
                      }
                      $colstr[] = $field["name"];
                      $inpstr[] = "'".$value."'";
+                     $tmp['data'][$field["name"]] = $value;
                   }
                }
 
-               // Control and hidden from user fields
-               $colstr[] = "agn_type";
-               $inpstr[] = "'".$agenda->getP5()."'";
-               $colstr[] = "agn_author";
-               $inpstr[] = "'".USERID.".".USERNAME."'";
-               $colstr[] = "agn_datestamp";
-               $inpstr[] = "'".time()."'";
+              // Control and hidden from user fields
+              // $colstr[] = "agn_type";
+              // $inpstr[] = "'".$agenda->getP5()."'";
+              // $colstr[] = "agn_author";
+              // $inpstr[] = "'".USERID.".".USERNAME."'";
+              // $colstr[] = "agn_datestamp";
+              // $inpstr[] = "'".time()."'";
 
                $qry = "(".implode(", ", $colstr).") values (".implode(", ", $inpstr).")";
                $agn_sql1 = new e107HelperDB();
-               $res = $agn_sql1->db_InsertPart($agenda->getAgendaTable(), $qry, $agenda->isDebug());
+               
+               $tmp['data']['agn_datestamp'] = time();
+               $tmp['data']['agn_type'] = $agenda->getP5();
+							 $tmp['data']['agn_author'] = USERID.".".USERNAME;
+							  
+							 $res = $agn_sql1->insert($agenda->getAgendaTable(), $tmp, $agenda->isDebug());
+				 
+              // $res = $agn_sql1->db_InsertPart($agenda->getAgendaTable(), $qry, $agenda->isDebug());		 
                $agenda->setP3($res);
             }
 

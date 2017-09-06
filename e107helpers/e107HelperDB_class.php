@@ -37,7 +37,7 @@ class e107HelperDB extends e_db_mysql {
     */
    function db_InsertPart($table, $arg, $debug = FALSE, $log_type="", $log_remark="") {
       global $e107Helper;
-      if ($e107Helper->isV07()) {
+ 
          $table = $this->db_IsLang($table);
          $this->mySQLcurTable = $table;
          $query = 'INSERT INTO '.MPREFIX."{$table} {$arg}";
@@ -48,23 +48,7 @@ class e107HelperDB extends e_db_mysql {
             $this->dbError("db_Insert ($query)");
             return FALSE;
          }
-      } else {
-         if ($debug) {
-            echo "INSERT INTO ".MPREFIX."$table $arg";
-         }
-         if ($result = $this->mySQLresult = @mysql_query("INSERT INTO ".MPREFIX."$table $arg")) {
-            $tmp = mysql_insert_id();
-
-            if (strstr(e_SELF, ADMINDIR) && $table != "online") {
-               mysql_query("INSERT INTO ".MPREFIX."tmp VALUES ('adminlog', '".time()."', '<br /><b>Insert</b> - <b>$table</b> table (field id <b>$tmp</b>)<br />by <b>".USERNAME."</b>') ");
-            }
-            return $tmp;
-         } else {
-            print mysqli_error();
-            $this->dbError("db_Insert ($query)");
-            return FALSE;
-         }
-      }
+ 
    }
 }
 

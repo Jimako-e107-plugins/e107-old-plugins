@@ -230,7 +230,7 @@ class e107Helper {
       // Include the comment class. Normally, this file is included at a global level, so we need to make the variable
       // it decalares global so it is available inside the comment class
       require_once(e_HANDLER."comment_class.php");
-      require(e_FILE."shortcode/batch/comment_shortcodes.php");
+      //require(e_CORE."shortcodes/batch/comment_shortcodes.php");
       $GLOBALS["comment_shortcodes"] = $comment_shortcodes;
 
       $pid = 0; // What is this w.r.t. comment table? Parent ID?
