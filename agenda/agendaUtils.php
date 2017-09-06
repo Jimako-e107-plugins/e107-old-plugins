@@ -257,7 +257,7 @@ function agendaDrawFormRow($rs, $item, $value="") {
          }
          case "calendartime" : {
             if (!strpos($value, "-")) {
-               $bits = split(",", $value);
+               $bits = preg_split("/,/", $value);
                $value = date("d-m-Y,H.i", $value);
             }
             break;
@@ -317,7 +317,8 @@ function agendaEntryEdit() {
          $allfields = array_merge($agn_required_fields, $agn_required_fields_timed[$typ_timed], array_filter(explode(",", $typ_fields), "agendaRemoveBlank"));
 
          $text = agendaDrawNavigation("", "", AGENDA_LAN_33." $typ_name");
-         $text .= "<table style='width:100%' class='fborder' cellspacing='0' cellpadding='0' summary='*'>";
+         $text  = "<div style='width:100%'";
+				 $text .= "<table style='width:100%' class='fborder' cellspacing='0' cellpadding='0' summary='*'>";
 
          $rs = new agenda_form;
          $text .= "<div style='text-align:center'><form method='post' action='".e_SELF."?save.".$agenda->getP2().".".$agenda->getP3().".".$agenda->getP4().".".$agenda->getP5()."'>";
