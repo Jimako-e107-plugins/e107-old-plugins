@@ -34,7 +34,7 @@ class e107HelperStatusInfo {
     * Constructor
     * @param $level status level, defaults to STATUS_ERROR - refer to STATUS_* constants
     */
-   function e107HelperStatusInfo($level=STATUS_ERROR) {
+   function __construct($level=STATUS_ERROR) {
       $this->level = $level;
       $this->messages = array();
    }

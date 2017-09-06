@@ -143,7 +143,7 @@
          $message = LAN_UPDATED;
          unset($_POST['update']);
       } else {
-         print mysql_error();
+         print mysqli_error();
          $message = LAN_UPDATED_FAILED;
       }
    }
@@ -170,12 +170,12 @@
    }
 
    // Draw the form
-   if (file_exists(e_PLUGIN."updatechecker/updatechecker.php")) {
-      require_once(e_PLUGIN."updatechecker/updatechecker.php");
+   /*if (file_exists(e_PLUGIN."updatecheckerx/updatechecker.php")) {
+      require_once(e_PLUGIN."updatecheckerx/updatechecker.php");
       $text .= updateChecker(AGENDA_LAN_NAME, AGENDA_LAN_VER, "http://www.bugrain.plus.com/e107plugins/agenda.ver", "|");
-   }
+   }*/
 
-   if (!file_exists(e_HANDLER."calendar/calendar_class.php")) {
+   if (!file_exists(e_PLUGIN."e107helpers/calendar/calendar_class.php")) {
       $text .= "<div style='text-align:center'>";
       $text .= AGENDA_LAN_104;
       $text .= AGENDA_LAN_105;

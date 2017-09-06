@@ -1066,7 +1066,7 @@ class Agenda {
             $rows[] = $temp;
          }
       } else {
-         $rows[] = mysql_error();
+         $rows[] = mysqli_error();
       }
 
       return $this->persViewRenderSection("agendaPersViewRegistrations", AGENDA_LAN_142, $rows);
@@ -1153,25 +1153,25 @@ class Agenda {
       if ($count = $sql->db_Count($this->getAgendaTable(), "(agn_id)", "WHERE SUBSTRING(agn_author,1,1)='".USERID."'", $debug)) {
          $totals[] = "<tr><td class='".$this->getPrefTodayCSS()."'>".AGENDA_LAN_146."</td><td class='".$this->getPrefTodayCSS()."' style='text-align:right;'>$count</td></tr>";
       } else {
-         print $debug ? "<br>".mysql_error()."<br>" : "";
+         print $debug ? "<br>".mysqli_error()."<br>" : "";
       }
 
       if ($count = $sql->db_Count($this->getAgendaTable(), "(agn_id)", "WHERE agn_start>=".time()." AND SUBSTRING(agn_author,1,1)='".USERID."'", $debug)) {
          $totals[] = "<tr><td class='".$this->getPrefTodayCSS()."'>".AGENDA_LAN_147."</td><td class='".$this->getPrefTodayCSS()."' style='text-align:right;'>$count</td></tr>";
       } else {
-         print $debug ? "<br>".mysql_error()."<br>" : "";
+         print $debug ? "<br>".mysqli_error()."<br>" : "";
       }
 
       if ($count = $sql->db_Count($this->getAgendaTable(), "(agn_id)", "WHERE agn_owner like'%".USERNAME."%'", $debug)) {
          $totals[] = "<tr><td class='".$this->getPrefTodayCSS()."'>".AGENDA_LAN_148."</td><td class='".$this->getPrefTodayCSS()."' style='text-align:right;'>$count</td></tr>";
       } else {
-         print $debug ? "<br>".mysql_error()."<br>" : "";
+         print $debug ? "<br>".mysqli_error()."<br>" : "";
       }
 
       if ($count = $sql->db_Count($this->getAgendaTable(), "(agn_id)", "WHERE agn_start>=".time()." AND agn_owner like'%".USERNAME."%'", $debug)) {
          $totals[] = "<tr><td class='".$this->getPrefTodayCSS()."'>".AGENDA_LAN_149."</td><td class='".$this->getPrefTodayCSS()."' style='text-align:right;'>$count</td></tr>";
       } else {
-         print $debug ? "<br>".mysql_error()."<br>" : "";
+         print $debug ? "<br>".mysqli_error()."<br>" : "";
       }
 
       return $this->persViewRenderSection("agendaPersViewSummary", AGENDA_LAN_144, $totals);

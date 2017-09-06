@@ -194,10 +194,10 @@
       //   //print "\n<style>@import url(".THEME."e107helpers/domTT.css);</style>\n";
       //   if (strpos(e_SELF, "admin_") > 0) {
       //      // For admin pages
-      //      print "\n<script type='text/javascript' src='".e_FILE_ABS."e_ajax.js'></script>\n";
+      //      print "\n<script type='text/javascript' src='".e_PLUGIN_ABS."e107helpers/e_ajax.js'></script>\n";
       //   } else {
       //      // For main site pages
-      //      $footer_js[] = e_FILE_ABS.'e_ajax.js';
+      //      $footer_js[] = e_PLUGIN_ABS.'e107helpers/e_ajax.js';
       //      // TODO, this would be better included as the 1st JS file
       //      $footer_js[] = e_PLUGIN_ABS."e107helpers/firebug/firebugx.js";
       //      if (!isset($e107HelperIncludeJS) || $e107HelperIncludeJS == 2) {

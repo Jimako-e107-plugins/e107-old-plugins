@@ -169,7 +169,7 @@
                   $text = agendaEntryAdd();
                }
             } else {
-               $mysqlerror = mysql_error();
+               $mysqlerror = mysqli_error();
                // Add/update was maybe OK
                agendaSendEmail(isset($_POST['id']) ? "update" : "add", $agenda->getP3());
                if ($res) {
@@ -232,8 +232,8 @@
             }
          }
          $tmp = $agn_sql1->db_Update($agenda->getAgendaTable(), "agn_responses='".implode(",", $agn_responses)."' where agn_id=".$agenda->getP3(), $agenda->isDebug());
-         if (!$tmp && strlen(mysql_error())) {
-            print "<br>$tmp, error: ".$agn_sql1->dbError()."..".mysql_error();
+         if (!$tmp && strlen(mysqli_error())) {
+            print "<br>$tmp, error: ".$agn_sql1->dbError()."..".mysqli_error();
          }
          require_once(e_PLUGIN."agenda/agendaViewItem.php");
          break;

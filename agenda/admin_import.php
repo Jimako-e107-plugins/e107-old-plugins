@@ -116,7 +116,7 @@
                   if ($agn_sql2->db_Insert($agenda->getCategoryTable(), $inputstr, $agenda->isDebug())) {
                      $message .= $verbose ? "<li>".AGENDA_LAN_90." $event_cat_name : inserted</li>" : "";
                   } else {
-                     $message .= "<li>".AGENDA_LAN_90." $event_cat_name : insert failed (".mysql_error().")</li>";
+                     $message .= "<li>".AGENDA_LAN_90." $event_cat_name : insert failed (".mysqli_error().")</li>";
                   }
                }
                $message .= "</ul>";
@@ -167,7 +167,7 @@
                   if ($agn_sql2->db_Insert($agenda->getAgendaTable(), $inputstr, $agenda->isDebug())) {
                      $message .= $verbose ? "<li>Event $event_title : inserted</li>" : "";
                   } else {
-                     $message .= "<li>Event $event_title : insert failed (".mysql_error().")</li>";
+                     $message .= "<li>Event $event_title : insert failed (".mysqli_error().")</li>";
                   }
                }
                $message .= "</ul>";
@@ -188,7 +188,7 @@
                   if ($agn_sql2->db_Insert($agenda->getCategoryTable(), $inputstr, $agenda->isDebug())) {
                      $message .= $verbose ? "<li>".AGENDA_LAN_90." $event_cat_name : inserted</li>" : "";
                   } else {
-                     $message .= "<li>".AGENDA_LAN_90." $event_cat_name : insert failed (".mysql_error().")</li>";
+                     $message .= "<li>".AGENDA_LAN_90." $event_cat_name : insert failed (".mysqli_error().")</li>";
                   }
                }
                $message .= "</ul>";
@@ -248,7 +248,7 @@
                   if ($agn_sql2->db_Insert($agenda->getAgendaTable(), $inputstr, $agenda->isDebug())) {
                      $message .= $verbose ? "<li>Event $event_title : inserted</li>" : "";
                   } else {
-                     $message .= "<li>Event $event_title : insert failed (".mysql_error().")</li>";
+                     $message .= "<li>Event $event_title : insert failed (".mysqli_error().")</li>";
                   }
                }
                $message .= "</ul>";
@@ -257,12 +257,12 @@
       }
    }
 
-   if (file_exists(e_PLUGIN."updatechecker/updatechecker.php")) {
-      require_once(e_PLUGIN."updatechecker/updatechecker.php");
+  /* if (file_exists(e_PLUGIN."updatecheckerx/updatechecker.php")) {
+      require_once(e_PLUGIN."updatecheckerx/updatechecker.php");
       $text .= updateChecker(AGENDA_LAN_NAME, AGENDA_LAN_VER, "http://www.bugrain.plus.com/e107plugins/agenda.ver", "|");
-   }
+   }    */
 
-   if (!file_exists(e_HANDLER."calendar/calendar_class.php")) {
+   if (!file_exists(e_PLUGIN."e107helpers/calendar/calendar_class.php")) {
       $text .= "<div style='text-align:center'>";
       $text .= AGENDA_LAN_104;
       $text .= AGENDA_LAN_105;

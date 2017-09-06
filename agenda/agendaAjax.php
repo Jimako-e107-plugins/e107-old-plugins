@@ -105,7 +105,7 @@
          $text .= "<response type='timedmessage' msecs='3000'><![CDATA[";
          $mysql = new e107HelperDB();
          $res = $mysql->db_InsertPart($agenda->getAgendaTable(), $qry, $agenda->isDebug());
-         $text .= $res ? AGENDA_LAN_MSG_00 : AGENDA_LAN_MSG_01."(".mysql_error().")";
+         $text .= $res ? AGENDA_LAN_MSG_00 : AGENDA_LAN_MSG_01."(".mysqli_error().")";
          $text .= "]]></response>";
 
          $text .= "</e107helperajax>";
@@ -171,7 +171,7 @@
          $text = "<e107helperajax>";
          if ($res === false) {
             $text .= "<response type='alert'>";
-            $text .= "Failure: $qry, ".mysql_error();
+            $text .= "Failure: $qry, ".mysqli_error();
          } else {
             $text .= "<response type='timedmessage'>";
             $text .= AGENDA_LAN_138;
@@ -364,7 +364,7 @@
             $text .= "<response type='killdialog' id='agenda_quick_add'>";
             $text .= "</response>";
             $text .= "<response type='timedmessage' msecs='3000'><![CDATA[";
-            $text .= "Failed (".mysql_error().")";
+            $text .= "Failed (".mysqli_error().")";
             $text .= "]]></response>";
             $text .= "</e107helperajax>";
             $this->printXML($text);

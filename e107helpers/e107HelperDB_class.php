@@ -42,7 +42,7 @@ class e107HelperDB extends db {
          $this->mySQLcurTable = $table;
          $query = 'INSERT INTO '.MPREFIX."{$table} {$arg}";
          if ($result = $this->mySQLresult = $this->db_Query($query, NULL, 'db_InsertPart', $debug, $log_type, $log_remark )) {
-            $tmp = mysql_insert_id();
+            $tmp = mysqli_insert_id();
             return $tmp;
          } else {
             $this->dbError("db_Insert ($query)");
@@ -60,7 +60,7 @@ class e107HelperDB extends db {
             }
             return $tmp;
          } else {
-            print mysql_error();
+            print mysqli_error();
             $this->dbError("db_Insert ($query)");
             return FALSE;
          }

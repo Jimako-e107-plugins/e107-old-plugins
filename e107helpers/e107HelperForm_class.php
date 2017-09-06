@@ -80,7 +80,7 @@ class e107HelperForm {
    /**
     * Constructor : creates an instance of an e107 Helper Form and initializes private variables
     */
-   function e107HelperForm() {
+   function __construct() {
       global $pref;
       $this->_logger                = $GLOBALS["e107HelperLoggerFactory"]->getLogger(get_class($this));
       $this->_tags                  = array();
@@ -1967,7 +1967,7 @@ class e107HelperForm {
             $res = $mysql->db_InsertPart($this->_getDBTable(), $query);
             if ($res === false) {
                // Error, rollback and stop trying any more inserts
-               $response = array("id"=>$res, "dbaction"=>HELPER_FORM_MODE_DB_CREATE, "message"=>HELPER_LAN_12." (".mysql_error().")", "sql"=>$query);
+               $response = array("id"=>$res, "dbaction"=>HELPER_FORM_MODE_DB_CREATE, "message"=>HELPER_LAN_12." (".mysqli_error().")", "sql"=>$query);
                $mysql->db_Query("ROLLBACK");
                return $response;
             }
@@ -2010,7 +2010,7 @@ class e107HelperForm {
          if ($res !== false) {
             $response = array("id"=>$this->_getDBIndexValue(), "dbaction"=>HELPER_FORM_MODE_DB_UPDATE, "message"=>HELPER_LAN_10, "sql"=>$sql);
          } else {
-            $response = array("id"=>0, "dbaction"=>HELPER_FORM_MODE_DB_UPDATE, "message"=>HELPER_LAN_13." (".mysql_error().")", "sql"=>$sql);
+            $response = array("id"=>0, "dbaction"=>HELPER_FORM_MODE_DB_UPDATE, "message"=>HELPER_LAN_13." (".mysqli_error().")", "sql"=>$sql);
          }
       }
       return $response;
@@ -2028,7 +2028,7 @@ class e107HelperForm {
       if ($res) {
          $response = array("id"=>$this->_getDBIndexValue(), "dbaction"=>HELPER_FORM_MODE_DB_DELETE, "message"=>HELPER_LAN_11, "sql"=>$sql);
       } else {
-         $response = array("id"=>0, "dbaction"=>HELPER_FORM_MODE_DB_DELETE, "message"=>HELPER_LAN_14." (".mysql_error().")", "sql"=>$sql);
+         $response = array("id"=>0, "dbaction"=>HELPER_FORM_MODE_DB_DELETE, "message"=>HELPER_LAN_14." (".mysqli_error().")", "sql"=>$sql);
       }
       return $response;
    }

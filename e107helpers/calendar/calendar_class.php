@@ -24,23 +24,23 @@ class DHTML_Calendar
 	{
 		if ($stripped)
 		{
-			$this->calendar_file = e_HANDLER.'calendar/calendar_stripped.js';
-			$this->calendar_setup_file = e_HANDLER.'calendar/calendar-setup_stripped.js';
+			$this->calendar_file = e_PLUGIN_ABS.'e107helpers/calendar/calendar_stripped.js';
+			$this->calendar_setup_file = e_PLUGIN_ABS.'e107helpers/calendar/calendar-setup_stripped.js';
 		}
 		else
 		{
-			$this->calendar_file = e_HANDLER.'calendar/calendar.js';
-			$this->calendar_setup_file = e_HANDLER.'calendar/calendar-setup.js';
+			$this->calendar_file = e_PLUGIN_ABS.'e107helpers/calendar/calendar.js';
+			$this->calendar_setup_file = e_PLUGIN_ABS.'e107helpers/calendar/calendar-setup.js';
 		}
 
 
-		if(file_exists(e_HANDLER.'calendar/language/'.e_LANGUAGE.'.js'))
+		if(file_exists(e_PLUGIN_ABS.'e107helpers/calendar/language/'.e_LANGUAGE.'.js'))
 		{
-			$this->calendar_lang_file = e_HANDLER.'calendar/language/'.e_LANGUAGE.'.js';
+			$this->calendar_lang_file = e_PLUGIN_ABS.'e107helpers/calendar/language/'.e_LANGUAGE.'.js';
 		}
 		else
 		{
-			$this->calendar_lang_file = e_HANDLER.'calendar/language/English.js';
+			$this->calendar_lang_file = e_PLUGIN_ABS.'e107helpers/calendar/language/English.js';
 		}
 
 		if(defined('CALENDAR_IMG'))
@@ -49,7 +49,7 @@ class DHTML_Calendar
 		}
 		else
 		{
-			$this->calendar_img = "<img style='vertical-align:middle; border:0px' src='".e_PLUGIN."e107helpers/calendar/cal.gif'  alt='' />";
+			$this->calendar_img = "<img style='vertical-align:middle; border:0px' src='".e_PLUGIN_ABS."e107helpers/calendar/cal.gif'  alt='' />";
 		}
 
 		if(file_exists(THEME."calendar.css"))
@@ -58,7 +58,7 @@ class DHTML_Calendar
 		}
 		else
 		{
-			$this->calendar_theme_file = e_PLUGIN."e107helpers/calendar/calendar.css";
+			$this->calendar_theme_file = e_PLUGIN_ABS."e107helpers/calendar/calendar.css";
 		}
 
 		$this->calendar_options = array('ifFormat' => '%Y/%m/%d', 'daFormat' => '%Y/%m/%d');

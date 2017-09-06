@@ -44,7 +44,7 @@ class e107HelperStaticTagObj {
    /**
     * Constructor
     */
-   function e107HelperStaticTagObj($name, $tagType) {
+   function __construct($name, $tagType) {
       $this->_name         = $name;
       $this->_ix           = 0;
       $this->_tagType      = $tagType;

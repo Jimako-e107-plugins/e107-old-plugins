@@ -49,7 +49,7 @@ class e107HelperLoggerFactory {
    /**
     * Constructor
     */
-   function e107HelperLogger() {
+   function __construct() {
       $this->_loggers = array();
    }
 

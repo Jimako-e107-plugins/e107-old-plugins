@@ -45,8 +45,8 @@ class e107helpers_developerDAO {
   		if ($res = $sql->db_Select(EHDC_ELECTIONS_TABLE, "*", "e107helpers_developer_id=$e107helpers_developerid", true, $this->debug)) {
          $e107helpers_developer = new e107helpers_developerElection($sql->db_Fetch(), $getcandidates);
       } else {
-         if (mysql_errno() != 0) {
-            echo "<br>**".mysql_errno()." : ".mysql_error();
+         if (mysqli_errno() != 0) {
+            echo "<br>**".mysqli_errno()." : ".mysqli_error();
          }
       }
 
@@ -68,8 +68,8 @@ class e107helpers_developerDAO {
             }
          }
       } else {
-         if (mysql_errno() != 0) {
-            echo "<br>**".mysql_errno()." : ".mysql_error();
+         if (mysqli_errno() != 0) {
+            echo "<br>**".mysqli_errno()." : ".mysqli_error();
          }
       }
 
@@ -93,8 +93,8 @@ class e107helpers_developerDAO {
                $this->candidates[$candidate->getId()] = $candidate;
             }
          } else {
-            if (mysql_errno() != 0) {
-               echo "<br>**".mysql_errno()." : ".mysql_error();
+            if (mysqli_errno() != 0) {
+               echo "<br>**".mysqli_errno()." : ".mysqli_error();
             }
          }
       }
@@ -118,8 +118,8 @@ class e107helpers_developerDAO {
   		if ($res = $sql->db_Select(EHDC_CANDIDATES_TABLE, "*", "where e107helpers_developer_candidate_id=$candidateid ", "no-where", $this->debug)) {
          $candidate = new e107helpers_developerCandidate($sql->db_Fetch());
       } else {
-         if (mysql_errno() != 0) {
-            echo "<br>**".mysql_errno()." : ".mysql_error();
+         if (mysqli_errno() != 0) {
+            echo "<br>**".mysqli_errno()." : ".mysqli_error();
          }
       }
 
@@ -156,7 +156,7 @@ class e107helpers_developerDAO {
             }
          } else {
             if (mysql_errno() != 0) {
-               echo "<br>**".mysql_errno()." : ".mysql_error();
+               echo "<br>**".mysqli_errno()." : ".mysqli_error();
             }
          }
       }
@@ -181,8 +181,8 @@ class e107helpers_developerDAO {
   		if ($res = $sql->db_Select(EHDC_VOTERS_TABLE, "*", "e107helpers_developer_voter_user_id='$userid'", true, $this->debug)) {
          $voter = new e107helpers_developerVoter($sql->db_Fetch());
       } else {
-         if (mysql_errno() != 0) {
-            echo "<br>**".mysql_errno()." : ".mysql_error();
+         if (mysqli_errno() != 0) {
+            echo "<br>**".mysqli_errno()." : ".mysqli_error();
          }
       }
 
@@ -224,7 +224,7 @@ class e107helpers_developerDAO {
          return true;
       } else {
          $statusInfo = new e107helpers_developerStatusInfo(STATUS_ERROR);
-         $statusInfo->addMessage(EHD_LAN_MSG_DB_ADD, mysql_errno()." : ".mysql_error().", query string is ".$qry);
+         $statusInfo->addMessage(EHD_LAN_MSG_DB_ADD, mysqli_errno()." : ".mysqli_error().", query string is ".$qry);
          return $statusInfo;
       }
    }

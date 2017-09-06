@@ -17,7 +17,7 @@ if (!defined("e107_INIT")) {
 
 //if (strpos(e_SELF, "admin_") > 0) {
 //   // For admin pages
-//   print "\n<script type='text/javascript' src='".e_FILE_ABS."e_ajax.js'></script>";
+//   print "\n<script type='text/javascript' src='".e_PLUGIN_ABS."e107helpers/e_ajax.js'></script>";
 //   print "\n<script type='text/javascript' src='".e_PLUGIN_ABS."e107helpers/firebug/firebugx.js'></script>";
 //   print "\n<script type='text/javascript' src='".e_PLUGIN_ABS."e107helpers/prototype/prototype.js'></script>";
 //   print "\n<script type='text/javascript' src='".e_PLUGIN_ABS."e107helpers/scriptaculous-js/scriptaculous.js'></script>\n";
@@ -42,6 +42,6 @@ if (!class_exists("DHTML_Calendar")) {
 
 // Make sure the e107 Ajax JavaScript is included
 global $footer_js;
-$footer_js[] = e_FILE_ABS.'e_ajax.js';
+$footer_js[] = e_PLUGIN_ABS.'e107helpers/e_ajax.js';
 
 ?>

@@ -22,8 +22,8 @@
 | $Author: Neil $
 +---------------------------------------------------------------+
 */
-if (file_exists(e_HANDLER."calendar/calendar_class.php")) {
-   require_once(e_HANDLER."calendar/calendar_class.php");
+if (file_exists(e_PLUGIN."e107helpers/calendar/calendar_class.php")) {
+   require_once(e_PLUGIN."e107helpers/calendar/calendar_class.php");
 }
 
 class agenda_form {
@@ -184,8 +184,8 @@ class agenda_form {
          case "image" :
             $folder = $u_value;
             $handle = opendir($folder);
-            while ($file = readdir($handle)) {
-               if (is_file($folder.$file) && (eregi(".jpg",$file) || eregi(".gif",$file) || eregi(".png",$file))) {
+            while ($file = readdir($handle)) {       
+               if (is_file($folder.$file) && (preg_match("%".".jpg"."%i",$file) || preg_match("%".".gif"."%i",$file) || preg_match("%".".png"."%i",$file))) {
                   $iconlist[] = $file;
                }
             }

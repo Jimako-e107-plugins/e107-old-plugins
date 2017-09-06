@@ -33,7 +33,7 @@ class e107Helper {
    /**
     * Constructor
     */
-   function e107Helper() {
+   function __construct() {
       // OK, this is not ideal but I need to read this file without including it so it doesn't screw
       // up version reporting in e107 admin area (when file is required once by admin_siteinfo.sc).
       $content = file_get_contents(e_ADMIN."ver.php");
@@ -467,7 +467,7 @@ class e107Helper {
     */
    function getTextarea($tatext="", $name="e107heleprTA", $class="tbox", $rows="15", $cols=false, $width=false, $showBBCodes=false, $showEmotes=false, $resize=false) {
       $text = "";
-      $id = preg_replace("/[\s !\"£$%^&*\(\)-=+{}\[\]:@~;'#<>?,\.\/]/i", "_", html_entity_decode(strtolower($name), ENT_QUOTES));
+      $id = preg_replace("/[\s !\"£$%^&*\(\)-=+{}\[\]:@~;'#<>?,\.\/]/i", "_", html_entity_decode(strtolower($name), ENT_QUOTES)); 
       $text .= "<textarea name='$name' id='$id' class='$class' rows='$rows' cols='$cols' onselect='storeCaret(this);' onclick='storeCaret(this);'";
       if ($width) {
          $text .= " style='width:$width;'";
@@ -579,13 +579,13 @@ class e107Helper {
       //$text = "";
       //if (strpos(e_SELF, "admin_") > 0) {
       //   // For admin pages
-      //   print "\n<script type='text/javascript' src='".e_FILE_ABS."e_ajax.js'></script>";
+      //   print "\n<script type='text/javascript' src='".e_PLUGIN_ABS.'e107helpers/e_ajax.js'></script>";
       //   print "\n<script type='text/javascript' src='".e_PLUGIN_ABS."e107helpers/firebug/firebugx.js'></script>";
       //   print "\n<script type='text/javascript' src='".e_PLUGIN_ABS."e107helpers/prototype/prototype.js'></script>";
       //   print "\n<script type='text/javascript' src='".e_PLUGIN_ABS."e107helpers/scriptaculous-js/scriptaculous.js'></script>\n";
       //} else {
       //   // For main site pages
-      //   $footer_js[] = e_FILE_ABS.'e_ajax.js';
+      //   $footer_js[] = e_PLUGIN_ABS.'e107helpers/e_ajax.js';
       //   $footer_js[] = e_PLUGIN_ABS."e107helpers/firebug/firebugx.js";
       //   $footer_js[] = e_PLUGIN_ABS."e107helpers/prototype/prototype.js";
       //   $footer_js[] = e_PLUGIN_ABS."e107helpers/scriptaculous-js/scriptaculous.js";
