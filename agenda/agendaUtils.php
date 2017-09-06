@@ -33,7 +33,7 @@ function agendaGetDayEntries($day_ds) {
 function agendaSetFilterSQL() {
    global $agenda, $agn_sql1, $agn_field, $currentUser;
    if ($currentUser) {  // Only logged on users can use filter
-      $agn_sql1->db_Select($agenda->getUserTable(), "*", "usr_id=".$currentUser["user_id"], true, $agenda->isDebug());
+      $agn_sql1->db_Select($agenda->getUserTable(), "*", " WHERE usr_id=".$currentUser["user_id"], true, $agenda->isDebug());
       if ($agn_urow = $agn_sql1->db_Fetch()) {
          extract($agn_urow, EXTR_OVERWRITE);
       } else {
@@ -156,7 +156,7 @@ function agendaDrawNavigation($next, $prev, $centertext) {
    global $pref, $agenda, $agn_sql1, $agn_navformcapt, $agn_navformname, $agn_navformtype, $agn_navformvalu, $agn_navformjs;
 
    if (isset($pref['agenda_nav_on_main']) && $pref['agenda_nav_on_main'] == "Y") {
-      $agn_monthentries  = $agn_sql1->db_Count($agenda->getAgendaTable(), "(*)", "where start>=".$agenda->getTodayMonthStartDS()." and end<".$agenda->getTodayMonthEndDS());
+      $agn_monthentries  = $agn_sql1->db_Count($agenda->getAgendaTable(), "(*)", "where agn_start>=".$agenda->getTodayMonthStartDS()." and agn_end<".$agenda->getTodayMonthEndDS());
 
       $defaultview = ($agenda->getP1() == "view") ? $agenda->getP2() : "0";
       $colspan = 0;
