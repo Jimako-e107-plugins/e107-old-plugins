@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<!-- 1st tag in the XML file must be e107HelperForm -->
+<e107HelperForm version="1.0">
+
+   <!--
+   We're defining an input form so use the 'form' tag.
+   The 'name' attribute can be anything you want but should only be made up of letters, numbers and underscore.
+   The 'type' attribute indicates what type of form this is, in this case it's an e107 preferences form
+   to allow a user to manage preferences for a plugin
+   -->
+   <form name="e107helpers_developer_admin_prefs_form" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <div name="ehd_header1" text="EHD_LAN_ADMIN_MENU_15">
+         <style name="font-weight">bold</style>
+         <style name="text-align">center</style>
+      </div>
+
+      <!-- A colour picker field allows the user to select a colour that is stored as an HTML colour code -->
+      <color name="ehd_color" label="EHD_LAN_ADMIN_PREFS_05_0" prompt="EHD_LAN_ADMIN_PREFS_05_1" help="EHD_LAN_ADMIN_PREFS_05_2" class="tbox">
+         <default var="e107pref"/>
+      </color>
+
+      <!-- An image field allows the user to select an image from the subdirectories of the specified directory -->
+      <image name="ehd_image" label="EHD_LAN_ADMIN_PREFS_10_0" prompt="EHD_LAN_ADMIN_PREFS_10_1" help="EHD_LAN_ADMIN_PREFS_10_2" class="tbox">
+         <default var="e107pref"/>
+         <dir>e_IMAGE</dir>
+         <attribute name="size">60</attribute>
+      </image>
+
+   </form>
+
+</e107HelperForm>

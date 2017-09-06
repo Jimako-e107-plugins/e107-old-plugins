@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<!-- 1st tag in the XML file must be e107HelperForm -->
+<e107HelperForm version="1.0">
+
+   <!--
+   We're defining an input form so use the 'form' tag.
+   The 'name' attribute can be anything you want but should only be made up of letters, numbers and underscore.
+   The 'type' attribute indicates what type of form this is, in this case it's database form to allow a user to
+   manage entries in a database table.
+   -->
+   <form name="e107helpers_developer_admin_db_form" type="HELPER_FORM_TYPE_DB_ROW">
+      <errorsattop value="true" />
+
+      <!-- First, define the database table components we are interested in -->
+      <dbdetails>
+         <!-- The database table name, mandatory -->
+         <dbtable>e107helpers_developer_1</dbtable>
+         <!-- The index field -->
+         <index>ehd_1_id</index>
+         <!-- The fields that will be displayed in the drop down list, column names seperated by a comma -->
+         <data>ehd_1_name</data>
+         <!-- An (optional) order for the items in the drop down list, uses standard SQL syntax of column name ASC/DESC -->
+         <order>ehd_1_name asc</order>
+         <!-- An optional CSS style for the drop down list -->
+         <liststyle>tbox</liststyle>
+      </dbdetails>
+
+      <!--
+      As this is to be a batch input form, to allow input of multiple items in one go, we define the default batch
+      settings.
+      * 'occurs' indicates how many batch groups wil lbe displayed on the page.
+      * 'class' is a CSS class for the heading identifying the start of a batch group.
+      * 'prefname' is an optional value and defines the e107 preference field that can be used to override the
+        default 'occurs' value.
+      To allow the user to override the 'occurs' value the programmer must supply a form that sets the preferences,
+      this form can also allow the user to set which fields occur in the repeating group - see prefs_52.xml for
+      an example of how to do this.
+      -->
+      <batch occurs="3" class="fcaption" prefname="e107helpers_developer_batch_prefs_candidate_repeats">
+         <text name="ehd_1_name" label="EHD_LAN_ADMIN_DB_01_0" prompt="EHD_LAN_ADMIN_DB_01_1" help="EHD_LAN_ADMIN_DB_01_2" class="tbox">
+            <default var="db"/>
+            <mandatory>true</mandatory>
+            <attribute name="size">50</attribute>
+            <attribute name="maxlength">255</attribute>
+         </text>
+
+         <text name="ehd_1_file" label="EHD_LAN_ADMIN_DB_02_0" prompt="EHD_LAN_ADMIN_DB_02_1" help="EHD_LAN_ADMIN_DB_02_2" class="tbox">
+            <default var="db"/>
+            <attribute name="size">50</attribute>
+         </text>
+
+         <accesstable name="ehd_1_userclass" label="EHD_LAN_ADMIN_DB_06_0" prompt="EHD_LAN_ADMIN_DB_06_1" help="EHD_LAN_ADMIN_DB_06_2" class="tbox">
+            <default var="e107pref"/>
+         </accesstable>
+
+         <textarea name="ehd_1_description" label="EHD_LAN_ADMIN_DB_03_0" prompt="EHD_LAN_ADMIN_DB_03_1" help="EHD_LAN_ADMIN_DB_03_2" class="tbox">
+            <default var="db"/>
+            <style name="width">95%</style>
+         </textarea>
+
+      </batch>
+   </form>
+
+</e107HelperForm>

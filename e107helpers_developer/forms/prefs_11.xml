@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!-- 1st tag in the XML file must be e107HelperForm -->
+<e107HelperForm version="1.0">
+
+   <!--
+   We're defining an input form so use the 'form' tag.
+   The 'name' attribute can be anything you want but should only be made up of letters, numbers and underscore.
+   The 'type' attribute indicates what type of form this is, in this case it's an e107 preferences form
+   to allow a user to manage preferences for a plugin
+   -->
+   <form name="e107helpers_developer_admin_prefs_form" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <!--
+      Where to show validation errors - by default they are all shown at the top of the page
+      in one group. Setting this value to false shows the errors below the field in error.
+      This can be useful on long forms where it is not easy to see the errors and the fields
+      in error at the same time.
+      -->
+      <errorsattop value="true"/>
+
+      <div name="ehd_header1" text="EHD_LAN_ADMIN_MENU_11">
+         <style name="font-weight">bold</style>
+         <style name="text-align">center</style>
+      </div>
+
+      <!--  -->
+      <text name="ehd_text" label="EHD_LAN_ADMIN_PREFS_14_0" prompt="EHD_LAN_ADMIN_PREFS_14_1" help="EHD_LAN_ADMIN_PREFS_14_2" class="tbox">
+         <default var="e107pref"/>
+         <mandatory>true</mandatory>
+         <minlength>4</minlength>
+      </text>
+
+      <!--  -->
+      <decimal name="ehd_decimal" label="EHD_LAN_ADMIN_PREFS_26_0" prompt="EHD_LAN_ADMIN_PREFS_26_1" help="EHD_LAN_ADMIN_PREFS_26_2" class="tbox">
+         <default var="e107pref"/>
+         <mandatory>true</mandatory>
+         <decplaces>2</decplaces>
+      </decimal>
+
+      <!--  -->
+      <integer name="ehd_integer" label="EHD_LAN_ADMIN_PREFS_25_0" prompt="EHD_LAN_ADMIN_PREFS_25_1" help="EHD_LAN_ADMIN_PREFS_25_2" class="tbox">
+         <default var="e107pref"/>
+         <mandatory>true</mandatory>
+         <minvalue>-10</minvalue>
+      </integer>
+
+      <!--  -->
+      <numeric name="ehd_numeric" label="EHD_LAN_ADMIN_PREFS_23_0" prompt="EHD_LAN_ADMIN_PREFS_23_1" help="EHD_LAN_ADMIN_PREFS_23_2" class="tbox">
+         <default var="e107pref"/>
+         <mandatory>true</mandatory>
+         <minvalue>4</minvalue>
+      </numeric>
+
+      <!--  -->
+      <textarea name="ehd_textarea" label="EHD_LAN_ADMIN_PREFS_15_0" prompt="EHD_LAN_ADMIN_PREFS_15_1" help="EHD_LAN_ADMIN_PREFS_15_2" class="tbox">
+         <default var="e107pref"/>
+         <maxlength>200</maxlength>
+         <style name="width">50%</style>
+      </textarea>
+
+   </form>
+
+</e107HelperForm>

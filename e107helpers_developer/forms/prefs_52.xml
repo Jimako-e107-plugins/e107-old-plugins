@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!-- 1st tag in the XML file must be e107HelperForm -->
+<e107HelperForm version="1.0">
+
+   <!--
+   We're defining an input form so use the 'form' tag.
+   The 'name' attribute can be anything you want but should only be made up of letters, numbers and underscore.
+   The 'type' attribute indicates what type of form this is, in this case it's an e107 preferences form
+   to allow a user to manage preferences for a plugin.
+   -->
+   <form name="e107helpers_developer_admin_prefs_30_form" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <!-- This field is used to override the 'occurs' field in prefs_51.xml -->
+      <batchcount name="e107helpers_developer_batch_prefs_candidate_repeats" class="tbox"/>
+
+      <!--
+      The following fields allow the user to select which fields will  appear within the repeating batch
+      groups and which will be displayed once above the batch groups.
+      They are all defined as checkboxes with a default value of 0 (not in batch group) and a checked
+      value of 1 (in batch group).
+      The field names here must match the field names on the batch form, with a '_pref' suffix.
+      This allows, in this example, the user to say not include the userclass field in the batch group so
+      that multiple items can be submitted in one go but will all have the same selected userclass.
+      -->
+
+      <checkbox name="ehd_1_name_pref" label="EHD_LAN_ADMIN_DB_01_0" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="ehd_1_file_pref" label="EHD_LAN_ADMIN_DB_02_0" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="ehd_1_userclass_pref" label="EHD_LAN_ADMIN_DB_06_0" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="ehd_1_description_pref" label="EHD_LAN_ADMIN_DB_03_0" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+   </form>
+
+</e107HelperForm>

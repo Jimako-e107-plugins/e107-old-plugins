@@ -1,0 +1,26 @@
+<chart>
+   <chart_type>3d pie</chart_type>
+   <chart_data>
+      <row>
+         <null/>
+         <string>core</string>
+         <string>gui</string>
+         <string>script</string>
+         <string>install</string>
+      </row>
+      <row>
+         <null/>
+         <number>17</number>
+         <number>3</number>
+         <number>9</number>
+         <number>14</number>
+      </row>
+   </chart_data>
+   <chart_rect positive_color='ffffff' positive_alpha='20' />
+   <draw>
+      <text color='ffffff' width='400' height='20' text='Categories' h_align='center' v_align='bottom' />
+   </draw>
+   <legend_label alpha='75' />
+   <legend_rect width='100' fill_alpha='10' />
+   <legend_transition type='slide_left' delay='0.5' duration='1' />
+</chart>

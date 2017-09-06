@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<!-- 1st tag in the XML file must be e107HelperForm -->
+<e107HelperForm version="1.0">
+
+   <!--
+   We're defining an input form so use the 'form' tag.
+   The 'name' attribute can be anything you want but should only be made up of letters, numbers and underscore.
+   The 'type' attribute indicates what type of form this is, in this case it's an e107 preferences form
+   to allow a user to manage preferences for a plugin
+   -->
+   <form name="e107helpers_developer_admin_prefs_form" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <div name="ehd_header1" text="EHD_LAN_ADMIN_MENU_14">
+         <style name="font-weight">bold</style>
+         <style name="text-align">center</style>
+      </div>
+
+      <!--  -->
+      <calendar name="ehd_calendar" label="EHD_LAN_ADMIN_PREFS_02_0" prompt="EHD_LAN_ADMIN_PREFS_02_1" help="EHD_LAN_ADMIN_PREFS_02_2" class="tbox">
+         <default var="e107pref"/>
+      </calendar>
+
+      <!--  -->
+      <time name="ehd_time" label="EHD_LAN_ADMIN_PREFS_17_0" prompt="EHD_LAN_ADMIN_PREFS_17_1" help="EHD_LAN_ADMIN_PREFS_17_2" class="tbox">
+         <default var="e107pref"/>
+      </time>
+
+      <!--  -->
+      <calendartime name="ehd_calendartime" label="EHD_LAN_ADMIN_PREFS_03_0" prompt="EHD_LAN_ADMIN_PREFS_03_1" help="EHD_LAN_ADMIN_PREFS_03_2" class="tbox">
+         <default var="e107pref"/>
+      </calendartime>
+
+   </form>
+
+</e107HelperForm>

@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!-- 1st tag in the XML file must be e107HelperForm -->
+<e107HelperForm version="1.0">
+
+   <!--
+   We're defining an input form so use the 'form' tag.
+   The 'name' attribute can be anything you want but should only be made up of letters, numbers and underscore.
+   The 'type' attribute indicates what type of form this is, in this case it's an e107 preferences form
+   to allow a user to manage preferences for a plugin
+   -->
+   <form name="e107helpers_developer_admin_prefs_form" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <div name="ehd_header1" text="EHD_LAN_ADMIN_MENU_13">
+         <style name="font-weight">bold</style>
+         <style name="text-align">center</style>
+      </div>
+
+      <!--  -->
+      <checkbox name="ehd_checkbox" label="EHD_LAN_ADMIN_PREFS_04_0" prompt="EHD_LAN_ADMIN_PREFS_04_1" help="EHD_LAN_ADMIN_PREFS_04_2" class="tbox">
+         <default var="e107pref"/>
+         <value>Y</value>
+      </checkbox>
+
+      <!--  -->
+      <radio name="ehd_radio" label="EHD_LAN_ADMIN_PREFS_12_0" prompt="EHD_LAN_ADMIN_PREFS_12_1" help="EHD_LAN_ADMIN_PREFS_12_2" class="tbox">
+         <default var="e107pref"/>
+         <value key="0">EHD_LAN_ADMIN_PREFS_12_VALUE_0</value>
+         <value key="1">EHD_LAN_ADMIN_PREFS_12_VALUE_1</value>
+         <value key="2">EHD_LAN_ADMIN_PREFS_12_VALUE_2</value>
+      </radio>
+
+      <!--  -->
+      <button name="ehd_button" label="EHD_LAN_ADMIN_PREFS_18_0" prompt="EHD_LAN_ADMIN_PREFS_18_1" help="EHD_LAN_ADMIN_PREFS_18_2" class="button">
+         <default var="e107pref"/>
+         <value>A button</value>
+         <event name="click">alert('Button clicked');</event>
+         <event name="mouseover">alert('Get off me');</event>
+      </button>
+   </form>
+
+</e107HelperForm>

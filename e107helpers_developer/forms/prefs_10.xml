@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!-- 1st tag in the XML file must be e107HelperForm -->
+<e107HelperForm version="1.0">
+
+   <!--
+   We're defining an input form so use the 'form' tag.
+   The 'name' attribute can be anything you want but should only be made up of letters, numbers and underscore.
+   The 'type' attribute indicates what type of form this is, in this case it's just a form to display some
+   text so we don't want any submit buttons
+   -->
+   <form name="e107helpers_developer_admin_prefs_form" type="HELPER_FORM_TYPE_NO_BUTTONS">
+
+      <!-- Here, we're defining an HTML 'DIV' element with some text content -->
+      <div name="ehd_header1" text="EHD_LAN_ADMIN_PREFS_10_01">
+         <!-- DIV style attribute values can be defined -->
+         <style name="font-weight">bold</style>
+         <style name="text-align">center</style>
+      </div>
+
+      <!-- A 'notelist' is a custom tag that shows a bulleted list -->
+      <notelist name="ehd_notes1">
+         <!--
+         Each 'paragraph' is a seperate bullet point.
+         In this case, we are using PHP constants
+         -->
+         <paragraph>EHD_LAN_ADMIN_PREFS_10_02</paragraph>
+         <paragraph>EHD_LAN_ADMIN_PREFS_10_03</paragraph>
+         <paragraph>EHD_LAN_ADMIN_PREFS_10_04</paragraph>
+         <paragraph>EHD_LAN_ADMIN_PREFS_10_05</paragraph>
+         <paragraph>EHD_LAN_ADMIN_PREFS_10_06</paragraph>
+      </notelist>
+
+      <div name="ehd_header2" text="EHD_LAN_ADMIN_PREFS_50_01">
+         <style name="font-weight">bold</style>
+         <style name="text-align">center</style>
+      </div>
+
+      <notelist name="ehd_notes2">
+         <!-- To use more than one PHP constant or to use with other text, enclose in curly braces -->
+         <paragraph>{EHD_LAN_ADMIN_MENU_11} : {EHD_LAN_ADMIN_PREFS_50_02}</paragraph>
+         <paragraph>{EHD_LAN_ADMIN_MENU_12} : {EHD_LAN_ADMIN_PREFS_50_03}</paragraph>
+         <paragraph>{EHD_LAN_ADMIN_MENU_13} : {EHD_LAN_ADMIN_PREFS_50_04}</paragraph>
+         <paragraph>{EHD_LAN_ADMIN_MENU_14} : {EHD_LAN_ADMIN_PREFS_50_05}</paragraph>
+         <paragraph>{EHD_LAN_ADMIN_MENU_15} : {EHD_LAN_ADMIN_PREFS_50_06}</paragraph>
+         <paragraph>{EHD_LAN_ADMIN_MENU_50} : {EHD_LAN_ADMIN_PREFS_50_07}</paragraph>
+         <paragraph>{EHD_LAN_ADMIN_MENU_51} : {EHD_LAN_ADMIN_PREFS_50_08}</paragraph>
+         <paragraph>{EHD_LAN_ADMIN_MENU_52} : {EHD_LAN_ADMIN_PREFS_50_09}</paragraph>
+         <paragraph>{EHD_LAN_ADMIN_MENU_53} : {EHD_LAN_ADMIN_PREFS_50_10}</paragraph>
+      </notelist>
+   </form>
+
+</e107HelperForm>
