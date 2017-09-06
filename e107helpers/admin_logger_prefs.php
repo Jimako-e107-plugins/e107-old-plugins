@@ -25,7 +25,8 @@
    // Check to see if the current user has admin permissions for this plugin
    if (!getperms("P")) {
       // No permissions set, redirect to site front page
-      header("location:".e_BASE."index.php");
+      //headerx("location:".e_BASE."index.php");
+      e107::redirect();
       exit;
    }
 

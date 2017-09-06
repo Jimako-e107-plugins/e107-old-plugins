@@ -1267,7 +1267,7 @@ class e107HelperTagObj {
     * @return           true if the value is valid, otherwise false
     */
    function validateTag_color($value, $formmode) {
-      if (!ereg("([A-Fa-f0-9]{6,6})", $value)) {
+      if (!preg_match("%"."([A-Fa-f0-9]{6,6})"."%", $value)) {
          $this->_message[$this->_getIX()] = $this->_formatMessage(HELPER_LAN_ERR_VAL_COLOR_01);
          return false;
       }

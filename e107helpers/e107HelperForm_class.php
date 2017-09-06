@@ -818,7 +818,9 @@ class e107HelperForm {
             }
             case HELPER_FORM_MODE_DB_PRINT : {
                if ($this->_getDBPrintPageURL()) {
-                  header("location:".e_BASE."print.php?plugin:".str_replace("{ID}", $this->_getDBIndexValue(), $this->_getDBPrintPageURL()));
+                  //headerx("location:".e_BASE."print.php?plugin:".str_replace("{ID}", $this->_getDBIndexValue(), $this->_getDBPrintPageURL()));
+                  $url = e_BASE."print.php?plugin:".str_replace("{ID}", $this->_getDBIndexValue(), $this->_getDBPrintPageURL());
+                  e107::redirect($url);
                }
                break;
             }

@@ -25,7 +25,7 @@
  * This file simply includes all the required files and defines some constants for the e107
  * Helper classes to function.
  * It should be inlcuded using the PHP require_once() function.
- */
+ */  
    if (!defined("HELPER_INCLUDED_ALREADY")) {
       define("HELPER_INCLUDED_ALREADY",      true);
 
@@ -65,8 +65,8 @@
       // Include DHTML calendar class if not already defined
       $incDHTMLCalendarJS = false;
       if (!class_exists("DHTML_Calendar")) {
-         if (file_exists(e_HANDLER."calendar/calendar_class.php")) {
-            require_once(e_HANDLER."calendar/calendar_class.php");
+         if (file_exists(e_PLUGIN."e107helpers/calendar/calendar_class.php")) {
+            require_once(e_PLUGIN."e107helpers/calendar/calendar_class.php");
             $incDHTMLCalendarJS = true;
          }
       }
@@ -257,5 +257,5 @@ if (!class_exists("e107HelperDateTime")) {
    	}
    }
 }
-
+				 
 ?>

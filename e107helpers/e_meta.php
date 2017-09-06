@@ -35,7 +35,7 @@ echo "<script type='text/javascript' src='".e_PLUGIN_ABS."e107helpers/e107helper
 // Include DHTML Calendar JavaScript
 //TODO do we need to include the DHTML Calendar class if not already included here?
 if (!class_exists("DHTML_Calendar")) {
-   require_once(e_HANDLER."calendar/calendar_class.php");
+   require_once(e_PLUGIN."e107helpers/calendar/calendar_class.php");
    $temp = new DHTML_Calendar(true);
    echo $temp->load_files();
 }

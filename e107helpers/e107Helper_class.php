@@ -42,7 +42,7 @@ class e107Helper {
       eval($content);
 
       // Use a regular expression here?
-      $this->e107v7 = (isset($e107info["e107_version"]) && strpos($e107info["e107_version"], "0.7") === false) ? false : true;
+      $this->e107v7 = true;
 
       // Set some initial values
       $this->_xml = "";
@@ -110,7 +110,7 @@ class e107Helper {
       }
       $handle = opendir($dir);
       while ($file = readdir($handle)) {
-         if (is_file($dir.$file) && (eregi(".jpg",$file) || eregi(".gif",$file) || eregi(".png",$file))) {
+         if (is_file($dir.$file) && (preg_match("%".".jpg"."%i",$file) || preg_match("%".".gif"."%i",$file) || preg_match("%".".png"."%i",$file))) {
             $files[] = $file;
          }
       }
