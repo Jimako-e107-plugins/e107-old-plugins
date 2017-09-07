@@ -715,6 +715,7 @@ class e107Helper {
    function getTemplateList($prefix, $pluginname="wontfindanythinghere:)", $ignore="\*") {
       global $pref;
 
+			/*
       $locations = array (
          e_THEME.$pref["sitetheme"]."/$pluginname/",
          e_THEME.$pref["sitetheme"]."/templates/",
@@ -723,7 +724,11 @@ class e107Helper {
          e_PLUGIN."$pluginname/",
          e_THEME."templates/"
       );
-
+			*/
+      $locations = array (
+         e_THEME.$pref["sitetheme"]."/templates/$pluginname/",
+         e_PLUGIN."$pluginname/templates/"
+      );			
       $templates = array();
       foreach ($locations as $location) {
          $handle = opendir($location);
@@ -742,6 +747,7 @@ class e107Helper {
          closedir($handle);
       }
       // Sort?
+ 
       return $templates;
    }
 
