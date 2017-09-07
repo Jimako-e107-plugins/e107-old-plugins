@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="simple_content_admin_prefs_30_form" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <text name="simple_content_pagetitle" label="SCONTENT_LAN_ADMIN_PREFS_PAGE_TITLE" prompt="SCONTENT_LAN_ADMIN_PREFS_PAGE_TITLE_1" help="SCONTENT_LAN_ADMIN_PREFS_PAGE_TITLE_2" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">25</attribute>
+      </text>
+
+      <text name="simple_content_separator" label="SCONTENT_LAN_ADMIN_PREFS_SEPARATOR" prompt="SCONTENT_LAN_ADMIN_PREFS_SEPARATOR_1" help="SCONTENT_LAN_ADMIN_PREFS_SEPARATOR_2" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">5</attribute>
+      </text>
+
+      <accesstable name="simple_content_view_class" label="SCONTENT_LAN_ADMIN_PREFS_VIEW_CLASS" prompt="SCONTENT_LAN_ADMIN_PREFS_VIEW_CLASS_1" help="SCONTENT_LAN_ADMIN_PREFS_VIEW_CLASS_2" class="tbox">
+         <default var="db"/>
+      </accesstable>
+
+      <list name="simple_content_template" label="SCONTENT_LAN_ADMIN_PREFS_TEMPLATE" prompt="SCONTENT_LAN_ADMIN_PREFS_TEMPLATE_1" help="SCONTENT_LAN_ADMIN_PREFS_TEMPLATE_2" class="tbox">
+         <default var="db"/>
+         <listcallback class="SimpleContent">formatTemplatesDropDown</listcallback>
+      </list>
+
+      <checkbox name="scontent_allow_homepage" label="SCONTENT_LAN_ADMIN_PREFS_ALLOW_HOME_PAGE" prompt="SCONTENT_LAN_ADMIN_PREFS_ALLOW_HOME_PAGE_1" help="SCONTENT_LAN_ADMIN_PREFS_ALLOW_HOME_PAGE_2" class="tbox">
+         <default var="db">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="scontent_force_cache" label="SCONTENT_LAN_ADMIN_PREFS_CACHE" prompt="SCONTENT_LAN_ADMIN_PREFS_CACHE_1" help="SCONTENT_LAN_ADMIN_PREFS_CACHE_2" class="tbox">
+         <default var="e107pref"/>
+         <value>1</value>
+      </checkbox>
+
+      <div name="ehd_header1" text="SCONTENT_LAN_ADMIN_PREFS_REL_REPEATS_H1">
+         <style name="font-weight">bold</style>
+      </div>
+
+      <div name="ehd_header2" text="SCONTENT_LAN_ADMIN_PREFS_REL_REPEATS_H2">
+      </div>
+
+      <integer name="scontent_relationship_repeats" label="SCONTENT_LAN_ADMIN_PREFS_REL_REPEATS" prompt="SCONTENT_LAN_ADMIN_PREFS_REL_REPEATS_1" help="SCONTENT_LAN_ADMIN_PREFS_REL_REPEATS_2" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">3</attribute>
+         <minvalue>1</minvalue>
+         <maxvalue>999</maxvalue>
+      </integer>
+
+      <checkbox name="scontent_rel_parent_item_id_pref" label="SCONTENT_LAN_ADMIN_ITEM_PARENT" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="scontent_rel_child_item_id_pref" label="SCONTENT_LAN_ADMIN_ITEM_CHILD" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="scontent_rel_name_pref" label="SCONTENT_LAN_ADMIN_REL_NAME" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="scontent_rel_description_pref" label="SCONTENT_LAN_ADMIN_REL_DESCRIPTION" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+   </form>
+
+</e107HelperForm>

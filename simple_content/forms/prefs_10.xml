@@ -1,0 +1,101 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="simple_content_item_admin_10_form" type="HELPER_FORM_TYPE_DB_ROW">
+
+      <errorsattop value="true" />
+
+      <dbdetails>
+         <dbtable>scontent_items</dbtable>
+         <index>scontent_item_id</index>
+         <data>scontent_item_name, scontent_item_cat_id</data>
+         <order>scontent_item_name asc</order>
+         <liststyle>tbox</liststyle>
+         <dbformatcallback class="SimpleContent">adminItemsItemList</dbformatcallback>
+      </dbdetails>
+
+      <text name="scontent_item_name" label="SCONTENT_LAN_ADMIN_ITEM_NAME" class="tbox">
+         <default var="db"/>
+         <mandatory>true</mandatory>
+         <maxlength>100</maxlength>
+      </text>
+
+      <table name="scontent_item_cat_id" label="SCONTENT_LAN_ADMIN_CATEGORY" class="tbox">
+         <default var="db"/>
+         <value key="table">scontent_cats</value>
+         <value key="columns">*</value>
+         <value key="order">scontent_cat_name ASC</value>
+         <includeblank>0</includeblank>
+      </table>
+
+      <textarea name="scontent_item_f1" label="SCONTENT_LAN_ADMIN_ITEM_F1" class="tbox">
+         <default var="e107pref"></default>
+         <attribute name="rows">3</attribute>
+         <attribute name="cols">50</attribute>
+         <style name="width">95%</style>
+         <bbcodes>true</bbcodes>
+      </textarea>
+      <textarea name="scontent_item_f2" label="SCONTENT_LAN_ADMIN_ITEM_F2" class="tbox">
+         <default var="e107pref"></default>
+         <attribute name="rows">3</attribute>
+         <attribute name="cols">50</attribute>
+         <style name="width">95%</style>
+         <bbcodes>true</bbcodes>
+      </textarea>
+      <textarea name="scontent_item_f3" label="SCONTENT_LAN_ADMIN_ITEM_F3" class="tbox">
+         <default var="e107pref"></default>
+         <attribute name="rows">3</attribute>
+         <attribute name="cols">50</attribute>
+         <style name="width">95%</style>
+         <bbcodes>true</bbcodes>
+      </textarea>
+      <textarea name="scontent_item_f4" label="SCONTENT_LAN_ADMIN_ITEM_F4" class="tbox">
+         <default var="e107pref"></default>
+         <attribute name="rows">3</attribute>
+         <attribute name="cols">50</attribute>
+         <style name="width">95%</style>
+         <bbcodes>true</bbcodes>
+      </textarea>
+      <textarea name="scontent_item_f5" label="SCONTENT_LAN_ADMIN_ITEM_F5" class="tbox">
+         <default var="e107pref"></default>
+         <attribute name="rows">3</attribute>
+         <attribute name="cols">50</attribute>
+         <style name="width">95%</style>
+         <bbcodes>true</bbcodes>
+      </textarea>
+      <textarea name="scontent_item_f6" label="SCONTENT_LAN_ADMIN_ITEM_F6" class="tbox">
+         <default var="e107pref"></default>
+         <attribute name="rows">3</attribute>
+         <attribute name="cols">50</attribute>
+         <style name="width">95%</style>
+         <bbcodes>true</bbcodes>
+      </textarea>
+      <textarea name="scontent_item_f7" label="SCONTENT_LAN_ADMIN_ITEM_F7" class="tbox">
+         <default var="e107pref"></default>
+         <attribute name="rows">3</attribute>
+         <attribute name="cols">50</attribute>
+         <style name="width">95%</style>
+         <bbcodes>true</bbcodes>
+      </textarea>
+      <textarea name="scontent_item_f8" label="SCONTENT_LAN_ADMIN_ITEM_F8" class="tbox">
+         <default var="e107pref"></default>
+         <attribute name="rows">3</attribute>
+         <attribute name="cols">50</attribute>
+         <style name="width">95%</style>
+         <bbcodes>true</bbcodes>
+      </textarea>
+      <textarea name="scontent_item_f9" label="SCONTENT_LAN_ADMIN_ITEM_F9" class="tbox">
+         <default var="e107pref"></default>
+         <attribute name="rows">3</attribute>
+         <attribute name="cols">50</attribute>
+         <style name="width">95%</style>
+         <bbcodes>true</bbcodes>
+      </textarea>
+      <hidden name="scontent_item_last_updated">
+         <default var="db"/>
+         <callback class='SimpleContent'>getCurrentDatestamp</callback>
+      </hidden>
+
+   </form>
+
+</e107HelperForm>

@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="simple_content_group_admin_30_form" type="HELPER_FORM_TYPE_DB_ROW">
+
+      <errorsattop value="true" />
+
+      <dbdetails>
+         <dbtable>scontent_groups</dbtable>
+         <index>scontent_group_id</index>
+         <data>scontent_group_name</data>
+         <order>scontent_group_name asc</order>
+         <liststyle>tbox</liststyle>
+         <!--dbcallback>contentFormatAppsDropDown</dbcallback-->
+      </dbdetails>
+
+      <text name="scontent_group_name" label="SCONTENT_LAN_ADMIN_GROUP_NAME" class="tbox">
+         <default var="db"/>
+         <mandatory>true</mandatory>
+         <attribute name="size">50</attribute>
+         <maxlength>100</maxlength>
+      </text>
+
+      <textarea name="scontent_group_description" label="SCONTENT_LAN_ADMIN_GROUP_DESCRIPTION" class="tbox">
+         <default var="db"/>
+         <style name="width">95%</style>
+         <bbcodes>true</bbcodes>
+      </textarea>
+
+      <image name="scontent_group_icon" label="SCONTENT_LAN_ADMIN_GROUP_ICON" class="tbox">
+         <default var="e107pref"/>
+         <dir>e_IMAGE</dir>
+         <attribute name="size">60</attribute>
+      </image>
+
+
+      <list name="scontent_group_template" label="SCONTENT_LAN_ADMIN_GROUP_TEMPLATE" class="tbox">
+         <default var="db"/>
+         <listcallback class="SimpleContent">formatTemplatesDropDown</listcallback>
+      </list>
+
+      <!--div name="scontent_header1" text="Following fields not yet used">
+         <style name="font-weight">bold</style>
+      </div>
+
+      <calendartime name="scontent_group_start_date" label="SCONTENT_LAN_ADMIN_GROUP_START_DATE" class="tbox">
+         <default var="db"></default>
+      </calendartime>
+
+      <calendartime name="scontent_group_end_date" label="SCONTENT_LAN_ADMIN_GROUP_END_DATE" class="tbox">
+         <default var="db"></default>
+      </calendartime>
+
+      <checkbox name="scontent_group_closed" label="SCONTENT_LAN_ADMIN_GROUP_CLOSED" class="tbox">
+         <default var="db">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <accesstable name="scontent_group_view_class" label="SCONTENT_LAN_ADMIN_GROUP_VIEW_CLASS" class="tbox">
+         <default var="db"/>
+      </accesstable-->
+
+   </form>
+
+</e107HelperForm>
