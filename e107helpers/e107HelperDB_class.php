@@ -37,17 +37,9 @@ class e107HelperDB extends e_db_mysql {
     */
    function db_InsertPart($table, $arg, $debug = FALSE, $log_type="", $log_remark="") {
       global $e107Helper;
- 
-         $table = $this->db_IsLang($table);
-         $this->mySQLcurTable = $table;
-         $query = 'INSERT INTO '.MPREFIX."{$table} {$arg}";
-         if ($result = $this->mySQLresult = $this->db_Query($query, NULL, 'db_InsertPart', $debug, $log_type, $log_remark )) {
-            $tmp = mysqli_insert_id();
-            return $tmp;
-         } else {
-            $this->dbError("db_Insert ($query)");
-            return FALSE;
-         }
+      $mes = e107::getMessage();
+      $mes->addError('You are using not supported code db_InsertPart() !  Replace it by using insert() method');
+      echo $mes->render();
  
    }
 }

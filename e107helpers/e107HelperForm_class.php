@@ -1954,9 +1954,11 @@ class e107HelperForm {
                      if ($allTags[$key]->isBatchTag()) {
                         $batchcolstr[] = $key;
                         $batchinpstr[] = "'".$e107Helper->tp_toDB($allTags[$key]->getCurrentValue(false))."'";
+                        $tmp['data'][$key] = "'".$e107Helper->tp_toDB($allTags[$key]->getCurrentValue(false))."'";
                      } else {
                         $colstr[] = $key;
                         $inpstr[] = "'".$e107Helper->tp_toDB($allTags[$key]->getCurrentValue(false))."'";
+                        $tmp['data'][$key] = "'".$e107Helper->tp_toDB($allTags[$key]->getCurrentValue(false))."'";
                      }
                   }
                }
@@ -1964,7 +1966,9 @@ class e107HelperForm {
             $col = array_merge($colstr, $batchcolstr);
             $inp = array_merge($inpstr, $batchinpstr);
             $query = "(".implode(", ", $col).") values (".implode(", ", $inp).")";
-            $res = $mysql->db_InsertPart($this->_getDBTable(), $query);
+            
+            //$res = $mysql->db_InsertPart($this->_getDBTable(), $query);
+            $res 	= $mysql->insert($this->_getDBTable(), $tmp);
             if ($res === false) {
                // Error, rollback and stop trying any more inserts
                $response = array("id"=>$res, "dbaction"=>HELPER_FORM_MODE_DB_CREATE, "message"=>HELPER_LAN_12." (".mysqli_error().")", "sql"=>$query);
