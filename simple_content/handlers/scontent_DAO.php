@@ -40,11 +40,13 @@ class simple_contentDAO {
       if ($group = $e107cache->retrieve(SCONTENT_CACHE_GROUP."_{$name}", false, $pref["scontent_force_cache"])) {
          //TODO broken cache? return unserialize($group);
       }
-  		if ($res = $sql2->db_Select(SCONTENTC_GROUPS_TABLE, "*", "scontent_group_name='{$name}'", true, $this->debug)) {
+  		if ($res = $sql2->select(SCONTENTC_GROUPS_TABLE, "*", "scontent_group_name='{$name}'", "default", $this->debug)) {
          $group = new SimpleContentGroup($sql2->db_Fetch());
       } else {
-         if (mysql_errno() != 0) {
-            echo "<br>**".mysql_errno()." : ".mysql_error();
+         if ($sql2->dbError()!= 0) {
+            $mes = e107::getMessage();
+            $mes->addError("<br>**".$sql2->dbError());  
+						echo $mes->render();        
          }
       }
 
@@ -71,8 +73,10 @@ class simple_contentDAO {
             $groups[$group->getId()] = $group;
          }
       } else {
-         if (mysql_errno() != 0) {
-            echo "<br>**".mysql_errno()." : ".mysql_error();
+         if ($sql->dbError()!= 0) {
+            $mes = e107::getMessage();
+            $mes->addError("<br>**".$sql->dbError());  
+						echo $mes->render();        
          }
       }
 
@@ -88,21 +92,25 @@ class simple_contentDAO {
     */
    function getCategory($key) {
       global $e107cache, $pref, $sql2;
-
+      
       if ($category = $e107cache->retrieve(SCONTENT_CACHE_CATEGORY."_{$key}", false, $pref["scontent_force_cache"])) {
          //TODO broken cache? return unserialize($category);
       }
 
       $category = false;
-      $query = (is_numeric($key)) ? "scontent_cat_id='{$key}'" : "scontent_cat_name='{$key}'";
-  		if ($res = $sql2->db_Select(SCONTENTC_CATEGORIES_TABLE, "*", $query, true, $this->debug)) {
+      $query = (is_numeric($key)) ? "scontent_cat_id='{$key}x'" : "scontent_cat_name='{$key}'";
+     
+  		if ($res = $sql2->select(SCONTENTC_CATEGORIES_TABLE, "*", $query, "default", $this->debug)) {
          $category = new SimpleContentCategory($sql2->db_Fetch());
-      } else {
-         if (mysql_errno() != 0) {
-            echo "<br>**".mysql_errno()." : ".mysql_error();
+      } else {         
+        
+         if ($sql2->dbError()!= 0) {
+            $mes = e107::getMessage();
+            $mes->addError("<br>**".$sql2->dbError());  
+						echo $mes->render();        
          }
       }
-
+ 
       if ($category !== false) {
          //TODO broken cache? $e107cache->set(SCONTENT_CACHE_CATEGORY."_{$key}", serialize($category), $pref["scontent_force_cache"]);
       }
@@ -122,14 +130,16 @@ class simple_contentDAO {
 
       $categories = array();
       $query = $groupid ? "scontent_cat_group_id={$groupid}" : "1=1";
-  		if ($res = $sql->db_Select(SCONTENTC_CATEGORIES_TABLE, "*", $query.SCONTENTC_CATEGORIES_ORDER, true, $this->debug)) {
+  		if ($res = $sql->select(SCONTENTC_CATEGORIES_TABLE, "*", $query.SCONTENTC_CATEGORIES_ORDER, "default", $this->debug)) {
          while ($row = $sql->db_Fetch()) {
             $category = new SimpleContentCategory($row);
             $categories[$category->getId()] = $category;
          }
       } else {
-         if (mysql_errno() != 0) {
-            echo "<br>**".mysql_errno()." : ".mysql_error();
+       if ($sql->dbError()!= 0) {
+            $mes = e107::getMessage();
+            $mes->addError("<br>**".$sql->dbError());  
+						echo $mes->render();        
          }
       }
 
@@ -152,13 +162,14 @@ class simple_contentDAO {
 
       $item = false;
       $query = (is_numeric($key)) ? "scontent_item_id={$key}" : "scontent_item_name='{$key}'";
-  		if ($res = $sql2->db_Select(SCONTENTC_ITEMS_TABLE, "*", $query, true, $this->debug)) {
+  		if ($res = $sql2->select(SCONTENTC_ITEMS_TABLE, "*", $query, "default", $this->debug)) {
          $item = new SimpleContentItem($sql2->db_Fetch());
       } else {
-         if (mysql_errno() != 0) {
-            echo "<br>**".mysql_errno()." : ".mysql_error();
-         }
-      }
+         if ($sql2->dbError()!= 0) {
+            $mes = e107::getMessage();
+            $mes->addError("<br>**".$sql2->dbError());  
+						echo $mes->render();        
+         }      }
 
       if ($item !== false) {
          //TODO broken cache? $e107cache->set(SCONTENT_CACHE_ITEM."_{$key}", serialize($item), $pref["scontent_force_cache"]);
@@ -178,14 +189,16 @@ class simple_contentDAO {
       }
 
       $items = array();
-  	   if ($res = $sql->db_Select(SCONTENTC_ITEMS_TABLE, "*", "scontent_item_cat_id={$catid} ".SCONTENTC_ITEMS_ORDER, true, $this->debug)) {
+  	   if ($res = $sql->select(SCONTENTC_ITEMS_TABLE, "*", "scontent_item_cat_id={$catid} ".SCONTENTC_ITEMS_ORDER, "default", $this->debug)) {
          while ($row = $sql->db_Fetch()) {
             $item = new SimpleContentItem($row);
             $items[$item->getId()] = $item;
          }
       } else {
-         if (mysql_errno() != 0) {
-            echo "<br>**".mysql_errno()." : ".mysql_error();
+         if ($sql->dbError()!= 0) {
+            $mes = e107::getMessage();
+            $mes->addError("<br>**".$sql->dbError());  
+						echo $mes->render();        
          }
       }
 
@@ -207,7 +220,7 @@ class simple_contentDAO {
       }
 
       $items = array();
-  	   if ($res = $sql->db_Select(SCONTENTC_RELATIONSHIPS_TABLE, "*", "scontent_rel_parent_item_id={$itemid} ".SCONTENTC_RELATIONSHIPS_ORDER, true, $this->debug)) {
+  	   if ($res = $sql->select(SCONTENTC_RELATIONSHIPS_TABLE, "*", "scontent_rel_parent_item_id={$itemid} ".SCONTENTC_RELATIONSHIPS_ORDER, "default", $this->debug)) {
          while ($row = $sql->db_Fetch()) {
             $parent = $this->getItem($row["scontent_rel_parent_item_id"]);
             $child = $this->getItem($row["scontent_rel_child_item_id"]);
@@ -215,12 +228,14 @@ class simple_contentDAO {
             $items[$child->getId()] = $child;
          }
       } else {
-         if (mysql_errno() != 0) {
-            echo "<br>**".mysql_errno()." : ".mysql_error();
+         if ($sql->dbError()!= 0) {
+            $mes = e107::getMessage();
+            $mes->addError("<br>**".$sql->dbError());  
+						echo $mes->render();        
          }
       }
 
-  	   if ($res = $sql->db_Select(SCONTENTC_RELATIONSHIPS_TABLE, "*", "scontent_rel_child_item_id={$itemid} ".SCONTENTC_RELATIONSHIPS_ORDER, true, $this->debug)) {
+  	   if ($res = $sql->select(SCONTENTC_RELATIONSHIPS_TABLE, "*", "scontent_rel_child_item_id={$itemid} ".SCONTENTC_RELATIONSHIPS_ORDER, "default", $this->debug)) {
          while ($row = $sql->db_Fetch()) {
             $parent = $this->getItem($row["scontent_rel_child_item_id"]);
             $child = $this->getItem($row["scontent_rel_parent_item_id"]);
@@ -228,8 +243,10 @@ class simple_contentDAO {
             $items[$child->getId()] = $child;
          }
       } else {
-         if (mysql_errno() != 0) {
-            echo "<br>**".mysql_errno()." : ".mysql_error();
+         if ($sql->dbError()!= 0) {
+            $mes = e107::getMessage();
+            $mes->addError("<br>**".$sql->dbError());  
+						echo $mes->render();        
          }
       }
 

@@ -70,25 +70,27 @@ class SimpleContent {
 
       // Process URL parameters only if on the Simple Content page itself
       if (strpos(e_SELF, "scontent.php") > 0) { //TODO fix this test
-         // Non-admin processing
+         // Non-admin processing      
          $q = explode(".", e_QUERY);
          // Get data up front where appropriate
          $sc_group = varset(urldecode($q[SCONTENTC_GROUP]), false);
          $sc_cat   = varset(urldecode($q[SCONTENTC_CATEGORY]), false);
          $sc_item  = varset(urldecode($q[SCONTENTC_ITEM]), false);
          cachevars(SCONTENTC_CACHE_ID_PAGE, SCONTENTC_PAGE_GROUPS);
-
+				 
          if ($sc_group) {
             $sc_group = $dao->getGroup($sc_group);
             if ($sc_cat) {
                $sc_cat = $dao->getCategory($sc_cat);
-               if ($sc_item) {
-                  $sc_item = $dao->getItem($sc_item);
-                  cachevars(SCONTENTC_CACHE_ID_ITEM_CHILDREN, $dao->getRelatedItems($sc_item->getID()));
-                  cachevars(SCONTENTC_CACHE_ID_PAGE, SCONTENTC_PAGE_ITEM);
-               } else {
-                  $sc_item = $dao->getItems($sc_cat->getID());
-                  cachevars(SCONTENTC_CACHE_ID_PAGE, SCONTENTC_PAGE_ITEMS);
+               if($sc_cat)  {
+	               if ($sc_item) {
+	                  $sc_item = $dao->getItem($sc_item);
+	                  cachevars(SCONTENTC_CACHE_ID_ITEM_CHILDREN, $dao->getRelatedItems($sc_item->getID()));
+	                  cachevars(SCONTENTC_CACHE_ID_PAGE, SCONTENTC_PAGE_ITEM);
+	               } else {
+	                  $sc_item = $dao->getItems($sc_cat->getID());
+	                  cachevars(SCONTENTC_CACHE_ID_PAGE, SCONTENTC_PAGE_ITEMS);
+	               }
                }
             } else {
                $sc_cat = $dao->getCategories($sc_group->getID());
@@ -130,7 +132,8 @@ class SimpleContent {
          }
          case SCONTENTC_PAGE_ITEMS : {
             $sc_group = getcachedvars(SCONTENTC_CACHE_ID_GROUP);
-            $pagetitle .= "<a href='".SCONTENTC_SELF."?".$sc_group->getName()."'>".$sc_group->getName()."</a>";;
+            $correcturl =  str_replace(' ', '+', $sc_group->getName());
+            $pagetitle .= "<a href='".SCONTENTC_SELF."?".$correcturl."'>".$sc_group->getName()."</a>";;
             $sc_cat = getcachedvars(SCONTENTC_CACHE_ID_CATEGORY);
             $pagetitle .= $pref["simple_content_separator"].$sc_cat->getName();
             $text = $this->generateItemList();
@@ -138,9 +141,11 @@ class SimpleContent {
          }
          case SCONTENTC_PAGE_ITEM : {
             $sc_group = getcachedvars(SCONTENTC_CACHE_ID_GROUP);
-            $pagetitle .= "<a href='".SCONTENTC_SELF."?".$sc_group->getName()."'>".$sc_group->getName()."</a>";;
+            $correcturl =  str_replace(' ', '+', $sc_group->getName());
+            $pagetitle .= "<a href='".SCONTENTC_SELF."?".$correcturl."'>".$sc_group->getName()."</a>";;
             $sc_cat = getcachedvars(SCONTENTC_CACHE_ID_CATEGORY);
-            $pagetitle .= $pref["simple_content_separator"]."<a href='".SCONTENTC_SELF."?".$sc_group->getName().".".$sc_cat->getName()."'>".$sc_cat->getName()."</a>";;
+            $correcturl2 =  str_replace(' ', '+', $sc_cat->getName());
+            $pagetitle .= $pref["simple_content_separator"]."<a href='".SCONTENTC_SELF."?".$correcturl.".".$correcturl2."'>".$sc_cat->getName()."</a>";;
             $sc_item = getcachedvars(SCONTENTC_CACHE_ID_ITEM);
             $pagetitle .= $pref["simple_content_separator"].$sc_item->getName();
             $text = $this->generateItem();
@@ -321,7 +326,7 @@ class SimpleContent {
    function getAdminMenu() {
       global $scontent_adminmenu, $pageid;
       show_admin_menu(SCONTENT_LAN_SIMPLE_CONTENT, $pageid, $scontent_adminmenu);
-      echo "<br/><div class='forumheader'>".SCONTENT_LAN_ADMIN_ITEM_FIELDS."<div class='forumheader3 smalltext' id='fieldLabels'></div></div>";
+     // echo "<br/><div class='forumheader'>".SCONTENT_LAN_ADMIN_ITEM_FIELDS."<div class='forumheader3 smalltext' id='fieldLabels'></div></div>";
    }
 
    /**
@@ -347,7 +352,10 @@ class SimpleContent {
    function getAdminHelp() {
       global $scontent_adminmenu, $pageid, $ns;
       $pageid = e_QUERY ? e_QUERY : 10;
-
+			if (strpos(e_QUERY, 'mode=cats') !== false)  $pageid = 20;
+			elseif(strpos(e_QUERY, 'mode=items') !== false) $pageid = 20;
+			elseif(strpos(e_QUERY, 'mode=groups') !== false) $pageid = 30;	
+			elseif(strpos(e_QUERY, 'mode=relationships') !== false) $pageid = 40;		
       $text = "";
       $count = 1;
       while (defined("SCONTENT_LAN_ADMIN_HELP_{$pageid}_TEXT_".$count)) {
@@ -359,8 +367,9 @@ class SimpleContent {
    }
 
    function adminItemsItemList($row) {
-      $cat = $this->dao->getCategory($row["scontent_item_cat_id"]);
-      return $row["scontent_item_name"]." (".$cat->getName().")";
+    
+      $cat = $this->dao->getCategory($row["scontent_item_cat_id"]);    
+			return $row["scontent_item_name"]." (".$cat->getName().")";
    }
    function adminRelationshipsItemList($row) {
       $parent = $this->dao->getItem($row["scontent_rel_parent_item_id"]);

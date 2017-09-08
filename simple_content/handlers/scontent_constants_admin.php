@@ -16,12 +16,14 @@
 */
 // Files
 define("SCONTENTC_ADMIN_PAGE",           "admin_prefs.php");
+define("SCONTENTC_ADMIN_PAGE_NEW",       "admin_config.php");
+
 $scontent_adminmenu = array(
-   "SCONTENTC_ADMIN_PAGE_10" => array("text" => SCONTENT_LAN_ADMIN_MENU_10, "link" => SCONTENTC_ADMIN_PAGE."?10", "form" => true),
-   "SCONTENTC_ADMIN_PAGE_40" => array("text" => SCONTENT_LAN_ADMIN_MENU_40, "link" => SCONTENTC_ADMIN_PAGE."?40", "form" => true),
-   "SCONTENTC_ADMIN_PAGE_20" => array("text" => SCONTENT_LAN_ADMIN_MENU_20, "link" => SCONTENTC_ADMIN_PAGE."?20", "form" => true),
-   "SCONTENTC_ADMIN_PAGE_30" => array("text" => SCONTENT_LAN_ADMIN_MENU_30, "link" => SCONTENTC_ADMIN_PAGE."?30", "form" => true),
-   "SCONTENTC_ADMIN_PAGE_90" => array("text" => SCONTENT_LAN_ADMIN_MENU_90, "link" => SCONTENTC_ADMIN_PAGE."?90", "form" => true),
+   "SCONTENTC_ADMIN_PAGE_10" => array('text'=> SCONTENT_LAN_ADMIN_MENU_LIST_10, 'perm' => 'P', "link" => SCONTENTC_ADMIN_PAGE_NEW."?mode=items&action=list"),
+   "SCONTENTC_ADMIN_PAGE_20" => array('text'=> SCONTENT_LAN_ADMIN_MENU_LIST_20, 'perm' => 'P', "link" => SCONTENTC_ADMIN_PAGE_NEW."?mode=cats&action=list"),	
+   "SCONTENTC_ADMIN_PAGE_30" => array('text'=> SCONTENT_LAN_ADMIN_MENU_LIST_30, 'perm' => 'P', "link" => SCONTENTC_ADMIN_PAGE_NEW."?mode=groups&action=list"),  
+   "SCONTENTC_ADMIN_PAGE_40" => array('text'=> SCONTENT_LAN_ADMIN_MENU_LIST_30, 'perm' => 'P', "link" => SCONTENTC_ADMIN_PAGE_NEW."?mode=relationships&action=list"),
+   "SCONTENTC_ADMIN_PAGE_90" => array('text'=> LAN_PREFS, 'perm' => 'P', "link" => SCONTENTC_ADMIN_PAGE_NEW."?mode=prefs&action=prefs"),
    "SCONTENTC_ADMIN_PAGE_99" => array("text" => SCONTENT_LAN_ADMIN_MENU_99, "link" => SCONTENTC_ADMIN_PAGE."?99", "form" => false),
 );
 

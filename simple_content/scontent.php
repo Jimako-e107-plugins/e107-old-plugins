@@ -14,8 +14,11 @@
 | $Author: Neil $
 +---------------------------------------------------------------+
 */
-require_once("../../class2.php");
 
+require_once("../../class2.php");      
+
+$pref = e107::pref('simple_content'); // returns an array.
+                    
 // Check global permissions before doing anything
 if (!(check_class($pref["simple_content_view_class"]))) {
    // No permissions set, redirect to site front page

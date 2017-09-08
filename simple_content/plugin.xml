@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e107Plugin name="SimpleContent" lan="SCONTENT_LAN_SIMPLE_CONTENT" version="1.0" date="2017-09-07" compatibility="2.0" installRequired="true" >
+	<author name="bugrain" url="http://www.bugrain.plus.com" />
+	<summary lan="">Simple Content plugin for managing simple content</summary>
+	<description lan="">Simple Content plugin for managing simple content</description>
+	<keywords>
+		<word>information</word>
+		<word>content</word>
+		<word>pages</word>
+	</keywords>
+	<category>content</category>
+	<copyright>e107.sk</copyright>
+	<adminLinks>
+		<link url="admin_config.php" description="" icon="images/icon_32.png" iconSmall="images/icon_16.png" icon128="" primary="true" >LAN_CONFIGURE</link>
+	</adminLinks>
+	<pluginPrefs>
+		<pref name='simple_content_pagetitle'>SimpleContent</pref>
+		<pref name='simple_content_separator'></pref>
+		<pref name='simple_content_view_class'>0</pref>
+		<pref name='simple_content_template'>default</pref>
+		<pref name='scontent_allow_homepage'>0</pref>
+		<pref name='scontent_force_cache'>0</pref>
+
+		<pref name='scontent_relationship_repeats'>0</pref>		
+		<pref name='scontent_rel_child_item_id_pref'>0</pref>
+		<pref name='scontent_rel_name_pref'>0</pref>		
+		<pref name='scontent_rel_description_pref'>0</pref>				
+	</pluginPrefs>
+</e107Plugin>

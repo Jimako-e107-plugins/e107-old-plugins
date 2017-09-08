@@ -16,11 +16,14 @@
 */
 
 // admin menus
-define("SCONTENT_LAN_ADMIN_MENU_10",                  "Items");
-define("SCONTENT_LAN_ADMIN_MENU_20",                  "Categories");
-define("SCONTENT_LAN_ADMIN_MENU_30",                  "Groups");
-define("SCONTENT_LAN_ADMIN_MENU_40",                  "Relationships");
-define("SCONTENT_LAN_ADMIN_MENU_90",                  "Preferences");
+define("SCONTENT_LAN_ADMIN_MENU_LIST_10",             "Items");
+define("SCONTENT_LAN_ADMIN_MENU_LIST_20",             "Categories");
+define("SCONTENT_LAN_ADMIN_MENU_LIST_30",             "Groups");
+define("SCONTENT_LAN_ADMIN_MENU_LIST_40",             "Relationships");
+define("SCONTENT_LAN_ADMIN_MENU_ADD_10",              "Add Item");
+define("SCONTENT_LAN_ADMIN_MENU_ADD_20",              "Add Category");
+define("SCONTENT_LAN_ADMIN_MENU_ADD_30",              "Add Group");
+define("SCONTENT_LAN_ADMIN_MENU_ADD_40",              "Add Relationship");
 define("SCONTENT_LAN_ADMIN_MENU_99",                  "Read Me");
 
 // items
@@ -30,6 +33,7 @@ define("SCONTENT_LAN_ADMIN_ITEM_PARENT",              "Parent");
 define("SCONTENT_LAN_ADMIN_ITEM_CHILD",               "Child");
 define("SCONTENT_LAN_ADMIN_ITEM_FIELD",               "Field");
 define("SCONTENT_LAN_ADMIN_ITEM_FIELDS",              "Field labels");
+define("SCONTENT_LAN_ADMIN_ITEM_LASTUPDATE",          "Item Last Update");
 define("SCONTENT_LAN_ADMIN_ITEM_F1",                  "Field 1 value");
 define("SCONTENT_LAN_ADMIN_ITEM_F2",                  "Field 2 value");
 define("SCONTENT_LAN_ADMIN_ITEM_F3",                  "Field 3 value");
@@ -50,15 +54,15 @@ define("SCONTENT_LAN_ADMIN_CATEGORY_START_DATE",      "Start date");
 define("SCONTENT_LAN_ADMIN_CATEGORY_END_DATE",        "End date");
 define("SCONTENT_LAN_ADMIN_CATEGORY_CLOSED",          "Closed");
 define("SCONTENT_LAN_ADMIN_CATEGORY_VIEW_CLASS",      "View class");
-define("SCONTENT_LAN_ADMIN_CATEGORY_LABEL_F1",        "Field 1");
-define("SCONTENT_LAN_ADMIN_CATEGORY_LABEL_F2",        "Field 2");
-define("SCONTENT_LAN_ADMIN_CATEGORY_LABEL_F3",        "Field 3");
-define("SCONTENT_LAN_ADMIN_CATEGORY_LABEL_F4",        "Field 4");
-define("SCONTENT_LAN_ADMIN_CATEGORY_LABEL_F5",        "Field 5");
-define("SCONTENT_LAN_ADMIN_CATEGORY_LABEL_F6",        "Field 6");
-define("SCONTENT_LAN_ADMIN_CATEGORY_LABEL_F7",        "Field 7");
-define("SCONTENT_LAN_ADMIN_CATEGORY_LABEL_F8",        "Field 8");
-define("SCONTENT_LAN_ADMIN_CATEGORY_LABEL_F9",        "Field 9");
+define("SCONTENT_LAN_ADMIN_CATEGORY_LABEL_F1",        "Label for Field 1");
+define("SCONTENT_LAN_ADMIN_CATEGORY_LABEL_F2",        "Label for Field 2");
+define("SCONTENT_LAN_ADMIN_CATEGORY_LABEL_F3",        "Label for Field 3");
+define("SCONTENT_LAN_ADMIN_CATEGORY_LABEL_F4",        "Label for Field 4");
+define("SCONTENT_LAN_ADMIN_CATEGORY_LABEL_F5",        "Label for Field 5");
+define("SCONTENT_LAN_ADMIN_CATEGORY_LABEL_F6",        "Label for Field 6");
+define("SCONTENT_LAN_ADMIN_CATEGORY_LABEL_F7",        "Label for Field 7");
+define("SCONTENT_LAN_ADMIN_CATEGORY_LABEL_F8",        "Label for Field 8");
+define("SCONTENT_LAN_ADMIN_CATEGORY_LABEL_F9",        "Label for Field 9");
 
 // groups
 define("SCONTENT_LAN_ADMIN_GROUP",                    "Group");
