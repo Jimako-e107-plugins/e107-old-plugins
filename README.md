@@ -7,17 +7,32 @@ source: http://www.bugrain.com/e107_plugins/psilo/psilo.php?cat.2
 Plugins:
 
 ### e107 Helper Project v1.1b
+
 original version: 20-Nov-2008
-state: fixed all visible errors 
+
+state: fixed all visible errors
+ 
 compatible: 2.1.6
 
-### e107 Agenda v1.7 b2 
+### e107 Agenda v1.7 b2 by bugrain
+
 original version: 20-May-2008
+
+Agenda is a calendar, appointment and event organiser.
+
 state: fixed all visible errors 
+
 compatible: 2.1.6
 
 ### e107 Simple Content v1.0b
+
 original version: 20-Nov-2008
-not possible just fix it, used JSHelper plugin for admin area
-in progress
+
+~~not possible just fix it, used JSHelper plugin for admin area~~
+
+state: fixed all visible errors, admin new v2 version 
+
+fixed bug with breadcrumbs
+
+compatible: 2.1.6
 
