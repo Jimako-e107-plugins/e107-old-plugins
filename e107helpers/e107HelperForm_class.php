@@ -1036,22 +1036,24 @@ class e107HelperForm {
       $text .= "<table summary='*' style='width:100%;margin-left:auto;margin-right:auto;' class='fborder'>";
       $text .= "<tr><td colspan='2' class='forumheader' style='text-align:center'>";
 
-      $count = $sql2->db_Select($this->_getDBTable(), $this->_getDBIndex().", ".$this->_getDBData(), $this->_getDBJoin()." WHERE ".$this->_getDBWhere()." ORDER BY ".$this->_getDBOrder(), false);
+      $count = $sql2->select($this->_getDBTable(), $this->_getDBIndex().", ".$this->_getDBData(), $this->_getDBJoin()." WHERE ".$this->_getDBWhere()." ORDER BY ".$this->_getDBOrder(), "no-where");
       if ($count == 0) {
          $text .= HELPER_LAN_EMPTY;
       } else {
          $text .= HELPER_LAN_EXISTING."&nbsp;<select name='e107helper_selected_key' class='".$this->_getDBStyle()."'>";
          //$dataCols = count(explode(",", $this->_getDBData()));
          $rows = array();
-         while ($row = $sql2->db_Fetch()) {
+         while ($row = $sql2->fetch()) {
             $rows[count($rows)] = $row;
          }
          foreach ($rows as $row) {
+ 
             $keys = array_values(explode(",", $this->_getDBData()));
             $patt = $this->_getDBPattern();
             if (strlen($patt) == 0) {
                $patt = $this->_getDBData();
             }
+ 
             foreach ($keys as $key) {
                $key = trim($key);
                $patt = str_replace("$key", $row[$key], $patt);
@@ -1074,7 +1076,8 @@ class e107HelperForm {
                $temp = $patt;
             }
             if ($temp !== false) {
-               $text .= "<option value='$row[0]'>$temp</option>";
+               $index = $row[$this->_getDBIndex()];
+               $text .= "<option value='$index'>$temp</option>";
             }
          }
          $text .= "</select>&nbsp;&nbsp;<input class='button' type='submit' name='e107helper_edit_sel' value='".HELPER_LAN_EDIT."' />";
@@ -1755,7 +1758,7 @@ class e107HelperForm {
     * @access private
     */
    function _getDBIndexValue() {
-      if (isset($_REQUEST["e107helper_selected_key"])) {
+      if (isset($_REQUEST["e107helper_selected_key"])) { 
          return $_REQUEST["e107helper_selected_key"];
       }
       return $this->_dbIndexValue;
@@ -1954,11 +1957,11 @@ class e107HelperForm {
                      if ($allTags[$key]->isBatchTag()) {
                         $batchcolstr[] = $key;
                         $batchinpstr[] = "'".$e107Helper->tp_toDB($allTags[$key]->getCurrentValue(false))."'";
-                        $tmp['data'][$key] = "'".$e107Helper->tp_toDB($allTags[$key]->getCurrentValue(false))."'";
+                        $tmp['data'][$key] = $e107Helper->tp_toDB($allTags[$key]->getCurrentValue(false));
                      } else {
                         $colstr[] = $key;
                         $inpstr[] = "'".$e107Helper->tp_toDB($allTags[$key]->getCurrentValue(false))."'";
-                        $tmp['data'][$key] = "'".$e107Helper->tp_toDB($allTags[$key]->getCurrentValue(false))."'";
+                        $tmp['data'][$key] = $e107Helper->tp_toDB($allTags[$key]->getCurrentValue(false));
                      }
                   }
                }
@@ -2047,14 +2050,15 @@ class e107HelperForm {
 
    function _setTagValuesFromDB($id) {
       $mysql = new db();
-      $count = $mysql->db_Select($this->_getDBTable(), "*", $this->_getDBIndex()."='$id'");
-      $row = $mysql->db_Fetch();
+      $count = $mysql->select($this->_getDBTable(), "*", $this->_getDBIndex()."='$id'");
+      $row = $mysql->fetch();
       $keys = array_keys($this->_tags);
       foreach ($keys as $key) {
         if (is_a($this->_tags[$key], "e107HelperTagObj")) {
             $this->_tags[$key]->setDefault($row[$key], true);
          }
       }
+ 
    }
 
    function _setTagValuesFromPrefs() {
