@@ -15,7 +15,7 @@
 +---------------------------------------------------------------+
 */
 
-class form {
+class oldform {
    function form_open($form_method, $form_action, $form_name="", $form_target = "", $form_enctype="") {
       $method  = ($form_method   ? "method='".$form_method."'"  : "");
       $target  = ($form_target   ? " target='".$form_target."'" : "");
@@ -140,7 +140,8 @@ class form {
             $folder = $u_value;
             $handle = opendir($folder);
             while ($file = readdir($handle)) {
-               if (is_file($folder.$file) && (eregi(".jpg",$file) || eregi(".gif",$file) || eregi(".png",$file))) {
+               //if (is_file($folder.$file) && (eregxi(".jpg",$file) || eregxi(".gif",$file) || eregxi(".png",$file))) {
+               if (is_file($folder.$file) && (preg_match("%.jpg%i",$file) || preg_match("%.gif%i",$file) || preg_match("%.png%i",$file))) {
                   $iconlist[] = $file;
                }
             }

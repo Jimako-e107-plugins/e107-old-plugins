@@ -289,7 +289,7 @@ function eplayerAdd($msg=false, $msgExtra=false) {
    $categories = substr($categories, 0, strlen($categories)-1);
 
    require_once("form_handler.php");
-   $rs = new form;
+   $rs = new oldform;
 
    $fieldcapt[] = EPLAYER_LAN_ADMIN_MEDIA_03_0;
    $fieldnote[] = EPLAYER_LAN_ADMIN_MEDIA_03_2;

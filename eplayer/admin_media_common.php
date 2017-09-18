@@ -186,7 +186,7 @@
 
    require_once(e_ADMIN."auth.php");
    require_once("form_handler.php");
-   $rs = new form;
+   $rs = new oldform;
 
    // Page config checks
    $toapprove = isset($_POST['toapprove']) && !isset($_POST['showall']) ? true : false;

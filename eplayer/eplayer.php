@@ -115,14 +115,16 @@
    }
 
    // Check to see if we are requesting to upload a file
-   if (eregi("upload", e_QUERY)) {
+   //if (eregxi("upload", e_QUERY)) {
+   if (preg_match("%upload%i", e_QUERY))  {
       $ep_text .= "<tr><td>";
       $ep_text .= eplayerAdd();
       $ep_text .= "</td></tr>";
    }
 
    // Check to see if we are uploading a file
-   if (eregi("submit", e_QUERY)) {
+   //if (eregxi("submit", e_QUERY)) {
+   if (preg_match("%submit%i", e_QUERY))  {
       define("PAGE_NAME", $pref['eplayer_title']);
       // Check for mandatory fields
       $eplayer_filename = $_FILES["eplayer_filename"];
@@ -149,8 +151,10 @@
             } else {
                $eplayer_dir = $pref["eplayer_media_dir"];
             }
-            $eplayer_file = e_FILE.$eplayer_dir."/".ereg_replace("[^a-z0-9._]", "", str_replace(" ", "_", str_replace("%20", "_", strtolower($eplayer_filename['name'][0]))));
-            if (move_uploaded_file($eplayer_filename['tmp_name'][0], $eplayer_file)) {
+            //$eplayer_file = e_FILE.$eplayer_dir."/".eregx_replace("[^a-z0-9._]", "", str_replace(" ", "_", str_replace("%20", "_", strtolower($eplayer_filename['name'][0]))));
+            $eplayer_file = e_FILE.$eplayer_dir."/".preg_replace("%[^a-z0-9._]%", "", str_replace(" ", "_", str_replace("%20", "_", strtolower($eplayer_filename['name'][0]))));            
+						 
+						if (move_uploaded_file($eplayer_filename['tmp_name'][0], $eplayer_file)) {
                $datestamp = mktime (0,0,0,$_POST["datestamp_month"],$_POST["datestamp_day"],$_POST["datestamp_year"]);
                if ($datestamp == "") {
                   $datestamp = '0';
@@ -218,7 +222,8 @@
    }
 
    // Check to see if we are searching
-   if (eregi("search", e_QUERY)) {
+   //if (eregxi("search", e_QUERY)) {
+   if (preg_match("%search%i", e_QUERY)) {
       define("PAGE_NAME", $pref['eplayer_title']);
       $ep_text .= "<tr><td colspan='3' class='np' style='text-align:left'><a href='eplayer.php'>&lt;&lt; ".EPLAYER_LAN_22." ".EPLAYER_LAN_01."</a></td></tr>";
       $ep_text .= "<tr><td colspan='2' class='forumheader' width='66%'>$catname<br /><span class='smalltext'>$catdescription</span></td>";
@@ -275,7 +280,8 @@
    }
 
    // Check to see if we should be displaying clips in a category
-   if (eregi("cat.", e_QUERY)) {
+   //if (eregxi("cat.", e_QUERY)) {
+   if (preg_match("%cat.%i", e_QUERY)) {
       define("PAGE_NAME", $pref['eplayer_title']);
       $tmp     = explode(".", e_QUERY);
       $catid   = $tmp[1];
@@ -369,7 +375,8 @@
    }
 
    // Check to see if we should be displaying clips for a user
-   if (eregi("usrg.", e_QUERY)) {
+   //if (eregxi("usrg.", e_QUERY)) {
+   if (preg_match("%usrg.%i", e_QUERY)) {
       define("PAGE_NAME", $pref['eplayer_title']);
       $tmp     = explode(".", e_QUERY);
       $owner   = $tmp[1];
@@ -429,7 +436,8 @@
    }
 
    // Check to see if we should be displaying user gallery list
-   if (eregi("usrl", e_QUERY)) {
+   //if (eregxi("usrl", e_QUERY)) {
+   if (preg_match("%usrl%i", e_QUERY)) {
       define("PAGE_NAME", $pref['eplayer_title']);
       $tmp     = explode(".", e_QUERY);
       $from    = $tmp[1];
@@ -470,9 +478,12 @@
    }
 
    // Check to see if we are playing a clip
-   if (eregi("view.", e_QUERY) || eregi("usrv.", e_QUERY)) {
+   //if (eregxi("view.", e_QUERY) || eregxi("usrv.", e_QUERY)) {
+   if (preg_match("%view.%i", e_QUERY) || preg_match("%usrv.%i", e_QUERY) ) {
       $tmp  = explode(".", e_QUERY);
-      $ix = (eregi("view.", e_QUERY)) ? 0 : 1;
+      //$ix = (eregxi("view.", e_QUERY)) ? 0 : 1;
+      $ix = (preg_match("%view.%i", e_QUERY)) ? 0 : 1;
+      
       $owner   = $tmp[$ix];
       $id      = $tmp[$ix+1];
       $from    = $tmp[$ix+2];
@@ -663,7 +674,8 @@
    require_once(HEADERF);
 
    $ns->tablerender($pref['eplayer_title'], $ep_text);
-   if ((eregi("view.", e_QUERY)) && ($comment == "1")) {
+   //if ((eregxi("view.", e_QUERY)) && ($comment == "1")) {
+    if ((preg_match("%view.%i", e_QUERY)) && ($comment == "1")) {
       $cobj = new comment;
       // e107 0.617
       if (!$e107Helper->isV07()) {
