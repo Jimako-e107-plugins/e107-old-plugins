@@ -1,0 +1,124 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="eplayer_admin_prefs_form" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <text name="eplayer_title" label="EPLAYER_LAN_ADMIN_PREF_00_0" prompt="EPLAYER_LAN_ADMIN_PREF_00_1" help="EPLAYER_LAN_ADMIN_PREF_00_2" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">50</attribute>
+      </text>
+
+      <dirlist name="eplayer_media_dir" label="EPLAYER_LAN_ADMIN_PREF_05_0" prompt="EPLAYER_LAN_ADMIN_PREF_05_1" help="EPLAYER_LAN_ADMIN_PREF_05_2" class="tbox">
+         <default var="e107pref"/>
+         <dir>e_FILE</dir>
+      </dirlist>
+
+      <dirlist name="eplayer_image_dir" label="EPLAYER_LAN_ADMIN_PREF_09_0" prompt="EPLAYER_LAN_ADMIN_PREF_09_1" help="EPLAYER_LAN_ADMIN_PREF_09_2" class="tbox">
+         <default var="e107pref"/>
+         <dir>e_FILE</dir>
+      </dirlist>
+
+      <dirlist name="eplayer_icon_dir" label="EPLAYER_LAN_ADMIN_PREF_02_0" prompt="EPLAYER_LAN_ADMIN_PREF_02_1" help="EPLAYER_LAN_ADMIN_PREF_02_2" class="tbox">
+         <default var="e107pref"/>
+         <dir>e_IMAGE</dir>
+      </dirlist>
+
+      <radio name="eplayer_display_order" label="EPLAYER_LAN_ADMIN_PREF_03_0" prompt="EPLAYER_LAN_ADMIN_PREF_03_1" help="EPLAYER_LAN_ADMIN_PREF_03_2" class="tbox">
+         <default var="e107pref">0</default>
+         <breaks>true</breaks>
+         <value key="EPLAYER_LAN_ADMIN_PREF_03_3">EPLAYER_LAN_ADMIN_PREF_03_3</value>
+         <value key="EPLAYER_LAN_ADMIN_PREF_03_4">EPLAYER_LAN_ADMIN_PREF_03_4</value>
+         <value key="EPLAYER_LAN_ADMIN_PREF_03_5">EPLAYER_LAN_ADMIN_PREF_03_5</value>
+         <value key="EPLAYER_LAN_ADMIN_PREF_03_6">EPLAYER_LAN_ADMIN_PREF_03_6</value>
+         <value key="EPLAYER_LAN_ADMIN_PREF_03_7">EPLAYER_LAN_ADMIN_PREF_03_7</value>
+      </radio>
+
+      <integer name="eplayer_clips_per_page" label="EPLAYER_LAN_ADMIN_PREF_04_0" prompt="EPLAYER_LAN_ADMIN_PREF_04_1" help="EPLAYER_LAN_ADMIN_PREF_04_2" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">2</attribute>
+         <attribute name="maxlen">2</attribute>
+         <maxlen>2</maxlen>
+         <minlen>1</minlen>
+         <maxvalue>99</maxvalue>
+         <minvalue>1</minvalue>
+      </integer>
+
+      <integer name="eplayer_default_width" label="EPLAYER_LAN_ADMIN_PREF_07_0" prompt="EPLAYER_LAN_ADMIN_PREF_07_1" help="EPLAYER_LAN_ADMIN_PREF_07_2" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">4</attribute>
+         <attribute name="maxlen">4</attribute>
+         <maxlen>4</maxlen>
+         <minlen>1</minlen>
+         <maxvalue>9999</maxvalue>
+         <minvalue>1</minvalue>
+      </integer>
+
+      <integer name="eplayer_default_height" label="EPLAYER_LAN_ADMIN_PREF_08_0" prompt="EPLAYER_LAN_ADMIN_PREF_08_1" help="EPLAYER_LAN_ADMIN_PREF_08_2" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">4</attribute>
+         <attribute name="maxlen">4</attribute>
+         <maxlen>4</maxlen>
+         <minlen>1</minlen>
+         <maxvalue>9999</maxvalue>
+         <minvalue>1</minvalue>
+      </integer>
+
+      <radio name="eplayer_show_clip_details" label="EPLAYER_LAN_ADMIN_PREF_06_0" prompt="EPLAYER_LAN_ADMIN_PREF_06_1" help="EPLAYER_LAN_ADMIN_PREF_06_2" class="tbox">
+         <default var="e107pref">0</default>
+         <breaks>true</breaks>
+         <value key="EPLAYER_LAN_ADMIN_PREF_06_3">EPLAYER_LAN_ADMIN_PREF_06_3</value>
+         <value key="EPLAYER_LAN_ADMIN_PREF_06_4">EPLAYER_LAN_ADMIN_PREF_06_4</value>
+         <value key="EPLAYER_LAN_ADMIN_PREF_06_5">EPLAYER_LAN_ADMIN_PREF_06_5</value>
+      </radio>
+
+      <integer name="eplayer_max_width" label="EPLAYER_LAN_ADMIN_PREF_10_0" prompt="EPLAYER_LAN_ADMIN_PREF_10_1" help="EPLAYER_LAN_ADMIN_PREF_10_2" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">4</attribute>
+         <attribute name="maxlen">4</attribute>
+         <maxlen>4</maxlen>
+         <minlen>1</minlen>
+         <maxvalue>9999</maxvalue>
+         <minvalue>1</minvalue>
+      </integer>
+
+      <checkbox name="eplayer_use_exif" label="EPLAYER_LAN_ADMIN_PREF_11_0" prompt="EPLAYER_LAN_ADMIN_PREF_11_1" help="EPLAYER_LAN_ADMIN_PREF_11_2" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <accesstable name="eplayer_view_class" label="EPLAYER_LAN_ADMIN_PREF_12_0" prompt="EPLAYER_LAN_ADMIN_PREF_12_1" help="EPLAYER_LAN_ADMIN_PREF_12_2" class="tbox">
+         <default var="e107pref"/>
+      </accesstable>
+
+      <accesstable name="eplayer_upload_class" label="EPLAYER_LAN_ADMIN_PREF_13_0" prompt="EPLAYER_LAN_ADMIN_PREF_13_1" help="EPLAYER_LAN_ADMIN_PREF_13_2" class="tbox">
+         <default var="e107pref"/>
+      </accesstable>
+
+      <accesstable name="eplayer_download_class" label="EPLAYER_LAN_ADMIN_PREF_14_0" prompt="EPLAYER_LAN_ADMIN_PREF_14_1" help="EPLAYER_LAN_ADMIN_PREF_14_2" class="tbox">
+         <default var="e107pref"/>
+      </accesstable>
+
+      <accesstable name="eplayer_user_gallery_class" label="EPLAYER_LAN_ADMIN_PREF_17_0" prompt="EPLAYER_LAN_ADMIN_PREF_17_1" help="EPLAYER_LAN_ADMIN_PREF_17_2" class="tbox">
+         <default var="e107pref"/>
+      </accesstable>
+
+      <image name="eplayer_user_gallery_icon" label="EPLAYER_LAN_ADMIN_PREF_18_0" prompt="EPLAYER_LAN_ADMIN_PREF_18_1" help="EPLAYER_LAN_ADMIN_PREF_18_2" class="tbox">
+         <default var="e107pref"/>
+         <dir>e_IMAGE</dir>
+         <attribute name="size">60</attribute>
+      </image>
+
+      <text name="eplayer_email_notification" label="EPLAYER_LAN_ADMIN_PREF_15_0" prompt="EPLAYER_LAN_ADMIN_PREF_15_1" help="EPLAYER_LAN_ADMIN_PREF_15_2" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">50</attribute>
+         <attribute name="maxlen">100</attribute>
+      </text>
+
+      <checkbox name="eplayer_allow_rating" label="EPLAYER_LAN_ADMIN_PREF_16_0" prompt="EPLAYER_LAN_ADMIN_PREF_16_1" help="EPLAYER_LAN_ADMIN_PREF_16_2" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+   </form>
+
+</e107HelperForm>

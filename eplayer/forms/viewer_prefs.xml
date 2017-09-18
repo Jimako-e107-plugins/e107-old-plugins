@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="eplayer_admin_prefs_form" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <checkbox name="eplayer_view_show_non_visible" label="EPLAYER_LAN_ADMIN_VPREF_01_0" prompt="EPLAYER_LAN_ADMIN_VPREF_01_1" help="EPLAYER_LAN_ADMIN_VPREF_01_2" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <textarea name="eplayer_view_hidden_text" label="EPLAYER_LAN_ADMIN_VPREF_02_0" prompt="EPLAYER_LAN_ADMIN_VPREF_02_1" help="EPLAYER_LAN_ADMIN_VPREF_02_2" class="tbox">
+         <default var="e107pref"/>
+         <style name="width">95%</style>
+         <attribute name="cols">70</attribute>
+         <attribute name="rows">10</attribute>
+         <maxlength>250</maxlength>
+         <bbcodes>true</bbcodes>
+      </textarea>
+
+      <radio name="eplayer_view_show_clip_details" label="EPLAYER_LAN_ADMIN_VPREF_03_0" prompt="EPLAYER_LAN_ADMIN_VPREF_03_1" help="EPLAYER_LAN_ADMIN_VPREF_03_2" class="tbox">
+         <default var="e107pref">0</default>
+         <breaks>true</breaks>
+         <value key="EPLAYER_LAN_ADMIN_VPREF_03_3">EPLAYER_LAN_ADMIN_VPREF_03_3</value>
+         <value key="EPLAYER_LAN_ADMIN_VPREF_03_4">EPLAYER_LAN_ADMIN_VPREF_03_4</value>
+         <value key="EPLAYER_LAN_ADMIN_VPREF_03_5">EPLAYER_LAN_ADMIN_VPREF_03_5</value>
+      </radio>
+
+   </form>
+
+</e107HelperForm>

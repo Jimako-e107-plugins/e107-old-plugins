@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="cat_admin_categories_form" type="HELPER_FORM_TYPE_DB_ROW">
+
+      <errorsattop value="true" />
+
+      <dbdetails>
+         <dbtable>eplayer_category</dbtable>
+         <index>cat_id</index>
+         <data>cat_name, cat_parent_category</data>
+         <order>cat_name asc</order>
+         <liststyle>tbox</liststyle>
+         <dbformatcallback>eplayerAdminCategoriesItemList</dbformatcallback>
+      </dbdetails>
+
+      <text name="cat_name" label="EPLAYER_LAN_ADMIN_CATEGORY_00_0" prompt="EPLAYER_LAN_ADMIN_CATEGORY_00_1" help="EPLAYER_LAN_ADMIN_CATEGORY_00_2" class="tbox">
+         <default var="db"/>
+         <mandatory>true</mandatory>
+         <attribute name="size">50</attribute>
+         <maxlength>100</maxlength>
+      </text>
+
+      <textarea name="cat_description" label="EPLAYER_LAN_ADMIN_CATEGORY_01_0" prompt="EPLAYER_LAN_ADMIN_CATEGORY_01_1" help="EPLAYER_LAN_ADMIN_CATEGORY_01_2" class="tbox">
+         <default var="db"/>
+         <style name="width">95%</style>
+         <maxlength>250</maxlength>
+      </textarea>
+
+      <image name="cat_icon" label="EPLAYER_LAN_ADMIN_CATEGORY_02_0" prompt="EPLAYER_LAN_ADMIN_CATEGORY_02_1" help="EPLAYER_LAN_ADMIN_CATEGORY_02_2" class="tbox">
+         <default var="e107pref"/>
+         <dir>e_IMAGE</dir>
+         <attribute name="size">60</attribute>
+      </image>
+
+      <integer name="cat_display_order" label="EPLAYER_LAN_ADMIN_CATEGORY_03_0" prompt="EPLAYER_LAN_ADMIN_CATEGORY_03_1" help="EPLAYER_LAN_ADMIN_CATEGORY_03_2" class="tbox">
+         <default var="db"/>
+         <attribute name="size">4</attribute>
+         <attribute name="maxlen">4</attribute>
+         <maxlen>4</maxlen>
+         <minlen>1</minlen>
+         <maxvalue>9999</maxvalue>
+         <minvalue>1</minvalue>
+      </integer>
+
+      <table name="cat_parent_category" label="EPLAYER_LAN_ADMIN_CATEGORY_04_0" prompt="EPLAYER_LAN_ADMIN_CATEGORY_04_1" help="EPLAYER_LAN_ADMIN_CATEGORY_04_2" class="tbox">
+         <default var="db"/>
+         <listcallback>eplayerAdminParentCategoriesDropDown</listcallback>
+      </table>
+
+      <accesstable name="cat_visibility" label="EPLAYER_LAN_ADMIN_CATEGORY_05_0" prompt="EPLAYER_LAN_ADMIN_CATEGORY_05_1" help="EPLAYER_LAN_ADMIN_CATEGORY_05_2" class="tbox">
+         <default var="db"/>
+      </accesstable>
+
+      <accesstable name="cat_uploaders" label="EPLAYER_LAN_ADMIN_CATEGORY_06_0" prompt="EPLAYER_LAN_ADMIN_CATEGORY_06_1" help="EPLAYER_LAN_ADMIN_CATEGORY_06_2" class="tbox">
+         <default var="db"/>
+      </accesstable>
+
+   </form>
+
+</e107HelperForm>
