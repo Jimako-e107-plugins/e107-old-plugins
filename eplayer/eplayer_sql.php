@@ -8,7 +8,7 @@ CREATE TABLE eplayer_category (
    cat_visibility        tinyint(3) unsigned NOT NULL default '0',
    cat_uploaders         tinyint(3) unsigned NOT NULL default '0',
    PRIMARY KEY  (cat_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM AUTO_INCREMENT=1;
 CREATE TABLE eplayer (
    id                   int(10) unsigned NOT NULL auto_increment,
    filename             varchar(200) NOT NULL default '',
@@ -27,4 +27,4 @@ CREATE TABLE eplayer (
    viewcount            int(10) unsigned NOT NULL default '0',
    approved             char(1) NOT NULL default '0',
    PRIMARY KEY  (id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM AUTO_INCREMENT=1;
