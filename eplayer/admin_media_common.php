@@ -56,11 +56,13 @@
       if ($pageid == "media_local") {
          $fieldcapt[] = EPLAYER_LAN_ADMIN_MEDIA_03_0;
          $fieldnote[] = EPLAYER_LAN_ADMIN_MEDIA_03_1;
-         $fieldvalu[] = eplayerGetFiles(e_FILE, $pref["eplayer_media_dir"]);
+         //$fieldvalu[] = eplayerGetFiles(e_xFILE, $pref["eplayer_media_dir"]);    
+         $fieldvalu[] = eplayerGetFiles(e_MEDIA, $pref["eplayer_media_dir"]);  
       } else {
          $fieldcapt[] = EPLAYER_LAN_ADMIN_MEDIA_11_0;
          $fieldnote[] = EPLAYER_LAN_ADMIN_MEDIA_11_1;
-         $fieldvalu[] = eplayerGetFiles(e_FILE, $pref["eplayer_image_dir"]);;
+         //$fieldvalu[] = eplayerGetFiles(e_xFILE, $pref["eplayer_image_dir"]);;
+         $fieldvalu[] = eplayerGetFiles(e_MEDIA, $pref["eplayer_image_dir"]);
       }
       $fieldname[] = "filename";
       $fieldtype[] = "dropdown2";

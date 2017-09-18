@@ -404,7 +404,7 @@ function eplayerAdminCategoriesItemList($row) {
 function eplayerAdminParentCategoriesDropDown() {
    global $sql;
    $categorytable = "eplayer_category";
-   $sql->select($categorytable, "*", "cat_parent_category=0 order by cat_name asc", "default", true);
+   $sql->select($categorytable, "*", "cat_parent_category=0 order by cat_name asc", "default" );
    $parents[] = array(0, EPLAYER_LAN_25);
    while ($ep_row = $sql->fetch()) {
       extract($ep_row);

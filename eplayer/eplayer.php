@@ -151,8 +151,8 @@
             } else {
                $eplayer_dir = $pref["eplayer_media_dir"];
             }
-            //$eplayer_file = e_FILE.$eplayer_dir."/".eregx_replace("[^a-z0-9._]", "", str_replace(" ", "_", str_replace("%20", "_", strtolower($eplayer_filename['name'][0]))));
-            $eplayer_file = e_FILE.$eplayer_dir."/".preg_replace("%[^a-z0-9._]%", "", str_replace(" ", "_", str_replace("%20", "_", strtolower($eplayer_filename['name'][0]))));            
+            //$eplayer_file = e_xFILE.$eplayer_dir."/".eregx_replace("[^a-z0-9._]", "", str_replace(" ", "_", str_replace("%20", "_", strtolower($eplayer_filename['name'][0]))));
+            $eplayer_file = e_MEDIA.$eplayer_dir."/".preg_replace("%[^a-z0-9._]%", "", str_replace(" ", "_", str_replace("%20", "_", strtolower($eplayer_filename['name'][0]))));            
 						 
 						if (move_uploaded_file($eplayer_filename['tmp_name'][0], $eplayer_file)) {
                $datestamp = mktime (0,0,0,$_POST["datestamp_month"],$_POST["datestamp_day"],$_POST["datestamp_year"]);
