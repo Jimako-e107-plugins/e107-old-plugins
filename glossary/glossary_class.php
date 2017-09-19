@@ -82,8 +82,8 @@ class glossary_class
 	{
 		global $sql, $ns, $rs;
 		
-		$distinctfirstletter = $sql->db_Select("glossary", " DISTINCT(glo_name) ", "glo_approved = '$approved' ORDER BY glo_name ASC");
-		while($row = $sql->db_Fetch())
+		$distinctfirstletter = $sql->select("glossary", " DISTINCT(glo_name) ", "glo_approved = '$approved' ORDER BY glo_name ASC", "default");
+		while($row = $sql->fetch())
 		{
 			$arrletters[] = $this->first_car($row['glo_name']);
 		}
@@ -130,7 +130,7 @@ class glossary_class
 			$qryletter .= "";
 			
 		$text .= "<div class='center'>\n";
-		if (!$total = $sql->db_Select("glossary", "*", "glo_approved = '$approved' ".$qryletter." ORDER BY glo_name ASC"))
+		if (!$total = $sql->select("glossary", "*", "glo_approved = '$approved' ".$qryletter." ORDER BY glo_name ASC", "default"))
 			$text .= $approved ? LAN_GLOSSARY_SHOWWORD_02 : LAN_GLOSSARY_SHOWSUB_03;
 		else
 		{
@@ -771,12 +771,16 @@ class glossary_class
 		$word_table = "";
 		$wall = array();
 		$title = $tp->parseTemplate($WORD_PAGE_TITLE, FALSE, $word_shortcodes);
-		$words = $sql->db_Select("glossary", "*", "glo_approved = '1' ORDER BY glo_name ASC");
-		
+		$words = $sql->retrieve("glossary", "*", "glo_approved = '1' ORDER BY glo_name ASC" , true);
+  
 		if ($words)
 		{
-			while(list($glo_id, $word, $description) = $sql->db_Fetch())
-			{
+      foreach($words as $row)
+     	{
+        $glo_id       = $row['glo_id'];
+        $word         = $row['glo_name'];
+        $description  = $row['glo_description'];
+ 
 				if ($wcar <> strtoupper($word{0}))
 				{
 					$wcar = strtoupper($word{0});
@@ -836,12 +840,12 @@ class glossary_class
 		else
 			include(e_PLUGIN."glossary/glossary_template.php");
 
-		if (!$sql->db_Select("glossary", "*", "glo_approved = '1' ORDER BY ".$qry." LIMIT ".$pref['glossary_menu_number']))
+		if (!$sql->select("glossary", "*", "glo_approved = '1' ORDER BY ".$qry." LIMIT ".$pref['glossary_menu_number'], "default"))
 			$text = LAN_GLOSSARY_BLMENU_05;
 		else
 		{
 			$text = $tp->parseTemplate($WORD_MENU_TITLE, FALSE, $word_shortcodes);
-			while(list($glo_id, $word, $description) = $sql->db_Fetch())
+			while(list($glo_id, $word, $description) = $sql->fetch())
 			{
 				$text .= $tp->parseTemplate($WORD_BODY_MENU, FALSE, $word_shortcodes);
 			}
