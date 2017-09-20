@@ -26,6 +26,43 @@ class glossary_class
 	var $message;
 	var $caption;
 
+  private $plugTemplates   = array();
+  private $word_shortcodes = array();  
+	/**
+	 * Constructor.
+	 */
+	function __construct()
+	{
+		$this->word_shortcodes = e107::getScBatch('glossary', 'glossary');
+ 
+    /* div layout - to do */
+		if(deftrue('BOOTSTRAP') === 3)  {
+		   $glosarytemplate   = e107::getTemplate('glossary', 'glossarybootstrap3' );
+	     $this->word_shortcodes->wrapper('glosarybootstrap3/glossary');
+		}
+		/* table layout */
+		else {
+			 $glosarytemplate   = e107::getTemplate('glossary', 'glossarytable' );
+			 $this->word_shortcodes->wrapper('glosarytable/glosary');
+		} 
+		
+		$this->plugTemplates['WORD_BODY_MENU']  		= $glosarytemplate['WORD_BODY_MENU'];  
+		$this->plugTemplates['WORD_MENU_TITLE'] 		= $glosarytemplate['WORD_MENU_TITLE'];		
+		$this->plugTemplates['WORD_BODY_PAGE']  		= $glosarytemplate['WORD_BODY_PAGE'];  
+		$this->plugTemplates['BACK_TO_TOP']     		= $glosarytemplate['BACK_TO_TOP'];
+		$this->plugTemplates['WORD_PAGE_TITLE']   	= $glosarytemplate['WORD_PAGE_TITLE'];  
+		$this->plugTemplates['WORD_ANCHOR'] 				= $glosarytemplate['WORD_ANCHOR'];	
+		$this->plugTemplates['WORD_CHAR_LINK']  		= $glosarytemplate['WORD_CHAR_LINK'];  
+		$this->plugTemplates['WORD_CHAR_NOLINK'] 		= $glosarytemplate['WORD_CHAR_NOLINK'];
+		$this->plugTemplates['WORD_ALLCHAR_PRE']  	= $glosarytemplate['WORD_ALLCHAR_PRE'];  
+		$this->plugTemplates['WORD_ALLCHAR_POST'] 	= $glosarytemplate['WORD_ALLCHAR_POST'];		
+		$this->plugTemplates['PRINT_MESSAGE_PRE']  	= $glosarytemplate['PRINT_MESSAGE_PRE'];  
+		$this->plugTemplates['PRINT_MESSAGE_POST'] 	= $glosarytemplate['PRINT_MESSAGE_POST'];				
+		$this->plugTemplates['LINK_PAGE_NAVIGATOR'] = $glosarytemplate['LINK_PAGE_NAVIGATOR'];  
+		$this->plugTemplates['LINK_MENU_NAVIGATOR'] = $glosarytemplate['LINK_MENU_NAVIGATOR'];	
+ 			
+	}
+	
 	function setPageTitle()
 	{
 		global $sql, $action, $pref;
@@ -43,16 +80,16 @@ class glossary_class
 	function build_message($message)
 	{
 		global $tp;
-		global $PRINT_MESSAGE_PRE, $PRINT_MESSAGE_POST;
+ 
 
 		if (is_readable(THEME."glossary_template.php"))
 			include(THEME."glossary_template.php");
 		else
 			include(e_PLUGIN."glossary/glossary_template.php");
 
-		$text  = $tp->parseTemplate($PRINT_MESSAGE_PRE, FALSE);
+		$text  = $tp->parseTemplate($this->plugTemplates['PRINT_MESSAGE_PRE'], FALSE);
 		$text .= $message;
-		$text .= $tp->parseTemplate($PRINT_MESSAGE_POST, FALSE);
+		$text .= $tp->parseTemplate($this->plugTemplates['PRINT_MESSAGE_POST'], FALSE);
 
 		return $text;
 	}
@@ -758,19 +795,12 @@ class glossary_class
 		global $sql, $rs, $ns, $tp;
 		global $glo_id, $word, $description;
 		global $wcar;
-		global $word_shortcodes;
-		
 
-		require_once(e_PLUGIN.'glossary/glossary_shortcodes.php');
-
-		if (is_readable(THEME."glossary_template.php"))
-			include(THEME."glossary_template.php");
-		else
-			include(e_PLUGIN."glossary/glossary_template.php");
+		//require_once(e_PLUGIN.'glossary/glossary_shortcodes.php');
 
 		$word_table = "";
 		$wall = array();
-		$title = $tp->parseTemplate($WORD_PAGE_TITLE, FALSE, $word_shortcodes);
+		$title = $tp->parseTemplate($this->plugTemplates['WORD_PAGE_TITLE'], FALSE, $this->word_shortcodes);
 		$words = $sql->retrieve("glossary", "*", "glo_approved = '1' ORDER BY glo_name ASC" , true);
   
 		if ($words)
@@ -785,10 +815,10 @@ class glossary_class
 				{
 					$wcar = strtoupper($word{0});
 					$wall[$wcar] = 1;
-					$text .= $tp->parseTemplate($WORD_ANCHOR, FALSE, $word_shortcodes);
+					$text .= $tp->parseTemplate($this->plugTemplates['WORD_ANCHOR'], FALSE, $this->word_shortcodes);
 				}
-				$text .= $tp->parseTemplate($WORD_BODY_PAGE, FALSE, $word_shortcodes);
-				$text .= $tp->parseTemplate($BACK_TO_TOP, FALSE, $word_shortcodes);
+				$text .= $tp->parseTemplate($this->plugTemplates['WORD_BODY_PAGE'], FALSE, $this->word_shortcodes);
+				$text .= $tp->parseTemplate($this->plugTemplates['BACK_TO_TOP'], FALSE, $this->word_shortcodes);
 			}
 		}
 
@@ -805,20 +835,20 @@ class glossary_class
 
 		$wcar = "0-9";
 		if ($ok)
-			$text2 .= $tp->parseTemplate($WORD_CHAR_LINK, FALSE, $word_shortcodes);
+			$text2 .= $tp->parseTemplate($this->plugTemplates['WORD_CHAR_LINK'], FALSE, $this->word_shortcodes);
 		else
-			$text2 .= $tp->parseTemplate($WORD_CHAR_NOLINK, FALSE, $word_shortcodes);
+			$text2 .= $tp->parseTemplate($this->plugTemplates['WORD_CHAR_NOLINK'], FALSE, $this->word_shortcodes);
 
 		for($i = ord("A"); $i <= ord("Z"); $i++)
 		{
 			$wcar = chr($i);
 			if ($wall[$wcar])
-				$text2 .= $tp->parseTemplate($WORD_CHAR_LINK, FALSE, $word_shortcodes);
+				$text2 .= $tp->parseTemplate($this->plugTemplates['WORD_CHAR_LINK'], FALSE, $this->word_shortcodes);
 			else
-				$text2 .= $tp->parseTemplate($WORD_CHAR_NOLINK, FALSE, $word_shortcodes);
+				$text2 .= $tp->parseTemplate($this->plugTemplates['WORD_CHAR_NOLINK'], FALSE, $this->word_shortcodes);
 		}
 
-		$text2 = $tp->parseTemplate($WORD_ALLCHAR_PRE, FALSE).$text2.$tp->parseTemplate($WORD_ALLCHAR_POST, FALSE);
+		$text2 = $tp->parseTemplate($this->plugTemplates['WORD_ALLCHAR_PRE'], FALSE).$text2.$tp->parseTemplate($this->plugTemplates['WORD_ALLCHAR_POST'], FALSE);
 		$text  = $text2.$text;
 
 		if (!$words)
@@ -831,32 +861,25 @@ class glossary_class
 	{
 		global $sql, $rs, $ns, $tp, $pref;
 		global $glo_id, $word, $description;
-		global $word_shortcodes;
+ 
 
-		require_once(e_PLUGIN.'glossary/glossary_shortcodes.php');
-
-		if (is_readable(THEME."glossary_template.php"))
-			include(THEME."glossary_template.php");
-		else
-			include(e_PLUGIN."glossary/glossary_template.php");
+		//require_once(e_PLUGIN.'glossary/glossary_shortcodes.php');
 
     $words = $sql->retrieve("glossary", "*", "glo_approved = '1' ORDER BY ".$qry." LIMIT ".$pref['glossary_menu_number'], true);
-    
     if ($words)
 		{
-      $text = $tp->parseTemplate($WORD_MENU_TITLE, FALSE, $word_shortcodes);
+      $text = $tp->parseTemplate($this->plugTemplates['WORD_MENU_TITLE'], FALSE, $this->word_shortcodes);
 			foreach($words as $row)
      	{
         $glo_id       = $row['glo_id'];
         $word         = $row['glo_name'];
         $description  = $row['glo_description'];
  
-				$text .= $tp->parseTemplate($WORD_BODY_MENU, FALSE, $word_shortcodes);
+				$text .= $tp->parseTemplate($this->plugTemplates['WORD_BODY_MENU'], FALSE, $this->word_shortcodes);
 			}
 		}
 		else $text = LAN_GLOSSARY_BLMENU_05;
-		
- 
+
 		return $text;
 	}
 	
@@ -899,26 +922,21 @@ class glossary_class
 	function displayNav($Type)
 	{
 		global $tp;
-		global $word_shortcodes;
+ 
 
-		require_once(e_PLUGIN.'glossary/glossary_shortcodes.php');
-
-		if (is_readable(THEME."glossary_template.php"))
-			include(THEME."glossary_template.php");
-		else
-			include(e_PLUGIN."glossary/glossary_template.php");
+		//require_once(e_PLUGIN.'glossary/glossary_shortcodes.php');
 
 		switch($Type)
 		{
 			case "page":
-				$nav	= $tp->parseTemplate($LINK_PAGE_NAVIGATOR, FALSE, $word_shortcodes);
+				$nav	= $tp->parseTemplate($this->plugTemplates['LINK_PAGE_NAVIGATOR'], FALSE, $this->word_shortcodes);
 				break;
 
 			case "menu":
-				$nav	= $tp->parseTemplate($LINK_MENU_NAVIGATOR, FALSE, $word_shortcodes);
+				$nav	= $tp->parseTemplate($this->plugTemplates['LINK_MENU_NAVIGATOR'], FALSE, $this->word_shortcodes);
 				break;
 		}
-
+		
 		return $nav;
 	}
 }
