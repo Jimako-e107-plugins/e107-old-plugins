@@ -31,7 +31,8 @@ $GLOSSARYBOOTSTRAP3_WRAPPER['glossary']['WORD_MENU_TITLE'] = "<div style='text-a
 $GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_MENU_TITLE'] = "{WORD_MENU_TITLE}";
 
 $GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_BODY_PAGE'] ="
-	<table style='width:100%; border:0px' cellpadding='0' cellspacing='0'>
+<div class='e107-glossary-item'>
+	<table class='e107-glossary-item'>
 		<tr>
 			<td>
 				<table style='width:100%; border:0px' cellpadding='0' cellspacing='0'>
@@ -52,6 +53,7 @@ $GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_BODY_PAGE'] ="
 			</td>
 		</tr>
 	</table>
+</div>
 	";
 
 $GLOSSARYBOOTSTRAP3_WRAPPER['glossary']['LINK_TO_TOP']  = "<div class='smalltext'>[{---}]</div>";
@@ -70,7 +72,6 @@ $GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_ANCHOR'] = "{WORD_ANCHOR}<br />";
 
 $GLOSSARYBOOTSTRAP3_WRAPPER['glossary']['WORD_CHAR_LINK'] = "{---}";
  
-
 $GLOSSARYBOOTSTRAP3_WRAPPER['glossary']['WORD_CHAR_NOLINK'] = '<button class="btn btn-default disabled">{---}</button>';
 
 $GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_CHAR_LINK'] = " {WORD_CHAR_LINK: link=link&class=btn btn-primary}";
