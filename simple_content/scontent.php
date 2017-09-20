@@ -15,7 +15,11 @@
 +---------------------------------------------------------------+
 */
 
-require_once("../../class2.php");      
+if (!defined('e107_INIT'))
+{
+	require_once("../../class2.php");
+}
+      
 
 $pref = e107::pref('simple_content'); // returns an array.
                     
