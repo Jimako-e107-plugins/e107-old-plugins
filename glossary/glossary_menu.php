@@ -30,7 +30,7 @@ $rs = new form;
 include_lan(e_PLUGIN."glossary/languages/".e_LANGUAGE."/Lan_".basename(__FILE__));
 
 $text = $gc->displayNav("menu");
-
+																	
 if (isset($pref['glossary_menu_lastword']) && $pref['glossary_menu_lastword'])
 	$text .= $gc->buildMenuLastWord();
 else

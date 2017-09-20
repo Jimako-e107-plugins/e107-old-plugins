@@ -17,7 +17,11 @@
  * $Author: duclos $
  */
 
-require_once('../../class2.php');
+if (!defined('e107_INIT'))
+{
+	require_once("../../class2.php");
+}
+
 
 //these have to be set for the tinymce wysiwyg
 $e_wysiwyg	= "word_desc";

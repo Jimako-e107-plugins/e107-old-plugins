@@ -20,9 +20,16 @@
 if (!defined('e107_INIT')) { exit; }
 
 include_lan(e_PLUGIN."glossary/languages/".e_LANGUAGE."/Lan_".basename(__FILE__));
-
-$front_page['glossary'] = array(
-	'page'	=> $PLUGINS_DIRECTORY.'glossary/glossaire.php',
-	'title'	=> LAN_GLOSSARY_FRONT_01);
+ 
+class glossary_frontpage // include plugin-folder in the name.
+{
+	function config()
+	{
+		$frontPage = array();
+		$frontPage['title'] = LAN_GLOSSARY_FRONT_01;
+		$frontPage['page']  = '{e_PLUGIN}glossary/glossaire.php'; 
+		return 	$frontPage;
+	}
+}
 
 ?>
