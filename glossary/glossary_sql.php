@@ -7,4 +7,4 @@ CREATE TABLE glossary (
   glo_approved tinyint(1) unsigned NOT NULL default '0',
   glo_linked tinyint(1) unsigned NOT NULL default '0',
   PRIMARY KEY  (glo_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
