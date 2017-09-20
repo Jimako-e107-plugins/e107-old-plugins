@@ -840,16 +840,23 @@ class glossary_class
 		else
 			include(e_PLUGIN."glossary/glossary_template.php");
 
-		if (!$sql->select("glossary", "*", "glo_approved = '1' ORDER BY ".$qry." LIMIT ".$pref['glossary_menu_number'], "default"))
-			$text = LAN_GLOSSARY_BLMENU_05;
-		else
+    $words = $sql->retrieve("glossary", "*", "glo_approved = '1' ORDER BY ".$qry." LIMIT ".$pref['glossary_menu_number'], true);
+    
+    if ($words)
 		{
-			$text = $tp->parseTemplate($WORD_MENU_TITLE, FALSE, $word_shortcodes);
-			while(list($glo_id, $word, $description) = $sql->fetch())
-			{
+      $text = $tp->parseTemplate($WORD_MENU_TITLE, FALSE, $word_shortcodes);
+			foreach($words as $row)
+     	{
+        $glo_id       = $row['glo_id'];
+        $word         = $row['glo_name'];
+        $description  = $row['glo_description'];
+ 
 				$text .= $tp->parseTemplate($WORD_BODY_MENU, FALSE, $word_shortcodes);
 			}
 		}
+		else $text = LAN_GLOSSARY_BLMENU_05;
+		
+ 
 		return $text;
 	}
 	
