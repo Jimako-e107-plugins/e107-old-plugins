@@ -20,7 +20,7 @@
 if (!defined('e107_INIT')) { exit; }
 
 global $pref, $rs;
-
+ 
 require_once(e_PLUGIN.'glossary/glossary_class.php');
 $gc = new glossary_class();
 
@@ -29,8 +29,8 @@ $rs = new form;
 
 include_lan(e_PLUGIN."glossary/languages/".e_LANGUAGE."/Lan_".basename(__FILE__));
 
-$text = $gc->displayNav("menu");
-																	
+$text = $gc->displayNav("menu");  	 
+
 if (isset($pref['glossary_menu_lastword']) && $pref['glossary_menu_lastword'])
 	$text .= $gc->buildMenuLastWord();
 else

@@ -1,23 +1,9 @@
 <?php
-/**
- * Glossary by Shirka (www.shirka.org)
- *
- * A plugin for the e107 Website System (http://e107.org)
- *
- * ©Andre DUCLOS 2006
- * http://www.shirka.org
- * duclos@shirka.org
- *
- * Released under the terms and conditions of the
- * GNU General Public License (http://gnu.org).
- *
- * $Source: /home/e-smith/files/ibays/cvsroot/files/glossary/languages/French/Lan_plugin.php,v $
- * $Revision: 1.7 $
- * $Date: 2006/06/21 01:25:08 $
- * $Author: duclos $
- */
 
-if (!defined('e107_INIT')) { exit; }
+/**
+ * @file
+ * Language file for "metatag" plugin.
+ */
 
 define('LAN_GLOSSARY_PLUGIN_01', "Glossaire");
 define('LAN_GLOSSARY_PLUGIN_02', "Un Glossaire de Termes");
@@ -33,4 +19,4 @@ define('LAN_GLOSSARY_EXAMPLE_DEF_01', "e107 est un Content Management System (CM
 define('LAN_GLOSSARY_EXAMPLE_WRD_02', "CMS");
 define('LAN_GLOSSARY_EXAMPLE_DEF_02', "Les systèmes de gestion de contenu ou SGC (de l&#039;anglais Content Management System ou CMS) sont une famille de logiciels de conception et de mise à jour dynamique de sites web.");
 
-?>
+ 

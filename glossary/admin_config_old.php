@@ -41,11 +41,6 @@ $gc = new glossary_class();
 
 include_lan(e_PLUGIN."glossary/languages/".e_LANGUAGE."/Lan_".basename(__FILE__));
 
-if (is_readable(THEME."glossary_template.php"))
-	require_once(THEME."glossary_template.php");
-else
-	require_once(e_PLUGIN."glossary/glossary_template.php");
-
 $deltest = array_flip($_POST);
 $id = FALSE;
 
@@ -77,7 +72,7 @@ else
 	$gc->showExistingWord();
 
 // Display options
-function admin_config_adminmenu()
+function admin_config_old_adminmenu()
 {
 	global $gc, $action;
 

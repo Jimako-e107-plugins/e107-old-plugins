@@ -57,7 +57,7 @@ class plugin_glossary_glossary_shortcodes extends e_shortcode
 		return "<a id='".$wcar."'>".$wcar."</a>";
 	}
 	
-	public function sc_word_char_link() {
+	public function sc_word_char_link($parm = NULL) {
 		global $wcar;
 		if ($parm == "link")
 			return "<a href='".e_SELF."#".$wcar."' title='".LAN_GLOSSARY_LINK_LETTER_01." &lt;".$wcar."&gt;"."'>".$wcar."</a>";

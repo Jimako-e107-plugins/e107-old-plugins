@@ -38,12 +38,12 @@ class glossary_class
     /* div layout - to do */
 		if(deftrue('BOOTSTRAP') === 3)  {
 		   $glosarytemplate   = e107::getTemplate('glossary', 'glossarybootstrap3' );
-	     $this->word_shortcodes->wrapper('glosarybootstrap3/glossary');
+	     $this->word_shortcodes->wrapper('glossarybootstrap3/glossary');
 		}
 		/* table layout */
 		else {
 			 $glosarytemplate   = e107::getTemplate('glossary', 'glossarytable' );
-			 $this->word_shortcodes->wrapper('glosarytable/glosary');
+			 $this->word_shortcodes->wrapper('glossarytable/glossary');
 		} 
 		
 		$this->plugTemplates['WORD_BODY_MENU']  		= $glosarytemplate['WORD_BODY_MENU'];  
@@ -797,7 +797,6 @@ class glossary_class
 		global $wcar;
 
 		//require_once(e_PLUGIN.'glossary/glossary_shortcodes.php');
-
 		$word_table = "";
 		$wall = array();
 		$title = $tp->parseTemplate($this->plugTemplates['WORD_PAGE_TITLE'], FALSE, $this->word_shortcodes);

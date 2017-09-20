@@ -4,7 +4,7 @@
  *
  * A plugin for the e107 Website System (http://e107.org)
  *
- * ï¿½Andre DUCLOS 2006
+ * ©Andre DUCLOS 2006
  * http://www.shirka.org
  * duclos@shirka.org
  *
@@ -19,17 +19,14 @@
 
 if (!defined('e107_INIT')) { exit; }
  
-$GLOSSARYTABLE_WRAPPER['WORD_NAME']['pre']  = "<span style='color: #990000; font-weight: bold;'>";
-$GLOSSARYTABLE_WRAPPER['WORD_NAME']['post']  = "</span>";
-$GLOSSARYTABLE_WRAPPER['WORD_DESCRIPTION']['pre'] = "<div style='text-align: justify;'>";
-$GLOSSARYTABLE_WRAPPER['WORD_DESCRIPTION']['post'] = "</div>";
+$GLOSSARYTABLE_WRAPPER['glossary']['WORD_NAME']  = "<span style='color: #990000; font-weight: bold;'>{---}</span>";
+$GLOSSARYTABLE_WRAPPER['glossary']['WORD_DESCRIPTION'] = "<div style='text-align: justify;'>{---}</div>";
 
 $GLOSSARYTABLE_TEMPLATE['WORD_BODY_MENU'] = "
 	{WORD_NAME}<br />
 	{WORD_DESCRIPTION}<br />";
 
-$GLOSSARYTABLE_WRAPPER['WORD_MENU_TITLE']['pre'] = "<div style='text-align:center;'><b>";
-$GLOSSARYTABLE_WRAPPER['WORD_MENU_TITLE']['post'] = "</b></div>";
+$GLOSSARYTABLE_WRAPPER['glossary']['WORD_MENU_TITLE'] = "<div style='text-align:center;'><b>{---}</b></div>";
 
 $GLOSSARYTABLE_TEMPLATE['WORD_MENU_TITLE'] = "{WORD_MENU_TITLE}";
 
@@ -57,51 +54,46 @@ $GLOSSARYTABLE_TEMPLATE['WORD_BODY_PAGE'] ="
 	</table>
 	";
 
-$GLOSSARYTABLE_WRAPPER['LINK_TO_TOP']['pre']  = "<div class='smalltext'>[";
-$GLOSSARYTABLE_WRAPPER['LINK_TO_TOP']['post'] = "]</div>";
+$GLOSSARYTABLE_WRAPPER['glossary']['LINK_TO_TOP'] = "<div class='smalltext'>[{---}]</div>";
 
 $GLOSSARYTABLE_TEMPLATE['BACK_TO_TOP'] = "
 	{LINK_TO_TOP}
 	<hr style='width: 75%' />";
 
-$GLOSSARYTABLE_WRAPPER['WORD_PAGE_TITLE']['pre'] = "";
-$GLOSSARYTABLE_WRAPPER['WORD_PAGE_TITLE']['post'] = "";
+$GLOSSARYTABLE_WRAPPER['glossary']['WORD_PAGE_TITLE'] = "{---}";
+
 
 $GLOSSARYTABLE_TEMPLATE['WORD_PAGE_TITLE'] = "{WORD_PAGE_TITLE}";
 
-$GLOSSARYTABLE_WRAPPER['WORD_ANCHOR']['pre'] = "<span style='font-size: large; font-weight: bold;'>";
-$GLOSSARYTABLE_WRAPPER['WORD_ANCHOR']['post'] = "</span>";
+$GLOSSARYTABLE_WRAPPER['glossary']['WORD_ANCHOR'] = "<span style='font-size: large; font-weight: bold;'>{---}</span>";
 
 $GLOSSARYTABLE_TEMPLATE['WORD_ANCHOR'] = "{WORD_ANCHOR}<br />";
 
-$GLOSSARYTABLE_WRAPPER['WORD_CHAR_LINK']['pre'] = "";
-$GLOSSARYTABLE_WRAPPER['WORD_CHAR_LINK']['post'] = "";
+$GLOSSARYTABLE_WRAPPER['glossary']['WORD_CHAR_LINK'] = "{---}";
 
-$GLOSSARYTABLE_TEMPLATE['WORD_CHAR_LINK'] = "&nbsp;{WORD_CHAR_LINK=link}";
+$GLOSSARYTABLE_TEMPLATE['WORD_CHAR_LINK'] = "&nbsp;{WORD_CHAR_LINK: link=link}";
 $GLOSSARYTABLE_TEMPLATE['WORD_CHAR_NOLINK'] = "&nbsp;{WORD_CHAR_LINK}";
 
 $GLOSSARYTABLE_TEMPLATE['WORD_ALLCHAR_PRE'] = "<div style='text-align:center; font-size: medium; font-weight: bold;'>";
 $GLOSSARYTABLE_TEMPLATE['WORD_ALLCHAR_POST'] = "</div>";
 
-$PRINT_MESSAGE_PRE  = "<br /><div style='text-align:center'><b>";
-$PRINT_MESSAGE_POST = "</b></div>";
+$GLOSSARYTABLE_TEMPLATE['PRINT_MESSAGE_PRE'] = "<br /><div style='text-align:center'><b>";
+$GLOSSARYTABLE_TEMPLATE['PRINT_MESSAGE_POST'] = "</b></div>";
 
-$GLOSSARYTABLE_WRAPPER['LINK_PAGE_NAVIGATOR']['pre'] = "
+$GLOSSARYTABLE_WRAPPER['glossary']['LINK_PAGE_NAVIGATOR'] = "
 	<table cellpadding='2' cellspacing='0' style='width:100%; margin-bottom:20px;'>
 		<tr>
-			<td style='text-align:right;'>";
-$GLOSSARYTABLE_WRAPPER['LINK_PAGE_NAVIGATOR']['post'] = "
+			<td style='text-align:right;'>{---}
 			</td>
 		</tr>
 	</table>";
 
 $GLOSSARYTABLE_TEMPLATE['LINK_PAGE_NAVIGATOR'] = "{LINK_PAGE_NAVIGATOR}";
 
-$GLOSSARYTABLE_WRAPPER['LINK_MENU_NAVIGATOR']['pre'] = "
+$GLOSSARYTABLE_WRAPPER['glossary']['LINK_MENU_NAVIGATOR'] = "
 	<table cellpadding='0' cellspacing='0' style='width:100%; margin-bottom:10px;'>
 		<tr>
-			<td style='text-align:left;'>";
-$GLOSSARYTABLE_WRAPPER['LINK_MENU_NAVIGATOR']['post'] = "
+			<td style='text-align:left;'>{---}
 			</td>
 		</tr>
 	</table>";
