@@ -20,5 +20,6 @@
 if (!defined('e107_INIT')) { exit; }
 
 define('LAN_GLOSSARY_STATUS_01', "Words Definition");
+define('LAN_GLOSSARY_LATEST_01', "Submitted Definition Words");
 
 ?>
