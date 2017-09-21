@@ -14,7 +14,12 @@
 | $Author: Neil $
 +---------------------------------------------------------------+
 */
-   require_once("../../class2.php");
+
+if (!defined('e107_INIT'))
+{
+	require_once("../../class2.php");
+}
+
 
    if (!check_class($pref['eplayer_view_class'])) {
       // No access for current user

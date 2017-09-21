@@ -14,7 +14,11 @@
 | $Author: Neil $
 +---------------------------------------------------------------+
 */
-require_once("../../class2.php");
+if (!defined('e107_INIT'))
+{
+	require_once("../../class2.php");
+}
+
 
 // Required files
 require_once(e_PLUGIN."e107helpers_developer/handlers/e107helpers_developer_class.php");

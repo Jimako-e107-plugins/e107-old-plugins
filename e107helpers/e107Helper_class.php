@@ -127,11 +127,7 @@ class e107Helper {
    function _initTextParser() {
       if (!isset($this->textparser)) {
          // Initialize value first time in
-         if ($this->isV07()) {
-            $this->textparser = new e_parse();
-         } else {
-            $this->textparser = new textparse();
-         }
+					$this->textparser = new e_parse();
       }
    }
 
@@ -142,11 +138,7 @@ class e107Helper {
     */
    function tp_toDB($txt) {
       $this->_initTextParser();
-      if ($this->isV07()) {
-         return $this->textparser->toDB($txt);
-      } else {
-         return $this->textparser->formtpa($txt);
-      }
+      return $this->textparser->toDB($txt);  
    }
 
    /**
@@ -159,11 +151,8 @@ class e107Helper {
     */
    function tp_toHTML($txt, $parseBB=false, $len=0, $more="[more]") {
       $this->_initTextParser();
-      if ($this->isV07()) {
-          $ret = $this->textparser->toHTML($txt, $parseBB);
-      } else {
-         $ret = $this->textparser->tpa($txt);
-      }
+      $ret = $this->textparser->toHTML($txt, $parseBB);
+ 
       if ($len > 0) {
          $ret = $this->textparser->html_truncate($ret, $len, $more);
       }
@@ -177,11 +166,8 @@ class e107Helper {
     */
    function tp_toForm($txt) {
       $this->_initTextParser();
-      if ($this->isV07()) {
-         return $this->textparser->toForm($txt);
-      } else {
-         return $this->textparser->formtparev($txt);
-      }
+      return $this->textparser->toForm($txt);
+ 
    }
 
    /**
@@ -191,11 +177,7 @@ class e107Helper {
     */
    function tp_toText($txt) {
       $this->_initTextParser();
-      if ($this->isV07()) {
-         return $this->textparser->toText($txt);
-      } else {
-         return $this->textparser->formtparev($txt);
-      }
+      return $this->textparser->toText($txt);
    }
 
    // ************************************************

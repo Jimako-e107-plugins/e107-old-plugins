@@ -15,7 +15,11 @@
 | $Author: Neil $
 +---------------------------------------------------------------+
 */
-   require_once("../../class2.php");
+if (!defined('e107_INIT'))
+{
+	require_once("../../class2.php");
+}
+
    require_once(HEADERF);
    require(e_PLUGIN."agenda/agenda_variables.php");
    require(e_PLUGIN."agenda/agendaUtils.php");
