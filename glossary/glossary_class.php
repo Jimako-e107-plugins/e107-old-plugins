@@ -51,6 +51,8 @@ class glossary_class
 		$this->plugTemplates['WORD_BODY_PAGE']  		= $glosarytemplate['WORD_BODY_PAGE'];  
 		$this->plugTemplates['BACK_TO_TOP']     		= $glosarytemplate['BACK_TO_TOP'];
 		$this->plugTemplates['WORD_PAGE_TITLE']   	= $glosarytemplate['WORD_PAGE_TITLE'];  
+		$this->plugTemplates['WORD_PAGE_START']     = $glosarytemplate['WORD_PAGE_START'];  
+		$this->plugTemplates['WORD_PAGE_END']       = $glosarytemplate['WORD_PAGE_END'];
 		$this->plugTemplates['WORD_ANCHOR'] 				= $glosarytemplate['WORD_ANCHOR'];	
 		$this->plugTemplates['WORD_CHAR_LINK']  		= $glosarytemplate['WORD_CHAR_LINK'];  
 		$this->plugTemplates['WORD_CHAR_NOLINK'] 		= $glosarytemplate['WORD_CHAR_NOLINK'];
@@ -60,13 +62,13 @@ class glossary_class
 		$this->plugTemplates['PRINT_MESSAGE_POST'] 	= $glosarytemplate['PRINT_MESSAGE_POST'];				
 		$this->plugTemplates['LINK_PAGE_NAVIGATOR'] = $glosarytemplate['LINK_PAGE_NAVIGATOR'];  
 		$this->plugTemplates['LINK_MENU_NAVIGATOR'] = $glosarytemplate['LINK_MENU_NAVIGATOR'];	
- 			
+  			
 	}
 	
 	function setPageTitle()
 	{
-		global $sql, $action, $pref;
-
+		global $sql, $action ;
+    $pref = e107::getPlugConfig('glossary')->getPref();
 		// Show all words
 		if (!$action)
 			$page = LAN_GLOSSARY_PAGETITLE_01." / ".LAN_GLOSSARY_PAGETITLE_02;
@@ -79,17 +81,9 @@ class glossary_class
 
 	function build_message($message)
 	{
-		global $tp;
- 
-
-		if (is_readable(THEME."glossary_template.php"))
-			include(THEME."glossary_template.php");
-		else
-			include(e_PLUGIN."glossary/glossary_template.php");
-
-		$text  = $tp->parseTemplate($this->plugTemplates['PRINT_MESSAGE_PRE'], FALSE);
+ 		$text  = e107::getParser()->parseTemplate($this->plugTemplates['PRINT_MESSAGE_PRE'], FALSE);
 		$text .= $message;
-		$text .= $tp->parseTemplate($this->plugTemplates['PRINT_MESSAGE_POST'], FALSE);
+		$text .= e107::getParser()->parseTemplate($this->plugTemplates['PRINT_MESSAGE_POST'], FALSE);
 
 		return $text;
 	}
@@ -103,9 +97,8 @@ class glossary_class
 
 	function first_car($word)
 	{
-		global $tp;
-
-		$head = $tp->toHTML($word, TRUE, "no_hook");
+ 
+		$head = e107::getParser()->toHTML($word, TRUE, "no_hook");
 
 		if(ord($head) < 128)
 			$head_sub = strtoupper(substr($head,0,1));
@@ -226,8 +219,8 @@ class glossary_class
 
 	function createDef($id = 0, $sub = 0)
 	{
-		global $sql, $tp, $ns, $rs, $pref;
-
+		global $sql, $tp, $ns, $rs ;
+    $pref = e107::getPlugConfig('glossary')->getPref();
 		$username = "";
 		$word_link = 0;
 
@@ -435,8 +428,8 @@ class glossary_class
 
 	function submitWord()
 	{
-		global $sql, $tp, $e_event, $e107, $pref;
-
+		global $sql, $tp, $e_event, $e107 ;
+    $pref = e107::getPlugConfig('glossary')->getPref();
 		$word_name = $tp -> toDB($_POST['word_name']);
 		$word_desc = $tp -> toDB($_POST['word_desc']);
 		if (!isset($_POST['username']))
@@ -501,8 +494,8 @@ class glossary_class
 
 	function optgenWord()
 	{
-		global $ns, $rs, $pref;
-		
+		global $ns, $rs ;
+		$pref = e107::getPlugConfig('glossary')->getPref();
 		$text = "
 		<div style='text-align: center; margin-left:auto; margin-right: auto;'>
 			".$rs->form_open("post", e_SELF, "optgenform", "", "", "")."
@@ -555,8 +548,8 @@ class glossary_class
 
 	function optpageWord()
 	{
-		global $ns, $rs, $pref;
-		
+		global $ns, $rs ;
+		$pref = e107::getPlugConfig('glossary')->getPref();
 		$text = "
 		<div style='text-align: center; margin-left:auto; margin-right: auto;'>
 			".$rs->form_open("post", e_SELF, "optform", "", "", "")."
@@ -608,8 +601,8 @@ class glossary_class
 
 	function optmenuWord()
 	{
-		global $ns, $rs, $pref;
-		
+		global $ns, $rs ;
+		$pref = e107::getPlugConfig('glossary')->getPref();
 		$text = "
 		<div style='text-align: center; margin-left:auto; margin-right: auto;'>
 			".$rs->form_open("post", e_SELF, "optform", "", "", "")."
@@ -751,8 +744,8 @@ class glossary_class
 
 	function saveSettings($opt)
 	{
-		global $pref;
-
+		 
+    $pref = e107::getPlugConfig('glossary')->getPref();
 		switch($opt)
 		{
 			case "gen":
@@ -785,21 +778,21 @@ class glossary_class
 				break;
 		}
 		
-		save_prefs();
-		
+		//save_prefs();
+		e107::getPlugConfig('glossary')->setPref($pref)->save();
 		$this->message = LAN_GLOSSARY_SAVEOPT_01;
 	}
 
 	function displayWords($submittext = "")
 	{
-		global $sql, $rs, $ns, $tp;
+		global $sql, $rs, $ns;
 		global $glo_id, $word, $description;
 		global $wcar;
 
 		//require_once(e_PLUGIN.'glossary/glossary_shortcodes.php');
 		$word_table = "";
 		$wall = array();
-		$title = $tp->parseTemplate($this->plugTemplates['WORD_PAGE_TITLE'], FALSE, $this->word_shortcodes);
+		$title = e107::getParser()->parseTemplate($this->plugTemplates['WORD_PAGE_TITLE'], FALSE, $this->word_shortcodes);
 		$words = $sql->retrieve("glossary", "*", "glo_approved = '1' ORDER BY glo_name ASC" , true);
   
 		if ($words)
@@ -814,10 +807,10 @@ class glossary_class
 				{
 					$wcar = strtoupper($word{0});
 					$wall[$wcar] = 1;
-					$text .= $tp->parseTemplate($this->plugTemplates['WORD_ANCHOR'], FALSE, $this->word_shortcodes);
+					$text .= e107::getParser()->parseTemplate($this->plugTemplates['WORD_ANCHOR'], FALSE, $this->word_shortcodes);
 				}
-				$text .= $tp->parseTemplate($this->plugTemplates['WORD_BODY_PAGE'], FALSE, $this->word_shortcodes);
-				$text .= $tp->parseTemplate($this->plugTemplates['BACK_TO_TOP'], FALSE, $this->word_shortcodes);
+				$text .= e107::getParser()->parseTemplate($this->plugTemplates['WORD_BODY_PAGE'], FALSE, $this->word_shortcodes);
+				$text .= e107::getParser()->parseTemplate($this->plugTemplates['BACK_TO_TOP'], FALSE, $this->word_shortcodes);
 			}
 		}
 
@@ -834,34 +827,37 @@ class glossary_class
 
 		$wcar = "0-9";
 		if ($ok)
-			$text2 .= $tp->parseTemplate($this->plugTemplates['WORD_CHAR_LINK'], FALSE, $this->word_shortcodes);
+			$text2 .= e107::getParser()->parseTemplate($this->plugTemplates['WORD_CHAR_LINK'], FALSE, $this->word_shortcodes);
 		else
-			$text2 .= $tp->parseTemplate($this->plugTemplates['WORD_CHAR_NOLINK'], FALSE, $this->word_shortcodes);
+			$text2 .= e107::getParser()->parseTemplate($this->plugTemplates['WORD_CHAR_NOLINK'], FALSE, $this->word_shortcodes);
 
 		for($i = ord("A"); $i <= ord("Z"); $i++)
 		{
 			$wcar = chr($i);
 			if ($wall[$wcar])
-				$text2 .= $tp->parseTemplate($this->plugTemplates['WORD_CHAR_LINK'], FALSE, $this->word_shortcodes);
+				$text2 .= e107::getParser()->parseTemplate($this->plugTemplates['WORD_CHAR_LINK'], FALSE, $this->word_shortcodes);
 			else
-				$text2 .= $tp->parseTemplate($this->plugTemplates['WORD_CHAR_NOLINK'], FALSE, $this->word_shortcodes);
+				$text2 .= e107::getParser()->parseTemplate($this->plugTemplates['WORD_CHAR_NOLINK'], FALSE, $this->word_shortcodes);
 		}
 
-		$text2 = $tp->parseTemplate($this->plugTemplates['WORD_ALLCHAR_PRE'], FALSE).$text2.$tp->parseTemplate($this->plugTemplates['WORD_ALLCHAR_POST'], FALSE);
+		$text2 = e107::getParser()->parseTemplate($this->plugTemplates['WORD_ALLCHAR_PRE'], FALSE).$text2.e107::getParser()->parseTemplate($this->plugTemplates['WORD_ALLCHAR_POST'], FALSE);
 		$text  = $text2.$text;
+    
+    $start = e107::getParser()->parseTemplate($this->plugTemplates['WORD_PAGE_START']);
+    $end   = e107::getParser()->parseTemplate($this->plugTemplates['WORD_PAGE_END']);
 
 		if (!$words)
 			$text .= $this->build_message(LAN_GLOSSARY_DISPLAYWORDS_01);
 
-		$ns->tablerender($title, $submittext.$text);
+		$ns->tablerender($title, $start.$submittext.$text.$end);
 	}
 	
 	function buildMenuWord($qry)
 	{
-		global $sql, $rs, $ns, $tp, $pref;
+		global $sql, $rs, $ns, $tp ;
 		global $glo_id, $word, $description;
  
-
+    $pref = e107::getPlugConfig('glossary')->getPref();
 		//require_once(e_PLUGIN.'glossary/glossary_shortcodes.php');
 
     $words = $sql->retrieve("glossary", "*", "glo_approved = '1' ORDER BY ".$qry." LIMIT ".$pref['glossary_menu_number'], true);

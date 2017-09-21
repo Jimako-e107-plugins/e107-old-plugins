@@ -19,8 +19,10 @@
 
 if (!defined('e107_INIT')) { exit; }
 
-global $pref, $rs;
- 
+global   $rs;
+
+$pref = e107::getPlugConfig('glossary')->getPref();
+
 require_once(e_PLUGIN.'glossary/glossary_class.php');
 $gc = new glossary_class();
 

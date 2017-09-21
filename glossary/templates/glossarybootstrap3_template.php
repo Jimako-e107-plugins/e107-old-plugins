@@ -30,31 +30,20 @@ $GLOSSARYBOOTSTRAP3_WRAPPER['glossary']['WORD_MENU_TITLE'] = "<div style='text-a
 
 $GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_MENU_TITLE'] = "{WORD_MENU_TITLE}";
 
-$GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_BODY_PAGE'] ="
-<div class='e107-glossary-item'>
-	<table class='e107-glossary-item'>
-		<tr>
-			<td>
-				<table style='width:100%; border:0px' cellpadding='0' cellspacing='0'>
-					<tr>
-						<td style='width:75%; text-align: left; white-space: nowrap'>
-							{WORD_NAME=page}
-						</td>
-						<td style='width:25%; text-align: right'>
-							<span>{EMAILITEM}&nbsp;{PRINTITEM}&nbsp;{PDFITEM}&nbsp;{ADMINOPTIONS}</span>
-						</td>
-					</tr>
-				</table>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				{WORD_DESCRIPTION}
-			</td>
-		</tr>
-	</table>
-</div>
-	";
+$GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_BODY_PAGE'] = '
+                            <div class="index-item">
+                                <div class="index-header">
+                                    {WORD_NAME=page}  
+                                </div>
+                                <div class="index-desc">
+                                    <p{WORD_DESCRIPTION}</p>
+                                </div>
+                                <div class="index-icons">
+                                <span>{EMAILITEM}&nbsp;{PRINTITEM}&nbsp;{PDFITEM}&nbsp;{ADMINOPTIONS}</span>
+                                </div>
+                            </div><!-- /index-item -->
+  <!-- /doc-index-block -->
+';
 
 $GLOSSARYBOOTSTRAP3_WRAPPER['glossary']['LINK_TO_TOP']  = "<div class='smalltext'>[{---}]</div>";
 
@@ -65,22 +54,21 @@ $GLOSSARYBOOTSTRAP3_TEMPLATE['BACK_TO_TOP'] = "
 $GLOSSARYBOOTSTRAP3_WRAPPER['glossary']['WORD_PAGE_TITLE'] = "{---}";
 
 $GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_PAGE_TITLE'] = "{WORD_PAGE_TITLE}";
+$GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_PAGE_START'] = '<!-- doc-index-block --><div class="doc-content-box">';
+$GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_PAGE_END']   = '</div><!--/.doc-content-box -->';
 
 $GLOSSARYBOOTSTRAP3_WRAPPER['glossary']['WORD_ANCHOR'] = "<span style='font-size: large; font-weight: bold;'>{---}</span>";
 
-$GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_ANCHOR'] = "{WORD_ANCHOR}<br />";
+$GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_ANCHOR'] = '<!-- doc-index-block --><div class="doc-index-block">{WORD_ANCHOR: tag=h2} ';
 
-$GLOSSARYBOOTSTRAP3_WRAPPER['glossary']['WORD_CHAR_LINK'] = "{---}";
- 
-$GLOSSARYBOOTSTRAP3_WRAPPER['glossary']['WORD_CHAR_NOLINK'] = '<button class="btn btn-default disabled">{---}</button>';
+$GLOSSARYBOOTSTRAP3_WRAPPER['glossary']['WORD_CHAR_LINK'] = '<span class="label label-primary">{---}</span>';
+$GLOSSARYBOOTSTRAP3_WRAPPER['glossary']['WORD_CHAR'] = '<span class="label label-default">{---}</span>';
 
-$GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_CHAR_LINK'] = " {WORD_CHAR_LINK: link=link&class=btn btn-primary}";
-$GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_CHAR_NOLINK'] = '<button class="btn btn-default disabled">{WORD_CHAR_LINK}</button>';
+$GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_CHAR_LINK'] = " {WORD_CHAR_LINK: link=link&class=btn-primary}";
+$GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_CHAR_NOLINK'] = '{WORD_CHAR}' ;
 
-$GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_ALLCHAR_PRE'] = '  
-<div class="btn-toolbar">
-    <div class="btn-group btn-group-sm">';
-$GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_ALLCHAR_POST'] = "</div></div>";
+$GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_ALLCHAR_PRE'] = '<div class="doc-index"> ';
+$GLOSSARYBOOTSTRAP3_TEMPLATE['WORD_ALLCHAR_POST'] = "</div>";
 
 $GLOSSARYBOOTSTRAP3_TEMPLATE['PRINT_MESSAGE_PRE'] =   "<br /><div style='text-align:center'><b>";
 $GLOSSARYBOOTSTRAP3_TEMPLATE['PRINT_MESSAGE_POST'] =  "</b></div>";

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e107Plugin name="glossary" lan="LAN_GLOSSARY_PLUGIN_01" version="2.0.0" date="2017-09-20" compatibility="2.0" installRequired="true" >
+<e107Plugin name="Glossary" lan="LAN_GLOSSARY_PLUGIN_01" version="2.0.0" date="2017-09-20" compatibility="2.0" installRequired="true" >
 	<author name="Andre DUCLOS shirka" url="http://www.shirka.org" />
 	<summary lan="LAN_GLOSSARY_PLUGIN_02">A Glossary of Terms</summary>
 	<description lan="">A Glossary of Terms</description>
