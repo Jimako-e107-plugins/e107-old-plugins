@@ -15,7 +15,8 @@ if (!defined('e107_INIT'))
 {
     exit;
 }
-global $sql, $tp, $pref, $OTD_PREF, $otd_obj;
+global $sql, $tp, $pref, $OTD_PREF, $otd_obj, $e107cache;
+
 if (!is_object($otd_obj))
 {
     require_once(e_PLUGIN . 'onthisday_menu/includes/onthisday_class.php');
@@ -36,7 +37,7 @@ if ($cacheData = $e107cache->retrieve("nq_otdmenu"))
     echo $cacheData;
 }
 else
-{
+{      
     if ($otd_obj->otd_read)
     {
         include_lan(e_PLUGIN . "onthisday_menu/languages/" . e_LANGUAGE . ".php");

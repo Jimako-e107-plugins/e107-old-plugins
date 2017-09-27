@@ -58,7 +58,7 @@ original version: 16 February 2009
 still able download: http://keal.me.uk/e107_plugins/download/download.php?action=view&id=149
 original author: https://github.com/G4HDU
 
-
+state: fixed visible error 
 
  
 
