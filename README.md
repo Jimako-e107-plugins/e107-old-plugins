@@ -43,12 +43,23 @@ ePlayer is configurable from the Admin area of e107. Media clips ...
 ~~ not point to fix it, this functionality is in core now ~~
 
 
-### e107 Glossary plugin v1.91 rc4 by by Shirka
+### e107 Glossary plugin v1.91 rc4 by  Shirka
 
 original version: ©Andre DUCLOS 2006 2006/08/30
 
 state: fixed all visible errors 
 
 ~~ rica-carv is working on full update it as standallone version 2 plugin ~~
+
+
+### e107 On This Day plugin V1.5 by Father Barry
+
+original version: 16 February 2009
+still able download: http://keal.me.uk/e107_plugins/download/download.php?action=view&id=149
+original author: https://github.com/G4HDU
+
+
+
+ 
 
  
