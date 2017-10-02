@@ -19,7 +19,8 @@
 
 if (!defined('e107_INIT')) { exit; }
 
-include_lan(e_PLUGIN."glossary/languages/".e_LANGUAGE."/Lan_".basename(__FILE__));
+// OLD include_lan(e_PLUGIN."glossary/languages/".e_LANGUAGE."/Lan_".basename(__FILE__));
+e107::lan('glossary','class',true);
 
 class glossary_class
 {
