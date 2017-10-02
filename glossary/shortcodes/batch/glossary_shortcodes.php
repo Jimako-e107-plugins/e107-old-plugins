@@ -40,7 +40,7 @@ class plugin_glossary_glossary_shortcodes extends e_shortcode
 	}
 	
 	public function sc_word_page_title() {
-		global $pref;
+		global $pref;   
 		return "<a id='top'>".$pref['glossary_page_title']."</a>";
 	}
 	
@@ -52,27 +52,36 @@ class plugin_glossary_glossary_shortcodes extends e_shortcode
 			return LAN_GLOSSARY_MENU_TITLE_02;
 	}
 	
-	public function sc_word_anchor() {
+	public function sc_word_anchor($parm = NULL) {
 		global $wcar;
-		return "<a id='".$wcar."'>".$wcar."</a>";
+    $parms = eHelper::scParams($parm);
+    $tag = varset($parms['tag'], 'a');
+		return "<{$tag} id='".$wcar."'>".$wcar."</{$tag}>";
 	}
 	
 	public function sc_word_char_link($parm = NULL) {
 		global $wcar;
 		$parms = eHelper::scParams($parm);
+ 
 		$class = varset($parms['class'], 'word_char_link');
 		if ($parms['link'] == "link")
 			return "<a href='".e_SELF."#".$wcar."' class='" . $class . "'  title='".LAN_GLOSSARY_LINK_LETTER_01." &lt;".$wcar."&gt;"."'>".$wcar."</a>";
 		else
 			return $wcar;
 	}
+  /* reason: to use shortcode wrapper */ 
+	public function sc_word_char($parm = NULL) {
+		global $wcar;;
+		return $wcar;
+	}  
 	
 	public function sc_adminoptions() {
 		global $glo_id;
 		if (ADMIN && getperms("P"))
-		{
-			$adop_icon = (file_exists(THEME."generic/newsedit.png") ? THEME."generic/newsedit.png" : e_IMAGE."generic/".IMODE."/newsedit.png");
-			return " <a href='".e_PLUGIN."glossary/admin_config.php?edit.".$glo_id."' title='".LAN_GLOSSARY_ADMINOPTIONS_01."'><img src='".$adop_icon."' alt='' style='border:0' /></a>\n";
+		{                              
+			$adop_icon = (file_exists(THEME."generic/newsedit.png") ? "<img src='".THEME."generic/newsedit.png"."'  alt='' style='border:0' />"
+       : "<icon class='fa fa-edit'></icon>");
+			return " <a href='".e_PLUGIN."glossary/admin_config_old.php?edit.".$glo_id."' target='_blank' title='".LAN_GLOSSARY_ADMINOPTIONS_01."'>".$adop_icon."</a>\n";
 		}
 		else
 			return "";
@@ -85,19 +94,22 @@ class plugin_glossary_glossary_shortcodes extends e_shortcode
 	}
 	
 	public function sc_printitem() {
-		global $glo_id, $tp, $pref;
+		global $glo_id, $tp;
+    $pref = e107::getPlugConfig('glossary')->getPref();
 		if (isset($pref['glossary_emailprint']) && $pref['glossary_emailprint'])
 			return $tp->parseTemplate("{PRINT_ITEM=".LAN_GLOSSARY_EMAILPRINT_02."^plugin:glossary.{$glo_id}}");
 	}
 	
 	public function sc_pdfitem() {
-		global $glo_id, $tp, $pref;
+		global $glo_id, $tp;
+    $pref = e107::getPlugConfig('glossary')->getPref();
 		if (isset($pref['glossary_emailprint']) && $pref['glossary_emailprint'])
 			return $tp->parseTemplate("{PDF=".LAN_GLOSSARY_EMAILPRINT_03."^plugin:glossary.{$glo_id}}");
 	}
 	
 	public function sc_link_page_navigator() {
-		global $LINK_PAGE_NAVIGATOR, $rs, $pref;
+		global $LINK_PAGE_NAVIGATOR, $rs;
+    $pref = e107::getPlugConfig('glossary')->getPref();
 		$text = "";
 		$mains = "";
 		$baseurl = e_PLUGIN."glossary/glossaire.php";
@@ -133,7 +145,8 @@ class plugin_glossary_glossary_shortcodes extends e_shortcode
 	}
 	
 	public function sc_link_menu_navigator()  {
-		global $LINK_MENU_NAVIGATOR, $rs, $pref;
+		global $LINK_MENU_NAVIGATOR, $rs ;
+    $pref = e107::getPlugConfig('glossary')->getPref();
 		$text = "";
 		$mains = "";
 		$baseurl = e_PLUGIN."glossary/glossaire.php";

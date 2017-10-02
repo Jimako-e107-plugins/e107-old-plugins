@@ -22,7 +22,7 @@ if (!defined('e107_INIT'))
 	require_once("../../class2.php");
 }
 
-
+$pref = e107::getPlugConfig('glossary')->getPref();
 //these have to be set for the tinymce wysiwyg
 $e_wysiwyg	= "word_desc";
 $WYSIWYG = true;
