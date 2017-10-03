@@ -128,7 +128,7 @@ class glossary_class
 		{
 			$text .= "<div style='text-align: center'>";
 			$text .= $rs->form_open("post", e_SELF . ($approved ? "" : "?displaySubmitted"), "letters")."
-				<table style='".ADMIN_WIDTH."' class='fborder'>
+				<table id='show_letter' style='".ADMIN_WIDTH."' class='fborder'>
 					<tr>
 						<td colspan='2' class='fcaption'>".LAN_GLOSSARY_SHOWLETT_01."</td>
 					</tr>
@@ -169,7 +169,7 @@ class glossary_class
 			{
 				$words = $sql -> db_getList('ALL', FALSE, FALSE, FALSE);
 				$text .= $rs->form_open("post", e_SELF, $approved ? "wordsform" : "submitted_words")."
-					<table style='".ADMIN_WIDTH."' class='fborder'>
+					<table id='show_word' style='".ADMIN_WIDTH."' class='fborder'>
 						<tr>
 							<td style='width: 5%; text-align: center;' class='fcaption'>ID</td>
 							<td style='width:15%' class='fcaption'>".($approved ? LAN_GLOSSARY_SHOWWORD_03 : LAN_GLOSSARY_SHOWSUB_04)."</td>
@@ -256,7 +256,7 @@ class glossary_class
 		$text = "
 		<div style='text-align:center'>
 		".$rs->form_open("post", e_SELF, "dataform", "", "", "")."
-				<table style='".ADMIN_WIDTH."' class='fborder'>
+				<table id='createDef'  class='fborder'>
 					<tr>
 						<td colspan='2' style='width:100%; text-align:center' class='forumheader'><b>";
 		
