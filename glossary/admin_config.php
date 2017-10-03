@@ -51,10 +51,7 @@ class glossary_adminArea extends e_admin_dispatcher
 
 	);	
 	
-	
 	protected $adminMenu = array(
-
-
 		'main/list'			 => array('caption'=> LAN_MANAGE, 'perm' => 'P'),
     'frontpage' => array("text" => LAN_GLOSSARY_MENU_02, 
 											"link" => "admin_config_old.php", 
@@ -69,7 +66,6 @@ class glossary_adminArea extends e_admin_dispatcher
 		'general/prefs'			=> array('caption'=> LAN_GLOSSARY_MENU_11, 'perm' => 'P'),
 		'page/prefs'			=> array('caption'=> LAN_GLOSSARY_MENU_12, 'perm' => 'P'),
 		'menu/prefs'			=> array('caption'=> LAN_GLOSSARY_MENU_13, 'perm' => 'P'),
-
 		// 'main/custom'		=> array('caption'=> 'Custom Page', 'perm' => 'P')
 	);
 
@@ -78,7 +74,6 @@ class glossary_adminArea extends e_admin_dispatcher
 	);	
 	
 	protected $menuTitle = 'Glossary';
-
 
   function init (){
   
@@ -125,18 +120,27 @@ class glossary_ui extends e_admin_ui
 		);		
 		
 		protected $fieldpref = array('glo_name', 'glo_description', 'glo_author', 'glo_datestamp');
-		
 
 	//	protected $preftabs        = array('General', 'Other' );
-		protected $prefs = array(
-		); 
-
+//		protected $prefs = array(
+//		); 
+//public $postFiliterMarkup = '';
 	
 		public function init()
 		{
 			// Set drop-down values (if any). 
-	
-		}
+    require_once(e_PLUGIN.'glossary/glossary_class.php');
+    $gc = new glossary_class();
+    
+//    var_dump($gc);
+    $this->postFiliterMarkup = $gc->show_letter(1);
+
+		$tp = e107::getParser();
+    $letter = (isset($_GET['letter']) ? $_GET['letter'] : "");
+		if ($letter != "" && $letter != LAN_GLOSSARY_SHOWLETT_02 )
+			$this->listQry .= " AND glo_name LIKE '".$tp->toDB($letter)."%' ";
+
+	  }
 
 		
 		// ------- Customize Create --------
@@ -196,8 +200,23 @@ class glossary_form_ui extends e_admin_form_ui
 
 class glossary_submitted_ui extends glossary_ui
 {
-		protected $listQry      	= "SELECT * FROM `#glossary` WHERE glo_approved = '' "; // Example Custom Query. LEFT JOINS allowed. Should be without any Order or Limit.
+	protected $listQry      	= "SELECT * FROM `#glossary` WHERE glo_approved = '' "; // Example Custom Query. LEFT JOINS allowed. Should be without any Order or Limit.
+	public function init()
+	{
+			// Set drop-down values (if any). 
+    require_once(e_PLUGIN.'glossary/glossary_class.php');
+    $gc = new glossary_class();
+    
+//    var_dump($gc);
+    $this->postFiliterMarkup = $gc->show_letter(0);
 
+//    var_dump($_POST);
+//    var_dump($_GET);
+    $tp = e107::getParser();
+		$letter = (isset($_GET['letter']) ? $_GET['letter'] : "");
+		if ($letter != "" && $letter != LAN_GLOSSARY_SHOWLETT_02 )
+			$this->listQry .= " AND glo_name LIKE '".$tp->toDB($letter)."%' ";
+  }
 }		
 
 class glossary_general_ui extends e_admin_ui
