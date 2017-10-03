@@ -697,7 +697,8 @@ class glossary_class
 
 		// Submitted definition
 		$total = $sql->db_Count("glossary", "(*)", "where glo_approved = '0'");
-		if ($total)
+		//if ($total)
+		if (TRUE)  // to see all admin menu items
 		{
 			$var['displaySubmitted']['text'] = LAN_GLOSSARY_MENU_04." (".$total.")";
 			$var['displaySubmitted']['link'] = e_SELF."?displaySubmitted";
