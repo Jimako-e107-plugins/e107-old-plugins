@@ -51,11 +51,11 @@ class glossary_adminArea extends e_admin_dispatcher
 
 		'main/list'			 => array('caption'=> LAN_MANAGE, 'perm' => 'P'),
     'frontpage' => array("text" => LAN_GLOSSARY_MENU_02, 
-											"link" => e_PLUGIN."glossary/admin_config_old.php", 
+											"link" => "admin_config_old.php", 
 											"form" => false),
 		'main/create'		 => array('caption'=> LAN_GLOSSARY_MENU_03, 'perm' => 'P'),
     'submitted' => array("text" => LAN_GLOSSARY_MENU_04, 
-											"link" => e_PLUGIN."glossary/admin_config_old.php?displaySubmitted", 
+											"link" => "admin_config_old.php?displaySubmitted", 
 											"form" => false),
 		'opt1'           => array('header'=> LAN_GLOSSARY_MENU_10),
 
