@@ -51,11 +51,11 @@ class glossary_adminArea extends e_admin_dispatcher
 		'main/list'			=> array('caption'=> LAN_MANAGE, 'perm' => 'P'),
 		'main/create'		=> array('caption'=> LAN_CREATE, 'perm' => 'P'),
 
-		'opt1'          => array('header'=> LAN_PREFS),
+		'opt1'          => array('header'=> LAN_GLOSSARY_MENU_10),
 
-		'general/prefs'			=> array('caption'=> LAN_GENERAL, 'perm' => 'P'),
-		'page/prefs'			=> array('caption'=> ADLAN_60, 'perm' => 'P'),
-		'menu/prefs'			=> array('caption'=> LAN_MENULAYOUT, 'perm' => 'P'),
+		'general/prefs'			=> array('caption'=> LAN_GLOSSARY_MENU_11, 'perm' => 'P'),
+		'page/prefs'			=> array('caption'=> LAN_GLOSSARY_MENU_12, 'perm' => 'P'),
+		'menu/prefs'			=> array('caption'=> LAN_GLOSSARY_MENU_13, 'perm' => 'P'),
 
 		// 'main/custom'		=> array('caption'=> 'Custom Page', 'perm' => 'P')
 	);
@@ -189,6 +189,8 @@ class glossary_general_ui extends e_admin_ui
 //		protected $batchExport     = true;
 //		protected $batchCopy		= true;
 
+// how to set this?  $rs->form_button("submit", "action[saveOptgen]", LAN_GLOSSARY_OPTGEN_02)
+
   	protected $prefs = array( 
   					'glossary_linkword'  => array('title'=> LAN_GLOSSARY_OPTGEN_05,'type' => 'boolean'),
 					  'glossary_submit'  => array('title'=> LAN_GLOSSARY_OPTGEN_07,'type' => 'boolean'),
@@ -200,7 +202,6 @@ class glossary_general_ui extends e_admin_ui
 		
 class glossary_general_form_ui extends e_admin_form_ui
 {
-
 }		
 
 class glossary_page_ui extends e_admin_ui
@@ -215,6 +216,7 @@ class glossary_page_ui extends e_admin_ui
 //		protected $batchExport     = true;
 //		protected $batchCopy		= true;
 
+// how to set this?  $rs->form_button("submit", "action[saveOptgen]", LAN_GLOSSARY_OPTGEN_02)
   	protected $prefs = array( 
   					'glossary_page_title'  => array('title'=> LAN_GLOSSARY_OPTPAGE_03,'type' => 'text'),
 					  'glossary_page_caption_nav'  => array('title'=> LAN_GLOSSARY_OPTPAGE_04,'type' => 'text'),
@@ -241,6 +243,8 @@ class glossary_menu_ui extends e_admin_ui
 //		protected $batchDelete		= true;
 //		protected $batchExport     = true;
 //		protected $batchCopy		= true;
+
+// how to set this?  $rs->form_button("submit", "action[saveOptgen]", LAN_GLOSSARY_OPTGEN_02)
 
   	protected $prefs = array( 
   					'glossary_menu_caption'  => array('title'=> LAN_GLOSSARY_OPTMENU_04,'type' => 'text'),

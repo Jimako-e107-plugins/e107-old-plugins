@@ -34,6 +34,11 @@ class glossary_setup
 		$prefdata['glossary_menu_caption']			= LAN_GLOSSARY_PLUGIN_01;
 		$prefdata['glossary_menu_caption_nav']	= LAN_GLOSSARY_PLUGIN_08;
 
+		// temp fix for false values 
+	  $prefdata['glossary_emailprint']				= '0';
+		$prefdata['glossary_page_link_rendertype']	= '0';
+		$prefdata['glossary_menu_link_rendertype']			= '0';
+				
     e107::getPlugConfig('glossary')->setPref($prefdata)->save();
 		
 	}

@@ -492,179 +492,7 @@ class glossary_class
 
 		$e107cache->clear();
 	}
-
-	function optgenWord()
-	{
-		global $ns, $rs ;
-		$pref = e107::getPlugConfig('glossary')->getPref();
-		$text = "
-		<div style='text-align: center; margin-left:auto; margin-right: auto;'>
-			".$rs->form_open("post", e_SELF, "optgenform", "", "", "")."
-				<table style='".ADMIN_WIDTH."' class='fborder'>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTGEN_05."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_linkword", "1", ($pref['glossary_linkword'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPT_01."
-							".$rs->form_radio("glossary_linkword", "0", ($pref['glossary_linkword'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPT_02."
-						</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTGEN_07."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_submit", "1", ($pref['glossary_submit'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPT_01."
-							".$rs->form_radio("glossary_submit", "0", ($pref['glossary_submit'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPT_02."
-						</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTGEN_08."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".r_userclass("glossary_submit_class", $pref['glossary_submit_class'])."
-						</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTGEN_09."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_submit_directpost", "1", ($pref['glossary_submit_directpost'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPT_01."
-							".$rs->form_radio("glossary_submit_directpost", "0", ($pref['glossary_submit_directpost'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPT_02."
-						</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTGEN_10."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_submit_htmlarea", "1", ($pref['glossary_submit_htmlarea'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPT_01."
-							".$rs->form_radio("glossary_submit_htmlarea", "0", ($pref['glossary_submit_htmlarea'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPT_02."
-						</td>
-					</tr>
-					<tr>
-						<td colspan='2'  style='text-align:center' class='forumheader'>
-							".$rs->form_button("submit", "action[saveOptgen]", LAN_GLOSSARY_OPTGEN_02)."
-						</td>
-					</tr>
-				</table>
-			".$rs->form_close()."
-		</div>";
-		
-		$ns->tablerender(LAN_GLOSSARY_OPTGEN_01, $text);
-	}
-
-	function optpageWord()
-	{
-		global $ns, $rs ;
-		$pref = e107::getPlugConfig('glossary')->getPref();
-		$text = "
-		<div style='text-align: center; margin-left:auto; margin-right: auto;'>
-			".$rs->form_open("post", e_SELF, "optform", "", "", "")."
-				<table style='".ADMIN_WIDTH."' class='fborder'>
-					<tr>
-							<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTPAGE_03."</td>
-							<td style='width:50%; text-align: right;' class='forumheader3'>
-								".$rs->form_text("glossary_page_title", 40, $pref['glossary_page_title'], "100")."
-							</td>
-					</tr>
-					<tr>
-							<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTPAGE_04."</td>
-							<td style='width:50%; text-align: right;' class='forumheader3'>
-								".$rs->form_text("glossary_page_caption_nav", 40, $pref['glossary_page_caption_nav'], "100")."
-							</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTPAGE_05."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_emailprint", "1", ($pref['glossary_emailprint'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPT_01."
-							".$rs->form_radio("glossary_emailprint", "0", ($pref['glossary_emailprint'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPT_02."
-						</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTPAGE_06."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_page_link_submit", "1", ($pref['glossary_page_link_submit'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPT_01."
-							".$rs->form_radio("glossary_page_link_submit", "0", ($pref['glossary_page_link_submit'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPT_02."
-						</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTPAGE_07."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_page_link_rendertype", "1", ($pref['glossary_page_link_rendertype'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPT_03."
-							".$rs->form_radio("glossary_page_link_rendertype", "0", ($pref['glossary_page_link_rendertype'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPT_04."
-						</td>
-					</tr>
-					<tr>
-						<td colspan='2'  style='text-align:center' class='forumheader'>
-							".$rs->form_button("submit", "action[saveOptpage]", LAN_GLOSSARY_OPTPAGE_02)."
-						</td>
-					</tr>
-				</table>
-			".$rs->form_close()."
-		</div>";
-		
-		$ns->tablerender(LAN_GLOSSARY_OPTPAGE_01, $text);
-	}
-
-	function optmenuWord()
-	{
-		global $ns, $rs ;
-		$pref = e107::getPlugConfig('glossary')->getPref();
-		$text = "
-		<div style='text-align: center; margin-left:auto; margin-right: auto;'>
-			".$rs->form_open("post", e_SELF, "optform", "", "", "")."
-				<table style='".ADMIN_WIDTH."' class='fborder'>
-					<tr>
-							<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTMENU_04."</td>
-							<td style='width:50%; text-align: right;' class='forumheader3'>
-								".$rs->form_text("glossary_menu_caption", 40, $pref['glossary_menu_caption'], "100")."
-							</td>
-					</tr>
-					<tr>
-							<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTMENU_05."</td>
-							<td style='width:50%; text-align: right;' class='forumheader3'>
-								".$rs->form_text("glossary_menu_caption_nav", 40, $pref['glossary_menu_caption_nav'], "100")."
-							</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTMENU_06."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_menu_link_frontpage", "1", ($pref['glossary_menu_link_frontpage'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPT_01."
-							".$rs->form_radio("glossary_menu_link_frontpage", "0", ($pref['glossary_menu_link_frontpage'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPT_02."
-						</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTMENU_07."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_menu_link_submit", "1", ($pref['glossary_menu_link_submit'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPT_01."
-							".$rs->form_radio("glossary_menu_link_submit", "0", ($pref['glossary_menu_link_submit'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPT_02."
-						</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTMENU_08."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_menu_link_rendertype", "1", ($pref['glossary_menu_link_rendertype'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPT_03."
-							".$rs->form_radio("glossary_menu_link_rendertype", "0", ($pref['glossary_menu_link_rendertype'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPT_04."
-						</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTMENU_09."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_menu_lastword", "1", ($pref['glossary_menu_lastword'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPTMENU_10."
-							".$rs->form_radio("glossary_menu_lastword", "0", ($pref['glossary_menu_lastword'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPTMENU_11."
-						</td>
-					</tr>
-					<tr>
-							<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTMENU_12."</td>
-							<td style='width:50%; text-align: right;' class='forumheader3'>
-								".$rs->form_text("glossary_menu_number", 2, $pref['glossary_menu_number'], "3")."
-							</td>
-					</tr>
-					<tr>
-						<td colspan='2'  style='text-align:center' class='forumheader'>
-							".$rs->form_button("submit", "action[saveOptmenu]", LAN_GLOSSARY_OPTMENU_02)."
-						</td>
-					</tr>
-				</table>
-			".$rs->form_close()."
-		</div>";
-		
-		$ns->tablerender(LAN_GLOSSARY_OPTMENU_01, $text);
-	}
+ 
 
 	function show_options($action)
 	{
@@ -712,78 +540,24 @@ class glossary_class
 
 			// General Options
 			$var['optgen']['text'] = LAN_GLOSSARY_MENU_11;
-			$var['optgen']['link'] = e_SELF."?optgen";
+			$var['optgen']['link'] = e_PLUGIN."glossary/admin_config.php?mode=general&action=prefs";
 			$var['optgen']['perm'] = "0";
 
 			// Menu Options
 			$var['optpage']['text'] = LAN_GLOSSARY_MENU_12;
-			$var['optpage']['link'] = e_SELF."?optpage";
+			$var['optpage']['link'] = e_PLUGIN."glossary/admin_config.php?mode=page&action=prefs";
 			$var['optpage']['perm'] = "0";
 	
 			// Menu Options
 			$var['optmenu']['text'] = LAN_GLOSSARY_MENU_13;
-			$var['optmenu']['link'] = e_SELF."?optmenu";
+			$var['optmenu']['link'] = e_PLUGIN."glossary/admin_config.php?mode=menu&action=prefs";
 			$var['optmenu']['perm'] = "0";
 	
 			show_admin_menu(LAN_GLOSSARY_MENU_10, $action, $var);
 		}
 	}
-
-	function saveOptGenWord()
-	{
-		$this->saveSettings("gen");
-	}
-
-	function saveOptpageWord()
-	{
-		$this->saveSettings("page");
-	}
-
-	function saveOptmenuWord()
-	{
-		$this->saveSettings("menu");
-	}
-
-	function saveSettings($opt)
-	{
-		 
-    $pref = e107::getPlugConfig('glossary')->getPref();
-		switch($opt)
-		{
-			case "gen":
-				// General Options 
-				$pref['glossary_linkword']					= $_POST['glossary_linkword'];
-				$pref['glossary_submit']						= $_POST['glossary_submit'];
-				$pref['glossary_submit_class']			= $_POST['glossary_submit_class'];
-				$pref['glossary_submit_directpost']	= $_POST['glossary_submit_directpost'];
-				$pref['glossary_submit_htmlarea']		= $_POST['glossary_submit_htmlarea'];
-				break;
-
-			case "page":
-				// Page Options
-				$pref['glossary_page_title']						= $_POST['glossary_page_title'];
-				$pref['glossary_page_caption_nav']			= $_POST['glossary_page_caption_nav'];
-				$pref['glossary_emailprint']						= $_POST['glossary_emailprint'];
-				$pref['glossary_page_link_submit']			= $_POST['glossary_page_link_submit'];
-				$pref['glossary_page_link_rendertype']	= $_POST['glossary_page_link_rendertype'];
-				break;
-
-			case "menu":
-				// Menu Options
-				$pref['glossary_menu_caption']					= $_POST['glossary_menu_caption'];
-				$pref['glossary_menu_caption_nav']			= $_POST['glossary_menu_caption_nav'];
-				$pref['glossary_menu_link_frontpage']		= $_POST['glossary_menu_link_frontpage'];
-				$pref['glossary_menu_link_submit']			= $_POST['glossary_menu_link_submit'];
-				$pref['glossary_menu_link_rendertype']	= $_POST['glossary_menu_link_rendertype'];
-				$pref['glossary_menu_lastword']					= $_POST['glossary_menu_lastword'];
-				$pref['glossary_menu_number']						= $_POST['glossary_menu_number'];
-				break;
-		}
-		
-		//save_prefs();
-		e107::getPlugConfig('glossary')->setPref($pref)->save();
-		$this->message = LAN_GLOSSARY_SAVEOPT_01;
-	}
+ 
+ 
 
 	function displayWords($submittext = "")
 	{
