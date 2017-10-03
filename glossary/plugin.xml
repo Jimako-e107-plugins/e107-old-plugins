@@ -26,15 +26,15 @@
 		<pref name="glossary_submit_htmlarea">0</pref>
     <!--		end general prefs -->
     <!--		start page prefs -->
-		<pref name="glossary_page_title">LAN_GLOSSARY_PLUGIN_07</pref>
-		<pref name="glossary_page_caption_nav">LAN_GLOSSARY_PLUGIN_08</pref>
+		<pref name="glossary_page_title"></pref>
+		<pref name="glossary_page_caption_nav"></pref>
 		<pref name="glossary_emailprint">0</pref>
 		<pref name="glossary_page_link_submit">1</pref>
 		<pref name="glossary_page_link_rendertype">0</pref>
     <!--		end page prefs -->
     <!--		start menu prefs -->
-		<pref name="glossary_menu_caption">LAN_GLOSSARY_PLUGIN_01</pref>
-		<pref name="glossary_menu_caption_nav">LAN_GLOSSARY_PLUGIN_08</pref>
+		<pref name="glossary_menu_caption"></pref>
+		<pref name="glossary_menu_caption_nav"></pref>
 		<pref name="glossary_menu_link_frontpage">1</pref>
 		<pref name="glossary_menu_link_submit">1</pref>
 		<pref name="glossary_menu_link_rendertype">0</pref>
