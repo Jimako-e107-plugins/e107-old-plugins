@@ -18,7 +18,7 @@ class glossary_dashboard // include plugin-folder in the name.
     
 		$var[0]['icon'] 	= "<img src='".e_PLUGIN."glossary/images/icon_16.png' style='width: 16px; height: 16px; vertical-align: bottom' alt='' />";
 		$var[0]['title'] 	= LAN_GLOSSARY_STATUS_01;
-		$var[0]['url']		= e_PLUGIN."glossary/admin_config.php";
+		$var[0]['url']		= e_PLUGIN."glossary/admin_config.php?mode=main&action=list";
 		$var[0]['total'] 	= $count;
 
 		return $var;
@@ -31,7 +31,7 @@ class glossary_dashboard // include plugin-folder in the name.
 	  
 		$var[0]['icon'] 	= "<img src='".e_PLUGIN."glossary/images/content_16.png' style='width: 16px; height: 16px; vertical-align: bottom' alt='' />";
 		$var[0]['title'] 	= LAN_GLOSSARY_LATEST_01;
-		$var[0]['url']		= e_PLUGIN."glossary/admin_config.php?displaySubmitted";
+		$var[0]['url']		= e_PLUGIN."glossary/admin_config.php?mode=submitted&action=list";
 		$var[0]['total'] 	= $submitted_words;
 
 		return $var;
