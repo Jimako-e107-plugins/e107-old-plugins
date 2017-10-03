@@ -504,9 +504,6 @@ class glossary_class
 			case "update":
 			case "delete":
 			case "link":
-			case "saveOptgen":
-			case "saveOptpage":
-			case "saveOptmenu":
 				$action = "main";
 				break;
 
