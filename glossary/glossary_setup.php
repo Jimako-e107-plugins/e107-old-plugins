@@ -6,19 +6,13 @@
 * Released under the terms and conditions of the
 * GNU General Public License (http://www.gnu.org/licenses/gpl.txt)
 *
-* Custom Qlossarry install/uninstall/update routines
+* Custom Glossary install/uninstall/update routines
 *
 */
 
 class glossary_setup
 {
-/*	
- 	function install_pre($var)
-	{
-		// print_a($var);
-		// echo "custom install 'pre' function<br /><br />";
-	}
-*/
+ 
 	function install_post($var)
 	{
 		$sql = e107::getDb();
@@ -31,26 +25,22 @@ class glossary_setup
  		";
 		
 		$status = ($sql->gen($query, true)) ? E_MESSAGE_SUCCESS : E_MESSAGE_ERROR;
-		$mes->add(LAN_DEFAULT_TABLE_DATA.": glossarys", $status);
+		$mes->add(LAN_DEFAULT_TABLE_DATA.": glossary", $status);
+  
+    // text prefs cant be set in plugin.xml 
+	  $prefdata = e107::getPlugConfig('glossary')->getPref();
+	  $prefdata['glossary_page_title']				= LAN_GLOSSARY_PLUGIN_07;
+		$prefdata['glossary_page_caption_nav']	= LAN_GLOSSARY_PLUGIN_08;
+		$prefdata['glossary_menu_caption']			= LAN_GLOSSARY_PLUGIN_01;
+		$prefdata['glossary_menu_caption_nav']	= LAN_GLOSSARY_PLUGIN_08;
+
+		// temp fix for false values 
+	  $prefdata['glossary_emailprint']				= '0';
+		$prefdata['glossary_page_link_rendertype']	= '0';
+		$prefdata['glossary_menu_link_rendertype']			= '0';
+				
+    e107::getPlugConfig('glossary')->setPref($prefdata)->save();
+		
+	}
  
- 
-
-	}
-/*	
-	function uninstall_options()
-	{
-	
-	}
-
-
-	function uninstall_post($var)
-	{
-		// print_a($var);
-	}
-
-	function upgrade_post($var)
-	{
-		// $sql = e107::getDb();
-	}
-*/	
 }

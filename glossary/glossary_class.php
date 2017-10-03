@@ -19,7 +19,8 @@
 
 if (!defined('e107_INIT')) { exit; }
 
-include_lan(e_PLUGIN."glossary/languages/".e_LANGUAGE."/Lan_".basename(__FILE__));
+// OLD include_lan(e_PLUGIN."glossary/languages/".e_LANGUAGE."/Lan_".basename(__FILE__));
+e107::lan('glossary','class',true);
 
 class glossary_class
 {
@@ -51,6 +52,8 @@ class glossary_class
 		$this->plugTemplates['WORD_BODY_PAGE']  		= $glosarytemplate['WORD_BODY_PAGE'];  
 		$this->plugTemplates['BACK_TO_TOP']     		= $glosarytemplate['BACK_TO_TOP'];
 		$this->plugTemplates['WORD_PAGE_TITLE']   	= $glosarytemplate['WORD_PAGE_TITLE'];  
+		$this->plugTemplates['WORD_PAGE_START']     = $glosarytemplate['WORD_PAGE_START'];  
+		$this->plugTemplates['WORD_PAGE_END']       = $glosarytemplate['WORD_PAGE_END'];
 		$this->plugTemplates['WORD_ANCHOR'] 				= $glosarytemplate['WORD_ANCHOR'];	
 		$this->plugTemplates['WORD_CHAR_LINK']  		= $glosarytemplate['WORD_CHAR_LINK'];  
 		$this->plugTemplates['WORD_CHAR_NOLINK'] 		= $glosarytemplate['WORD_CHAR_NOLINK'];
@@ -60,13 +63,13 @@ class glossary_class
 		$this->plugTemplates['PRINT_MESSAGE_POST'] 	= $glosarytemplate['PRINT_MESSAGE_POST'];				
 		$this->plugTemplates['LINK_PAGE_NAVIGATOR'] = $glosarytemplate['LINK_PAGE_NAVIGATOR'];  
 		$this->plugTemplates['LINK_MENU_NAVIGATOR'] = $glosarytemplate['LINK_MENU_NAVIGATOR'];	
- 			
+  			
 	}
 	
 	function setPageTitle()
 	{
-		global $sql, $action, $pref;
-
+		global $sql, $action ;
+    $pref = e107::getPlugConfig('glossary')->getPref();
 		// Show all words
 		if (!$action)
 			$page = LAN_GLOSSARY_PAGETITLE_01." / ".LAN_GLOSSARY_PAGETITLE_02;
@@ -79,17 +82,9 @@ class glossary_class
 
 	function build_message($message)
 	{
-		global $tp;
- 
-
-		if (is_readable(THEME."glossary_template.php"))
-			include(THEME."glossary_template.php");
-		else
-			include(e_PLUGIN."glossary/glossary_template.php");
-
-		$text  = $tp->parseTemplate($this->plugTemplates['PRINT_MESSAGE_PRE'], FALSE);
+ 		$text  = e107::getParser()->parseTemplate($this->plugTemplates['PRINT_MESSAGE_PRE'], FALSE);
 		$text .= $message;
-		$text .= $tp->parseTemplate($this->plugTemplates['PRINT_MESSAGE_POST'], FALSE);
+		$text .= e107::getParser()->parseTemplate($this->plugTemplates['PRINT_MESSAGE_POST'], FALSE);
 
 		return $text;
 	}
@@ -103,9 +98,8 @@ class glossary_class
 
 	function first_car($word)
 	{
-		global $tp;
-
-		$head = $tp->toHTML($word, TRUE, "no_hook");
+ 
+		$head = e107::getParser()->toHTML($word, TRUE, "no_hook");
 
 		if(ord($head) < 128)
 			$head_sub = strtoupper(substr($head,0,1));
@@ -117,24 +111,23 @@ class glossary_class
 
 	function show_letter($approved)
 	{
-		global $sql, $ns, $rs;
-		
-		$distinctfirstletter = $sql->select("glossary", " DISTINCT(glo_name) ", "glo_approved = '$approved' ORDER BY glo_name ASC", "default");
-		while($row = $sql->fetch())
+
+		$distinctwords = e107::getDb()->retrieve("glossary", " DISTINCT(glo_name) ", "glo_approved = '$approved' ORDER BY glo_name ASC", "default");
+		foreach($distinctwords AS $row) 
 		{
 			$arrletters[] = $this->first_car($row['glo_name']);
 		}
-
+		$distinctfirstletter = count($distinctwords);	 
 		$arrletters = array_unique($arrletters);
 		$arrletters = array_values($arrletters);
 		sort($arrletters);
-
 		$text = "";
 		if($distinctfirstletter != 1)
 		{
 			$text .= "<div style='text-align: center'>";
-			$text .= $rs->form_open("post", e_SELF . ($approved ? "" : "?displaySubmitted"), "letters")."
-				<table style='".ADMIN_WIDTH."' class='fborder'>
+			//$text .= $rs->form_open("post", e_SELF . ($approved ? "" : "?displaySubmitted"), "letters")."			
+			$text .= e107::getForm()->open("letters", "post", e_SELF . ($approved ? "" : "?displaySubmitted"))."
+				<table id='show_letter' style='".ADMIN_WIDTH."' class='fborder'>
 					<tr>
 						<td colspan='2' class='fcaption'>".LAN_GLOSSARY_SHOWLETT_01."</td>
 					</tr>
@@ -144,12 +137,13 @@ class glossary_class
 			for($i = 0; $i < count($arrletters); $i++)
 			{
 				if($arrletters[$i]!= "")
-					$text .= $rs->form_button("submit", "letter", strtoupper($arrletters[$i]), "", "", LAN_GLOSSARY_SHOWLETT_03);
+					//$text .= $rs->form_button("submit", "letter", strtoupper($arrletters[$i]), "", "", LAN_GLOSSARY_SHOWLETT_03);
+					$text .= e107::getForm()->button( "letter", strtoupper($arrletters[$i]), "submit",   "", LAN_GLOSSARY_SHOWLETT_03);
 			}
 
-			$text .= "&nbsp;".$rs->form_button("submit", "letter", LAN_GLOSSARY_SHOWLETT_02, "", "", LAN_GLOSSARY_SHOWLETT_04);
-			
-			$text .= "</td></tr></table>".$rs->form_close()."</div>";
+			//$text .= "&nbsp;".$rs->form_button("submit", "letter", LAN_GLOSSARY_SHOWLETT_02, "", "", LAN_GLOSSARY_SHOWLETT_04);
+			$text .= "&nbsp;".e107::getForm()->button( "letter", LAN_GLOSSARY_SHOWLETT_02, "submit", "", LAN_GLOSSARY_SHOWLETT_04);
+			$text .= "</td></tr></table>".e107::getForm()->close()."</div>";
 		}
 		return $text;
 	}
@@ -175,7 +169,7 @@ class glossary_class
 			{
 				$words = $sql -> db_getList('ALL', FALSE, FALSE, FALSE);
 				$text .= $rs->form_open("post", e_SELF, $approved ? "wordsform" : "submitted_words")."
-					<table style='".ADMIN_WIDTH."' class='fborder'>
+					<table id='show_word' style='".ADMIN_WIDTH."' class='fborder'>
 						<tr>
 							<td style='width: 5%; text-align: center;' class='fcaption'>ID</td>
 							<td style='width:15%' class='fcaption'>".($approved ? LAN_GLOSSARY_SHOWWORD_03 : LAN_GLOSSARY_SHOWSUB_04)."</td>
@@ -226,8 +220,8 @@ class glossary_class
 
 	function createDef($id = 0, $sub = 0)
 	{
-		global $sql, $tp, $ns, $rs, $pref;
-
+		global $sql, $tp, $ns, $rs ;
+    $pref = e107::getPlugConfig('glossary')->getPref();
 		$username = "";
 		$word_link = 0;
 
@@ -262,12 +256,12 @@ class glossary_class
 		$text = "
 		<div style='text-align:center'>
 		".$rs->form_open("post", e_SELF, "dataform", "", "", "")."
-				<table style='".ADMIN_WIDTH."' class='fborder'>
+				<table id='createDef'  class='fborder'>
 					<tr>
 						<td colspan='2' style='width:100%; text-align:center' class='forumheader'><b>";
 		
 		if (!$id || $sub)
-			$text .= LAN_GLOSSARY_CREATEWORD_08;
+			$text .= LAN_GLOSSARY_CREATEWORD_08;     
 		else
 			$text .= LAN_GLOSSARY_CREATEWORD_09;
 		
@@ -435,8 +429,8 @@ class glossary_class
 
 	function submitWord()
 	{
-		global $sql, $tp, $e_event, $e107, $pref;
-
+		global $sql, $tp, $e_event, $e107 ;
+    $pref = e107::getPlugConfig('glossary')->getPref();
 		$word_name = $tp -> toDB($_POST['word_name']);
 		$word_desc = $tp -> toDB($_POST['word_desc']);
 		if (!isset($_POST['username']))
@@ -498,179 +492,7 @@ class glossary_class
 
 		$e107cache->clear();
 	}
-
-	function optgenWord()
-	{
-		global $ns, $rs, $pref;
-		
-		$text = "
-		<div style='text-align: center; margin-left:auto; margin-right: auto;'>
-			".$rs->form_open("post", e_SELF, "optgenform", "", "", "")."
-				<table style='".ADMIN_WIDTH."' class='fborder'>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTGEN_05."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_linkword", "1", ($pref['glossary_linkword'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPT_01."
-							".$rs->form_radio("glossary_linkword", "0", ($pref['glossary_linkword'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPT_02."
-						</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTGEN_07."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_submit", "1", ($pref['glossary_submit'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPT_01."
-							".$rs->form_radio("glossary_submit", "0", ($pref['glossary_submit'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPT_02."
-						</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTGEN_08."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".r_userclass("glossary_submit_class", $pref['glossary_submit_class'])."
-						</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTGEN_09."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_submit_directpost", "1", ($pref['glossary_submit_directpost'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPT_01."
-							".$rs->form_radio("glossary_submit_directpost", "0", ($pref['glossary_submit_directpost'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPT_02."
-						</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTGEN_10."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_submit_htmlarea", "1", ($pref['glossary_submit_htmlarea'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPT_01."
-							".$rs->form_radio("glossary_submit_htmlarea", "0", ($pref['glossary_submit_htmlarea'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPT_02."
-						</td>
-					</tr>
-					<tr>
-						<td colspan='2'  style='text-align:center' class='forumheader'>
-							".$rs->form_button("submit", "action[saveOptgen]", LAN_GLOSSARY_OPTGEN_02)."
-						</td>
-					</tr>
-				</table>
-			".$rs->form_close()."
-		</div>";
-		
-		$ns->tablerender(LAN_GLOSSARY_OPTGEN_01, $text);
-	}
-
-	function optpageWord()
-	{
-		global $ns, $rs, $pref;
-		
-		$text = "
-		<div style='text-align: center; margin-left:auto; margin-right: auto;'>
-			".$rs->form_open("post", e_SELF, "optform", "", "", "")."
-				<table style='".ADMIN_WIDTH."' class='fborder'>
-					<tr>
-							<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTPAGE_03."</td>
-							<td style='width:50%; text-align: right;' class='forumheader3'>
-								".$rs->form_text("glossary_page_title", 40, $pref['glossary_page_title'], "100")."
-							</td>
-					</tr>
-					<tr>
-							<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTPAGE_04."</td>
-							<td style='width:50%; text-align: right;' class='forumheader3'>
-								".$rs->form_text("glossary_page_caption_nav", 40, $pref['glossary_page_caption_nav'], "100")."
-							</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTPAGE_05."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_emailprint", "1", ($pref['glossary_emailprint'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPT_01."
-							".$rs->form_radio("glossary_emailprint", "0", ($pref['glossary_emailprint'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPT_02."
-						</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTPAGE_06."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_page_link_submit", "1", ($pref['glossary_page_link_submit'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPT_01."
-							".$rs->form_radio("glossary_page_link_submit", "0", ($pref['glossary_page_link_submit'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPT_02."
-						</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTPAGE_07."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_page_link_rendertype", "1", ($pref['glossary_page_link_rendertype'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPT_03."
-							".$rs->form_radio("glossary_page_link_rendertype", "0", ($pref['glossary_page_link_rendertype'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPT_04."
-						</td>
-					</tr>
-					<tr>
-						<td colspan='2'  style='text-align:center' class='forumheader'>
-							".$rs->form_button("submit", "action[saveOptpage]", LAN_GLOSSARY_OPTPAGE_02)."
-						</td>
-					</tr>
-				</table>
-			".$rs->form_close()."
-		</div>";
-		
-		$ns->tablerender(LAN_GLOSSARY_OPTPAGE_01, $text);
-	}
-
-	function optmenuWord()
-	{
-		global $ns, $rs, $pref;
-		
-		$text = "
-		<div style='text-align: center; margin-left:auto; margin-right: auto;'>
-			".$rs->form_open("post", e_SELF, "optform", "", "", "")."
-				<table style='".ADMIN_WIDTH."' class='fborder'>
-					<tr>
-							<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTMENU_04."</td>
-							<td style='width:50%; text-align: right;' class='forumheader3'>
-								".$rs->form_text("glossary_menu_caption", 40, $pref['glossary_menu_caption'], "100")."
-							</td>
-					</tr>
-					<tr>
-							<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTMENU_05."</td>
-							<td style='width:50%; text-align: right;' class='forumheader3'>
-								".$rs->form_text("glossary_menu_caption_nav", 40, $pref['glossary_menu_caption_nav'], "100")."
-							</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTMENU_06."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_menu_link_frontpage", "1", ($pref['glossary_menu_link_frontpage'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPT_01."
-							".$rs->form_radio("glossary_menu_link_frontpage", "0", ($pref['glossary_menu_link_frontpage'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPT_02."
-						</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTMENU_07."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_menu_link_submit", "1", ($pref['glossary_menu_link_submit'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPT_01."
-							".$rs->form_radio("glossary_menu_link_submit", "0", ($pref['glossary_menu_link_submit'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPT_02."
-						</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTMENU_08."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_menu_link_rendertype", "1", ($pref['glossary_menu_link_rendertype'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPT_03."
-							".$rs->form_radio("glossary_menu_link_rendertype", "0", ($pref['glossary_menu_link_rendertype'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPT_04."
-						</td>
-					</tr>
-					<tr>
-						<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTMENU_09."</td>
-						<td style='width:50%; text-align: right;' class='forumheader3'>
-							".$rs->form_radio("glossary_menu_lastword", "1", ($pref['glossary_menu_lastword'] ? "1" : "0"), "", "").LAN_GLOSSARY_OPTMENU_10."
-							".$rs->form_radio("glossary_menu_lastword", "0", ($pref['glossary_menu_lastword'] ? "0" : "1"), "", "").LAN_GLOSSARY_OPTMENU_11."
-						</td>
-					</tr>
-					<tr>
-							<td style='width:50%' class='forumheader3'>".LAN_GLOSSARY_OPTMENU_12."</td>
-							<td style='width:50%; text-align: right;' class='forumheader3'>
-								".$rs->form_text("glossary_menu_number", 2, $pref['glossary_menu_number'], "3")."
-							</td>
-					</tr>
-					<tr>
-						<td colspan='2'  style='text-align:center' class='forumheader'>
-							".$rs->form_button("submit", "action[saveOptmenu]", LAN_GLOSSARY_OPTMENU_02)."
-						</td>
-					</tr>
-				</table>
-			".$rs->form_close()."
-		</div>";
-		
-		$ns->tablerender(LAN_GLOSSARY_OPTMENU_01, $text);
-	}
+ 
 
 	function show_options($action)
 	{
@@ -682,9 +504,6 @@ class glossary_class
 			case "update":
 			case "delete":
 			case "link":
-			case "saveOptgen":
-			case "saveOptpage":
-			case "saveOptmenu":
 				$action = "main";
 				break;
 
@@ -703,7 +522,8 @@ class glossary_class
 
 		// Submitted definition
 		$total = $sql->db_Count("glossary", "(*)", "where glo_approved = '0'");
-		if ($total)
+		//if ($total)
+		if (TRUE)  // to see all admin menu items
 		{
 			$var['displaySubmitted']['text'] = LAN_GLOSSARY_MENU_04." (".$total.")";
 			$var['displaySubmitted']['link'] = e_SELF."?displaySubmitted";
@@ -717,89 +537,35 @@ class glossary_class
 
 			// General Options
 			$var['optgen']['text'] = LAN_GLOSSARY_MENU_11;
-			$var['optgen']['link'] = e_SELF."?optgen";
+			$var['optgen']['link'] = e_PLUGIN."glossary/admin_config.php?mode=general&action=prefs";
 			$var['optgen']['perm'] = "0";
 
 			// Menu Options
 			$var['optpage']['text'] = LAN_GLOSSARY_MENU_12;
-			$var['optpage']['link'] = e_SELF."?optpage";
+			$var['optpage']['link'] = e_PLUGIN."glossary/admin_config.php?mode=page&action=prefs";
 			$var['optpage']['perm'] = "0";
 	
 			// Menu Options
 			$var['optmenu']['text'] = LAN_GLOSSARY_MENU_13;
-			$var['optmenu']['link'] = e_SELF."?optmenu";
+			$var['optmenu']['link'] = e_PLUGIN."glossary/admin_config.php?mode=menu&action=prefs";
 			$var['optmenu']['perm'] = "0";
 	
 			show_admin_menu(LAN_GLOSSARY_MENU_10, $action, $var);
 		}
 	}
-
-	function saveOptGenWord()
-	{
-		$this->saveSettings("gen");
-	}
-
-	function saveOptpageWord()
-	{
-		$this->saveSettings("page");
-	}
-
-	function saveOptmenuWord()
-	{
-		$this->saveSettings("menu");
-	}
-
-	function saveSettings($opt)
-	{
-		global $pref;
-
-		switch($opt)
-		{
-			case "gen":
-				// General Options 
-				$pref['glossary_linkword']					= $_POST['glossary_linkword'];
-				$pref['glossary_submit']						= $_POST['glossary_submit'];
-				$pref['glossary_submit_class']			= $_POST['glossary_submit_class'];
-				$pref['glossary_submit_directpost']	= $_POST['glossary_submit_directpost'];
-				$pref['glossary_submit_htmlarea']		= $_POST['glossary_submit_htmlarea'];
-				break;
-
-			case "page":
-				// Page Options
-				$pref['glossary_page_title']						= $_POST['glossary_page_title'];
-				$pref['glossary_page_caption_nav']			= $_POST['glossary_page_caption_nav'];
-				$pref['glossary_emailprint']						= $_POST['glossary_emailprint'];
-				$pref['glossary_page_link_submit']			= $_POST['glossary_page_link_submit'];
-				$pref['glossary_page_link_rendertype']	= $_POST['glossary_page_link_rendertype'];
-				break;
-
-			case "menu":
-				// Menu Options
-				$pref['glossary_menu_caption']					= $_POST['glossary_menu_caption'];
-				$pref['glossary_menu_caption_nav']			= $_POST['glossary_menu_caption_nav'];
-				$pref['glossary_menu_link_frontpage']		= $_POST['glossary_menu_link_frontpage'];
-				$pref['glossary_menu_link_submit']			= $_POST['glossary_menu_link_submit'];
-				$pref['glossary_menu_link_rendertype']	= $_POST['glossary_menu_link_rendertype'];
-				$pref['glossary_menu_lastword']					= $_POST['glossary_menu_lastword'];
-				$pref['glossary_menu_number']						= $_POST['glossary_menu_number'];
-				break;
-		}
-		
-		save_prefs();
-		
-		$this->message = LAN_GLOSSARY_SAVEOPT_01;
-	}
+ 
+ 
 
 	function displayWords($submittext = "")
 	{
-		global $sql, $rs, $ns, $tp;
+		global $sql, $rs, $ns;
 		global $glo_id, $word, $description;
 		global $wcar;
 
 		//require_once(e_PLUGIN.'glossary/glossary_shortcodes.php');
 		$word_table = "";
 		$wall = array();
-		$title = $tp->parseTemplate($this->plugTemplates['WORD_PAGE_TITLE'], FALSE, $this->word_shortcodes);
+		$title = e107::getParser()->parseTemplate($this->plugTemplates['WORD_PAGE_TITLE'], FALSE, $this->word_shortcodes);
 		$words = $sql->retrieve("glossary", "*", "glo_approved = '1' ORDER BY glo_name ASC" , true);
   
 		if ($words)
@@ -814,10 +580,10 @@ class glossary_class
 				{
 					$wcar = strtoupper($word{0});
 					$wall[$wcar] = 1;
-					$text .= $tp->parseTemplate($this->plugTemplates['WORD_ANCHOR'], FALSE, $this->word_shortcodes);
+					$text .= e107::getParser()->parseTemplate($this->plugTemplates['WORD_ANCHOR'], FALSE, $this->word_shortcodes);
 				}
-				$text .= $tp->parseTemplate($this->plugTemplates['WORD_BODY_PAGE'], FALSE, $this->word_shortcodes);
-				$text .= $tp->parseTemplate($this->plugTemplates['BACK_TO_TOP'], FALSE, $this->word_shortcodes);
+				$text .= e107::getParser()->parseTemplate($this->plugTemplates['WORD_BODY_PAGE'], FALSE, $this->word_shortcodes);
+				$text .= e107::getParser()->parseTemplate($this->plugTemplates['BACK_TO_TOP'], FALSE, $this->word_shortcodes);
 			}
 		}
 
@@ -834,34 +600,37 @@ class glossary_class
 
 		$wcar = "0-9";
 		if ($ok)
-			$text2 .= $tp->parseTemplate($this->plugTemplates['WORD_CHAR_LINK'], FALSE, $this->word_shortcodes);
+			$text2 .= e107::getParser()->parseTemplate($this->plugTemplates['WORD_CHAR_LINK'], FALSE, $this->word_shortcodes);
 		else
-			$text2 .= $tp->parseTemplate($this->plugTemplates['WORD_CHAR_NOLINK'], FALSE, $this->word_shortcodes);
+			$text2 .= e107::getParser()->parseTemplate($this->plugTemplates['WORD_CHAR_NOLINK'], FALSE, $this->word_shortcodes);
 
 		for($i = ord("A"); $i <= ord("Z"); $i++)
 		{
 			$wcar = chr($i);
 			if ($wall[$wcar])
-				$text2 .= $tp->parseTemplate($this->plugTemplates['WORD_CHAR_LINK'], FALSE, $this->word_shortcodes);
+				$text2 .= e107::getParser()->parseTemplate($this->plugTemplates['WORD_CHAR_LINK'], FALSE, $this->word_shortcodes);
 			else
-				$text2 .= $tp->parseTemplate($this->plugTemplates['WORD_CHAR_NOLINK'], FALSE, $this->word_shortcodes);
+				$text2 .= e107::getParser()->parseTemplate($this->plugTemplates['WORD_CHAR_NOLINK'], FALSE, $this->word_shortcodes);
 		}
 
-		$text2 = $tp->parseTemplate($this->plugTemplates['WORD_ALLCHAR_PRE'], FALSE).$text2.$tp->parseTemplate($this->plugTemplates['WORD_ALLCHAR_POST'], FALSE);
+		$text2 = e107::getParser()->parseTemplate($this->plugTemplates['WORD_ALLCHAR_PRE'], FALSE).$text2.e107::getParser()->parseTemplate($this->plugTemplates['WORD_ALLCHAR_POST'], FALSE);
 		$text  = $text2.$text;
+    
+    $start = e107::getParser()->parseTemplate($this->plugTemplates['WORD_PAGE_START']);
+    $end   = e107::getParser()->parseTemplate($this->plugTemplates['WORD_PAGE_END']);
 
 		if (!$words)
 			$text .= $this->build_message(LAN_GLOSSARY_DISPLAYWORDS_01);
 
-		$ns->tablerender($title, $submittext.$text);
+		$ns->tablerender($title, $start.$submittext.$text.$end);
 	}
 	
 	function buildMenuWord($qry)
 	{
-		global $sql, $rs, $ns, $tp, $pref;
+		global $sql, $rs, $ns, $tp ;
 		global $glo_id, $word, $description;
  
-
+    $pref = e107::getPlugConfig('glossary')->getPref();
 		//require_once(e_PLUGIN.'glossary/glossary_shortcodes.php');
 
     $words = $sql->retrieve("glossary", "*", "glo_approved = '1' ORDER BY ".$qry." LIMIT ".$pref['glossary_menu_number'], true);

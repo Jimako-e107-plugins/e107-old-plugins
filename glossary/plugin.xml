@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e107Plugin name="glossary" lan="LAN_GLOSSARY_PLUGIN_01" version="2.0.0" date="2017-09-20" compatibility="2.0" installRequired="true" >
+<e107Plugin name="Glossary" lan="LAN_GLOSSARY_PLUGIN_01" version="2.0.0" date="2017-09-22" compatibility="2.0" installRequired="true" >
+
 	<author name="Andre DUCLOS shirka" url="http://www.shirka.org" />
-	<summary lan="LAN_GLOSSARY_PLUGIN_02">A Glossary of Terms</summary>
+	<summary lan="">A Glossary of Terms</summary>
 	<description lan="">A Glossary of Terms</description>
 	<keywords>
 		<word>information</word>
@@ -11,29 +12,34 @@
 	<category>content</category>
 	<copyright>e107.org</copyright>
 	<adminLinks>
-		<link url="admin_config_old.php" description="" icon="images/icon_32.png" iconSmall="images/icon_16.png" icon128="" primary="true" >LAN_GLOSSARY_PLUGIN_03</link>
+		<link url="admin_config.php" description="" icon="images/icon_32.png" iconSmall="images/icon_16.png" icon128="" primary="true" >LAN_CONFIGURE</link>
 	</adminLinks>
 	<siteLinks>
 		<link url="{e_PLUGIN}glossary/glossaire.php" >LAN_GLOSSARY_PLUGIN_04</link>		
 	</siteLinks>
 	<pluginPrefs>
-		<pref name='glossary_linkword'>0</pref>
-		<pref name='glossary_submit'>0</pref>
-		<pref name='glossary_submit_class'>255</pref>
-		<pref name='glossary_submit_directpost'>0</pref>
-		<pref name='glossary_submit_htmlarea'>0</pref>
-		<pref name='glossary_emailprint'>0</pref>
-		<pref name='glossary_page_title'>LAN_GLOSSARY_PLUGIN_07</pref>
-		<pref name='glossary_page_caption_nav'>LAN_GLOSSARY_PLUGIN_08</pref>
-		<pref name='glossary_page_link_submit'>1</pref>
-		<pref name='glossary_page_link_rendertype'>0</pref>
-		<pref name='glossary_menu_caption'>LAN_GLOSSARY_PLUGIN_01</pref>
-		<pref name='glossary_menu_caption_nav'>LAN_GLOSSARY_PLUGIN_08</pref>
-		<pref name='glossary_menu_link_frontpage'>1</pref>
-		<pref name='glossary_menu_link_submit'>1</pref>
-		<pref name='glossary_menu_link_rendertype'>0</pref>
-		<pref name='glossary_menu_lastword'>1</pref>
-		<pref name='glossary_menu_number'>1</pref>	
+    <!--		start general prefs -->
+		<pref name="glossary_linkword">0</pref>
+		<pref name="glossary_submit">0</pref>
+ 		<pref name="glossary_submit_class">255</pref>
+		<pref name="glossary_submit_directpost">0</pref>
+		<pref name="glossary_submit_htmlarea">0</pref>
+    <!--		end general prefs -->
+    <!--		start page prefs -->
+		<pref name="glossary_page_title"></pref>
+		<pref name="glossary_page_caption_nav"></pref>
+		<pref name="glossary_emailprint">0</pref>
+		<pref name="glossary_page_link_submit">1</pref>
+		<pref name="glossary_page_link_rendertype">0</pref>
+    <!--		end page prefs -->
+    <!--		start menu prefs -->
+		<pref name="glossary_menu_caption"></pref>
+		<pref name="glossary_menu_caption_nav"></pref>
+		<pref name="glossary_menu_link_frontpage">1</pref>
+		<pref name="glossary_menu_link_submit">1</pref>
+		<pref name="glossary_menu_link_rendertype">0</pref>
+		<pref name="glossary_menu_lastword">1</pref>
+		<pref name="glossary_menu_number">1</pref>
+    <!--		end menu prefs -->
 	</pluginPrefs>
 </e107Plugin>
-
