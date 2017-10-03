@@ -12,8 +12,11 @@
 	<category>content</category>
 	<copyright>e107.org</copyright>
 	<adminLinks>
-		<link url="admin_config.php" description="" icon="" iconSmall="" icon128="" primary="true" >LAN_CONFIGURE</link>
+		<link url="admin_config.php" description="" icon="images/icon_32.png" iconSmall="images/icon_16.png" icon128="" primary="true" >LAN_CONFIGURE</link>
 	</adminLinks>
+	<siteLinks>
+		<link url="{e_PLUGIN}glossary/glossaire.php" >LAN_GLOSSARY_PLUGIN_04</link>		
+	</siteLinks>
 	<pluginPrefs>
     <!--		start general prefs -->
 		<pref name="glossary_linkword">0</pref>
