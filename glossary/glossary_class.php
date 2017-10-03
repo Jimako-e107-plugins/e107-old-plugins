@@ -111,23 +111,22 @@ class glossary_class
 
 	function show_letter($approved)
 	{
-		global $sql, $ns, $rs;
-		
-		$distinctfirstletter = $sql->select("glossary", " DISTINCT(glo_name) ", "glo_approved = '$approved' ORDER BY glo_name ASC", "default");
-		while($row = $sql->fetch())
+
+		$distinctwords = e107::getDb()->retrieve("glossary", " DISTINCT(glo_name) ", "glo_approved = '$approved' ORDER BY glo_name ASC", "default");
+		foreach($distinctwords AS $row) 
 		{
 			$arrletters[] = $this->first_car($row['glo_name']);
 		}
-
+		$distinctfirstletter = count($distinctwords);	 
 		$arrletters = array_unique($arrletters);
 		$arrletters = array_values($arrletters);
 		sort($arrletters);
-
 		$text = "";
 		if($distinctfirstletter != 1)
 		{
 			$text .= "<div style='text-align: center'>";
-			$text .= $rs->form_open("post", e_SELF . ($approved ? "" : "?displaySubmitted"), "letters")."
+			//$text .= $rs->form_open("post", e_SELF . ($approved ? "" : "?displaySubmitted"), "letters")."			
+			$text .= e107::getForm()->open("letters", "post", e_SELF . ($approved ? "" : "?displaySubmitted"))."
 				<table id='show_letter' style='".ADMIN_WIDTH."' class='fborder'>
 					<tr>
 						<td colspan='2' class='fcaption'>".LAN_GLOSSARY_SHOWLETT_01."</td>
@@ -138,12 +137,13 @@ class glossary_class
 			for($i = 0; $i < count($arrletters); $i++)
 			{
 				if($arrletters[$i]!= "")
-					$text .= $rs->form_button("submit", "letter", strtoupper($arrletters[$i]), "", "", LAN_GLOSSARY_SHOWLETT_03);
+					//$text .= $rs->form_button("submit", "letter", strtoupper($arrletters[$i]), "", "", LAN_GLOSSARY_SHOWLETT_03);
+					$text .= e107::getForm()->button( "letter", strtoupper($arrletters[$i]), "submit",   "", LAN_GLOSSARY_SHOWLETT_03);
 			}
 
-			$text .= "&nbsp;".$rs->form_button("submit", "letter", LAN_GLOSSARY_SHOWLETT_02, "", "", LAN_GLOSSARY_SHOWLETT_04);
-			
-			$text .= "</td></tr></table>".$rs->form_close()."</div>";
+			//$text .= "&nbsp;".$rs->form_button("submit", "letter", LAN_GLOSSARY_SHOWLETT_02, "", "", LAN_GLOSSARY_SHOWLETT_04);
+			$text .= "&nbsp;".e107::getForm()->button( "letter", LAN_GLOSSARY_SHOWLETT_02, "submit", "", LAN_GLOSSARY_SHOWLETT_04);
+			$text .= "</td></tr></table>".e107::getForm()->close()."</div>";
 		}
 		return $text;
 	}
@@ -261,7 +261,7 @@ class glossary_class
 						<td colspan='2' style='width:100%; text-align:center' class='forumheader'><b>";
 		
 		if (!$id || $sub)
-			$text .= LAN_GLOSSARY_CREATEWORD_08;
+			$text .= LAN_GLOSSARY_CREATEWORD_08;     
 		else
 			$text .= LAN_GLOSSARY_CREATEWORD_09;
 		
