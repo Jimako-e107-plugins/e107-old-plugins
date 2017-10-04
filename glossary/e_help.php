@@ -177,8 +177,8 @@ switch(vartrue($action)) {
 	}
 // Removed by rica_carv }
 
-$helptitle = LAN_GLOSSARY_HELP_01;
-
-$ns -> tablerender($helptitle, $text);
+//$helptitle = LAN_GLOSSARY_HELP_01;
+//$ns -> tablerender($helptitle, $text);
+$ns -> tablerender(LAN_GLOSSARY_HELP_01, $text);
 
 ?>
