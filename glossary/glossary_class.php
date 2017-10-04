@@ -124,13 +124,13 @@ class glossary_class
 		$text = "";
 		if($distinctfirstletter != 1)
 		{
-			$text .= "<div style='text-align: center'>";
+			$text .= "</fieldset></form><div class='e-container'>";  
 			//$text .= $rs->form_open("post", e_SELF . ($approved ? "" : "?displaySubmitted"), "letters")."			
-			$text .= e107::getForm()->open("letters", "post", e_SELF . ($approved ? "" : "?displaySubmitted"))."
-				<table id='show_letter' style='".ADMIN_WIDTH."' class='fborder'>
-					<tr>
+			$text .= e107::getForm()->open("letters", "get", e_SELF . ($approved ? "?mode=main" : "?mode=submitted"))."
+				<table id='show_letter' style='".ADMIN_WIDTH."' class='table adminlist table-striped'>
+					<thead><tr class='even'>
 						<td colspan='2' class='fcaption'>".LAN_GLOSSARY_SHOWLETT_01."</td>
-					</tr>
+					</tr></thead>
 				<tr>
 					<td colspan='2' class='forumheader3' style='text-align: center;'>";
 
@@ -143,7 +143,7 @@ class glossary_class
 
 			//$text .= "&nbsp;".$rs->form_button("submit", "letter", LAN_GLOSSARY_SHOWLETT_02, "", "", LAN_GLOSSARY_SHOWLETT_04);
 			$text .= "&nbsp;".e107::getForm()->button( "letter", LAN_GLOSSARY_SHOWLETT_02, "submit", "", LAN_GLOSSARY_SHOWLETT_04);
-			$text .= "</td></tr></table>".e107::getForm()->close()."</div>";
+			$text .= "</td></tr></table>".e107::getForm()->close()."</div><form><fieldset>";
 		}
 		return $text;
 	}
@@ -514,7 +514,7 @@ class glossary_class
 
 		// Definition Frontpage
 		$var['main']['text'] = LAN_GLOSSARY_MENU_02;
-		$var['main']['link'] = e_SELF;
+		$var['main']['link'] = e_PLUGIN."glossary/admin_config.php?mode=main";
 
 		// Create Definition
 		$var['create']['text'] = LAN_GLOSSARY_MENU_03;
@@ -526,7 +526,7 @@ class glossary_class
 		if (TRUE)  // to see all admin menu items
 		{
 			$var['displaySubmitted']['text'] = LAN_GLOSSARY_MENU_04." (".$total.")";
-			$var['displaySubmitted']['link'] = e_SELF."?displaySubmitted";
+			$var['displaySubmitted']['link'] = e_PLUGIN."glossary/admin_config.php?mode=submitted";
 		}
 
 		show_admin_menu(LAN_GLOSSARY_MENU_01, $action, $var);
