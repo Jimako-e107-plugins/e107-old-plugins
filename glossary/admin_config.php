@@ -24,6 +24,12 @@ class glossary_adminArea extends e_admin_dispatcher
 			'ui' 			=> 'glossary_form_ui',
 			'uipath' 		=> null
 		),
+		'submitted'	=> array(
+			'controller' 	=> 'glossary_submitted_ui',
+			'path' 			=> null,
+			'ui' 			=> 'glossary_submitted_form_ui',
+			'uipath' 		=> null
+		),
 		'general'	=> array(
 			'controller' 	=> 'glossary_general_ui',
 			'path' 			=> null,
@@ -45,15 +51,13 @@ class glossary_adminArea extends e_admin_dispatcher
 
 	);	
 	
-	
 	protected $adminMenu = array(
-
-
 		'main/list'			 => array('caption'=> LAN_MANAGE, 'perm' => 'P'),
     'frontpage' => array("text" => LAN_GLOSSARY_MENU_02, 
 											"link" => "admin_config_old.php", 
 											"form" => false),
 		'main/create'		 => array('caption'=> LAN_GLOSSARY_MENU_03, 'perm' => 'P'),
+		'submitted/list'		 => array('caption'=> LAN_GLOSSARY_MENU_04, 'perm' => 'P'),
     'submitted' => array("text" => LAN_GLOSSARY_MENU_04, 
 											"link" => "admin_config_old.php?displaySubmitted", 
 											"form" => false),
@@ -62,7 +66,6 @@ class glossary_adminArea extends e_admin_dispatcher
 		'general/prefs'			=> array('caption'=> LAN_GLOSSARY_MENU_11, 'perm' => 'P'),
 		'page/prefs'			=> array('caption'=> LAN_GLOSSARY_MENU_12, 'perm' => 'P'),
 		'menu/prefs'			=> array('caption'=> LAN_GLOSSARY_MENU_13, 'perm' => 'P'),
-
 		// 'main/custom'		=> array('caption'=> 'Custom Page', 'perm' => 'P')
 	);
 
@@ -71,12 +74,16 @@ class glossary_adminArea extends e_admin_dispatcher
 	);	
 	
 	protected $menuTitle = 'Glossary';
+
+  function init (){
+  
+//		protected $listQry      	= "SELECT * FROM `#glossary` WHERE glo_approved = '' "; //   
+//    var_dump (e107::getDb()->count("glossary", "(*)", "glo_approved = ''"));  
+//    var_dump ($this->adminMenu['submitted/list']['caption']);  
+    $this->adminMenu['submitted/list']['caption'] .= " (".e107::getDb()->count("glossary", "(*)", "glo_approved = ''").")";
+  }
 }
 
-
-
-
-				
 class glossary_ui extends e_admin_ui
 {
 			
@@ -97,33 +104,43 @@ class glossary_ui extends e_admin_ui
 	//	protected $tabs				= array('Tabl 1','Tab 2'); // Use 'tab'=>0  OR 'tab'=>1 in the $fields below to enable. 
 		
 	//	protected $listQry      	= "SELECT * FROM `#tableName` WHERE field != '' "; // Example Custom Query. LEFT JOINS allowed. Should be without any Order or Limit.
+		protected $listQry      	= "SELECT * FROM `#glossary` WHERE glo_approved != '' "; // Example Custom Query. LEFT JOINS allowed. Should be without any Order or Limit.
 	
 		protected $listOrder		= 'glo_id DESC';
 	
 		protected $fields 		= array (  'checkboxes' =>   array ( 'title' => '', 'type' => null, 'data' => null, 'width' => '5%', 'thclass' => 'center', 'forced' => '1', 'class' => 'center', 'toggle' => 'e-multiselect',  ),
 		  'glo_id' =>   array ( 'title' => LAN_ID, 'data' => 'int', 'width' => '5%', 'help' => '', 'readParms' => '', 'writeParms' => '', 'class' => 'left', 'thclass' => 'left',  ),
-		  'glo_name' =>   array ( 'title' => LAN_TITLE, 'type' => 'text', 'data' => 'str', 'width' => 'auto', 'inline' => true, 'help' => '', 'readParms' => '', 'writeParms' => '', 'class' => 'left', 'thclass' => 'left',  ),
-		  'glo_description' =>   array ( 'title' => LAN_DESCRIPTION, 'type' => 'textarea', 'data' => 'str', 'width' => '40%', 'help' => '', 'readParms' => '', 'writeParms' => '', 'class' => 'left', 'thclass' => 'left',  ),
-		  'glo_author' =>   array ( 'title' => LAN_AUTHOR, 'type' => 'text', 'data' => 'str', 'width' => 'auto', 'help' => '', 'readParms' => '', 'writeParms' => '', 'class' => 'left', 'thclass' => 'left',  ),
+		  'glo_name' =>   array ( 'title' => LAN_GLOSSARY_CREATEWORD_03, 'type' => 'text', 'data' => 'str', 'width' => 'auto', 'inline' => true, 'help' => '', 'readParms' => '', 'writeParms' => '', 'class' => 'left', 'thclass' => 'left',  ),
+		  'glo_description' =>   array ( 'title' => LAN_GLOSSARY_CREATEWORD_04, 'type' => 'textarea', 'data' => 'str', 'width' => '40%', 'help' => '', 'readParms' => '', 'writeParms' => '', 'class' => 'left', 'thclass' => 'left',  ),
+		  'glo_author' =>   array ( 'title' => LAN_GLOSSARY_SHOWWORD_08, 'type' => 'text', 'data' => 'str', 'width' => 'auto', 'help' => '', 'readParms' => '', 'writeParms' => '', 'class' => 'left', 'thclass' => 'left',  ),
 		  'glo_datestamp' =>   array ( 'title' => LAN_DATESTAMP, 'type' => 'datestamp', 'data' => 'int', 'width' => 'auto', 'filter' => true, 'help' => '', 'readParms' => '', 'writeParms' => '', 'class' => 'left', 'thclass' => 'left',  ),
 		  'glo_approved' =>   array ( 'title' => 'Approved', 'type' => 'boolean', 'data' => 'int', 'width' => 'auto', 'help' => '', 'readParms' => '', 'writeParms' => '', 'class' => 'left', 'thclass' => 'left',  ),
-		  'glo_linked' =>   array ( 'title' => 'Linked', 'type' => 'boolean', 'data' => 'int', 'width' => 'auto', 'help' => '', 'readParms' => '', 'writeParms' => '', 'class' => 'left', 'thclass' => 'left',  ),
+		  'glo_linked' =>   array ( 'title' => LAN_GLOSSARY_CREATEWORD_07, 'type' => 'boolean', 'data' => 'int', 'width' => 'auto', 'help' => '', 'readParms' => '', 'writeParms' => '', 'class' => 'left', 'thclass' => 'left',  ),
 		  'options' =>   array ( 'title' => LAN_OPTIONS, 'type' => null, 'data' => null, 'width' => '10%', 'thclass' => 'center last', 'class' => 'center last', 'forced' => '1',  ),
 		);		
 		
 		protected $fieldpref = array('glo_name', 'glo_description', 'glo_author', 'glo_datestamp');
-		
 
 	//	protected $preftabs        = array('General', 'Other' );
-		protected $prefs = array(
-		); 
-
+//		protected $prefs = array(
+//		); 
+//public $postFiliterMarkup = '';
 	
 		public function init()
 		{
 			// Set drop-down values (if any). 
-	
-		}
+    require_once(e_PLUGIN.'glossary/glossary_class.php');
+    $gc = new glossary_class();
+    
+//    var_dump($gc);
+    $this->postFiliterMarkup = $gc->show_letter(1);
+
+		$tp = e107::getParser();
+    $letter = (isset($_GET['letter']) ? $_GET['letter'] : "");
+		if ($letter != "" && $letter != LAN_GLOSSARY_SHOWLETT_02 )
+			$this->listQry .= " AND glo_name LIKE '".$tp->toDB($letter)."%' ";
+
+	  }
 
 		
 		// ------- Customize Create --------
@@ -175,13 +192,32 @@ class glossary_ui extends e_admin_ui
 			
 }
 				
-
-
 class glossary_form_ui extends e_admin_form_ui
 {
 
 }		
-		
+
+
+class glossary_submitted_ui extends glossary_ui
+{
+	protected $listQry      	= "SELECT * FROM `#glossary` WHERE glo_approved = '' "; // Example Custom Query. LEFT JOINS allowed. Should be without any Order or Limit.
+	public function init()
+	{
+			// Set drop-down values (if any). 
+    require_once(e_PLUGIN.'glossary/glossary_class.php');
+    $gc = new glossary_class();
+    
+//    var_dump($gc);
+    $this->postFiliterMarkup = $gc->show_letter(0);
+
+//    var_dump($_POST);
+//    var_dump($_GET);
+    $tp = e107::getParser();
+		$letter = (isset($_GET['letter']) ? $_GET['letter'] : "");
+		if ($letter != "" && $letter != LAN_GLOSSARY_SHOWLETT_02 )
+			$this->listQry .= " AND glo_name LIKE '".$tp->toDB($letter)."%' ";
+  }
+}		
 
 class glossary_general_ui extends e_admin_ui
 {
