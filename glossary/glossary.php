@@ -66,16 +66,19 @@ class e_glossary
 			
 			foreach($content as $cont)
 			{
-				if (eregi($opentag1, $cont))
+				//if (eregix($opentag1, $cont))
+				if (preg_match("%".$opentag1."%i", $cont))  
 					$in++;
 
-				if (eregi($closetag, $cont))
+				//if (eregix($closetag, $cont))
+				if (preg_match("%".$closetag."%i", $cont))  
 					$in--;
 
 				if ($in)
 				{
 					$ptext .= $cont;
-					if (eregi($opentag2, $cont))
+					//if (eregix($opentag2, $cont))
+					if (preg_match("%".$opentag2."%i", $cont))  
 						$in--;
 				}
 				else
