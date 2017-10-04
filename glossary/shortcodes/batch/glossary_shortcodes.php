@@ -150,7 +150,7 @@ class plugin_glossary_glossary_shortcodes extends e_shortcode
 		$text = "";
 		$mains = "";
 		$baseurl = e_PLUGIN."glossary/glossaire.php";
-		$bullet = defined("BULLET") ? "<img src='".THEME_ABS."images/".BULLET."' alt='' style='vertical-align: middle; border: 0;' />" : "<img src='".THEME_ABS."images/bullet2.gif' alt='bullet' style='vertical-align: middle; border: 0;' />";
+		$bullet = defined("BULLET") ? "<img src='".THEME_ABS."images/".BULLET."' alt='' style='vertical-align: middle; border: 0;' />" : "<img src='".e_PLUGIN."glossary/images/bullet2.gif' alt='bullet' style='vertical-align: middle; border: 0;' />";
 		if(isset($pref['glossary_menu_link_frontpage']) && $pref['glossary_menu_link_frontpage'])
 		{
 			if(isset($pref['glossary_menu_link_rendertype']) && $pref['glossary_menu_link_rendertype'] == "1")
