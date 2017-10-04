@@ -70,13 +70,13 @@ switch(vartrue($action)) {
 // removed by rica_carv											$text .= "<br /><br />";
 // removed by rica_carv								$text .= "<b>".LAN_GLOSSARY_HELP_CREATE_02."</b>";
 					$text .= "<br />";
-			$text .= "<b>".LAN_TITLE.": </b>";
+			$text .= "<b>".LAN_GLOSSARY_CREATEWORD_03.": </b>";
 // removed by rica_carv											$text .= "<br />";
 			$text .= LAN_GLOSSARY_HELP_CREATE_03;
 // removed by rica_carv											$text .= "<br /><br />";
 // removed by rica_carv								$text .= "<b>".LAN_GLOSSARY_HELP_CREATE_04."</b>";
 					$text .= "<br />";
-			$text .= "<b>".LAN_DESCRIPTION.": </b>";
+			$text .= "<b>".LAN_GLOSSARY_CREATEWORD_04.": </b>";
 // removed by rica_carv											$text .= "<br />";
 			$text .= LAN_GLOSSARY_HELP_CREATE_05;
 			break;
