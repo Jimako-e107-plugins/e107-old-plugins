@@ -45,7 +45,8 @@ ePlayer is configurable from the Admin area of e107. Media clips ...
 
 ### e107 Glossary plugin v1.91 rc4 by  Shirka
 ~~ fully updated for version 2 ~~
- 
+moved to separate repository: 
+https://github.com/Jimmi08/glossary/ 
 
 
 ### e107 On This Day plugin V1.5 by Father Barry
@@ -56,6 +57,12 @@ original author: https://github.com/G4HDU
 
 state: fixed visible error 
 
- 
+### e107 Tutorial Archiver 2.0 by e107 Italia in 2013 
+Original plugin by: Jordan 'Glasseater' Mellow, 2007
 
+original version: 2007 + revison 2013
+ 
+original author: no idea 
+
+just backup
  
