@@ -79,5 +79,12 @@ just backup
  
 ~~not possible just fix it, google API totally changed~~
 
+### Random Avatar Menu v0.2.2 by killerpope
+
+Displays any number of user-avatars in a menu. The list is generated randomly every second/hour/day/week/month. You can also exclude certain avatars (e.g. generic avatars provided for people who don't want to upload their own avatar)
+ 
+source: https://e107.org/plugins/?id=302
+
+
 
  
