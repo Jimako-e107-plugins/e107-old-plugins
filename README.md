@@ -85,6 +85,8 @@ Displays any number of user-avatars in a menu. The list is generated randomly ev
  
 source: https://e107.org/plugins/?id=302
 
+Fix: avatar issue and layout change
+
 
 
  
