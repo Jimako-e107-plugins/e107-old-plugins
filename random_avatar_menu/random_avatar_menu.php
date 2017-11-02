@@ -33,7 +33,10 @@ foreach($pref['rndava_user_id'] as $user_id)
 {
     $user = get_user_data($user_id);
  
-    $text .= "<div class='col-xs-12 col-sm-3 col-md-2'>";
+    if (!$pref['rndava_horizontal']) {
+        $text .= "<div class='col-xs-12 col-sm-3 col-md-2'>";
+    }
+    else $text .= "<div class='col-xs-12 col-sm-12 col-md-12'>";
     
     if ($pref['rndava_display_link'])
     {
