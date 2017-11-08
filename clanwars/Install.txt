@@ -1,0 +1,25 @@
++ -------------------------------------------------------------------+
+| e107: Clan Wars 1.0                                                |
+| ===========================                                        |
+|                                                                    |
+| Copyright (c) 2011 Untergang                                       |
+| http://www.udesigns.be/                                            |
+|                                                                    |
+| This plugin may not be redistributed in whole or significant part. |
++--------------------------------------------------------------------+
+
+INSTALL
+
+- First upload the content of the hmtl folder to your root directory
+- CHMOD the folders
+      e107_plugins/clanwars/images/Screens 
+      e107_plugins/clanwars/images/Maps 
+  and the folder thumbs inside it, to 777
+- Go to the plugin manager in the administration
+- Install the plugin
+- Go to the Configuration and change the settings to fit your needs
+- Add the games/teams!!
+- Now you can start adding wars
+
+
+Need help? go to UDesigns.be

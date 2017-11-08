@@ -87,6 +87,38 @@ source: https://e107.org/plugins/?id=302
 
 Fix: avatar issue and layout change
 
-
-
+### e107 Challenge Us by udesigns
  
+still able download: http://www.udesigns.be/shop-i82-e107-challenge-us
+
+state: just backup 
+
+note: needs to use e107_images/clan for images
+
+
+###  e107 Clan Wars by udesigns
+
+still able download: http://www.udesigns.be/shop-i80-e107-clan-wars
+
+state: just backup 
+
+note: needs to use e107_images/clan for images and a lot of extra stuff
+ 
+ 
+### e107 Clan Members by udesigns
+
+still able download: http://www.udesigns.be/shop-i79-e107-clan-members
+
+state: just backup 
+
+note: needs to use e107_images/clan for images and a lot of extra stuff
+
+
+### e107 Join Us by udesigns
+
+still able download: http://www.udesigns.be/shop-i81-e107-join-us
+
+state: just backup 
+
+note: needs to use e107_images/clan for images and a lot of extra stuff
+

@@ -1,0 +1,23 @@
+div.mainwrap{
+	width:328px;
+	display:block;
+	margin: 2px;
+	padding: 0;
+}
+div.mainwrap td{
+	padding:2px;
+}
+div.nowrap{
+	width:328px;
+	display:block;
+	margin:2px;
+	text-align:left;
+	font-weight:bold;
+	border:1px solid transparent;
+}
+div.nowrap td{
+	padding:2px;
+}
+.iconpointer{
+	cursor:pointer;
+}
