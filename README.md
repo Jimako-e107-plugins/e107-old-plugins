@@ -104,4 +104,16 @@ source: https://e107.org/plugins/?id=591
 just backup
 
 
+### Last IP v0.5 by SharkyDog
+
+This plugin writes into db last 5,6,10, ... IP addresses used by some user.
+ 
+source: https://e107.org/plugins/?id=672
+
+it's not listed in plugin manager maybe because missing author
+
+just backup
+
+
+
  
