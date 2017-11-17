@@ -1,0 +1,45 @@
+div.mainwrap{
+	width:450px;
+	display:block;
+	margin: 2px;
+	padding: 0;
+}
+div.mainwrap td{
+	padding:2px;
+}
+div.nowrap{
+	width:450px;
+	display:block;
+	margin:2px;
+	text-align:left;
+	font-weight:bold;
+	border:1px solid transparent;
+}
+div.nowrap td{
+	padding:2px;
+}
+.iconpointer{
+	cursor:pointer;
+}
+div.statuswrap{
+	width:25px;
+	display:inline-block;
+	text-align:center;
+	vertical-align:text-bottom;
+}
+div.unamewrap{
+	width:90px;
+	display:inline-block;	
+}
+div.addresswrap{
+	width:197px;
+	display:inline-block;	
+}
+div.buttonwrap{
+	width:126px;
+	text-align:right;
+	display:inline-block;
+}
+.iconpointer{
+	cursor:pointer;
+}
