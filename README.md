@@ -87,6 +87,21 @@ source: https://e107.org/plugins/?id=302
 
 Fix: avatar issue and layout change
 
+### Random Avatar Menu v0.2.2 by killerpope
+
+Displays any number of user-avatars in a menu. The list is generated randomly every second/hour/day/week/month. You can also exclude certain avatars (e.g. generic avatars provided for people who don't want to upload their own avatar)
+ 
+source: https://e107.org/plugins/?id=302
+
+Fix: avatar issue and layout change
+
+### Tournaments v1.2 by morpheas
+
+This is a plug-in that can run a tournament on a flash game similar to those used in kroozearcade. You only have to upload the game and set up a tournament on it!
+ 
+source: https://e107.org/plugins/?id=591
+
+just backup
 
 
  
