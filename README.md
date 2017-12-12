@@ -150,3 +150,10 @@ state: just backup
  
 note: needs to use e107_images/clan for images and a lot of extra stuff
 
+
+### e107 job search plugin by Father Barry
+
+this plugin is not available anymore
+
+state: just backup 
+
