@@ -11,7 +11,7 @@ if (!$faq_obj->faq_read)
 require_once(e_HANDLER . "cache_handler.php");
 
 
-if ($faqdivsl = $e107cache->retrieve("nq_faqtop_menu"))
+if ($faqdivsl = e107::getCache()->retrieve("nq_faqtop_menu"))
 {
     echo $faqdivsl;
 }
@@ -53,13 +53,13 @@ function faqDiv(faqdivid) {
 			<div style='width:100%'>
 				<div onclick=\"faqDiv(" . $faqmenu_faqdivid . ");\" style='cursor:pointer;float:left;width:80%; '>
 
-						<img src='" . THEME . "images/bullet2.gif' alt='bullet' style='border:0;' />
+						<img src='" . THEME_ABS . "images/bullet2.gif' alt='bullet' style='border:0;' />
 							<span class='smalltext'>" . FAQLANTOP_01 . "</span>&nbsp;&nbsp;
 
 				</div>
 				<div onclick=\"faqDiv(" . $faqmenu_faqdivid . ");\" style='cursor:pointer;float:right;width:19%;text-align:right;'>
 
-						<img id='faqexpdr" . $faqmenu_faqdivid . "' src='" . e_PLUGIN . "faq/images/expand.png' title='expand/close' alt='expand/close' style='border:0;'/>
+						<img id='faqexpdr" . $faqmenu_faqdivid . "' src='" . e_PLUGIN_ABS . "faq/images/expand.png' title='expand/close' alt='expand/close' style='border:0;'/>
 
 				</div>
 				<div style='clear:both;'></div>
@@ -73,7 +73,7 @@ function faqDiv(faqdivid) {
     $sql->db_Select_gen($faq_arg, false);
     while ($faq_row = $sql->db_Fetch())
     {
-        $faqdivsl .= "<span class='smallblacktext'><a href='" . e_PLUGIN . "faq/faq.php?0.cat." . $faq_row['faq_parent'] . "." . $faq_row['faq_id'] . "'><strong>" . $tp->toFORM($faq_row['faq_question']) . "</strong></a> (" . $faq_row['faq_views'] . ")</span><br />";
+        $faqdivsl .= "<span class='smallblacktext'><a href='" . e_PLUGIN_ABS . "faq/faq.php?0.cat." . $faq_row['faq_parent'] . "." . $faq_row['faq_id'] . "'><strong>" . $tp->toFORM($faq_row['faq_question']) . "</strong></a> (" . $faq_row['faq_views'] . ")</span><br />";
     } // while
     $faqdivsl .= "
 				</div>
@@ -91,12 +91,12 @@ function faqDiv(faqdivid) {
 			<div style='width:100%'>
 				<div onclick=\"faqDiv(" . $faqmenu_faqdivid . ");\" style='cursor:pointer;float:left;width:80%; '>
 
-						<img src='" . THEME . "images/bullet2.gif' alt='bullet' style='border:0;' />
+						<img src='" . THEME_ABS . "images/bullet2.gif' alt='bullet' style='border:0;' />
 							<span class='smalltext'>" . FAQLANTOP_02 . "</span>&nbsp;&nbsp;
 
 				</div>
 				<div onclick=\"faqDiv(" . $faqmenu_faqdivid . ");\" style='cursor:pointer;float:right;width:19%;text-align:right;'>
-						<img id='faqexpdr" . $faqmenu_faqdivid . "' src='" . e_PLUGIN . "faq/images/expand.png' title='expand/close' alt='expand/close' style='border:0;'/>
+						<img id='faqexpdr" . $faqmenu_faqdivid . "' src='" . e_PLUGIN_ABS . "faq/images/expand.png' title='expand/close' alt='expand/close' style='border:0;'/>
 				</div>
 				<div style='clear:both;'></div>
 			</div>
@@ -127,11 +127,11 @@ function faqDiv(faqdivid) {
 		<div  class='forumheader3' >
 			<div style='width:100%'>
 				<div onclick=\"faqDiv(" . $faqmenu_faqdivid . ");\" style='cursor:pointer;float:left;width:80%; '>
-						<img src='" . THEME . "images/bullet2.gif' alt='bullet' style='border:0;' />
+						<img src='" . THEME_ABS . "images/bullet2.gif' alt='bullet' style='border:0;' />
 							<span class='smalltext'>" . FAQLANTOP_03 . "</span>&nbsp;&nbsp;
 				</div>
 				<div onclick=\"faqDiv(" . $faqmenu_faqdivid . ");\" style='cursor:pointer;float:right;width:19%;text-align:right;'>
-						<img id='faqexpdr" . $faqmenu_faqdivid . "' src='" . e_PLUGIN . "faq/images/expand.png' title='expand/close' alt='expand/close' style='border:0;'/>
+						<img id='faqexpdr" . $faqmenu_faqdivid . "' src='" . e_PLUGIN_ABS . "faq/images/expand.png' title='expand/close' alt='expand/close' style='border:0;'/>
 				</div>
 				<div style='clear:both;'></div>
 			</div>
@@ -147,7 +147,7 @@ limit 0," . $faq_obj->faq_topnum;
         $sql->db_Select_gen($faq_arg, false);
         while ($faq_row = $sql->db_Fetch())
         {
-            $faqdivsl .= "<span class='smallblacktext'><a href='" . e_PLUGIN . "faq/faq.php?0.cat." . $faq_row['faq_parent'] . "." . $faq_row['faq_id'] . "'><strong>" . $tp->toFORM($faq_row['faq_question']) . "</strong></a> (" . $faq_row['rating'] . ")</span><br />";
+            $faqdivsl .= "<span class='smallblacktext'><a href='" . e_PLUGIN_ABS . "faq/faq.php?0.cat." . $faq_row['faq_parent'] . "." . $faq_row['faq_id'] . "'><strong>" . $tp->toFORM($faq_row['faq_question']) . "</strong></a> (" . $faq_row['rating'] . ")</span><br />";
         } // while
         $faqdivsl .= "
 				</div>
@@ -164,11 +164,11 @@ limit 0," . $faq_obj->faq_topnum;
 		<div  class='forumheader3' >
 			<div style='width:100%'>
 				<div onclick=\"faqDiv(" . $faqmenu_faqdivid . ");\" style='cursor:pointer;float:left;width:80%; '>
-						<img src='" . THEME . "images/bullet2.gif' alt='bullet' style='border:0;' />
+						<img src='" . THEME_ABS . "images/bullet2.gif' alt='bullet' style='border:0;' />
 							<span class='smalltext'>" . FAQLANTOP_04 . "</span>&nbsp;&nbsp;
 				</div>
 				<div onclick=\"faqDiv(" . $faqmenu_faqdivid . ");\" style='cursor:pointer;float:right;width:19%;text-align:right;'>
-						<img id='faqexpdr" . $faqmenu_faqdivid . "' src='" . e_PLUGIN . "faq/images/expand.png' title='expand/close' alt='expand/close' style='border:0;'/>
+						<img id='faqexpdr" . $faqmenu_faqdivid . "' src='" . e_PLUGIN_ABS . "faq/images/expand.png' title='expand/close' alt='expand/close' style='border:0;'/>
 				</div>
 				<div style='clear:both;'></div>
 			</div>
@@ -182,7 +182,7 @@ where faq_approved > 0 and comment_type='3' group by comment_item_id order by nu
     $sql->db_Select_gen($faq_arg, false);
     while ($faq_row = $sql->db_Fetch())
     {
-        $faqdivsl .= "<span class='smallblacktext'><a href='" . e_PLUGIN . "faq/faq.php?0.cat." . $faq_row['faq_parent'] . "." . $faq_row['faq_id'] . "'><strong>" . $tp->toFORM($faq_row['faq_question']) . "</strong></a> (" . $faq_row['numpost'] . ")</span><br />";
+        $faqdivsl .= "<span class='smallblacktext'><a href='" . e_PLUGIN_ABS . "faq/faq.php?0.cat." . $faq_row['faq_parent'] . "." . $faq_row['faq_id'] . "'><strong>" . $tp->toFORM($faq_row['faq_question']) . "</strong></a> (" . $faq_row['numpost'] . ")</span><br />";
     } // while
     $faqdivsl .= "
 				</div>
@@ -198,11 +198,11 @@ where faq_approved > 0 and comment_type='3' group by comment_item_id order by nu
 		<div  class='forumheader3' >
 			<div style='width:100%'>
 				<div onclick=\"faqDiv(" . $faqmenu_faqdivid . ");\" style='cursor:pointer;float:left;width:80%; '>
-						<img src='" . THEME . "images/bullet2.gif' alt='bullet' style='border:0;' />
+						<img src='" . THEME_ABS . "images/bullet2.gif' alt='bullet' style='border:0;' />
 							<span class='smalltext'>" . FAQLANTOP_05 . "</span>&nbsp;&nbsp;
 				</div>
 				<div onclick=\"faqDiv(" . $faqmenu_faqdivid . ");\" style='cursor:pointer;float:right;width:19%;text-align:right;'>
-						<img id='faqexpdr" . $faqmenu_faqdivid . "' src='" . e_PLUGIN . "faq/images/expand.png' title='expand/close' alt='expand/close' style='border:0;'/>
+						<img id='faqexpdr" . $faqmenu_faqdivid . "' src='" . e_PLUGIN_ABS . "faq/images/expand.png' title='expand/close' alt='expand/close' style='border:0;'/>
 				</div>
 				<div style='clear:both;'></div>
 			</div>
@@ -218,7 +218,7 @@ limit 0," . $faq_obj->faq_topnum;
     $sql->db_Select_gen($faq_arg, false);
     while ($faq_row = $sql->db_Fetch())
     {
-        $faqdivsl .= "<span class='smallblacktext'><a href='" . e_PLUGIN . "faq/faq.php?0.cat." . $faq_row['faq_parent'] . "'><strong>" . $tp->toFORM($faq_row['faq_info_title']) . "</strong></a> (" . $faq_row['numpost'] . ")</span><br />";
+        $faqdivsl .= "<span class='smallblacktext'><a href='" . e_PLUGIN_ABS . "faq/faq.php?0.cat." . $faq_row['faq_parent'] . "'><strong>" . $tp->toFORM($faq_row['faq_info_title']) . "</strong></a> (" . $faq_row['numpost'] . ")</span><br />";
     } // while
     $faqdivsl .= "
 				</div>
@@ -234,11 +234,11 @@ limit 0," . $faq_obj->faq_topnum;
 		<div  class='forumheader3' >
 			<div style='width:100%'>
 				<div onclick=\"faqDiv(" . $faqmenu_faqdivid . ");\" style='cursor:pointer;float:left;width:80%; '>
-						<img src='" . THEME . "images/bullet2.gif' alt='bullet' style='border:0;' />
+						<img src='" . THEME_ABS . "images/bullet2.gif' alt='bullet' style='border:0;' />
 							<span class='smalltext'>" . FAQLANTOP_06 . "</span>&nbsp;&nbsp;
 				</div>
 				<div onclick=\"faqDiv(" . $faqmenu_faqdivid . ");\" style='cursor:pointer;float:right;width:19%;text-align:right;'>
-						<img id='faqexpdr" . $faqmenu_faqdivid . "' src='" . e_PLUGIN . "faq/images/expand.png' title='expand/close' alt='expand/close' style='border:0;'/>
+						<img id='faqexpdr" . $faqmenu_faqdivid . "' src='" . e_PLUGIN_ABS . "faq/images/expand.png' title='expand/close' alt='expand/close' style='border:0;'/>
 				</div>
 				<div style='clear:both;'></div>
 			</div>
@@ -254,7 +254,7 @@ limit 0," . $faq_obj->faq_topnum;
     $sql->db_Select_gen($faq_arg, false);
     while ($faq_row = $sql->db_Fetch())
     {
-        $faqdivsl .= "<span class='smallblacktext'><a href='" . e_PLUGIN . "faq/faq.php?0.cat." . $faq_row['faq_parent'] . "'><strong>" . $tp->toFORM($faq_row['faq_info_title']) . "</strong></a> (" . $faq_row['numpost'] . ")</span><br />";
+        $faqdivsl .= "<span class='smallblacktext'><a href='" . e_PLUGIN_ABS . "faq/faq.php?0.cat." . $faq_row['faq_parent'] . "'><strong>" . $tp->toFORM($faq_row['faq_info_title']) . "</strong></a> (" . $faq_row['numpost'] . ")</span><br />";
     } // while
     $faqdivsl .= "
 				</div>
@@ -265,7 +265,7 @@ limit 0," . $faq_obj->faq_topnum;
     ob_start();
     $ns->tablerender(FAQLANTOP_00, $faqdivsl);
     $faq_cache = ob_get_flush();
-    $e107cache->set("nq_faqtop_menu", $faq_cache);
+    e107::getCache()->set("nq_faqtop_menu", $faq_cache);
 }
 
 ?>

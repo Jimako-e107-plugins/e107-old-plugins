@@ -42,7 +42,7 @@ if ($faq_obj->faq_random)
 if ($faq_obj->faq_topnum>0)
 {
     $faq_show = true;
-    if ($faqdivsl = $e107cache->retrieve("nq_faqnew_menu"))
+    if ($faqdivsl = e107::getCache()->retrieve("nq_faqnew_menu"))
     {
         $faq_text .= $faqdivsl;
     }
@@ -68,7 +68,7 @@ if ($faq_obj->faq_topnum>0)
         {
             $faq_cache .= FAQLAN_100;
         }
-        $e107cache->set("nq_faqnew_menu", $faq_cache);
+        e107::getCache()->set("nq_faqnew_menu", $faq_cache);
         $faq_text .= $faq_cache;
     }
 }
