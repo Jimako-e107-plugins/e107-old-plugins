@@ -67,7 +67,7 @@ include_lan(e_PLUGIN . "prune_users/languages/admin/" . e_LANGUAGE . ".php");
 // Create necessary objects
 // ***********************************************************
 $prune_convert = new convert;
-$prune_obj = new e_userclass;
+//$prune_obj = new e_userclass;
 // ***********************************************************
 // Do the appropriate actions
 // ***********************************************************
