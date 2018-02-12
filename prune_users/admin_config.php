@@ -18,6 +18,8 @@ if (!getperms("P"))
     header("location:" . e_HTTP . "index.php");
     exit;
 }
+
+global $pref;
 require_once(e_HANDLER . "userclass_class.php");
 //require_once(e_HANDLER . "calendar/calendar_class.php");
 //$prune_cal = new DHTML_Calendar(true);
@@ -27,9 +29,9 @@ if (!defined('ADMIN_WIDTH'))
 {
     define(ADMIN_WIDTH, "width:100%;");
 }
-include_lan(e_PLUGIN . "prune_users/languages/admin/" . e_LANGUAGE . ".php");
+include_lan(e_PLUGIN . "prune_users/languages/admin/" . e_LANGUAGE . ".php");     
 if (e_QUERY == "update")
-{
+{  
     if ($_POST['prune_days'] > 0)
     {
         // Update rest
@@ -37,20 +39,17 @@ if (e_QUERY == "update")
         {
             $_POST['prune_perpage'] = 50;
         }
-        $prune_tmp = explode('-', $_POST['prune_joinbefore']);
-        $prune_joinbefore = mktime(0, 0, 0, $prune_tmp[1], $prune_tmp[2], $prune_tmp[0]);
-        $prune_tmp = explode('-', $_POST['prune_days']);
-        $prune_lastvisit = mktime(0, 0, 0, $prune_tmp[1], $prune_tmp[2], $prune_tmp[0]);
         $pref['prune_auto'] = $_POST['prune_auto']; // Auto not in use yet
         $pref['prune_notify'] = intval($_POST['prune_notify']);
-        $pref['prune_days'] = intval($prune_lastvisit);
+        $pref['prune_days'] = intval($_POST['prune_days']);
         $pref['prune_type'] = intval($_POST['prune_type']);
         $pref['prune_threshold'] = intval($_POST['prune_threshold']);
         $pref['prune_action'] = intval($_POST['prune_action']);
         $pref['prune_class'] = intval($_POST['prune_class']);
         $pref['prune_exadmin'] = intval($_POST['prune_exadmin']);
-        $pref['prune_joinbefore'] = intval($prune_joinbefore);
+        $pref['prune_joinbefore'] = intval($_POST['prune_joinbefore']);
         $pref['prune_perpage'] = intval($_POST['prune_perpage']);
+        
         save_prefs();
         $prune_msg .= PRUNE_A22 ;
     }
