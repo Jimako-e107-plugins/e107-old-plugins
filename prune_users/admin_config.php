@@ -19,9 +19,9 @@ if (!getperms("P"))
     exit;
 }
 require_once(e_HANDLER . "userclass_class.php");
-require_once(e_HANDLER . "calendar/calendar_class.php");
-$prune_cal = new DHTML_Calendar(true);
-$prune_text .= $prune_cal->load_files();
+//require_once(e_HANDLER . "calendar/calendar_class.php");
+//$prune_cal = new DHTML_Calendar(true);
+//$prune_text .= $prune_cal->load_files();
 require_once(e_ADMIN . "auth.php");
 if (!defined('ADMIN_WIDTH'))
 {
@@ -69,8 +69,8 @@ $prune_cal_options['ifFormat'] = $prune_cal_df;
 $prune_cal_attrib['class'] = "tbox";
 $prune_cal_attrib['name'] = "prune_joinbefore";
 $prune_cal_attrib['value'] = ($pref['prune_joinbefore'] > 0?date('Y-m-d', $pref['prune_joinbefore']):"");
-$prune_desc = $prune_cal->make_input_field($prune_cal_options, $prune_cal_attrib);
-
+//$prune_desc = $prune_cal->make_input_field($prune_cal_options, $prune_cal_attrib);
+$prune_desc = e107::getForm()->datepicker($prune_cal_attrib['name'], $prune_cal_attrib['value']);
 $prune_cal_options['firstDay'] = 1;
 $prune_cal_options['showsTime'] = false;
 $prune_cal_options['showOthers'] = false;
@@ -80,8 +80,8 @@ $prune_cal_options['ifFormat'] = $prune_cal_df;
 $prune_cal_attrib['class'] = "tbox";
 $prune_cal_attrib['name'] = "prune_days";
 $prune_cal_attrib['value'] = ($pref['prune_days'] > 0?date('Y-m-d', $pref['prune_days']):"");
-$prune_last = $prune_cal->make_input_field($prune_cal_options, $prune_cal_attrib);
-
+//$prune_last = $prune_cal->make_input_field($prune_cal_options, $prune_cal_attrib);
+$prune_last = e107::getForm()->datepicker($prune_cal_attrib['name'], $prune_cal_attrib['value']);
 $prune_text .= "
 <form method='post' action='" . e_SELF . "?update' id='pruneuser'>
 	<table class='fborder' style='" . ADMIN_WIDTH . "'>
