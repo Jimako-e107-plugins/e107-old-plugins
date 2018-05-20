@@ -1,0 +1,496 @@
+.ffimgfix      { display:block; }
+.r1c1          {  }
+.r1c2          { width: 100%;  text-align: center; }
+.r1c3          { }
+
+.r3c1          {  }
+.r3c2          { width: 100%;  }
+.r3c3          {  }
+
+.r4c1          {  }
+.r4c2          { width: 100%; font-size: 11px; color: #333333; text-align: center; }
+.r4c3          {  }
+
+.leftr5        {  }
+.rightr5       {  }
+
+.r6c1          {  }
+.r6c2          { font-size: 11px; color: #333333;  text-align: center; }
+.r6c3          {  }
+
+.mt1           {  }
+.mtm           { 
+                 border-bottom:1px solid #CCCCCC;
+                 overflow:hidden;
+                 padding:0 0 4px;
+                 vertical-align:bottom;
+                 font-size: 11px; color: #333333;
+                   
+                 font-weight: bold; 
+               }
+.mt2           {  }
+.mleft         {  }
+.middlemiddle  { background: white ; padding: 4px 5px 5px 4px;	font-size: 11px; color: #333333;  vertical-align:top; }
+.mright        {  }
+.md1           {  }
+.mdbg          {  }
+.md2           {  }
+
+.logo {
+    background-color: #365689;
+    }
+
+a {
+	color: #365689;
+	text-decoration: none;
+}
+a:hover {
+	color: #365689;
+	text-decoration: underline;
+}
+a.forumlink {
+	color: #365689;
+	text-decoration: none;
+}
+h1 {
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+h2 {
+  font-size: 11px;
+  font-weight: bold;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+body {
+	font-size: 13px;
+	color: #333333;
+	font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+	background-color: white;
+	margin:0px 0px;
+	padding:0px;
+	text-align: center;
+}
+blockquote {
+	font-style: italic;
+	font-size: 9px;
+	color: white;
+}
+form {
+	margin: 2px 0px 0px 0px;
+}
+hr {
+	border-top: #fff 1px solid;
+	border-bottom: #CCCCCC 1px solid;
+	height: 2px;
+	width: 92%;
+	text-align:center;
+}
+img {
+	border:none;
+}
+p {
+	margin-top: 0px;
+	margin-bottom: 0px
+}
+td {
+	font-size: 11px;
+	color: #333333;
+	padding: 0px;
+	text-align:left;
+}
+.alttd {
+	background-color:#CCCCCC;
+	color: #365689;
+	border: 1px solid #365689;
+	margin:2px;
+	padding:3px;
+}
+.bodytable {
+	padding: 8px;
+	font-size: 11px;
+	color: #333333;
+}
+.bodytable2 {
+	border: #000 1px solid;
+	padding: 8px;
+	font-size: 11px;
+	color: #000;
+}
+.bodytable3 {
+	padding: 8px;
+	font-size: 11px;
+	color: #000;
+}
+.border {
+	border: #000 1px solid;
+}
+.border2 {
+	border: #000 1px solid;
+}
+.border3 {
+	border: #000 1px solid;
+}
+.bottomborder {
+	border-top: #000 1px solid;
+	border-bottom: #000 1px solid;
+}
+.button {
+	background-color: #365689;
+	border: #7d7d7d 1px solid;
+	color: #cccccc;
+	font-size: 9px;
+	text-align:center;
+}
+.button_disabled {
+	background-color: #aaaaaa;
+	border: #7d7d7d 1px solid;
+	color: #cccccc;
+	font-size: 9px;
+	text-align:center;
+}
+.caption {
+	padding: 0px 4px 0px 4px;
+	border-bottom: #000 1px solid;
+	border-left: #000 1px solid;
+	border-right: #000 1px solid;
+	border-top: #000 1px solid;
+	background-color: #3C3C3C;
+	color: #fff;
+	
+}
+.caption2 {
+	padding: 0px 4px 0px 4px;
+	color: #333333;
+	
+	text-align:center;
+}
+.captiontext {
+	
+	color: #333333;
+}
+.center {
+	text-align: center;
+}
+.customclock {
+	
+	color:#333333;
+}
+.code {
+	border: #000 1px solid;
+	padding: 8px;
+	background-color: #333333;
+	color: #fff;
+}
+.defaulttext {
+	color: #333333;
+}
+.fborder {
+	border: transparent 0px solid;
+	background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+.forumborder {
+	border: #000 1px solid;
+}
+.forumheader {
+    text-align: left;
+    text-indent: 2px;
+    color: #404040; 
+	border: #404040 1px solid;
+}
+.forumheader2 {
+	background-color: white;
+	color: #333333;
+	padding: 4px;
+	border: #000 1px solid;
+}
+.forumheader3 {
+	color: #333333;
+    text-indent: 2px;
+	padding: 1px;
+	border: #404040 1px solid;
+}
+.forumheader4 {
+	background-color: #3C3C3C;
+	color: #333333;
+	padding: 4px;
+	border: #000 1px solid;
+}
+.forumtable2 {
+	background-color: #3C3C3C;
+	color: #333333;
+	padding: 4px;
+	border: #000 1px solid;
+}
+.fcaption {
+	border: #000 1px solid;
+	padding: 2px 0px 2px 8px;
+	background-color: #3C3C3C;
+	color: white;
+	font-weight: bold;
+}
+.finfobar {
+	background-color: white;
+	
+	color: #333333;
+	padding: 4px;
+	border: #000 1px solid;
+}
+.helpbox {
+	background-color: #333333;
+	color: #333333;
+	font-size: 9px;
+}
+.indent{
+	padding: 5px;
+	margin: 5px;
+	font-size: 9px;
+	color: #333333;
+	border: 1px solid;
+	background-color: white;
+	border-bottom: #39393b 1px solid;
+	border-left: #151515 1px solid;
+	border-right: #39393b 1px solid;
+	border-top: #151515 1px solid;
+}
+.mediumtext {
+	font-size: 11px;
+	color: #333333;
+}
+.newscomments{
+	background-color: transparent;
+	font-size: 9px;
+	color: #999999;
+	padding: 2px;
+}
+.nextprev {
+	border: 0px;
+	text-align:center;
+	padding: 2px;
+	background-color: #f7f7f9;
+}
+.nforumcaption {
+	padding: 8px 4px 8px 4px;
+	background-color: #333333;
+	color: #333333;
+	font-weight: bold;
+}
+.nforumcaption2 {
+	padding: 8px 0px 8px 4px;
+	font-size: 11px;
+	color: #333333;
+	font-weight: bold;
+	background-image: url(images/fcaption3.jpg);
+}
+.nforumcaption3 {
+	border: 1px solid #CCCCCC;
+	padding: 4px;
+	background-color: #333333;
+	font-size: 11px;
+	font-weight: bold;
+}
+.nforumdisclaimer {
+	color: #333333;
+}
+.nforumholder {
+	border: 1px solid #CCCCCC;
+	padding: 0px;
+	background-color: #333333;
+}
+.nforumreplycaption {
+	border: 1px solid #CCCCCC;
+	padding: 4px;
+	background-color: #333333;
+}
+.nforumreply {
+	border: 1px solid #CCCCCC;
+	padding: 4px;
+	background-color: #333333;	
+}
+.nforumreply2 {
+	border: 1px solid #CCCCCC;
+	padding: 4px;
+	background-color: #333333;
+}
+.nforumthread {
+	border: 1px solid #CCCCCC;
+	padding: 4px;
+	background-color: #333333;
+	color: #333333;
+}
+.nforumthread2 {
+	border: 1px solid #CCCCCC;
+	padding: 4px;
+	background-color: #333333;
+	color: #333333;
+}
+.nforumview1 {
+	border: 1px solid #CCCCCC;
+	padding: 4px;
+	background-color: #7D7D7D;
+	font-size: 11px;
+}
+.nforumview2 {
+	border: 1px solid #CCCCCC;
+	padding: 4px;
+	background-color: #7D7D7D;
+	
+}
+.nforumview3 {
+	padding: 4px;
+	background-color: #333333;
+	
+	color: #333333;
+}
+.nforumview4 {
+	padding: 4px;
+	background-color: #333333;
+	
+	color: #333333;
+}
+.np {
+	background-color: #333333;
+	border: #CCCCCC 1px solid;
+	color: #333333;
+	
+	text-align:center;
+	padding : 2px;
+}
+.smalltext {
+	font-size: 9px;
+	color: gray;
+}
+.smallblacktext {
+	font-size: 9px;
+	color: #000;
+	font-weight: bold;
+}
+.spacer {
+	padding: 0px 0px 0px 0px;
+}
+.tbox {
+	background-color: white;
+	border: #000 1px solid;
+	color: #333333;
+	font-size: 11px;
+}
+
+.left_menu {
+	padding:0px;
+	width: 0%;
+	vertical-align:top;
+	border-right: 1px dotted #ccc;
+}
+
+.right_menu {
+	padding:0px;
+	width: 10%;
+	vertical-align:top;
+	/*border-left: 1px solid #000;*/
+	}
+
+/* Brainjar Nav Menu Classes {SITELINS_ALT} */
+/*
+If you do not use {SITELINS_ALT} and switch to the standard {SITELINKS} instead, 
+all of the below can be deleted.
+*/
+/*----------------------------------------------------------------------------*/
+
+div.menuBar, div.menuBar a.menuButton, div.menuButton, div.menuButton_over, div.menu, div.menu a.menuItem {
+	font-size:11px;
+	font-weight: bold;
+	color: #365689;
+	text-align: left;
+}
+
+div.menuBar {
+	background-color: #fff;
+	border-top: 1px solid #fff;
+	padding: 1px 0px;
+	text-align: left;
+}
+
+div.emenuBar {
+	background-color: #F7F9FA;
+	border-top: 1px solid #fff;
+	text-align: left;
+}
+
+div.menuBar a.menuButton, div.menuButton, div.menuButton_over {
+	background-color: transparent;
+	border: 1px solid;
+	border-color: transparent !important;
+	border-color: #fff #fff #fff #fff;
+	left: 0px;
+	margin: 0px;
+	padding: 2px 6px 2px 6px;
+	position: relative;
+	text-decoration: none;
+	top: 0px;
+	z-index: 100;
+}
+
+div.menuBar a.menuButton:hover, div.menuButton:hover, div.menuButton_over {
+	background-color: #365689;
+	border-color: #fff #fff #fff #fff !important;
+	color: #fff;
+}
+
+div.menuBar a.menuButtonActive, div.menuButtonActive, div.menuButtonActive:hover, div.menuBar a.menuButtonActive:hover {
+	background-color: #126CA3;
+	border-color: #fff #fff #fff #fff !important;
+	left: 1px;
+	top: 1px;
+	color: #fff;
+}
+
+div.menu {
+	background-color: #FCFDFF;
+	border: 1px solid;
+	border-color: #fff #a5a5a5 #a5a5a5 #fff;
+	left: 0px;
+	padding: 1px;
+	position: absolute;
+	top: 0px;
+	visibility: hidden;
+	z-index: 101;
+}
+
+div.menu a.menuItem {
+	display: block;
+	padding: 2px 11px 2px 0px;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+div.menu a.menuItem:hover, div.menu a.menuItemHighlight {
+	background-color: #F2F4FF;
+}
+
+div.menu a.menuItem span.menuItemBuffer, div.menu a.menuItem:hover span.menuItemBuffer {
+	padding: 0px 2px;
+}
+
+div.menu a.menuItem span.menuItemText {
+	padding: 0px 0px 0px 3px;
+}
+
+div.menu a.menuItem span.menuItemArrow {
+	margin-right: -.75em;
+}
+
+div.menu div.menuItemSep {
+	border-top: 1px solid #a5a5a5;
+	border-bottom: 1px solid #fff;
+	margin: 4px 2px;
+}
+
+a.menuItem.header {
+	border-bottom: 1px solid #b3b3b3;
+}

@@ -1,0 +1,134 @@
+5/21/2014
+- ffa match report form:
+. need to add forfeit/draw.
+. need to be able to edit ranks if match scheduled report.
+- Match info should display something about forfeit/draw
+- double check draw for glicko2. looks ok.
+- in match report forms, replace disabled nputs by text/hidden inputs.
+- replace add/remove team/player by textbox with number
+<input type="number" min="2" max="20" step="2" />
+- 	MyTeam (Not ranked)
+- not logged in, report match button appears.
+
+5/12/2014
+. if event is draft, popup to tell event manager to activate.
+. match report form. if match is scheduled, server needs to check that player list is correct.
+ In general, do not trust user input, the can submit a modified form.
+. Better match info for 1v1
+. Add to stats: "activity"
+ Measure of activity could be:
+  - high glicko sigma = low activity (sigma0=350, lowers when you play, increases when you don't)
+  - gain an acivity point if you play in the rating period, and loose one if you don't
+  - ?
+  - decay/bonus
+. Winner/loser report 1v1: prefill player 1 and result. Only need to choose player 2
+. like division/gamer, change events.php to have game_id icon
+
+4/25/2014
+. (resolved) max_num_players_reached -> for ladder -> hard limit, for tourny -> wait list.
+
+3/23/2014
+. (resolved) adding a player to a bracket after tournament starts is a problem.
+A player who previously add a bye will not
+There will be a match too many.
+
+2/27/2014
+. (resolved) kick_team does not erase matchs.
+. (resolved) can't replace "empty" seed.
+. (resolved) remove pagination for players_list in eventmanage, not working with player replace/shuffle...
+
+
+2/4/2013
+.IMPORTANT
+ if fixtures_enabled=1 && status='active', we can not re-order the seeds, because it would screw up the bracket.
+-> Prevent "quit"/"kick"
+-> if 'checkin_enabled' and 1 seeded player has not checked in?
+
+http://jsfiddle.net/Q8wHS/
+http://stackoverflow.com/questions/12221179/jquery-ui-sortable-add-placeholders-to-lists-to-simulate-empty-spaces
+
+-----------------------------------------------------------------------
+1/15/2013
+. tournament, checkin enabled, if no one has checked in, the brackets shows a ";"
+
+. ban/kick/del_games/del_awards for teams
+ - team banned -> need all players banned.
+ - if player joins a banned team, it should be banned too.
+  - jointeamevent: event->eventAddPlayer(team) -> not allowed if team banned.
+  - division->addMember()
+ - show checked in players/teams in ladders?
+  - banned teams/players should not appear in players list in report match dialog.
+. automatic checkin if log after checkin starts?
+
+-----------------------------------------------------------------------
+Match report in dialog.
+- matchscheduledreport -> check if match exists.
+
+. fix?: if we lower the max number of players, what do we do if number_players>max_number_players
+ 1: can only happen if event is not started yet. after that, the button is disabled
+    So the only issue is with non-fixtures events, during signup, where we do not allow more than max_players
+. add "player substitution" for fixtured (if no game played yet by the user we want to replace)
+. Event admin "Add" non-gamers?
+. Notification for deleted players?
+. Add "forfeit" button for non-accepted challenges (or accepted, but not played?)
+ - active matches
+ - pending matches (need approval)
+ - scheduled matches
+ - challenges requested (not yet confirmed/accepted)
+ Need to find which case
+. "checkin" only makes sense for fixtured events?
+. add platforms to game
+. add "game" page, with events for each game
+. matchinfo.php should use Match object!
+. probably would be better to recalculate the brackets every time, rather than when schedulematch is true?
+. seeding/page split not correct.
+. gamer profile should have a "game" selector
+
+Stats per game:
+1. what if i want to reset the stats at some point.
+2. what if i want to have stats for a period of time (season...)
+3. do I want to count stats for every event, or only "Official"
+4. Add new field to events, called "Category"?
+   So we can get stats for all the events falling in that category?
+   this category needs to link to a list of categories set in the admin page?
+   categorie could contain 
+    . unique id
+    . text field (tags)
+	. date range (season)
+
+DONE
+. late checkins instead of late signups when checkin is enabled?
+it looks like signups not checked in are kicked 
+. delete match in bracket if event over -> change status (finished -> active) / remove rewards?
+. Prevent "quit"/"kick" if fixturesenabled=1 && status='active', because deleting a player re-orders the seeds, which screws up the bracket.
+. event option: allow late signup (enable/disable)
+  - for fixtured, it will be disabled once 1 game is played
+. event option: enable/disable signup (prevent users from signing up)
+. Bug: edit match in fixtured event deletes it and creates new one, but there is a mismatch with the bracket results.
+
+. Fixtures
+ . disable challenges if fixtures are enabled
+
+. Teams
+ . need team quit event.
+ . need team checkin, kick, ban in event manage page
+ . delete teams should delete matches, scores, awards, ...
+
+. Deleted items
+ . Bug: when displaying an item, we should verify it is in database
+  - claninfo,
+  - clanmanage,
+  - eventinfo,
+  - eventmanage
+  - matchinfo (says match deleted)
+
+. Verify every database access.
+ Check the return value, use check_qd_query()?
+
+. Form process redirect
+ - if item created -> show that item
+ - if item deleted: show a page saying "item deleted", and a link to redirect
+ - if can not do something: show a page saying "could not do this because...", and a link to redirect
+  . clandelete (if scores>0)
+  
+

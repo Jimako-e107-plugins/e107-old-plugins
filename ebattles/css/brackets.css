@@ -1,0 +1,184 @@
+#panel_wide,
+#panel_narrow,
+#panel_full,
+#panel_brackets {
+	background: #fff url(./images/sprite_tournament_list.png) repeat-y right 0;
+	margin: -5px 13px 0 13px;
+	position: relative;
+	z-index: 1;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	padding: 15px 0 15px 17px;
+	border: 1px solid #000;
+}
+#panel_narrow { background: #fff url(./images/sprite_tournament_details.png) repeat-y -950px 0 }
+#panel_full,
+#panel_brackets { background: #fff }
+#panel_brackets { padding: 10px 0 }
+
+#brackets_frame {
+	position: relative;
+	overflow: auto;
+	z-index: 999;
+	margin: 0 10px;
+}
+#brackets {
+	position: absolute;
+/*	cursor: move; */
+	z-index: 100;
+	margin: 0;
+	display: block;
+}
+#brackets_dynamic_frame {
+	position: absolute;
+	z-index: 1001;
+}
+table.brackets {
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+}
+table.brackets #brackets_header td { margin: 0 0 -100px 0 }
+table.brackets #brackets_header th { background: url(./images/sprite_tournament_bracket.png) no-repeat 0 -214px }
+table.brackets #brackets_footer th { background: url(./images/sprite_tournament_bracket.png) no-repeat 0 bottom }
+table.brackets .spacer td { padding: 5px 0 0 0 }
+
+table.brackets table.player {
+	border-collapse: separate;
+	border-spacing: 0px;
+	margin: 0;
+	width:100%;
+	max-width:100%;
+}
+
+table.brackets th {
+	height: 40px;
+	color: #3c3c3c;
+	border: none;
+	text-align: center;
+	font: bold 12px Tahoma, Arial, sans-serif;
+	padding: 0;
+}
+table.brackets td {
+	margin: 0;
+	padding: 0;
+	font: 10px Tahoma, Arial, sans-serif
+ }
+table.brackets td.grid {
+	padding: 0;
+	width: 3px; !important;
+	min-width: 3px;
+}
+table.brackets td div.eb_container {
+	border: 1px solid #2f2f2f;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	min-width: 128px;
+	margin: 0px;
+	padding:1px;
+	color: #646464;
+	overflow: hidden;
+}
+table.brackets td div.player {
+	margin-left: 2px;
+	margin-right: auto;
+	display: block;
+	color: #646464;
+	font-weight: bold;
+	line-height: 17px;
+}
+table.brackets td div.winner {
+	/*background: #CFE8D7;*/
+}
+table.brackets td div.loser {
+	/*background: #CFDBE8;*/
+}
+table.brackets td div.victor {
+	/*background: #CFE8D7;*/
+}
+table.brackets td div.loser div.player {
+	font-weight: normal;
+ 	color: #B1B1B1;
+}
+table.brackets td div.loser div.player img {
+	-moz-opacity: 0.3;
+	opacity: .30;
+	filter: alpha(opacity=30);
+}
+table.brackets td div.eb_container img {
+	margin-left: 0px;
+	margin-right: 2px;
+	vertical-align: -4px;
+}
+table.brackets td.seed {
+	width: 12px;
+}
+table.brackets td div.wins,
+table.brackets td div.wins_none {
+	color: #ff6c00;
+	font-weight: bold;
+}
+table.brackets td.wins {
+}
+
+table.brackets td div.loser div.wins {
+	color: #b1b1b1;
+}
+table.brackets td.score {
+	color: #646464;
+	font-weight: bold;
+	width: 12px;
+}
+table.brackets div.score.win{
+	color: #00FF00;
+}
+table.brackets div.score.loss {
+	color: #FF0000;
+}
+table.brackets td.match-details {
+	background: url(./images/sprite_tournament_bracket-2.png) repeat-y 0 0;
+	text-align: center;
+	vertical-align: middle;
+	padding: 1px;
+}
+table.brackets td.border-top { background: url(./images/sprite_tournament_bracket-2.png) no-repeat -160px 0 }
+table.brackets td.border-middle { background: url(./images/sprite_tournament_bracket-2.png) no-repeat -170px 0 }
+table.brackets td.border-bottom { background: url(./images/sprite_tournament_bracket-2.png) no-repeat -160px -19px }
+table.brackets td.border-vertical { background: url(./images/sprite_tournament_bracket-2.png) repeat-y -151px 0 }
+
+table.brackets-matchup {
+	border-collapse:collapse;
+}
+
+table.brackets-matchup td {
+	border: 1px solid #000;
+	color: #000;
+	font-size: 8px;
+}
+
+table.brackets-matchup td a {
+	text-decoration: none;
+	color: #000;
+	padding:0px;
+	margin:0px;
+}
+table.brackets-matchup td div {
+	min-width: 10px;
+/*fm	max-width: 20px; */
+	line-height: 8px;
+	overflow: hidden;
+	padding:0px;
+	margin:0px;
+}
+table.brackets-matchup td div.match-winner {
+	background: #99FF99;
+}
+table.brackets-matchup td div.match-loser {
+	background: #FF9999;
+}
+table.brackets-matchup td.match-not-played {
+	border: 0px;
+}
+

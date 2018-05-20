@@ -1,0 +1,29 @@
+.paginate {
+padding: 3px 7px 3px 7px;
+}
+a.paginate {
+border: 1px solid #aaaaaa;
+padding: 2px 6px 2px 6px;
+text-decoration: none;
+font-weight: bold ;
+}
+a.paginate:hover {
+border: 1px solid #555555;
+text-decoration: none;
+font-weight: bold ;
+}
+a.current {
+border: 1px solid #000000;
+padding: 2px 6px 2px 6px;
+text-decoration: none;
+font-weight: bold ;
+}
+a.current:hover {
+text-decoration: none;
+font-weight: bold ;
+}
+span.inactive {
+border: 1px solid #999;
+padding: 2px 6px 2px 6px;
+cursor: default;
+}
