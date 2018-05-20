@@ -194,19 +194,44 @@ just backup
 
 ### e107 Glossary plugin v1.91 rc4 by  Shirka
 ~~fully updated for version 2~~
-
-moved to separate repository: 
-
+ 
 https://github.com/Jimmi08/glossary/ 
 
 active fork:  https://github.com/rica-carv/glossary
 
 =======
 
+### e107 PageStat plugin by Ajdar 
+~~fully updated for version 2.1.3 ~~
 
+https://github.com/Jimmi08/pagestat
 
+not used anymore
+=======
 
+### e107 EasyShop plugin by nlstart
 
+original:https://github.com/e107inc/e107-easyshop
+my fork: https://github.com/Jimmi08/e107-easyshop
+
+state: works with 2.1.3
+
+=======
+
+### User Flags Menu by  JmoRava, Oxigen 
+~~fully updated for version 2~~
+
+https://github.com/Jimmi08/userlanguage_flags_menu/
+
+=======
+
+### ebattles e107 plugin by Frederic Marchais (qam4)
+
+source: https://github.com/qam4/ebattles
+
+just backup
+
+=======
 
 
 
