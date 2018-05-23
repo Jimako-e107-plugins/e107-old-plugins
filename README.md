@@ -1,10 +1,25 @@
 # e107-old-plugins
 Just backup 
 
+## For download only subfolder (one plugin) use extension for Chrome
+https://chrome.google.com/webstore/detail/gitzip-for-github/ffabmkklhbepgcgfonabamgnfafbdlkn
+
+
 ##  Burgrain e107 v0.7 compatible plugins
 source: http://www.bugrain.com/e107_plugins/psilo/psilo.php?cat.2
 
 Plugins:
+
+
+### AACGC Public News  by M@CH!N3
+
+original version: 1.9
+
+source: https://github.com/AACGC/AACGC-Public-News
+
+just backup
+
+=======
 
 ### e107 Agenda v1.7 b2 by bugrain
 
@@ -149,7 +164,7 @@ just backup
 
 =======
 
-### Random Avatar Menu v0.2.2 by killerpope
+### e107 Random Avatar Menu v0.2.2 by killerpope
 
 Displays any number of user-avatars in a menu. The list is generated randomly every second/hour/day/week/month. You can also exclude certain avatars (e.g. generic avatars provided for people who don't want to upload their own avatar)
  
@@ -169,7 +184,7 @@ compatible: 2.1.6
 
 =======
 
-### Tournaments v1.2 by morpheas
+### e107 Tournaments v1.2 by morpheas
 
 This is a plug-in that can run a tournament on a flash game similar to those used in kroozearcade. You only have to upload the game and set up a tournament on it!
  
@@ -240,6 +255,28 @@ source: https://github.com/AACGC/Item-List
 Update for 2.1.2 https://github.com/Jimmi08/Item-List
 
 =======
+
+###  KroozeArcade for e107 v0.7.5 courtesy by Penbrock.com
+
+description: A plugin to implement an arcade in e107 with high score tables. 
+
+State: works with 2.1.7
+
+Php version:  not compatible with php7
+
+=======
+
+###  AACGC Arcade Addins by M@CH!N3 
+
+description: A plugin to implement an arcade in e107 with high score tables. 
+
+State: break user profile, doesn't work under v2.1.7
+
+Php version:  not compatible with php7
+
+=======
+
+
 
 
 
