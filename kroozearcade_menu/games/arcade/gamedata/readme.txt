@@ -1,0 +1,1 @@
+Some games for IPB use data SWF files to add features and scoring. This is the directory to put those extra folders
