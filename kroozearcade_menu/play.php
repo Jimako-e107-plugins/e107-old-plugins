@@ -57,7 +57,16 @@ if (isset($_GET['playing_game'])) {
 		$text .= "".KROOZEARCADE_91."!";
 	} else {
 // Start game in new window
-		$text .= "<a href='".e_PLUGIN."kroozearcade_menu/play.php?catid=".$_GET['catid']."&playing_game=true&gameid=".$_POST['gameid']."' onClick='javascript:window.open(\"".e_PLUGIN."kroozearcade_menu/games/".$result['game_filename'].".swf\", \"playgame\", \"toolbar=0,location=0,directories=0,status=0, menubar=0,scrollbars=0,resizable=1,width=".$result['display_width'].",height=".$result['display_height']."\");'>".KROOZEARCADE_83."</a>";
+// todo add prefs
+// 		$text .= "<a href='".e_PLUGIN."kroozearcade_menu/play.php?catid=".$_GET['catid']."&playing_game=true&gameid=".$_POST['gameid']."' onClick='javascript:window.open(\"".e_PLUGIN."kroozearcade_menu/games/".$result['game_filename'].".swf\", \"playgame\", \"toolbar=0,location=0,directories=0,status=0, menubar=0,scrollbars=0,resizable=1,width=".$result['display_width'].",height=".$result['display_height']."\");'>".KROOZEARCADE_83."</a>";
+// <a href="http://www.adobe.com/products/flashplayer/include/marquee/design.swf?width=792&amp;height=294" rel="prettyPhoto[flash]" title="Flash 10 demo"><img src="images/thumbnails/flash-logo.jpg" alt="Flash 10 demo" width="60" /></a>
+  $width =  $result['display_width'];
+  $height = $result['display_height'];
+  $text .="<a href='".e_PLUGIN."kroozearcade_menu/games/".$result['game_filename'].".swf?width=".$width."&amp;height=".$height."'  flash='prettyPhoto[flash]'   
+  title='".$result['game_filename']."'>".KROOZEARCADE_83."</a>";
+ 
+  
+  
 	}
 	$text .= "</td></tr>";
 	$text .= "</table><br><br>";
