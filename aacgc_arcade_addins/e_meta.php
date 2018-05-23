@@ -9,7 +9,7 @@
 #######################################
 */
 
-
+              /*
 if (e_PAGE == "user.php") {
 
 	require_once(e_THEME."/templates/user_template.php");
@@ -19,7 +19,7 @@ if (e_PAGE == "user.php") {
 	
 $USER_FULL_TEMPLATE = str_replace($user_old, $user_new, $USER_FULL_TEMPLATE);
 
-}
+}            */
 
 
 

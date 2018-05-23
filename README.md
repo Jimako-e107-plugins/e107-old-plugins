@@ -261,6 +261,7 @@ Update for 2.1.2 https://github.com/Jimmi08/Item-List
 description: A plugin to implement an arcade in e107 with high score tables. 
 
 State: works with 2.1.7
+After quick fix: not visible errors
 
 Php version:  not compatible with php7
 
@@ -270,7 +271,8 @@ Php version:  not compatible with php7
 
 description: A plugin to implement an arcade in e107 with high score tables. 
 
-State: break user profile, doesn't work under v2.1.7
+Original: break user profile, doesn't work under v2.1.7
+After quick fix:  not visible errors, Current Challenges Champion looks for not existing file
 
 Php version:  not compatible with php7
 

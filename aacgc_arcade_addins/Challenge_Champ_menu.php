@@ -21,8 +21,8 @@ if(file_exists(e_PLUGIN."kroozearcade_menu/language/".e_LANGUAGE.".php")){
 else{
 	require_once(e_PLUGIN."kroozearcade_menu/language/English.php");
 }
-
-require_once(e_PLUGIN."kroozearcade_menu/arcade_class.php");
+ 
+//require_once(e_PLUGIN_ABS."kroozearcade_menu/arcade_class.php");
 
 global $arcade_prefs;
 
