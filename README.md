@@ -265,6 +265,9 @@ After quick fix: not visible errors
 
 Php version:  not compatible with php7
 
+UPDATE:  there is newer 8.0 version.  Fixed blank page for version 2.0.0.
+You can download it as 8.0.1 from https://www.e107.sk
+Php version:  not compatible with php7
 =======
 
 ###  AACGC Arcade Addins by M@CH!N3 
