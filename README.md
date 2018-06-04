@@ -281,7 +281,17 @@ Php version:  not compatible with php7
 
 =======
 
+###  wglogin 
 
+description: http://www.e107club.ru/download.php?view.437 
+
+Author credit: Yodjik 
+
+Original: http://www.e107club.ru/download.php?view.437
+working only with Russian version
+ 
+
+=======
 
 
 
