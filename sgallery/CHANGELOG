@@ -1,0 +1,207 @@
+Corllete Lab Simple Gallery Changelog
+-------------------------------------
+
+v2.14 Stable
+-----
+ - Added support for external shadowbox.js
+ - Removed Lightview support (no backward compatibility)
+
+v2.13 Stable
+-----
+ - Added template flexibility to all supported menus (start|end|row_start|row_end|item|sparator)
+ - Added number of items per row option for menu lists
+
+v2.12 Stable
+-----
+ - Random Pictures menu added - no permissions (db) checks, just reads/shows storage folder (don't use on huge galleries!)
+ - New functionallity - themes can now override menu template files (THEME/templates/sgallery/...)
+ 
+v2.11 Stable
+-----
+- e107 v0.7.13+ compatibility issues solved (e-token security)
+- Wrong error handling: empty error message with no error report on upload with NO_RESIZE option, reported by DBS Designs (Craig Frazee) - big thanks
+
+v2.10 Stable
+-----
+- Bugfix - update phpThumb to v1.79
+- Improvement - ereg()/ereg()i removed from phpThumb API (php 5.3+ deprecated errors)
+- Improvement - split() removed from phpThumb API (php 5.3+ deprecated errors)
+- Bugfix - fixed ImageMagic version detection function (phpThumb) which was breaking the whole script if ImageMagic is not available
+- Improvement - server check (administration) php 5.3+ compatibility
+- New feature - latest pictures menu added
+- New feature - sgal_multirand_menu option to show random thumb or main image - constant (boolean) SGAL_RAND_SHOW_MAIN_PIC
+- minor bugfixes
+
+v2.09 Stable
+-----
+- possible conflict with external phpThumb libraries fixed
+- image extension auto-detection added
+
+v2.08 Stable
+-----
+- Fix - typo parse error (e_bb)
+- Fix - lightview/shadowbox compatibility issues
+- Fix - all menus - lightview/shadowbox compatibility issues
+- Improvements - added help comments to all menu templates 
+- Fix - English language files converted to UTF without BOM
+- Reported issue 'Missing menus for public users' investigated - not a bug, wrong visibility settings combination
+
+v2.07 Stable
+-----
+- CL Widgets v1.0.3+ compatibility
+- Lightview v1.0.3 widget compatibility
+- Shadowbox v1.0 widget compatibility
+- Minor bugfixes
+- WYSISWYG support
+
+v2.06 Stable
+-----
+- Minor Bugfixes
+- New features - 'Latest picture' list access permissions
+- New features - New 'Latest picture' link shortcode available - {SGAL_LATEST_PICTURESLINK}
+- New features - Full Lightview support (Corllete Lab Widgets)
+- Update - Lightbox support is dropped.
+
+v2.05 Stable
+-----
+- Bugfix - front-end didn't respect some thumb dimension settings
+- New features - Album picture order settings (General Settings - Image Settings)
+- New features - Dutch language added (thanks Heuveltje)
+- New features - Norwegian language added (thanks jobar)
+- Improvements - English spelling errors (thanks 2dopey)
+- Minor bugfixes
+
+v2.04 Beta
+-----
+- Improvements - update of phpThumb library to v1.7.8
+- Improvements - Windows Publish now available for Vista users
+- Improvements - the last modifications translated in French (marj)
+- Improvements - new plugin logo images (stoewarius)
+- Bugfix - admin permissions bug - the required permissions for (non-main) administrators are 'Administrators -> Plugin - Corllete Lab Gallery' (plugin access) and 'Administrators -> Upload /manage files' (admin upload, approve, picture actions) 
+- Bugfix - fixed outdated/duplicated language define
+- Minor bugfixes
+
+v2.03 Beta
+-----
+- Improvements - French language  (marj)
+- Bugfix - gallery upload handler - duplicate file error
+- Removed the old gallery upload handler (delete the 0 size file in your sgallery/includes folder)
+
+v2.02 Beta
+-----
+- Improvements - Windows Publish supports now multi-language
+- New features - 'Latest picture' list page (gallery.php?latest) - list all images sorted by date
+- New features - sort album's picture by file date or file name (ASC or DESC) feature
+- Improvements - "Download Windows .reg" link available as an admin menu now
+- Improvements - added link for Windows Publish .reg file downloading  (admin area)
+- Bugfix - phpthumb error in rss.php
+- Bugfix - wrong language paths
+- Bugfix - suspicious file check is now ignoring phpThumb temp files
+- Bugfix - wrong plugin installation directory
+- Bugfix - showing rethumb option when not needed
+- Bugfix - multi-language issues
+- Bugfix - Windows Publish doesn't work when site is restricted to members only
+- Bugfix - Windows Publish .reg file empty when a site is not in English.
+- Bugfix - General settings save issues (thanks Louise)
+- Bugfix - Wrong album's owner name by editing an user e107 profile by admin
+- Bugfix - Showing album's comments on album not found page
+- Bugfix - Windows publish incorrect permission check 
+- Lots of minor bugfixes and overall code cleaning
+- Switched to the new upload handler (e107 v0.79)
+- Added sgal_languagelinks.sc - the new 0.79 version breaks windows publish area
+
+v2.01 Beta
+----
+- Bugfix - missing language include in search parser
+- Bugfix - missing define in search language file
+- Improvements - French language updated to RC5 (thanks marj)
+- Improvements - English language update (thanks 2dopey)
+- Improvements - German language updated to RC5 (thanks blacky)
+- Bugfixes - DeleteImage method (Gallery API), update datestamp when approving an item (User's albums)
+- Improvements - Override search template in current theme
+
+v2.0 RC5
+----
+- New features - watermark image
+- New features - RC4 French language added (thanks marj)
+- New features - RC4 German language added (thanks blacky)
+- New features - RC4 Russian language added (thanks CAM)
+- Bugfixes
+
+v2.0 RC4
+----
+- New features - Choose gallery category for your site frontpage
+- New features - Album comments & comment permissions
+- New features - Album user rating & rate permissions
+- New features - Offsite thumbnailing
+- New features - New/Recent albums page/menu
+- Improvement - Administration filter by user list
+- Improvement - Notify on submit album done (core Notify module) - it'll send email for the choosen user class only when NEW user album is submitted.
+- Improvement - Notify on approve gallery items done (built-in user Notify module) - controlled by checkbox just beside the Approve button (Admin approve submitted area)
+- Bugfixes
+- English Language fix - typos and errors (thanks marj)
+- English Language fix - typos and errors (thanks 2dopey)
+
+v2.0 RC3
+----
+- Lot of Bugfixes
+- New features - Batch image upload - Windows Publish Tool
+- New features - Random/Recent user albums menu (menu template, control over thumb sizes, number of items, random/recent type)
+- Improvements - all menus respecting user albums visibility permissions now
+- Improvements - all hardcoded text moved to language files
+- New features - Server check - analyzes (colorized) your settings (phpThumb.config.php and server/PHP) for phpThumb()
+
+v2.0 RC2
+----
+- Bugfix - user lost when update from admin area
+- Notify on submit gallery items (under construction)
+- e107 Search - title & description, advanced search
+- Search template - overwrite it in theme.php
+- Update user album display name when changed from user (postuserset trigger)
+- Bugfix - Single quotes breaking picture JS preview
+
+v2.0 RC1
+----
+-  Bugfix - wrong language filename - ajax_parse.php
+-  Bugfix - preference not saved (used from suspicious file check tiny cronjob)
+-  Bugfix - clvarset - removed (using varsettrue and varset instead)
+-  Bugfix - wrong phpThumb config array (setConfig method)
+-  Bugfix - broken (not working) user_resize
+-  Improvement - makeConfig strict option added
+-  Bugfix - function makeURL issues
+-  Improvements - library mode (beta)
+-  New features - User's albums
+- Improvements - admin album list (ajax for less server load)
+- New features - Gallery description added
+- New features - Album description added
+- New features - Gallery & Album view tracking added
+- Improvements - lot of template/batch shortcodes improvements (new shortcodes and parameters, advanced template enginge, template html fixes)
+- Improvements - ajax cache issues fixed
+- New features - My albums area
+- New features - User's albums limits
+- New features - Built in text/HTML truncate UTF8 support (requires UTF8 class Library - download from free-source.net)
+- Lot of bugfixes
+
+v1.1
+----
+
+- THIMG_MAX_WH added instead broken THIMG_MAX_W/THIMG_MAX_W ($SGALLERY_ALBUM_IMAGE template)
+- Fixed broken setting
+- Fixed missing SGAL_ALBUM_W, SGAL_VIEW_W (shortcode batch file)
+- Removed wrong check_class($pref['upload_class'])
+- Some template variables ($SGALLERY_VIEW_TABLE_BODY_PRE, $SGALLERY_VIEW_TABLE_BODY_POST etc.) are checked with isset() now (empty value allowed)
+- Fixed wrong setting array in batch file  - SGAL_ALBUM_MAINIMG_LINK
+- Fixed wrong setting array in batch file  - SGAL_ALBUM_IMGLINK
+- Fixed wrong setting variable in batch file  - SGAL_ALBUM_IMGLINK
+- Fixed disappearing variables in random menu - added SGAL_NOTEMP_REJ, SGAL_PIC_FMASK constants
+- Fixed SGAL_ALBUM_IMGLINK batch - all images are missing when no main image is chosen
+- Fixed thumb class safe mod issues & bugs
+- Thumb phpThumb.config used in gallery thumb class now - gallery settings merged with $PHPTHUMB_CONFIG settings
+- Most Gallery settings removed from core settings
+- Back-end is totally rewritten - first step to Library mode.
+- Permissions settings added - Front-end, Thumb BBcode Window + advanced options, BBcode thumb options access
+- BBcode DHTML Window added (Lightbox style) - choose from album image list in advanced mode
+- Random/Recent Galleries Multi Menu added - number items settings in Admin Area + templates + full control from current theme.php (image size, random/recent etc.)
+- Random/Recent Albums Multi Menu added - number items settings in Admin Area + templates + full control from current theme.php (image size, random/recent etc.)
+- Fixed e107 0.78 incompatibility - clvarset function added (varset from 0.77)
+- Developer tools added (beta release) - call image upload/resize form/actions from your plugins

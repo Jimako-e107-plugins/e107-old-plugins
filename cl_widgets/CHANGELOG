@@ -1,0 +1,81 @@
+|	Corllete Lab Widgets Changelog		|
++---------------------------------------+
+
+	v1.1.3
+---------------
+	- Prototype jslib updated to most recent 1.7 version
+	- ScriptAculoUS jslib updated to most recent 1.9 version
+
+    v1.1.2
+---------------
+	- more e-token fixes
+ 
+   v1.1.1
+---------------
+	- e-token fix required for e107 v0.7.23+
+
+   v1.1.0
+---------------
+	- MUCH more performance and speed - 304 header added for JS output
+	- better compression auto-detection (server and client) for JS output
+	- option to disable JS compression (administration) added
+	- option to clear server and browser JS cache added
+	- Prototype JS Framework v1.6.1 update
+	- Scriptaculous v1.8.3 update
+
+   v1.0.4
+---------------
+	- sendInfo JS function backward compatibility (supports GET AJAX queries now)
+ 	- wrong warning message when cache folder not writable
+
+   v1.0.3 RC4
+---------------
+	- new (alpha) icons and icon sizes
+	- widget.sc now supports 0.8 mod
+	- improved Widget update routine (2 parameters are now passed to the corresponding update callback - new version, old version)
+	- uploadfile shortcode minor improvement
+	- JS API corrections
+	- admin validator fixes
+	- minor fixes
+
+  v1.0.3 RC3
+---------------
+	- Check for currently installed widgets requirements on plugin settings change added (0.8 compatible mod related - should prevent site fatal errors in the future)
+	- imagepicker SC - image dimensions fix
+	- new, more abstract validation class (will be used internal in preference validator in the next release)
+	- 'allow_compat_disable' widget method added
+	- auto-confirm message fix (core/admin.js)
+	- Tabs JS fixes (core/tabs.js)
+	- getTemplate widget method fix - sanitize & security
+	- plugin preferences override on upgrade fix
+	- validation result multi-language support added
+	- more minor bugfixes
+	
+  v1.0.3 RC2
+---------------
+	- PHP warning removed
+	- language correction (preference handler - validation)
+	
+ v1.0.3 RC1
+---------------
+	- e107 v0.8 compatible mod improvements
+	- 0.8 compatible stylesheet preference added (front-end)
+	- 0.8 compatible stylesheet preference added (back-end)
+	- Prototype Framework upgraded to v1.6.1 RC3
+	- Better widget install/upgrade/uninstall routine
+	- Preference validation handler added (widget helper)
+	- Widget auto_init method added
+	- number of minor improvements and bugfixes
+ 
+v1.0.2 Beta
+---------------
+	- (experimental) e107 v0.8 compatible mod added (JS API + number of 0.8 handlers)
+	- include_corejs, include_widgetjs, include_themejs, include_pluginjs methods added for easy adding of internal/external 
+	  JS libraries (in the next release adding JS to jslib will be possible)
+	- runtime_meta, runtime_js methods added (direct e_meta code injection) 
+	- number of minor improvements and bugfixes
+	- Lightview Widget v1.0.2 (synchronize with core changes)
+
+v1.0.1
+---------------
+	Initial release
