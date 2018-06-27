@@ -243,12 +243,13 @@ class sgal_admin_class {
     {
         // ##### Display album creation form ---------------------------------------------------------------------------------------------------------
         /*  */
-        global $sgalobj, $ns, $sql, $fl, $sgal_pref, $th, $tp, $cal, $THCONFIG_THDEF, $rs, $row, $p;
+        global $sgalobj, $ns, $sql, $fl, $sgal_pref, $th, $tp, $THCONFIG_THDEF, $rs, $row, $p;
         $text = "<div style='margin-left: auto; margin-right: auto'>
         <form method='post' action='".e_SELF."?".e_QUERY."' id='gal_dataform' style='margin: 0px; padding: 0px'".(FILE_UPLOADS ? " enctype='multipart/form-data'" : "").">
         <table style='width: 99%; text-align: center;' class='fborder'>
          ";
-
+        // replace old global $cal
+        $frm = e107::getForm();
         //find categories
         if($sql->db_Select("sgallery_cats", "*", "ORDER BY cat_order ASC", 'nowhere')) {
 
@@ -471,9 +472,10 @@ class sgal_admin_class {
                 $text .="
                 <tr>
                 <td style='width:20%; text-align: left; vertical-align: top' class='forumheader3'>".LAN_DATE.":</td>
-                <td style='width:80%; text-align: left;' class='forumheader3'><div>
-                ".$cal->make_input_field($cal_options, $cal_attrib)."
-                <br />
+                <td style='width:80%; text-align: left;' class='forumheader3'><div>";
+                //".$cal->make_input_field($cal_options, $cal_attrib)."
+                $text .= $frm->datepicker("calendar", $dstamp,"type=datetime&size=xx-large");
+                $text .="<br />
                 <input type='checkbox' value='1' id='update_datestamp' name='update_datestamp'{$update_checked} />
                 <label for='update_datestamp'>".SGAL_LANADM_40."</label>
                 </div>

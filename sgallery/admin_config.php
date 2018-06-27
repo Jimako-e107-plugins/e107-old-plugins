@@ -28,19 +28,14 @@ $fl = new sgal_file;
 
 require_once(e_HANDLER."form_handler.php");
 $rs = new form;
-
-//calendar
-require_once(e_HANDLER."calendar/calendar_class.php");
-$cal = new DHTML_Calendar(true);
+ 
 
 $e_wysiwyg = 'album_description,cat_description';
 
 //call it before header.php
 function headerjs()
 {
-    global $cal;
-    $txt = $cal->load_files();
-    
+ 
     $txt .= "<script type='text/javascript' src='".e_FILE_ABS."e_ajax.js'></script>";
     $txt .= "
          <script type='text/javascript'>
