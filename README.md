@@ -293,12 +293,31 @@ working only with Russian version
 
 =======
 
+###  Signup Secure 
 
+Description: With this Plugin you defend your website from spam bots.
 
+Author credit: Oyabun
 
+Original: from e107.org
+ 
+Update for version 2:  https://www.e107.sk/download/17/signup-secure-v1-3-original-made-by-oyabun
 
+Version 1.3:
 
+Updated to be compatible with version 2
+added plugin.xml
+updated redirect
+checked not hardcoded 'signup.php' but value e_SIGNUP
+Warning: This will work until core signup template is not changed
+ 
+=======
 
+###  birthday
+
+ https://github.com/G4HDU-plugins-v1/birthday
+
+=======
 
 
  
