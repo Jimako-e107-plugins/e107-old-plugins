@@ -313,8 +313,13 @@ Warning: This will work until core signup template is not changed
  
 =======
 
-###  birthday
+###  Birthday Menu (e107 v7x) 
+Description: A Simple configurable birthday menu. Uses e107 extended field for birthday. Can also send an email or PM to users on their birthday.
 
+Author credit: Barry Keal (c) 2003 - 2008
+
+Original:
+ this is empty, not found on www.keal.org.uk
  https://github.com/G4HDU-plugins-v1/birthday
 
 =======
