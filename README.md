@@ -325,16 +325,19 @@ Original:
 =======
 
 
- 
-
-
-
-
-
-
 ### e107 Prune Users plugin by Father Barry
 
 still able download: http://www.keal.me.uk/e107_plugins/download/download.php?action=view&id=139
 
 state: working for e107 2.7 tested on php 7.0
 
+=======
+
+###  PM Alert by Richard Perry 
+Description: A simple plugin that makes it obvious when you have unread private messages waiting.
+
+Author credit: Richard Perry
+
+Original:http://www.greycube.com/site/download.php?view.50 
+
+=======
