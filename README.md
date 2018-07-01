@@ -191,18 +191,6 @@ state: just backup
  
 =======
 
-### Google Ad menu by PhpToys  **_ beyond repair _**
-
-Description: Google adwords menu plugin for e107
-
-state: replaced by new plugin
-
-You can't change original script, all visual setting you are doing now in your GAd account
-
-Replacement:  https://www.e107.sk/download/category/9/jm-google-ad-plugin/
-
-=======
-
 ### Glossary e107 plugin v1.91 rc4 by  Shirka
 ~~fully updated for version 2~~
  
@@ -210,8 +198,29 @@ https://github.com/Jimmi08/glossary/
 
 active fork:  https://github.com/rica-carv/glossary
 
+=======
+
+### Google Ad menu by PhpToys  **_ beyond repair _**
+
+Description: Google adwords menu plugin for e107
+
+state: replaced by new plugin
+
+You can't change original script, all visual settings you are doing now in your GAd account
+
+Replacement:  https://www.e107.sk/download/category/9/jm-google-ad-plugin/
 
 =======
+
+### GUESTBOOK PLUGIN V4.0 by Chavo & Rich & Titanik,  new functions by Smarti
+
+Version: 4.2
+
+Source: https://osdn.net/projects/sfnet_e107german/releases/
+
+Just backup
+ 
+======= 
 
 ###  Image gallery
 
@@ -270,12 +279,12 @@ just backup
 
 ### Latest Release Menu for e107 v7xx - by Father Barry
 
+Version: 2.8
+
 Source: https://osdn.net/projects/sfnet_e107german/releases/
 
 Just backup
-
-=======
-
+ 
 =======
 
 ### Locator Plugin by nlstart **_ beyond repair _**
