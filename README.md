@@ -303,7 +303,18 @@ just backup
 
 =======
 
+### Messenger Status  by Jedi (Based on messenger_status_menu_v3.0)
+
+version 3.10
+
+Source: https://osdn.net/projects/sfnet_e107german/releases/
+
+just backup 
+
+=======
+
 ### Online advanced info menu by TheMadMonk
+just backup 
 
 Source: 8.5.1 https://e107.org/plugins/?iframe=1&id=366
 Source: 8.5.3 https://osdn.net/projects/sfnet_e107german/releases/
