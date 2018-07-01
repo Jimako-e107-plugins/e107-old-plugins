@@ -128,7 +128,8 @@ state: just backup
 note: needs to use e107_images/clan for images and a lot of extra stuff
 
 =======
-### Delete me v 1.7
+
+### Delete me v 1.7 Barry Keal
 
 Source: https://osdn.net/projects/sfnet_e107german/releases/
 
@@ -264,6 +265,16 @@ source: https://e107.org/plugins/?id=672
 it's not listed in plugin manager maybe because missing author
 
 just backup
+
+=======
+
+### Latest Release Menu for e107 v7xx - by Father Barry
+
+Source: https://osdn.net/projects/sfnet_e107german/releases/
+
+Just backup
+
+=======
 
 =======
 
