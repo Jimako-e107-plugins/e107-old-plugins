@@ -1,0 +1,67 @@
+.rsbutton {
+	border: #000 1px solid;
+	color: #000;
+	font: 9px verdana, tahoma, arial, helvetica, sans-serif;
+	text-align:center;
+	background-image : url(images/button.png);
+}
+
+.rsbutton a {
+	color: #000;
+}
+.rsbutton a:hover {
+	color: #0085b0;
+}
+
+a.rs {
+	color: #0085b0;
+	font-family: verdana, arial, sans-serif;
+	text-decoration: underline;
+}
+a.rs:hover {
+	color: #616060;
+	font-family: verdana, arial, sans-serif;
+	text-decoration: underline;
+}
+
+.rsbox{
+	background-color: #F4F7FA;
+	border: #5e5d63 1px solid;
+	color: #000000;
+	font: 10px verdana, tahoma, arial, helvetica, sans-serif;
+}
+
+.rsborder {
+	border: #c1c1c1 1px solid;
+}
+.rsheader, .rsheader1{
+	background-color: #f3f3f7;
+	font: 12px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#000;
+	padding: 4px;
+	border: 1px solid #ececf2;
+}
+
+.rsheader2{
+	background-color: #EFEFEF;
+	font: 12px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#000;
+	padding: 4px;
+	border: #C3BDBD 1px solid;
+}
+
+.rsheader3{
+	background-color: #f3f3f7;
+	font: 11px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#000;
+	padding: 4px;
+	border: #ececf2 1px solid;
+}
+
+.rscaption {
+	border: #f0f2f4 1px solid;
+	padding: 2px 0 2px 0;
+	background-color: #f9fafb;
+	font: 12px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#616060;
+}

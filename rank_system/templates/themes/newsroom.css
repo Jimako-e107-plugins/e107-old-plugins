@@ -1,0 +1,84 @@
+a.rs:link {
+ color: #333333;
+ font-weight: bold;
+ text-decoration: none;
+ }
+
+a.rs:visited {
+ color: #333333;
+ font-weight: bold;
+ text-decoration: none;
+}
+
+a.rs:hover {
+ color: #333333;
+ font-weight: bold;
+ text-decoration: underline;
+}
+
+.rsbox{
+	background-color: #666666;
+	border: #666666 1px inset;
+	color: #ffffff;
+	font-family: verdana, arial, "ms sans serif", sans-serif;
+	font-size: 10px;
+}
+
+.rsbutton{
+	background-color: #333333;
+	border: #666666 1px outset;
+	color: #ffffff;
+	font-family: verdana, arial, "ms sans serif", sans-serif;
+	font-size: 9px;
+	text-align:center;
+}
+
+.rsborder {
+	border-bottom: #000000 1px solid;
+	border-left: #000000 1px solid;
+	border-right: #000000 1px solid;
+	border-top: #000000 1px solid;
+	background-color: #fff;
+}
+
+.rsheader, .rsheader1 {
+	background-color: #EBEFF2;
+	font-family: verdana, tahoma, arial, helvetica, sans-serif;
+	font-size: 14px;
+	color:#000;
+	padding: 4px;
+	background-image : url(images/fheader.png);
+	border: #C3BDBD 1px solid;
+}
+
+.rsheader2{
+	background-color: #EFEFEF;
+	font-family: verdana, tahoma, arial, helvetica, sans-serif;
+	font-size: 14px;
+	color:#000;
+	padding: 4px;
+	border: #C3BDBD 1px solid;
+}
+
+.rsheader3{
+	background-color: #E3E1E1;
+	font-family: verdana, tahoma, arial, helvetica, sans-serif;
+	font-size: 11px;
+	color:#000;
+	padding: 4px;
+	border: #C3BDBD 1px solid;
+}
+
+.rscaption {
+	text-align:left;
+	border: #000 1px solid;
+	padding-bottom: 2px;
+	padding-left: 8px;
+	padding-right: 0px;
+	padding-top: 2px;
+	background-color: #C9C7C7;
+	font-family: verdana, tahoma, arial, helvetica, sans-serif;
+	font-size: 12px;
+	color:#fff;
+}
+

@@ -1,0 +1,90 @@
+ChangeLog (maintained since first public release, v1.2)
+-------------------------------------------------------
+
+====
+v1.5
+====
+
+BugFixes
+* level bars at the 'Ranks Overview' page will be maximized to avoid messing up your page width
+* Workaround for a e107/PM bug.. Rank System is now always allowed to send HTML within PMs
+* When creating a new Rank Category, classes and rank name were switched
+
+Additions
+* rank conditions (skill, teamplay, involvement, etc) are now fully customizable
+* width of level bars can be set to fixed or dynamic
+* rank points and progress can be shown
+* Medals and Ribbons will be grouped into seperate tabs for each category within the Medals Overview page
+* Configuration help within the admin section
+* User profile and Medals Overview are using cache now
+* Bonus points and reward of medals and ribbons will be shown in overview
+* Changing the state of a recommendation (admin section) will also process the selected action
+  (previously, it was only meant for keeping track of unhandled recommendations)
+* Users can view the recommendations they submitter theirselves
+* General Shortcode for "Rank title" and "Rank score"
+* Medal goals for Joined time
+* Site penalty rules are configurable
+* Top Menu markup is customizable by the CSS style file
+
+Other Changes
+* Default "On Probation" value for new users is set to false
+
+====
+v1.4
+====
+
+BugFixes
+* Ranks overview will be sorted by their order
+* Color of members in Ranks overview can be modified (see also css addition)
+* Timestamp of rewarded medal/ribbon will be in user's local time instead of server time
+
+Additions
+* Uses it's own css style sheet now (can be placed into theme folder to customize)
+* Able to sent a PM to the member when the rank changes and/or he/she gets a medal/ribbon
+* Medal reward: a one-time reward a member recieves when receiving that medal (requires Gold System)
+* Able to show only medals/ribbons of a specified Medal Category in the user profile (for example: to put each category in a different table cell)  
+
+Deprecations
+* includes/rankshow_class.php can be deleted
+
+======
+v1.3.1
+======
+
+BugFixes
+* Typo in 'revalidate all' after creating/changing a medal goal
+* Delete granted medals too, upon deleting a medal
+* Check if Gold System is installed, before invoking it
+* Made some changes for PHP4
+
+
+Additions
+* Show list of changes after revalidate all medals
+* Jumping to medal after editing it (you don't have to scroll way down anymore)
+* Added white spaces between medals overview on userprofile
+
+====
+v1.3
+====
+
+BugFixes
+* adding / editting Medals and ribbons
+* plugin will be PHP4 compliant
+* auto probation/prison
+  only adding auto probation/prison comment when comment field is still empty
+  only performing auto probation when not already in prison
+
+Additions 
+* 2nd Image for medals and ribbons added.
+  Original will be used in user profile, the 2nd in the overview pages
+* Separate short code for manually insert a user's rank image into a profile/forum
+* Images for ranks, medals and ribbons can be selected from list
+  (instead of only by entering their filenames)
+* Position of rank image in forum is now configurable
+* Medal and Ribbon counters can be shown in forum
+* Rank System links on rank, medal and recommendation pages
+* Forum templates have been separated from user profile templates 
+* Included sample medal and ribbon images in delivery package
+* Included e_rank.php sample for KroozeArcade number of wins
+
+  

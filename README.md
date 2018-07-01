@@ -320,6 +320,15 @@ Fix: avatar issue and layout change
 
 =======
 
+### Rank System by Michiel Horvers
+
+Version		:	1.5
+
+just backup
+
+=======
+
+
 ### Sgallery 
 
 just backup

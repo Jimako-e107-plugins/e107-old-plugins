@@ -1,0 +1,57 @@
+.rsheader, .rsheader1, .rsheader2, .rsheader3, .rscaption {
+	font: normal 10px verdana, tahoma, arial, sans-serif;
+	color: #000;
+}
+
+.rsbox, .rsbutton, .rsbutton:hover {
+	font: normal 9px verdana, tahoma, arial, sans-serif;
+	color: #000;
+}
+
+a.rs {
+	color: #1A4487;
+}
+
+a.rs:visited {
+	color: #444;
+}
+
+a.rs:hover {
+	color: #000000;
+}
+
+.rsbox {
+	border: #A5ACB2 1px solid;
+	background-color: #fff;
+}
+
+.rsbutton, .rsbutton:hover {
+	border: 1px solid #A5ACB2;
+}
+
+.rsbutton {
+	background-image : url(images/button.png);
+}
+
+.rsbutton:hover {
+	background-image : url(images/buttonover.png);
+}
+
+.rsborder {
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+
+.rsheader, .rsheader1, .rsheader2, .rsheader3, .rscaption {
+	padding: 4px;
+	background-color: #fff;
+	border: 1px solid #878787;
+}
+
+.rsheader, .rsheader1 {
+	background-color: #fbfbfd;
+}
+
+.rscaption {
+	background-color: #f7f7f9;
+}

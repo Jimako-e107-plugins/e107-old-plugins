@@ -1,0 +1,47 @@
+.rsheader, .rsheader1, .rsheader2, .rsheader3, .rscaption {
+	font: normal 11px  arial, verdana, tahoma, sans-serif;
+}
+
+.rsbox, .rsbutton, .rsbutton:hover {
+	font: normal 10px  arial, verdana, tahoma, arial, sans-serif;
+}
+
+a.rs {
+	color: #1A4487;
+}
+
+a.rs:hover {
+	color: #000;
+}
+
+.rsbox {
+	border: #777 1px solid;
+}
+
+.rsbutton {
+	border: 1px solid #A5ACB2;
+	background-image : url(images/button.png);
+}
+
+.rsbutton:hover {
+	background-image : url(images/buttonover.png);
+}
+
+.rsborder {
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+
+.rsheader, .rsheader1, .rsheader2, .rsheader3, .rscaption {
+	padding: 5px;
+	background-color: #fff;
+	border-bottom: 1px solid #bbb;
+}
+
+.rsheader, .rsheader1 {
+	background-color: #fbfbfd;
+}
+
+.rscaption {
+	background-color: #f7f7f7;
+}

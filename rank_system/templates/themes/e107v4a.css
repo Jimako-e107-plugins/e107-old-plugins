@@ -1,0 +1,96 @@
+a.rs {
+	color: #716d6d;
+	text-decoration: underline;
+}
+a.rs:hover {
+	color: #2a3236;
+	text-decoration: underline;
+}
+
+.rslistuser {
+	font: 11px verdana, tahoma, arial, helvetica, sans-serif;
+	font-weight: bold;
+	color: #716d6d;
+	text-decoration: none;
+}
+
+.rslistuser:hover {
+	font: 11px verdana, tahoma, arial, helvetica, sans-serif;
+	font-weight: bold;
+	color: #2a3236;
+	text-decoration: none;
+}
+
+.rscaption a {
+	color: #ffffcc;
+	text-decoration: underline;
+}
+.rscaption a:hover {
+	color: #cccc99;
+	text-decoration: underline;
+}
+
+.rsborder {
+	border: #000000 1px solid;
+	background-color: #fff;
+}
+
+.rsheader{
+	background-color: #EBEFF2;
+	font: 12px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#000;
+	padding: 4px;
+	background-image : url(images/cap1.png);
+	border: #C3BDBD 1px solid;
+}
+
+.rsheader1{
+	background-color: #EBEFF2;
+	font: 12px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#000;
+	padding: 4px;
+	background-image : url(images/cap1.png);
+	border: #C3BDBD 1px solid;
+}
+
+.rsheader2{
+	background-color: #E4EAF2;
+	font: 14px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#000;
+	padding: 4px;
+	border: #C3BDBD 1px solid;
+}
+
+.rsheader3{
+	background-color: #DFE6EF;
+	font: 11px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#000;
+	padding: 4px;
+	border: #C3BDBD 1px solid;
+}
+
+.rscaption {
+	border: #000 1px solid;
+	padding: 2px 0px 2px 8px;
+	background-color: #C9C7C7;
+	font: 12px verdana, tahoma, arial, helvetica, sans-serif;
+	background-image : url(images/fcap.png);
+	color:#fff;
+}
+
+.rsbutton {
+	background-color: #eaeef2;
+	border: #000 1px solid;
+	color: #000000;
+	font: 9px verdana, tahoma, arial, helvetica, sans-serif;
+	text-align:center;
+	background-image : url(images/button.png);
+}
+
+.rsbox {
+	background-color: #eaeef2;
+	border: #5e5d63 1px solid;
+	color: #000000;
+	font: 10px verdana, tahoma, arial, helvetica, sans-serif;
+}
+

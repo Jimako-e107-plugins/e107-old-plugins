@@ -1,0 +1,74 @@
+.rsbutton {
+	border: 1px solid #000;
+	color: #000;
+	font: 7pt verdana, tahoma, arial, helvetica, sans-serif;
+	text-align:center;
+	background-image : url(images/button.png);
+}
+
+a.rs {
+	color: #999; 
+	text-decoration: none;
+}
+a.rs:hover {
+	color: #ddd;
+	text-decoration: underline;
+}
+
+.rsbox {
+	background-color: #000;
+	border: 1px solid #3e3e3e;
+	font: 8pt Tahoma, Verdana, Arial, Helvetica, sans-serif; color: #777;
+}
+
+.rsborder {
+	border: #1d1d1d 1px solid;
+}
+
+.rsheader{
+	background-color: #333;
+	font: 11px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#ffa939;
+	padding: 4px;
+	
+	border: 1px solid #1d1d1d;
+	text-align: left;
+}
+
+.rsheader1{
+	background-color: #333;
+	font: 11px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#ffa939;
+	padding: 4px;
+	
+	border: 1px solid #1d1d1d;
+	text-align: left;
+}
+
+.rsheader2{
+	background-color: #333;
+	font: 11px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#9f9f9f;
+	padding: 4px;
+	border: #2a2a2a 1px solid;
+	text-align: left;
+}
+
+.rsheader3{
+	background-color: #333;
+	font: 9px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#9f9f9f;
+	padding: 4px;
+	border: #2a2a2a 1px solid;
+	text-align: left;
+}
+
+.rscaption {
+	background-image : url(images/fcap.png);
+	border: 1px solid #1d1d1d;
+	padding: 2px 0 2px 0;
+	background-color: #f9fafb;
+	font: 11px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#ffa939;
+	text-align: left;
+}

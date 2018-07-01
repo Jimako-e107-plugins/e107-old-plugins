@@ -1,0 +1,67 @@
+a.rs {
+	color: #035479; 
+	text-decoration: none;
+}
+a.rs:hover {
+	color: #DC6504;
+	text-decoration: none;
+}
+
+.rsbutton {
+	border: 1px solid #000;
+	color: #000;
+	font: 7pt verdana, tahoma, arial, helvetica, sans-serif;
+	text-align:center;
+	background-image : url(images/button.png);
+}
+
+.rsbox {
+	background-color: #ddd;
+	border: 1px solid #bbb;
+	font: 8pt Tahoma, Verdana, Arial, Helvetica, sans-serif; color: #777;
+}
+
+.rsborder {
+	border: #486386 1px solid;
+}
+.rsheader, .rsheader1 {
+	background-color: #f3f3f7;
+	font: 12px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#000;
+	padding: 4px;
+	background-image : url(images/forumheader.png);
+	border-top: 1px solid #becde0;
+	border-bottom: 1px solid #e2e9f1;
+	border-left: 0;
+	border-right: 0;
+	height: 20px;
+}
+
+.rsheader2{
+	background-color: #f4f6fb;
+	font: 12px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#000;
+	padding: 4px;
+	border: #f4f6fb 1px solid;
+}
+
+.rsheader3{
+	background-color: #f1f4fd;
+	font: 11px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#000;
+	padding: 4px;
+	border: #f1f4fd 1px solid;
+}
+
+.rscaption {
+	border-bottom: 1px solid #becde0;
+	border-top: 1px solid #e2e9f1;
+	border-left: 0;
+	border-right: 0;
+	background-image : url(images/fcaption.png);
+	padding: 2px 0 2px 4px;
+	background-color: #f9fafb;
+	font: 9pt verdana, tahoma, arial, helvetica, sans-serif;
+	color:#616060;
+	height: 25px;
+}

@@ -1,0 +1,123 @@
+a.rs {
+	color: #999; 
+	text-decoration: none;
+}
+a.rs:hover {
+	color: #ddd;
+	text-decoration: underline;
+}
+
+.rslistuser {
+	font: 11px verdana, tahoma, arial, helvetica, sans-serif;
+	font-weight: bold;
+	color: #fff;
+}
+
+.rslistuser:hover {
+	font: 11px verdana, tahoma, arial, helvetica, sans-serif;
+	font-weight: bold;
+	color: #39B3FF;
+	text-decoration: none;
+}
+
+.rsborder {
+	border: #1d1d1d 1px solid;
+	color: #fff;
+}
+
+.rsheader{
+	background-color: #333;
+	font: 11px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#226DB4;
+	padding: 4px;
+	
+	border: 1px solid #1d1d1d;
+	text-align: left;
+	font-weight:bold;
+}
+
+.rsheader1{
+	background-color: #333;
+	font: 11px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#226DB4;
+	padding: 4px;
+	
+	border: 1px solid #1d1d1d;
+	text-align: left;
+	font-weight:bold;
+}
+
+.rsheader2{
+	background-color: #333;
+	font: 11px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#9f9f9f;
+	padding: 4px;
+	border: #2a2a2a 1px solid;
+	text-align: left;
+	font-weight:bold;
+}
+
+.rsheader3{
+	background-color: #333;
+	font: 9px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#9f9f9f;
+	padding: 4px;
+	border: #2a2a2a 1px solid;
+	text-align: left;
+}
+
+.rscaption {
+	background-image : url(images/caption.png);
+	border: 1px solid #1d1d1d;
+	padding: 2px 0 2px 0;
+	background-color: #f9fafb;
+	font: 11px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#39B3FF;
+	text-align: center;
+	font-weight:bold;
+}
+
+.rstabs{
+	background-color: #333;
+	font: 11px verdana, tahoma, arial, helvetica, sans-serif;
+	color:#ddd;
+	padding: 4px;
+	border: #2a2a2a 1px solid;
+	text-align: left;
+	font-weight:bold;
+}
+
+
+.rsbutton {
+	border: 1px solid #000;
+	color: #00EEEE;
+	font: 7pt verdana, tahoma, arial, helvetica, sans-serif;
+	text-align:center;
+	background-image : url(images/button.png);
+	text-decoration: none;
+}
+
+.rsbutton:hover {
+	border: 1px solid #000;
+	color: #00EEEE;
+	font: 7pt verdana, tahoma, arial, helvetica, sans-serif;
+	text-align:center;
+	background-image : url(images/button.png);
+	text-decoration: none;
+}
+
+.rsbox {
+	background-color: #000;
+	border: 1px solid #3e3e3e;
+	font: 8pt Tahoma, Verdana, Arial, Helvetica, sans-serif; 
+	color: #777;
+}
+
+.rank_menu {
+}
+
+a.rank_menu_link {
+}
+
+a.rank_menu_link:hover {
+}
