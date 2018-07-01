@@ -71,7 +71,6 @@ Description: A Simple configurable birthday menu. Uses e107 extended field for b
 
 Author credit: Barry Keal (c) 2003 - 2008
 
-=======
 
 Original:
  this is empty, not found on www.keal.org.uk
@@ -127,6 +126,13 @@ still able download: http://www.udesigns.be/shop-i80-e107-clan-wars
 state: just backup 
 
 note: needs to use e107_images/clan for images and a lot of extra stuff
+
+=======
+### Delete me v 1.7
+
+Source: https://osdn.net/projects/sfnet_e107german/releases/
+
+Just backup
 
 =======
 
@@ -272,6 +278,15 @@ not possible just fix it, google API totally changed
 =======
 
 ### MemberList - Alternative Member List by Michiel Horvers
+
+just backup 
+
+=======
+
+### Online advanced info menu by TheMadMonk
+
+Source: 8.5.1 https://e107.org/plugins/?iframe=1&id=366
+Source: 8.5.3 https://osdn.net/projects/sfnet_e107german/releases/
 
 just backup 
 
