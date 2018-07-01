@@ -26,6 +26,16 @@ Update for 2.1.2 https://github.com/Jimmi08/Item-List
 
 =======
 
+### AACGC MOTM  by M@CH!N3
+
+original version: 2.9
+
+source:  https://github.com/AACGC/AACGC-Member-of-the-Month
+
+just backup
+
+=======
+
 ### AACGC Public News  by M@CH!N3
 
 original version: 1.9
@@ -49,6 +59,14 @@ state: fixed all visible errors
 compatible: 2.1.6
 
 =======
+
+### Advanced Medal System V1.2 by Marc Peppler, Updated version 1.3, 1.4 by garyt
+
+just backup
+
+=======
+
+original version:
 
 ###  Birthday Menu (e107 v7x) 
 Description: A Simple configurable birthday menu. Uses e107 extended field for birthday. Can also send an email or PM to users on their birthday.
