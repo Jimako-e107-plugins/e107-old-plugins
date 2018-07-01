@@ -13,7 +13,7 @@ $lan_file = e_PLUGIN.'onlineinfo_menu/languages/admin_'.e_LANGUAGE.'.php';
 include_once(file_exists($lan_file) ? $lan_file : e_PLUGIN.'onlineinfo_menu/languages/admin_English.php');
 
 $eplug_name = "Online Info";
-$eplug_version = "8.5.1";
+$eplug_version = "8.5.3";
 $eplug_author = "TheMadMonk";
 $eplug_logo = "./images/logo.png";
 $eplug_url = "http://www.gamingmad.com";

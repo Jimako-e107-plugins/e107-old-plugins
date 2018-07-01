@@ -39,6 +39,12 @@ For Support, please post on my forum: [link] or post on the Bug Tracker: [link]
 
 ¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬ ¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬ ¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬ ¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬ ¬¬¬¬¬
 
+===========
+  8.5.2
+===========
+
+Fixed - Missing Comments for Agenda Plugin on New page
+
 
 ===========
   8.5.1

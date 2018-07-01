@@ -326,6 +326,7 @@ define("ONLINEINFO_HELP_73", "CHANGED - Admin's & User Class colours now used on
 define("ONLINEINFO_HELP_74", "ADDED - Users Avatar can now be turned off just to show settings menu.");
 define("ONLINEINFO_HELP_75", "ADDED - Default user classes (Head admin, Admin, etc) can now be turned on or off.");
 define("ONLINEINFO_HELP_76", "FIXED - Missing Comments for krooze Arcade on New page. (on 8.5.1)");
+define("ONLINEINFO_HELP_77", "FIXED - Missing Comments for Agenda Plugin on New page. (on 8.5.2)");
 
 
 define("ONLINEINFO_SMF_1", "Simple Machines Forum");

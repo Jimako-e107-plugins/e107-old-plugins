@@ -1,4 +1,25 @@
 <?php
+/*
++ ----------------------------------------------------------------------------+
+|     e107 website system
+|     onlineinfo_menu_v8.5.3
+|     UTF-8 encoded
+|     translated for: http://www.e107cms.de
+|
+|     Released under the terms and conditions of the
+|     GNU General Public License (http://gnu.org).
+|
+|     $HeadURL: https://e107german.svn.sourceforge.net/svnroot/e107german/trunk/e107_0.7/e107_plugins/onlineinfo_menu/currentlyonline.php $ 
+|     $Revision: 159 $
+|     $Date: 2011-09-29 18:55:56 +0200 (Do, 29. Sep 2011) $
+|     $Id: currentlyonline.php 159 2011-09-29 16:55:56Z lars78 $
+|     $Author: lars78 $
+|
+|     $updated by: webmaster@e107cms.de (http://www.e107cms.de)$
+|     Uhrzeit Format auf 24-Stunden Anzeige geändert
+|     . hinter Tag im Datum eingefügt
++----------------------------------------------------------------------------+
+*/
 
 if (!defined('e107_INIT')) { exit; }
 
@@ -66,7 +87,7 @@ if ($pref['onlineinfo_hideusers'] == 1)
 }
 
 
-       
+
 
 			 $script="SELECT ".MPREFIX."user.*,".MPREFIX."online.*  FROM ".MPREFIX."online LEFT JOIN ".MPREFIX."user ON ".MPREFIX."online.online_user_id= CONCAT(".MPREFIX."user.user_id,'.',".MPREFIX."user.user_name) WHERE ".MPREFIX."online.online_user_id!='0' GROUP BY ".MPREFIX."user.user_id ORDER BY ".MPREFIX."user.user_name ASC";
 
@@ -78,8 +99,8 @@ if ($pref['onlineinfo_hideusers'] == 1)
             while ($row = $sql->db_Fetch())
             {
                 extract($row);
-                
-                
+
+
  						$isadmin = $row['user_admin'];
 						$user_id = $row['user_id'];
 						$user_name = $row['user_name'];
@@ -90,8 +111,9 @@ if ($pref['onlineinfo_hideusers'] == 1)
 						$user_comments=$row['user_comments'];
 						$user_forums=$row['user_forums'];
 						$user_customtitle=$row['user_customtitle'];
-						
-						
+						$user_ipaddress=$row['online_ip'];
+
+
                 if ($pref['onlineinfo_avatar'] == 1)
                 {
 
@@ -100,15 +122,15 @@ if ($pref['onlineinfo_hideusers'] == 1)
 					$lastpost='';
 
 
-						
-						$format = '%d %b %Y %r';
+
+						$format = '%d %b %Y %T';
 						$joindate =strftime($format,$row['user_join']);
 						$lastvisit =strftime($format,$row['user_currentvisit']);
 
 						if($row['user_lastpost']!=0){
 						$lastpost =strftime($format,$row['user_lastpost']);
-						
-						}	
+
+						}
 
 
 	include_once(e_HANDLER.'rate_class.php');
@@ -164,29 +186,77 @@ if ($pref['onlineinfo_hideusers'] == 1)
 	}
 
 
+	// car plugin for Andy
+
+	$sql4 = new db;
+		$carplugin = $sql4->db_Count("plugin", "(*)", "WHERE plugin_name='My Car' and plugin_installflag='1'");
+
+		if ($carplugin)
+		{
+
+		$car='';
+		$there_votes=0;
+
+		$script="SELECT sum(votes) as total_votes FROM ".MPREFIX."cars";
+
+			$tvotes_sql = new db;
+			$tvotes = $tvotes_sql->db_Select_gen($script);
+					while ($row2 = $tvotes_sql->db_Fetch())
+				{
+
+				$totalvotes= $row2['total_votes'];
+
+				}
+
+		$script="SELECT votes FROM ".MPREFIX."cars WHERE user_id='".$user_id."'";
+
+		$votes_sql = new db;
+				$gvotes = $votes_sql->db_Select_gen($script);
+						while ($row2 = $votes_sql->db_Fetch())
+					{
+
+					$there_votes= $row2['votes'];
+
+				}
+
+				$percentofvotes= round((100/$totalvotes)*$there_votes,2);
+
+					$car = '<strong>Car Votes: </strong>'.$there_votes.' ('.$percentofvotes.'%)';
+
+	}
+
+
 
 
 				if ($user_image == '')
                         {
                             $user_image =  e_PLUGIN.'onlineinfo_menu/images/default.png';
-                            $AVATAR = '<div class="spacer"><a href="javascript:void(0)" onMouseover="onlineinfoddrivetip(\'<table border=0 cellspacing=0 cellpadding=0><tr><td rowspan=9><img src='.$user_image.'>&nbsp;&nbsp;&nbsp;&nbsp;<br /><strong>'.$user_customtitle.'</strong>&nbsp;&nbsp;</td><td><strong>'.ONLINEINFO_LOGIN_MENU_L48.':</strong>&nbsp;'.$joindate.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L77.':</strong>&nbsp;'.$lastvisit.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L78.':</strong>&nbsp;'.$lastpost.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L49.':</strong>&nbsp;'.$user_visits.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L50.':</strong>&nbsp;'.$user_chats.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L51.':</strong>&nbsp;'.$user_forums.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L52.':</b>&nbsp;'.$user_comments.'</td></tr><tr><td colspan=2>'.$rate.'</td></tr><tr><td colspan=2>'.$bike.'</td></tr></table>\',\'\',\'450\')"  onMouseout="hideonlineinfoddrivetip()"><img src="'.$user_image.'" width="25" alt="" border="0" /></a></div>';
-                         
+                            $AVATAR = '<div class="spacer"><a href="javascript:void(0)" onMouseover="onlineinfoddrivetip(\'<table border=0 cellspacing=0 cellpadding=0><tr><td rowspan=10><img src='.$user_image.'>&nbsp;&nbsp;&nbsp;&nbsp;<br /><strong>'.$user_customtitle.'</strong>&nbsp;&nbsp;</td><td><strong>'.ONLINEINFO_LOGIN_MENU_L48.':</strong>&nbsp;'.$joindate.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L77.':</strong>&nbsp;'.$lastvisit.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L78.':</strong>&nbsp;'.$lastpost.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L49.':</strong>&nbsp;'.$user_visits.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L50.':</strong>&nbsp;'.$user_chats.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L51.':</strong>&nbsp;'.$user_forums.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L52.':</strong>&nbsp;'.$user_comments.'</td></tr>';
+
+                           if(ADMIN == TRUE){
+							   $AVATAR.='<tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L124.':</strong>&nbsp;'.$user_ipaddress.'</td></tr>';
+}
+                            $AVATAR .='<tr><td colspan=2>'.$rate.'</td></tr><tr><td colspan=2>'.$bike.'</td></tr><tr><td colspan=2>'.$car.'</td></tr></table>\',\'\',\'450\')"  onMouseout="hideonlineinfoddrivetip()"><img src="'.$user_image.'" width="25" alt="" border="0" /></a></div>';
+
 						 }else{
-                          
+
                             $user_image = str_replace(' ', '%20', $user_image);
-                            require_once(e_HANDLER.'avatar_handler.php');  
+                            require_once(e_HANDLER.'avatar_handler.php');
                             $userimage = avatar($user_image);
-                            $AVATAR = '<div class="spacer"><a href="javascript:void(0)" onMouseover="onlineinfoddrivetip(\'<table border=0 cellspacing=0 cellpadding=0><tr><td rowspan=9><img src='.$userimage.'>&nbsp;&nbsp;&nbsp;&nbsp;<br /><strong>'.$user_customtitle.'</strong>&nbsp;&nbsp;</td><td><strong>'.ONLINEINFO_LOGIN_MENU_L48.':</strong>&nbsp;'.$joindate.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L77.':</strong>&nbsp;'.$lastvisit.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L78.':</strong>&nbsp;'.$lastpost.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L49.':</strong>&nbsp;'.$user_visits.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L50.':</strong>&nbsp;'.$user_chats.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L51.':</strong>&nbsp;'.$user_forums.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L52.':</strong>&nbsp;'.$user_comments.'</td></tr><tr><td colspan=2>'.$rate.'</td></tr><tr><td colspan=2>'.$bike.'</td></tr></table>\',\'\',\'450\')"  onMouseout="hideonlineinfoddrivetip()"><img src="'.$userimage.'" width="25" alt="" border="0" /></a></div>';
+                            $AVATAR = '<div class="spacer"><a href="javascript:void(0)" onMouseover="onlineinfoddrivetip(\'<table border=0 cellspacing=0 cellpadding=0><tr><td rowspan=10><img src='.$userimage.'>&nbsp;&nbsp;&nbsp;&nbsp;<br /><strong>'.$user_customtitle.'</strong>&nbsp;&nbsp;</td><td><strong>'.ONLINEINFO_LOGIN_MENU_L48.':</strong>&nbsp;'.$joindate.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L77.':</strong>&nbsp;'.$lastvisit.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L78.':</strong>&nbsp;'.$lastpost.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L49.':</strong>&nbsp;'.$user_visits.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L50.':</strong>&nbsp;'.$user_chats.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L51.':</strong>&nbsp;'.$user_forums.'</td></tr><tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L52.':</strong>&nbsp;'.$user_comments.'</td></tr>';
+
+                           if(ADMIN == TRUE){
+							   $AVATAR .='<tr><td><strong>'.ONLINEINFO_LOGIN_MENU_L124.':</strong>&nbsp;'.$user_ipaddress.'</td></tr>';
+}
+                            $AVATAR .='<tr><td colspan=2>'.$rate.'</td></tr><tr><td colspan=2>'.$bike.'</td></tr><td colspan=2>'.$car.'</td></tr></table>\',\'\',\'450\')"  onMouseout="hideonlineinfoddrivetip()"><img src="'.$userimage.'" width="25" alt="" border="0" /></a></div>';
 
                         }
-                    
+
                 }
                 else
                 {
                     $AVATAR = '<div class="spacer"><img src="'.e_PLUGIN.'onlineinfo_menu/images/default.png"  alt="" style="vertical-align:middle;" width="25" alt="" border="0" /></div>';
                 }
-         
-                
 
                 $oid = $user_id;
                 $oname = $user_name;
@@ -267,12 +337,12 @@ if ($pref['onlineinfo_hideusers'] == 1)
 
 					$online_location = eregi_replace('content.php.content.', 'content.php?content.', $online_location);
 		}
-		
+
 		$online_location = eregi_replace('getxml.php', 'flashchat.php', $online_location);
 		$online_location = eregi_replace('comment.php.', 'comment.php?', $online_location);
 		$online_location = eregi_replace('content.php.','content.php?', $online_location);
-		
-		
+
+
 		$online_location_page=getpage($online_location_page);
 
 
@@ -284,7 +354,7 @@ if ($pref['onlineinfo_hideusers'] == 1)
                     $text .= ' rowspan="2" ';
                 }
                 $online_eloc = ONLINE_EL7;
-                
+
                 if ($isadmin)
                 {
                     $online_location = 'javascript:void(0)';
@@ -357,18 +427,30 @@ $text.='<br />';
     				  }
 
 
+// added for Car plugin for Andy
+
+						$sql4 = new db;
+						$carplugin = $sql4->db_Count("plugin", "(*)", "WHERE plugin_name='My Car' and plugin_installflag='1'");
+
+					  if ($carplugin)
+				      {
+				         $text .= '<a href="'.e_PLUGIN.'cars/car.php?id.'.$oid.'"><img src="'.e_PLUGIN.'onlineinfo_menu/images/car.png"  alt="View My Car" style="vertical-align:middle;border:0;" /></a>';
+    				  }
+
+
+
                     $text .= '</td></tr><tr><td colspan="2" ></td></tr>';
                 }
 
                 $text .= '</table></div>';
-				
-				
+
+
 }
-            
-            
-            
-            
-            
+
+
+
+
+
 $text.='</td></tr></table></div>';
             if ($pref['onlineinfo_guest'] == 1)
             {
@@ -474,11 +556,11 @@ $sql2 = new db;
 
 			$online_location = eregi_replace('content.php.content.', 'content.php?content.', $online_location);
 		}
-		
+
 		$online_location = eregi_replace('getxml.php', 'flashchat.php', $online_location);
 		$online_location = eregi_replace('comment.php.', 'comment.php?', $online_location);
 		$online_location = eregi_replace('content.php.','content.php?', $online_location);
-		
+
 		$online_location_page=getpage($online_location_page);
 
 
@@ -517,7 +599,12 @@ if($pref['onlineinfo_botchecker']==1){
 	if ($getbot[3]=='searchme'){$webbot='Search Me';$boticon='robot_searchme.png';}
 	if ($getbot[1]=='cuill'){$webbot='Cuill';$boticon='robot_cuill.png';}
 	if ($getbot[1]=='search' && $getbot[2]=='msn'){$webbot='Windows Live';$boticon='robot_windows_live_search.png';}
-	
+	if ($getbot[1]=='entireweb'){$webbot='Entireweb';$boticon='robot_entireweb.png';}
+	if ($getbot[1]=='cuil'){$webbot='Cuil';$boticon='robot_cuil.png';}
+	if ($getbot[2]=='baidu'){$webbot='Baidu';$boticon='robot_baidu.png';}
+	if ($getbot[1]=='naver'){$webbot='Naver';$boticon='robot_naver.png';}
+	if ($getbot[1]=='dotnetdotcom'){$webbot='Dotbot';$boticon='robot_robot.png';}
+
 	if(ip2long($oname)>=ip2long('65.214.36.0') && ip2long($oname)<=ip2long('65.214.39.255')){$webbot='Teoma/Ask';$boticon='robot_askjeeves.png';}
 	if(ip2long($oname)>=ip2long('220.181.0.0') && ip2long($oname)<=ip2long('220.181.255.255')){$webbot='SoGou';$boticon='robot_sogou.png';}
 	if(ip2long($oname)>=ip2long('66.151.181.0') && ip2long($oname)<=ip2long('66.151.181.255')){$webbot='Fast Search';$boticon='robot_fastsearch.png';}
@@ -572,6 +659,9 @@ if($pref['onlineinfo_botchecker']==1){
 	if(ip2long($oname)>=ip2long('62.113.137.5') && ip2long($oname)<=ip2long('62.113.137.5')){$webbot='Fast Search';$boticon='robot_fastsearch.png';}
 	if(ip2long($oname)>=ip2long('65.214.44.29') && ip2long($oname)<=ip2long('65.214.44.29')){$webbot='Bloglines';$boticon='robot_bloglines.png';}
 	if(ip2long($oname)>=ip2long('195.113.214.201') && ip2long($oname)<=ip2long('195.113.214.201')){$webbot='CESNET';$boticon='robot_robot.png';}
+	if(ip2long($oname)>=ip2long('88.131.106.0') && ip2long($oname)<=ip2long('88.131.106.26')){$webbot='Entireweb';$boticon='robot_entireweb.png';}
+
+
 
 	// ***********
 
@@ -591,11 +681,11 @@ if($pref['onlineinfo_ipchecker']==1){
                         $text .= '<tr><td style="vertical-align:top; text-align:left;" align="left"><a href="javascript:void(0)" onMouseover="onlineinfoddrivetip(\''.$data.'\',\'\',\'500\')"  onMouseout="hideonlineinfoddrivetip()"><img src="'.e_PLUGIN.'onlineinfo_menu/images/guest.png" alt="" style="vertical-align:middle;" border="0" /></a></td>
 								<td valign="top" align="left" style="vertical-align:top; text-align:left; font-size:9px"><a href="'.e_ADMIN.'userinfo.php?'.$oname.'">'.$oname.'</a>'.ONLINE_EL15.'<a href="'.$online_location.'">'.$online_location_page.'</a></td></tr>';
                    		}else{
-							
+
 						$text .= '<tr><td style="vertical-align:top; text-align:left;" align="left"><img src="'.e_PLUGIN.'onlineinfo_menu/images/guest.png" alt="" style="vertical-align:middle;" border="0" /></td>
 								<td valign="top" align="left" style="vertical-align:top; text-align:left; font-size:9px"><a href="'.e_ADMIN.'userinfo.php?'.$oname.'">'.$oname.'</a>'.ONLINE_EL15.'<a href="'.$online_location.'">'.$online_location_page.'</a></td></tr>';
-							
-						}		   
+
+						}
 				    }
                     else
                     {
@@ -612,7 +702,7 @@ if($pref['onlineinfo_ipchecker']==1){
 					if (ADMIN)
                     {
                      if($pref['onlineinfo_ipchecker']==1){
-                     
+
                     	$host = $e107->get_host_name($oname);
 					    $data = '<b>'.ONLINEINFO_LOGIN_MENU_L75.'</b>'.$oname.' [ '.ONLINEINFO_LOGIN_MENU_L76.$host.' ]';
 
@@ -620,10 +710,10 @@ if($pref['onlineinfo_ipchecker']==1){
 						$text .= '<tr><td style="vertical-align:top; text-align:left;" align="left"><a href="javascript:void(0)" onMouseover="onlineinfoddrivetip(\''.$data.'\',\'\',\'500\')"  onMouseout="hideonlineinfoddrivetip()"><img src="'.e_PLUGIN.'onlineinfo_menu/images/robots/'.$boticon.'" alt="" style="vertical-align:middle;" border="0" /></a></td>
 								<td valign="top" align="left" style="vertical-align:top; text-align:left; font-size:9px">'.$webbot.' - <a href="'.$online_location.'">'.$online_location_page.'</a></td></tr>';
 }else{
-	
+
 	$text .= '<tr><td style="vertical-align:top; text-align:left;" align="left"><img src="'.e_PLUGIN.'onlineinfo_menu/images/robots/'.$boticon.'" alt="" style="vertical-align:middle;" border="0" /></a></td>
 								<td valign="top" align="left" style="vertical-align:top; text-align:left; font-size:9px">'.$webbot.' - <a href="'.$online_location.'">'.$online_location_page.'</a></td></tr>';
-	
+
 }
 					}else{
 
@@ -748,48 +838,48 @@ if ($pref['onlineinfo_ibfautohide'] == 1)
 
 
 }else{
-		
+
 	// new plain online info
 		if ($orderhide == 1){
-	
-	
+
+
 	    $text .= '<div id="current-title" style="cursor:hand; text-align:left; font-size: '.$onlineinfomenufsize.'px; vertical-align: middle; width:'.$onlineinfomenuwidth.'; font-weight:bold;" title="'.ONLINEINFO_LOGIN_MENU_L30.' ('.ONLINE_EL2.MEMBERS_ONLINE.', '.ONLINE_EL1.GUESTS_ONLINE;
 		$totalonline=MEMBERS_ONLINE + GUESTS_ONLINE;
 
 	    $text.=')">&nbsp;'.ONLINEINFO_LOGIN_MENU_L30.' ('.$totalonline.')</div>';
 		$text .= '<div id="current" class="switchgroup1" style="display:none; margin-left:2px;">';
-	
+
 	}else{
-	
+
 	 $text .= '<br /><div class="smallblacktext" style="font-size: '.$onlineinfomenufsize.'px; font-weight:bold; margin-left:5px; margin-top:10px; width:'.$onlineinfomenuwidth.'">'.ONLINEINFO_LOGIN_MENU_L30.'</div><div>';
-	
+
 	}
-		
+
 	$membersfound='';
 
 
 $c = 0;
 			//get members
-			
-		
-			 
+
+
+
 			 $script="SELECT ".MPREFIX."user.user_id,".MPREFIX."user.user_name FROM ".MPREFIX."online LEFT JOIN ".MPREFIX."user ON ".MPREFIX."online.online_user_id=CONCAT(".MPREFIX."user.user_id,'.',".MPREFIX."user.user_name) WHERE ".MPREFIX."online.online_user_id!='0' GROUP BY ".MPREFIX."user.user_id ORDER BY ".MPREFIX."user.user_name ASC";
-			 
+
 			$sql->db_Select_gen($script);
 			while ($row = $sql->db_Fetch())
             {
                 extract($row);
-					
+
 					$user_id=$row['user_id'];
 					$user_name=$row['user_name'];
-						
-					
+
+
 $user[$c]='<a href="'.e_BASE.'user.php?id.'.$user_id.'" '.getuserclassinfo($user_id).'>'.$user_name.'</a>';
-				
-			$c++;		
+
+			$c++;
 				}
-				
-			
+
+
 
 for ($a = 0; $a <= ($c-1); $a++)
 	{
@@ -797,7 +887,7 @@ for ($a = 0; $a <= ($c-1); $a++)
 		$membersfound.= ($a < $c-1 ) ? ', ' : '';
 	}
 
-		 
+
 
 	$countonline = MEMBERS_ONLINE + GUESTS_ONLINE;
 
@@ -808,7 +898,7 @@ $text.='<div style="text-align:left;">'.$membersfound.'</div><br />';
 $text.='<div style="text-align:left;" class="mediumtext"><img src="'.e_PLUGIN.'onlineinfo_menu/images/guests.png" height="18px" /><b>'.ONLINENOW_4.'</b> ('.GUESTS_ONLINE.')</div><br />';
 
 
-	
+
 }
 
 

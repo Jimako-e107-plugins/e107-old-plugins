@@ -1,9 +1,29 @@
 <?php
+/*
++ ----------------------------------------------------------------------------+
+|     e107 website system
+|     onlineinfo_menu_v8.5.3
+|     UTF-8 encoded
+|     translated for: http://www.e107cms.de
+|
+|     Released under the terms and conditions of the
+|     GNU General Public License (http://gnu.org).
+|
+|     $HeadURL: https://e107german.svn.sourceforge.net/svnroot/e107german/trunk/e107_0.7/e107_plugins/onlineinfo_menu/birthday.php $ 
+|     $Revision: 160 $
+|     $Date: 2011-09-29 19:11:00 +0200 (Do, 29. Sep 2011) $
+|     $Id: birthday.php 160 2011-09-29 17:11:00Z lars78 $
+|     $Author: lars78 $
+|
+|     $updated by: webmaster@e107cms.de (http://www.e107cms.de)$
+|     Datumstrenner von / auf . geändert
++----------------------------------------------------------------------------+
+*/
 if (!defined('e107_INIT')) { exit; }
 if(check_class($extraclass)){
 
 $sql2=new db;
-
+$nodata=0;
 	$birthdayavatar=$pref['onlineinfo_bavatar'];
 
 	
@@ -44,6 +64,8 @@ limit 0,".$extrarecords."";
 		if (!$sql->db_Select_gen($script)){
 			
 			 $arraydata="0|".ONLINEINFO_BDAY_L2;
+			 
+			 $nodata = 1;
 			
 		}else{
 			$setarray=0;
@@ -161,9 +183,9 @@ limit 0,".$extrarecords."";
 							}
 						
 						if ($pref['onlineinfo_formatbdays'] == "1"){
-               				 $nbtext .= "<div style='margin-left:5px; text-align:left; width:".$onlineinfomenuwidth.";'>".$onlineinfo_birthday_datepart[2]."/".$onlineinfo_birthday_datepart[1]." <a title='".$onlineinfo_birthday_datepart[2].".".$onlineinfo_birthday_datepart[1].".".$onlineinfo_birthday_datepart[0]."' href='".e_BASE."user.php?id.".$user_id."' ".getuserclassinfo($user_id).">".$user_name." (".$onlineinfo_birthday_age.")</a></div>";
+               				 $nbtext .= "<div style='margin-left:5px; text-align:left; width:".$onlineinfomenuwidth.";'>".$onlineinfo_birthday_datepart[2].".".$onlineinfo_birthday_datepart[1].". <a title='".$onlineinfo_birthday_datepart[2].".".$onlineinfo_birthday_datepart[1].".".$onlineinfo_birthday_datepart[0]."' href='".e_BASE."user.php?id.".$user_id."' ".getuserclassinfo($user_id).">".$user_name." (".$onlineinfo_birthday_age.")</a></div>";
            				 }else{
-                			 $nbtext .= "<div style='margin-left:5px; text-align:left; width:".$onlineinfomenuwidth.";'>".$onlineinfo_birthday_datepart[1]."/".$onlineinfo_birthday_datepart[2]." <a title='".$onlineinfo_birthday_datepart[2].".".$onlineinfo_birthday_datepart[1].".".$onlineinfo_birthday_datepart[0]."' href='".e_BASE."user.php?id.".$user_id."' ".getuserclassinfo($user_id).">".$user_name." (".$onlineinfo_birthday_age.")</a></div>";
+                			 $nbtext .= "<div style='margin-left:5px; text-align:left; width:".$onlineinfomenuwidth.";'>".$onlineinfo_birthday_datepart[1].".".$onlineinfo_birthday_datepart[2].". <a title='".$onlineinfo_birthday_datepart[2].".".$onlineinfo_birthday_datepart[1].".".$onlineinfo_birthday_datepart[0]."' href='".e_BASE."user.php?id.".$user_id."' ".getuserclassinfo($user_id).">".$user_name." (".$onlineinfo_birthday_age.")</a></div>";
         }
 										
 				}
@@ -184,6 +206,14 @@ limit 0,".$extrarecords."";
     		// no cache
     		$script="select *,YEAR(NOW()) - YEAR(user_birthday) -( DATE_FORMAT(NOW(), '%m-%d') < DATE_FORMAT(user_birthday, '%m-%d')) AS age from #user_extended left join #user on user_extended_id = user_id where (YEAR(NOW()) - YEAR(user_birthday) -( DATE_FORMAT(NOW(), '%m-%d') < DATE_FORMAT(user_birthday, '%m-%d'))!=-1) AND (user_birthday != '000-/00-00' and user_name!='' AND ((DAYOFYEAR(CONCAT(DATE_FORMAT(NOW(), '%Y-'), DATE_FORMAT(user_birthday,'%m-%d'))) < DAYOFYEAR(now()))*366)+ DAYOFYEAR(CONCAT(DATE_FORMAT(NOW(), '%Y-'), DATE_FORMAT(user_birthday,'%m-%d')))>=DAYOFYEAR(now())) ORDER BY ((DAYOFYEAR(CONCAT(DATE_FORMAT(NOW(), '%Y-'), DATE_FORMAT(user_birthday,'%m-%d'))) < DAYOFYEAR(now())) * 366) + DAYOFYEAR(CONCAT(DATE_FORMAT(NOW(), '%Y-'), DATE_FORMAT(user_birthday,'%m-%d'))),date_format(user_birthday,'%m%d') asc limit 0,".$extrarecords."";
 
+
+if (!$sql->db_Select_gen($script)){
+			
+			 $arraydata="0|".ONLINEINFO_BDAY_L2;
+			 
+			 $nodata = 1;
+			
+		}
 $x=0;
 $y=0;
 			$sql->db_Select_gen($script);
@@ -247,9 +277,9 @@ $y=0;
 							}
 						
 						if ($pref['onlineinfo_formatbdays'] == "1"){
-               				 $nbtext .= "<div style='margin-left:5px; text-align:left; width:".$onlineinfomenuwidth.";'>".$onlineinfo_birthday_datepart[2]."/".$onlineinfo_birthday_datepart[1]." <a title='".$onlineinfo_birthday_datepart[2].".".$onlineinfo_birthday_datepart[1].".".$onlineinfo_birthday_datepart[0]."' href='".e_BASE."user.php?id.".$user_id."' ".getuserclassinfo($user_id).">".$user_name." (".$onlineinfo_birthday_age.")</a></div>";
+               				 $nbtext .= "<div style='margin-left:5px; text-align:left; width:".$onlineinfomenuwidth.";'>".$onlineinfo_birthday_datepart[2].".".$onlineinfo_birthday_datepart[1]." <a title='".$onlineinfo_birthday_datepart[2].".".$onlineinfo_birthday_datepart[1].".".$onlineinfo_birthday_datepart[0]."' href='".e_BASE."user.php?id.".$user_id."' ".getuserclassinfo($user_id).">".$user_name." (".$onlineinfo_birthday_age.")</a></div>";
            				 }else{
-                			 $nbtext .= "<div style='margin-left:5px; text-align:left; width:".$onlineinfomenuwidth.";'>".$onlineinfo_birthday_datepart[1]."/".$onlineinfo_birthday_datepart[2]." <a title='".$onlineinfo_birthday_datepart[2].".".$onlineinfo_birthday_datepart[1].".".$onlineinfo_birthday_datepart[0]."' href='".e_BASE."user.php?id.".$user_id."' ".getuserclassinfo($user_id).">".$user_name." (".$onlineinfo_birthday_age.")</a></div>";
+                			 $nbtext .= "<div style='margin-left:5px; text-align:left; width:".$onlineinfomenuwidth.";'>".$onlineinfo_birthday_datepart[1].".".$onlineinfo_birthday_datepart[2]." <a title='".$onlineinfo_birthday_datepart[2].".".$onlineinfo_birthday_datepart[1].".".$onlineinfo_birthday_datepart[0]."' href='".e_BASE."user.php?id.".$user_id."' ".getuserclassinfo($user_id).">".$user_name." (".$onlineinfo_birthday_age.")</a></div>";
         }
     
     
@@ -262,7 +292,7 @@ $y=0;
   
 }
 
-  if ($extrahide == 1)
+  if ($extrahide == 1 && $nodata==0)
     {
         $text .= "<br /></div>";
     }

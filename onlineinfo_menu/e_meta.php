@@ -7,7 +7,7 @@ include_once(e_PLUGIN."onlineinfo_menu/functions.php");
 global $pref;
 
 if (e_PAGE == "forum_viewtopic.php") {
-	echo "<!-- OIM forum view -->";
+	
 	if (file_exists(THEME.'forum_viewtopic_template.php'))
 	{
 	require_once(THEME."forum_viewtopic_template.php");
@@ -15,7 +15,9 @@ if (e_PAGE == "forum_viewtopic.php") {
 	require_once(e_PLUGIN."forum/templates/forum_viewtopic_template.php");
 	}
 	
-
+	//$FORUMTHREADSTYLE
+	//$FORUMREPLYSTYLE
+	//$FORUMEND
 	
 	$FORUMTHREADSTYLE=str_replace('{POSTER}','{OIM_POSTER}',$FORUMTHREADSTYLE);	
 	$FORUMREPLYSTYLE=str_replace('{POSTER}','{OIM_POSTER}',$FORUMREPLYSTYLE);
@@ -27,7 +29,7 @@ if (e_PAGE == "forum_viewtopic.php") {
 	
 
 if (e_PAGE == "user.php") {	
-	echo "<!-- OIM  user view -->";
+	
 	//$USER_FULL_TEMPLATE
 	$USER_FULL_TEMPLATE=str_replace('{USER_NAME}','{OIM_USER_NAME}',$USER_FULL_TEMPLATE);	
 	

@@ -1387,7 +1387,7 @@ if($author[0]==0){
 		if ($comment_type=='sugg_suggs'){$comment_type=993;}
 		if ($comment_type=='page'){$comment_type=992;}
 		if ($comment_type=='krooze'){$comment_type=991;}
-
+		if ($comment_type=='agenda'){$comment_type=990;}
 
 		switch($comment_type){
 
@@ -1448,11 +1448,15 @@ if($author[0]==0){
 
 
 
+		case 990:	//	agenda
+
+				$sql2 -> db_Select("agenda", "agn_title, agn_start", "agn_id=$comment_item_id ");
+				$row = $sql2 -> db_Fetch(); extract($row);
+				$str .= '<div><span><a href="'.e_SELF.'?markcommentasread.'.$comment_id.'"><img src="'.e_PLUGIN.'onlineinfo_menu/images/read.png" border="0" alt="'.ONLINEINFO_LOGIN_MENU_L92.'"></a>  </span><span>[ '.ONLINEINFO_LIST_62.' ]&nbsp;</span><span><a href="'.e_PLUGIN.'agenda/agenda.php?viewitem.1.'.$comment_item_id.'.'.$agn_start.'">'.$agn_title.'</a></span><span>'.ONLINEINFO_LIST_41.$astr.'</span></div>';
 
 
-
-
-
+		$comment_count++;
+	break;
 
 
 

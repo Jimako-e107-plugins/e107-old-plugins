@@ -11,9 +11,9 @@
 |     GNU General Public License (http://gnu.org).
 |
 |     $Source: /cvsroot/e107/e107_0.7/e107_plugins/login_menu/login_menu_shortcodes.php,v $
-|     $Revision: 1.10 $
-|     $Date: 2006/11/18 22:40:54 $
-|     $Author: mcfly_e107 $
+|     $Revision: 1.13 $
+|     $Date: 2009/08/23 10:39:51 $
+|     $Author: marj_nl_fr $
 +----------------------------------------------------------------------------+
 */
 if (!defined('e107_INIT')) { exit; }
@@ -22,11 +22,14 @@ $login_menu_shortcodes = $tp -> e_sc -> parse_scbatch(__FILE__);
 
 /*
 SC_BEGIN LM_USERNAME_INPUT
-return "<input class='tbox login user' type='text' name='username' size='15' value='' maxlength='30' />\n";
+global $pref;
+return "<input class='tbox login user' type='text' name='username' id='username' size='15' value='' maxlength='".varset($pref['loginname_maxlength'],30)."' />\n";
 SC_END
 
 SC_BEGIN LM_PASSWORD_INPUT
-return "<input class='tbox login pass' type='password' name='userpass' size='15' value='' maxlength='20' />\n\n";
+global $pref;
+$t_password = "<input class='tbox login pass' type='password' name='userpass' id='userpass' size='15' value='' maxlength='30' />\n";
+return $t_password;
 SC_END
 
 SC_BEGIN LM_IMAGECODE
@@ -68,22 +71,22 @@ SC_END
 
 SC_BEGIN LM_FPW_LINK
 global $pref;
-if ($pref['user_reg'])
+if (!$pref['auth_method'] || $pref['auth_method'] == 'e107')
 {
-	if (!$pref['auth_method'] || $pref['auth_method'] == 'e107')
-	{
-		return "<a class='login_menu_link fpw' href='".e_BASE."fpw.php' title=\"".LOGIN_MENU_L4."\">".LOGIN_MENU_L4."</a>";
-	}
+	return "<a class='login_menu_link fpw' href='".e_BASE."fpw.php' title=\"".LOGIN_MENU_L4."\">".LOGIN_MENU_L4."</a>";
 }
 return "";
 SC_END
 
 SC_BEGIN LM_RESEND_LINK
 global $pref;
-if(isset($pref['user_reg_veri']) && $pref['user_reg_veri'] == 1){
-	if (!$pref['auth_method'] || $pref['auth_method'] == 'e107' )
-	{
-		return "<a class='login_menu_link resend' href='".e_SIGNUP."?resend' title=\"".LOGIN_MENU_L40."\">".LOGIN_MENU_L40."</a>";
+if ($pref['user_reg'])
+{
+	if(isset($pref['user_reg_veri']) && $pref['user_reg_veri'] == 1){
+		if (!$pref['auth_method'] || $pref['auth_method'] == 'e107' )
+		{
+			return "<a class='login_menu_link resend' href='".e_SIGNUP."?resend' title=\"".LOGIN_MENU_L40."\">".LOGIN_MENU_L40."</a>";
+		}
 	}
 }
 return "";
@@ -97,10 +100,19 @@ if(ADMIN == TRUE){
 SC_END
 
 SC_BEGIN LM_ADMINLINK_BULLET
-global $bullet;
-if(ADMIN==TRUE && $bullet !='bullet'){
-	return $bullet;
+$bullet = '';
+if(ADMIN)
+{
+	if(defined('BULLET'))
+	{
+		$bullet = '<img src="'.THEME.'images/'.BULLET.'" alt="" style="vertical-align: middle;" />';
+	}
+	elseif(file_exists(THEME.'images/bullet2.gif'))
+	{
+		$bullet = '<img src="'.THEME.'images/bullet2.gif" alt="" style="vertical-align: middle;" />';
+	}
 }
+return $bullet;
 SC_END
 
 SC_BEGIN LM_ADMINLINK
@@ -123,9 +135,16 @@ SC_END
 
 
 SC_BEGIN LM_BULLET
-global $bullet;
+$bullet = '';
+if(defined('BULLET'))
+{
+	$bullet = '<img src="'.THEME.'images/'.BULLET.'" alt="" style="vertical-align: middle;" />';
+}
+elseif(file_exists(THEME.'images/bullet2.gif'))
+{
+	$bullet = '<img src="'.THEME.'images/bullet2.gif" alt="" style="vertical-align: middle;" />';
+}
 return $bullet;
-
 SC_END
 
 SC_BEGIN LM_USERSETTINGS

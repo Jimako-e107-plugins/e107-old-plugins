@@ -21,6 +21,8 @@ $text .= '<center><strong>'.ONLINEINFO_HELP_6.' '.$eplug_version.'</strong></cen
 $text.='<table>';
 //added
 
+$text .= '<tr><td style="vertical-align:top;"><li /></td><td>'.ONLINEINFO_HELP_77.'</td></tr>';
+
 $text .= '<tr><td style="vertical-align:top;"><li /></td><td>'.ONLINEINFO_HELP_76.'</td></tr>';
 
 $text .= '<tr><td style="vertical-align:top;"><li /></td><td>'.ONLINEINFO_HELP_57.'</td></tr>';

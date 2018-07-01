@@ -1,44 +1,48 @@
 <?php
 /*
-+---------------------------------------------------------------+
-|	e107 website system
++ ----------------------------------------------------------------------------+
+|     e107 website system - german language file
+|     onlineinfo_menu_v8.5.3
+|     UTF-8 encoded
+|     translated for: http://www.e107cms.de
 |
-|	Released under the terms and conditions of the
-|	GNU General Public License (http://gnu.org).
+|     Released under the terms and conditions of the
+|     GNU General Public License (http://gnu.org).
 |
-|	Deutsche Uebersetzung für cms-myway.com	von schlrech
-|	Sollten fehler in der Uebersetzung sein, bitte ein PM
-|	auf cms-myway.com an schlrech oder admin
-|
-+---------------------------------------------------------------+
+|     $HeadURL: https://e107german.svn.sourceforge.net/svnroot/e107german/trunk/e107_0.7/e107_plugins/onlineinfo_menu/languages/admin_German.php $ 
+|     $Revision: 159 $
+|     $Date: 2011-09-29 18:55:56 +0200 (Do, 29. Sep 2011) $
+|     $Id: admin_German.php 159 2011-09-29 16:55:56Z lars78 $
+|     $Author: lars78 $
++----------------------------------------------------------------------------+
 */
 define("ONLINEINFO_IPB_A1", "Invision Power Board Integration");
-define("ONLINEINFO_IPB_A2", "Dies setzt den Link zu IPB damit die Benutzer sehen können wer Online ist");
+define("ONLINEINFO_IPB_A2", "Setzt den Link zu IPB damit die Benutzer sehen können, wer Online ist");
 define("ONLINEINFO_IPB_A3", "Benutze Invision Power Board: ");
 define("ONLINEINFO_IPB_A4", "IPB Online Zeit: ");
-define("ONLINEINFO_IPB_A5", "Diese setzt die Zeitlimite wie lange ein Benutzer als Online angezeigt wird.");
-define("ONLINEINFO_IPB_A6", "default: ");
+define("ONLINEINFO_IPB_A5", "Setzt das Zeitlimit, wie lange ein Benutzer als Online angezeigt wird.");
+define("ONLINEINFO_IPB_A6", "Standart: ");
 define("ONLINEINFO_IPB_A7", "Minute");
 define("ONLINEINFO_IPB_A8", "IPB Tabellen prefix: ");
 define("ONLINEINFO_IPB_A9", "IPB Standort: ");
 define("ONLINEINFO_IPB_A10", "IPB Forum: ");
 define("ONLINEINFO_IPB_A11", "Benutze IPB Private Nachrichten: ");
-define("ONLINEINFO_IPB_A12", "Du musst es gekauft, runtergeladen von <a href='http://www.invisionpower.com'>Invision Power Board Site</a> und installiert haben.");
-define("ONLINEINFO_IPB_A13", "Automatisch verstecken das IPB Forum: ");
+define("ONLINEINFO_IPB_A12", "Sie müssen es gekauft, runtergeladen von <a href='http://www.invisionpower.com'>Invision Power Board Site</a> und installiert haben.");
+define("ONLINEINFO_IPB_A13", "Automatisches verstecken des IPB Forum: ");
 
 define("ONLINEINFO_LOGIN_dropdown_A1", "Ja");
 define("ONLINEINFO_LOGIN_dropdown_A2", "Nein");
 
 define("ONLINEINFO_LOGIN_MENU_A1", "Online Info Menü Konfiguration gespeichert");
-define("ONLINEINFO_LOGIN_MENU_A2", "Online Info Menu Konfiguration");
+define("ONLINEINFO_LOGIN_MENU_A2", "Online Info Menü Konfiguration");
 define("ONLINEINFO_LOGIN_MENU_A3", "Titel: ");
 define("ONLINEINFO_LOGIN_MENU_A4", "Standard: Online Info");
-define("ONLINEINFO_LOGIN_MENU_A5", "Füge ");
-define("ONLINEINFO_LOGIN_MENU_A6", " hinzu für 'Benutzer' willkommen");
+define("ONLINEINFO_LOGIN_MENU_A5", "Fügen Sie ");
+define("ONLINEINFO_LOGIN_MENU_A6", " hinzu für Willkommen 'Benutzer'");
 define("ONLINEINFO_LOGIN_MENU_A7", "Online Info Breite: ");
 define("ONLINEINFO_LOGIN_MENU_A8", "Standard: 95%");
 define("ONLINEINFO_LOGIN_MENU_A9", "(kann als px or % gesetzt werden)");
-define("ONLINEINFO_LOGIN_MENU_A10", "PM plugin anzeigen: ");
+define("ONLINEINFO_LOGIN_MENU_A10", "PN Plugin anzeigen: ");
 define("ONLINEINFO_LOGIN_MENU_A11", "Anzeigen wer Online ist: ");
 define("ONLINEINFO_LOGIN_MENU_A12", "Flash wenn neu: ");
 define("ONLINEINFO_LOGIN_MENU_A13", "Farbe für Flash (zb. white, red, blue, etc...): ");
@@ -60,18 +64,18 @@ define("ONLINEINFO_LOGIN_MENU_A28", "Downloads anzeigen: ");
 define("ONLINEINFO_LOGIN_MENU_A29", "Coppermine Zusatz installiert: ");
 define("ONLINEINFO_LOGIN_MENU_A30", "Benutzerklasse");
 define("ONLINEINFO_LOGIN_MENU_A31", "Extra Info");
-define("ONLINEINFO_LOGIN_MENU_A32", "Keine Enträge zum anzeigen");
+define("ONLINEINFO_LOGIN_MENU_A32", "Anzahl der anzuzeigenden Einträge");
 define("ONLINEINFO_LOGIN_MENU_A33", "Cache aktivieren");
 define("ONLINEINFO_LOGIN_MENU_A34", "Cache Zeit<br />(Minuten)");
 define("ONLINEINFO_LOGIN_MENU_A35", "Admin IP Checker (Host lookup)");
 define("ONLINEINFO_LOGIN_MENU_A36", "Sektionen");
-define("ONLINEINFO_LOGIN_MENU_A37", "Show Bots - auf Nein setzen um diese als Gäste zu sehen");
+define("ONLINEINFO_LOGIN_MENU_A37", "Bots anzeigen - auf Nein setzen um diese als Gäste zu sehen");
 define("ONLINEINFO_LOGIN_MENU_A38", "Detailierte Ansicht benutzen");
-define("ONLINEINFO_LOGIN_MENU_A39", "Geburtstagsformat setzen auf <br />dd/mm Format: ");
+define("ONLINEINFO_LOGIN_MENU_A39", "Geburtstagsformat setzen auf <br />dd.mm. Format: ");
 define("ONLINEINFO_LOGIN_MENU_A40", "Administrator Farbe");
 define("ONLINEINFO_LOGIN_MENU_A41", "Forum Moderator Farbe");
 define("ONLINEINFO_LOGIN_MENU_A42", "Mitglieder Farbe");
-define("ONLINEINFO_LOGIN_MENU_A43", "There are now two views to pick from.<br /> The basic view will only show members online and only counts the guests.<br />It will also should you if they are an Administrator, a Forum Moderator or just a plain member.");
+define("ONLINEINFO_LOGIN_MENU_A43", "Es gibt nun zwei Ansichten, aus denen man wählen kann.<br /> Die Standart Ansicht zeigt nur Mitglieder online und zählt nur die Gäste.<br />Es zeigt Ihnen auch an, ob das Mitglied Administrator, ein Forum Moderator oder ein normales Mitglied ist.");
 define("ONLINEINFO_LOGIN_MENU_A44", "Sortierung");
 define("ONLINEINFO_LOGIN_MENU_A45", "Avatar");
 define("ONLINEINFO_LOGIN_MENU_A46", "Private Nachricht");
@@ -79,23 +83,23 @@ define("ONLINEINFO_LOGIN_MENU_A47", "Wer ist Online");
 define("ONLINEINFO_LOGIN_MENU_A48", "Extra Info");
 define("ONLINEINFO_LOGIN_MENU_A49", "Sortierung der Extra Informationen");
 define("ONLINEINFO_LOGIN_MENU_A50", "Letzte Änderungen");
-define("ONLINEINFO_LOGIN_MENU_A51", "Top Forum Posts");
+define("ONLINEINFO_LOGIN_MENU_A51", "Top Forum Beiträge");
 define("ONLINEINFO_LOGIN_MENU_A52", "Top Besucher");
 define("ONLINEINFO_LOGIN_MENU_A53", "Geburtstage");
 define("ONLINEINFO_LOGIN_MENU_A54", "Letzte Besucher");
-define("ONLINEINFO_LOGIN_MENU_A55", "Hit Counter");
+define("ONLINEINFO_LOGIN_MENU_A55", "Besucher Zähler");
 define("ONLINEINFO_LOGIN_MENU_A56", "Menü Einstellungen aktualisieren");
 define("ONLINEINFO_LOGIN_MENU_A57", "Gästebuch installiert: ");
 define("ONLINEINFO_LOGIN_MENU_A58", "Popup Benutzer Info Rand Farbe: ");
 define("ONLINEINFO_LOGIN_MENU_A59", "Popup Benutzer Info Hintergrund Farbe: ");
 define("ONLINEINFO_LOGIN_MENU_A60", "Check List");
-define("ONLINEINFO_LOGIN_MENU_A61", "");
-define("ONLINEINFO_LOGIN_MENU_A62", "Top Forum Starters");
+define("ONLINEINFO_LOGIN_MENU_A61", "--- Keine Sounds abspielen ---");
+define("ONLINEINFO_LOGIN_MENU_A62", "Top Forum Starter");
 define("ONLINEINFO_LOGIN_MENU_A63", "Admin Bereich Info anzeigen: ");
-define("ONLINEINFO_LOGIN_MENU_A64", "");
-define("ONLINEINFO_LOGIN_MENU_A65", "");
+define("ONLINEINFO_LOGIN_MENU_A64", "Abzuspielender PN Sound:");
+define("ONLINEINFO_LOGIN_MENU_A65", "Spielt einen Sound ab, wenn Sie eine private Nachricht haben.<br /><i>Sie können zusätzliche Sounds (wav oder mp3 Format) hinzufügen, indem Sie diese in den Sounds Ordner kopieren, damit sie in der Liste angezeigt werden</i>");
 define("ONLINEINFO_LOGIN_MENU_A66", "Top Forum Antworter");
-define("ONLINEINFO_LOGIN_MENU_A67", "Content installiert: ");
+define("ONLINEINFO_LOGIN_MENU_A67", "Inhalt installiert: ");
 define("ONLINEINFO_LOGIN_MENU_A68", "Registrierte User-Anzahl anzeigen: ");
 define("ONLINEINFO_LOGIN_MENU_A69", "Freunde anzeigen: ");
 define("ONLINEINFO_LOGIN_MENU_A70", "Freunde");
@@ -128,14 +132,14 @@ define("ONLINEINFO_LOGIN_MENU_A96", "Coppermine Komentare: ");
 define("ONLINEINFO_LOGIN_MENU_A97", "Links: ");
 define("ONLINEINFO_LOGIN_MENU_A98", "Benutzer: ");
 define("ONLINEINFO_LOGIN_MENU_A99", "News: ");
-define("ONLINEINFO_LOGIN_MENU_A100", "Contents: ");
-define("ONLINEINFO_LOGIN_MENU_A101", "Einstellungen für Basic Ansicht");
+define("ONLINEINFO_LOGIN_MENU_A100", "Inhalte: ");
+define("ONLINEINFO_LOGIN_MENU_A101", "Benutzer Farben");
 define("ONLINEINFO_LOGIN_MENU_A102", "Einstellungen für Detailierte Ansicht");
 define("ONLINEINFO_LOGIN_MENU_A103", " - Teil ausgeschaltet");
-define("ONLINEINFO_LOGIN_MENU_A104", "");
+define("ONLINEINFO_LOGIN_MENU_A104", "Benutzer und Klassen Farben einschalten");
 define("ONLINEINFO_LOGIN_MENU_A105", "Top Bewertete Mitglieder");
 define("ONLINEINFO_LOGIN_MENU_A106", "List");
-define("ONLINEINFO_LOGIN_MENU_A107", "Wähle welche 'Was ist Neu' Seite: ");
+define("ONLINEINFO_LOGIN_MENU_A107", "Wählen Sie welche 'Was ist Neu' Seite: ");
 define("ONLINEINFO_LOGIN_MENU_A108", "Interne Version: ");
 define("ONLINEINFO_LOGIN_MENU_A109", "List Plugin: ");
 define("ONLINEINFO_LOGIN_MENU_A110", "Flash Chat");
@@ -146,18 +150,18 @@ define("ONLINEINFO_LOGIN_MENU_A114", "Öffne auf ");
 define("ONLINEINFO_LOGIN_MENU_A115", "Innerhalb e107");
 define("ONLINEINFO_LOGIN_MENU_A116", "Neues Fenster");
 define("ONLINEINFO_LOGIN_MENU_A117", "Flash Chat anzeigen: ");
-define("ONLINEINFO_LOGIN_MENU_A118", "Du musst es gekauft ($5), runtergeladen von <a href='http://www.tufat.com/s_flash_chat_chatroom.htm'>Flash Chat Site</a> und installiert haben.");
+define("ONLINEINFO_LOGIN_MENU_A118", "Sie müssen es gekauft ($5), runtergeladen von <a href='http://www.tufat.com/s_flash_chat_chatroom.htm'>Flash Chat Seite</a> und installiert haben.");
 define("ONLINEINFO_LOGIN_MENU_A119", "Mitglieder automatisch verstecken: ");
 define("ONLINEINFO_LOGIN_MENU_A120", "Gäste automatisch verstecken: ");
-define("ONLINEINFO_LOGIN_MENU_A121", "Show Forum: ");
+define("ONLINEINFO_LOGIN_MENU_A121", "Forum anzeigen: ");
 define("ONLINEINFO_LOGIN_MENU_A122", "Automatisch verstecken --> Admin Bereich: ");
 define("ONLINEINFO_LOGIN_MENU_A123", "Automatisch verstecken --> Registrierte Benutzer: ");
-define("ONLINEINFO_LOGIN_MENU_A124", "Automatisch verstecken --> PM: ");
+define("ONLINEINFO_LOGIN_MENU_A124", "Automatisch verstecken --> PN: ");
 define("ONLINEINFO_LOGIN_MENU_A125", "Automatisch verstecken --> Avatar: ");
-define("ONLINEINFO_LOGIN_MENU_A126", "PM Nachricht gross anzeigen: ");
+define("ONLINEINFO_LOGIN_MENU_A126", "PN Nachricht gross anzeigen: ");
 define("ONLINEINFO_LOGIN_MENU_A127", "Gesperrte Accounts");
 define("ONLINEINFO_LOGIN_MENU_A128", "Merke Menüstatus: ");
-define("ONLINEINFO_LOGIN_MENU_A129", "Wähle einen Account zum sperren: ");
+define("ONLINEINFO_LOGIN_MENU_A129", "Wählen Sie einen Account zum Sperren: ");
 define("ONLINEINFO_LOGIN_MENU_A130", "Gesperrt");
 define("ONLINEINFO_LOGIN_MENU_A131", "Keine Accounts gesperrt");
 define("ONLINEINFO_LOGIN_MENU_A132", "Account ist schon gesperrt");
@@ -169,12 +173,12 @@ define("ONLINEINFO_LOGIN_MENU_A137", "Letzte IP Adresse");
 define("ONLINEINFO_LOGIN_MENU_A138", "Sind Sie sicher, dass Sie diesen Benutzer aus den gesperrten Acoounts löschen wollen?");
 define("ONLINEINFO_LOGIN_MENU_A139", " wurde aus den gesperrten Accounts entfernt");
 define("ONLINEINFO_LOGIN_MENU_A140", "Automatisch verstecken --> alle die jetzt Online sind");
-define("ONLINEINFO_LOGIN_MENU_A141", "(Dies speichert den Menüstatus und lässt die Sektionen so wie Sie es wollen offen oder geschlossen)");
+define("ONLINEINFO_LOGIN_MENU_A141", "(Speichert den Menüstatus und lässt die Sektionen so wie Sie es wollen offen oder geschlossen)");
 define("ONLINEINFO_LOGIN_MENU_A142", "Sektion Titel Schriftgrösse: ");
 define("ONLINEINFO_LOGIN_MENU_A143", "px");
 define("ONLINEINFO_LOGIN_MENU_A144", "Benutzername Schriftgrösse: ");
 define("ONLINEINFO_LOGIN_MENU_A145", "Gallery 2");
-define("ONLINEINFO_LOGIN_MENU_A146", "Es muss von Gallery 2 geladen <a href='http://gallery.menalto.com/'>Gallery Site</a> und installiert sein.");
+define("ONLINEINFO_LOGIN_MENU_A146", "Es muss von <a href='http://gallery.menalto.com/'>Gallery Seite</a> heruntergeladen und installiert sein.");
 define("ONLINEINFO_LOGIN_MENU_A147", "Gallery 2");
 define("ONLINEINFO_LOGIN_MENU_A148", "Wieviele Einträge anzeigen von der Gallery 2: ");
 define("ONLINEINFO_LOGIN_MENU_A149", "Zusatzprogramme (ausserhalb von e107)");
@@ -185,29 +189,54 @@ define("ONLINEINFO_LOGIN_MENU_A153", "News:");
 define("ONLINEINFO_LOGIN_MENU_A154", "You Tube:");
 define("ONLINEINFO_LOGIN_MENU_A155", "You Tube:");
 define("ONLINEINFO_LOGIN_MENU_A156", "Forum anzeigen als: ");
-define("ONLINEINFO_LOGIN_MENU_A157", "Thread zusammenfassen: ");
+define("ONLINEINFO_LOGIN_MENU_A157", "Beitrag zusammenfassen: ");
 define("ONLINEINFO_LOGIN_MENU_A158", "Jeden Post: ");
 define("ONLINEINFO_LOGIN_MENU_A159", "Hier klicken um die Farben aufzurufen");
 define("ONLINEINFO_LOGIN_MENU_A160", "Login Dialog ausschalten");
-define("ONLINEINFO_LOGIN_MENU_A161", "Das ist fü	r das Delete me Plugin um den Benutzern zu erlauben sich selbst zu löschen.");
-define("ONLINEINFO_LOGIN_MENU_A162", "Mit Ja abstellen falls vom Theme schon eine Login-Option hat.");
-define("ONLINEINFO_LOGIN_MENU_A163", "Den Avatar bei den Benutzern die Geburtstag haben auch anzeigen: ");
+define("ONLINEINFO_LOGIN_MENU_A161", "Das ist für das Delete me Plugin um den Benutzern zu erlauben, sich selbst zu löschen.");
+define("ONLINEINFO_LOGIN_MENU_A162", "Mit Ja abstellen, falls das Theme schon eine Login-Option hat.");
+define("ONLINEINFO_LOGIN_MENU_A163", "Den Avatar bei den Benutzern, die Geburtstag haben, auch anzeigen: ");
 define("ONLINEINFO_LOGIN_MENU_A164", "Krooze Arcade:");
 define("ONLINEINFO_LOGIN_MENU_A165", "Krooze Arcade:");
 define("ONLINEINFO_LOGIN_MENU_A166", "Krooze Arcade Top Scores:");
 define("ONLINEINFO_LOGIN_MENU_A167", "KA Top Scores:");
-define("ONLINEINFO_LOGIN_MENU_A168", "Link Page");
-define("ONLINEINFO_LOGIN_MENU_A169", "Link Page:");
+define("ONLINEINFO_LOGIN_MENU_A168", "Link Seite");
+define("ONLINEINFO_LOGIN_MENU_A169", "Link Seite:");
 define("ONLINEINFO_LOGIN_MENU_A170", "Neue Mitglieder:");
-define("ONLINEINFO_LOGIN_MENU_A171", "<i>Note: Most of these settings below are for the Built in version of 'What's New' and will not show on the List version</i>");
-define("ONLINEINFO_LOGIN_MENU_A172", "You need to have downloaded from SMF from <a href='http://www.simplemachines.org/'>SMF Site</a> and install it to the same database as e107.");
-define("ONLINEINFO_LOGIN_MENU_A173", "Bugtracker3:");
-define("ONLINEINFO_LOGIN_MENU_A174", "Bugtracker3: ");
-define("ONLINEINFO_LOGIN_MENU_A175", "Bugtracker3");
+define("ONLINEINFO_LOGIN_MENU_A171", "<i>Bemerkung: Die meisten der unten aufgeführten Einstellungen sind für die integrierte Version von 'Was ist neu' und werden nicht bei der List Version angezeigt</i>");
+define("ONLINEINFO_LOGIN_MENU_A172", "Sie müssen SMF von <a href='http://www.simplemachines.org/'>SMF Seite</a> heruntergeladen und in die gleiche Datenbank wie e107 installiert haben.");
+define("ONLINEINFO_LOGIN_MENU_A173", "Fehler-Tracker3:");
+define("ONLINEINFO_LOGIN_MENU_A174", "Fehler-Tracker3: ");
+define("ONLINEINFO_LOGIN_MENU_A175", "Fehler-Tracker3");
 define("ONLINEINFO_LOGIN_MENU_A176", "Anzeigen was neu ist");
 define("ONLINEINFO_LOGIN_MENU_A177", "Verstecke Einträge von dem was neu ist:");
-define("ONLINEINFO_LOGIN_MENU_A178", "Dies versteckt die Linien im Menü wenn keine neuen Einträge da sind.");
+define("ONLINEINFO_LOGIN_MENU_A178", "Versteckt die Linien im Menü, wenn keine neuen Einträge da sind.");
 define("ONLINEINFO_LOGIN_MENU_A179", "Haupt-Administrator Farbe");
+//added for v8.5.0
+define("ONLINEINFO_LOGIN_MENU_A180", "Chatbox");
+define("ONLINEINFO_LOGIN_MENU_A181", "Chatbox II");
+define("ONLINEINFO_LOGIN_MENU_A182", "Chatbox II:");
+define("ONLINEINFO_LOGIN_MENU_A183", "Nach Updates suchen");
+define("ONLINEINFO_LOGIN_MENU_A184", "Coppermine Bild Galerie");
+define("ONLINEINFO_LOGIN_MENU_A185", "Sie müssen die Coppermine Bild Galerie von <a href='http://coppermine-gallery.net/'>Coppermine-Gallery Seite</a> heruntergeladen und in die gleiche Datenbank wie e107 installiert haben.");
+define("ONLINEINFO_LOGIN_MENU_A186", "Wie viele Einträge der Coppermine Bild Galerie sollen angezeigt werden: ");
+define("ONLINEINFO_LOGIN_MENU_A187", "Benutze Benutzer Klassen Farben (Haupt-Administrator, Administrator & Moderator überschreiben diese)");
+define("ONLINEINFO_LOGIN_MENU_A188", "Benutzer Klasse (Beschreibung)");
+define("ONLINEINFO_LOGIN_MENU_A189", "Farbe");
+define("ONLINEINFO_LOGIN_MENU_A190", "Aktiv");
+define("ONLINEINFO_LOGIN_MENU_A191", "Priorität");
+define("ONLINEINFO_LOGIN_MENU_A192", "Wählen Sie die Farbe der Benutzer Klassen, die Sie benutzen wollen und setzen Sie Aktiv auf Ja.<br />Stellen Sie sicher, dass für aktive eine Priorität gesetzt ist. Setzt die niedrigste Zahl als anzuzeigende Klasse für Benutzer, die mehreren Klassen angehören.<br /> Die Klassen Beschreibung wird im Plugin Key angezeigt. Bitte stellen Sie sicher, dass die Beschreibung auch das enthält, was Sie angezeigt haben wollen.");
+define("ONLINEINFO_LOGIN_MENU_A193", "Witze");
+define("ONLINEINFO_LOGIN_MENU_A194", "Witze:");
+define("ONLINEINFO_LOGIN_MENU_A195", "Blogs (UserJournals)");
+define("ONLINEINFO_LOGIN_MENU_A196", "Blogs:");
+define("ONLINEINFO_LOGIN_MENU_A197", "Vorschläge");
+define("ONLINEINFO_LOGIN_MENU_A198", "Vorschläge:");
+define("ONLINEINFO_LOGIN_MENU_A199", "Typ");
+define("ONLINEINFO_LOGIN_MENU_A200", "Anzeigen");
+define("ONLINEINFO_LOGIN_MENU_A201", "Wie viele anzeigen");
+define("ONLINEINFO_LOGIN_MENU_A202", "* Diese Einstellung ist für alle Kommentare.");
+define("ONLINEINFO_LOGIN_MENU_A203", "Avatar ausschalten und nur das Einstellungen Menü anzeigen");
 
 define("ONLINEINFO_CACHEINFO_1", "Letzte Änderungen");
 define("ONLINEINFO_CACHEINFO_2", "Top Besucher");
@@ -217,7 +246,7 @@ define("ONLINEINFO_CACHEINFO_5", "Top Forum Posters");
 define("ONLINEINFO_CACHEINFO_6", "Top Forum Starters");
 define("ONLINEINFO_CACHEINFO_7", "Top Forum Antworter");
 define("ONLINEINFO_CACHEINFO_8", "Top Bewertete Mitglieder");
-define("ONLINEINFO_CACHEINFO_9", "Hit Counter");
+define("ONLINEINFO_CACHEINFO_9", "Benutzer Zähler");
 define("ONLINEINFO_CACHEINFO_10", "Avatar");
 define("ONLINEINFO_CACHEINFO_11", "Flash Chat");
 define("ONLINEINFO_CACHEINFO_12", "Private Nachrichten");
@@ -227,61 +256,89 @@ define("ONLINEINFO_CACHEINFO_15", "Extra Info");
 define("ONLINEINFO_CACHEINFO_16", "Heutige Besucher");
 
 define("ONLINEINFO_HELP_1", "Version");
-define("ONLINEINFO_HELP_2", "Bitte beachte, dass alle Seiten einmal gespeichert werden sollten nach dem es neu installiert oder ein Update gemacht worden ist.");
+define("ONLINEINFO_HELP_2", "Bitte beachten Sie, dass alle Seiten einmal gespeichert werden sollten, nach dem es neu installiert oder ein Update gemacht worden ist.");
 define("ONLINEINFO_HELP_3", "Support");
-define("ONLINEINFO_HELP_4", "Für Support, bitte auf meinem Forum posten auf ");
-define("ONLINEINFO_HELP_5", "Wenn deine Seite langsam sein sollte versuch den cache einzuschalten oder den IP-Checker oder die Bots abzuschalten oder auch grosse Avatare können die Seite langsam machen.");
+define("ONLINEINFO_HELP_4", "Für Support, bitte in meinem Forum posten auf ");
+define("ONLINEINFO_HELP_5", "Wenn Ihre Seite langsam sein sollte, versuchen Sie den Cache einzuschalten oder den IP-Checker oder die Bots abzuschalten oder auch grosse Avatare können die Seite langsam machen.");
 define("ONLINEINFO_HELP_6", "Neues zu ");
 define("ONLINEINFO_HELP_7", "'Krooze Arcade' Plugin Integration (Neue Spiele und Top Score).");
 define("ONLINEINFO_HELP_8", "Neu zu ");
 define("ONLINEINFO_HELP_9", "'You Tube' Plugin Integration.");
 define("ONLINEINFO_HELP_10", "'Delete Me' Plugin Integration.");
-define("ONLINEINFO_HELP_11", "PM Neuer Message Sound.");
+define("ONLINEINFO_HELP_11", "PN Neuer Message Sound.");
 define("ONLINEINFO_HELP_12", "'Heutige Besucher' Sektion.");
 define("ONLINEINFO_HELP_13", "Checkliste verschoben in das Help Menu.");
 define("ONLINEINFO_HELP_14", "OnlineInfo Hilfe & Informationen");
-define("ONLINEINFO_HELP_15", "'Was ist neu' posts / info kann man nun als gelesen markieren.");
-define("ONLINEINFO_HELP_16", " oder post in den Bug Tracker: ");
+define("ONLINEINFO_HELP_15", "'Was ist neu' Einträge / Info kann man nun als gelesen markieren.");
+define("ONLINEINFO_HELP_16", " oder Eintrag in den Fehler-Tracker: ");
 define("ONLINEINFO_HELP_17", "'Delete Me' Plugin von <a href='http://www.keal.me.uk' title='www.keal.me.uk'>Bazzer</a>");
 define("ONLINEINFO_HELP_18", "Integrierte Plugins Info");
 define("ONLINEINFO_HELP_19", "'Private Nachrichten' Plugin von <a href='http://www.e107.org' title='www.e107.org'>McFly</a>");
 define("ONLINEINFO_HELP_20", "'You Tube' Plugin von <a href='http://www.erichradstake.nl' title='www.erichradstake.nl'>Erich Radstake</a>");
 define("ONLINEINFO_HELP_21", "'Coppermine' Plugin von <a href='http://www.e107coders.org/download.php?view.1296' title='www.e107coders.org'>McFly</a>");
 define("ONLINEINFO_HELP_22", "'List' Plugin von <a href='http://eindhovenseschool.net' title='eindhovenseschool.net'>Eric Vanderfeesten (lisa)</a>");
-define("ONLINEINFO_HELP_23", "'Statistic Logging von' Plugin by <a href='http://www.e107.org' title='www.e107.org'>jalist</a>");
+define("ONLINEINFO_HELP_23", "'Statistik Zählung von' Plugin by <a href='http://www.e107.org' title='www.e107.org'>jalist</a>");
 define("ONLINEINFO_HELP_24", "'Forum' Plugin von <a href='http://www.e107.org' title='www.e107.org'>e107dev</a>");
 define("ONLINEINFO_HELP_25", "'Links Page' Plugin von <a href='http://www.e107.org' title='www.e107.org'>e107dev</a>");
 define("ONLINEINFO_HELP_26", "'Content Management von' Plugin by <a href='http://eindhovenseschool.net' title='eindhovenseschool.net'>Eric Vanderfeesten (lisa)</a>");
 define("ONLINEINFO_HELP_27", "'Chatbox' Plugin von <a href='http://www.e107.org' title='www.e107.org'>e107</a>");
 define("ONLINEINFO_HELP_28", "'Guestbook' Plugin von <a href='http://www.greycube.com' title='www.greycube.com'>Chavo & Rich</a>");
 define("ONLINEINFO_HELP_29", "Ausgestattet mit e107");
-define("ONLINEINFO_HELP_30", "Forum Posts im was ist neu kann nun einzeln oder zusammengefasst angezeigt werden.");
+define("ONLINEINFO_HELP_30", "Forum Beiträge im 'Was ist neu' kann nun einzeln oder zusammengefasst angezeigt werden.");
 define("ONLINEINFO_HELP_31", "'Krooze Arcade' Plugin von <a href='http://boreded.co.uk' title='http://boreded.co.uk'>Paul Blundell</a>");
 define("ONLINEINFO_HELP_32", "Farben-Code für Admin, Moderator, Mitglieder können nun gewählt werden.");
 define("ONLINEINFO_HELP_33", "'Flash wenn neu' jetzt kann die Farbe gewählt werden.");
 define("ONLINEINFO_HELP_34", "'Login Menü' kann nun abgeschaltet werden wenn es vom Theme zur Verfügung gestellt wird.");
-define("ONLINEINFO_HELP_35", "'Pop up Benutzer Info' jetzt kann die Farbe gewählt werden.");
+define("ONLINEINFO_HELP_35", "'Pop Up Benutzer Info' jetzt kann die Farbe gewählt werden.");
 define("ONLINEINFO_HELP_36", "Mehr 'Letzte Änderungen' können nun ausgeschaltet werden (News, Chatbox, usw.)");
-define("ONLINEINFO_HELP_37", "Dies wurde getestet mit IE7, Firefox 2 & 3 beta, Netscape Navigator, Opera, Safari.");
+define("ONLINEINFO_HELP_37", "Getestet mit IE7, Firefox 2 & 3 beta, Netscape Navigator, Opera, Safari.");
 define("ONLINEINFO_HELP_38", "Notiz");
 define("ONLINEINFO_HELP_39", "Getestet mit php 4.4.8 und 5.2.5, MySQL 4.1.22-standard.");
 define("ONLINEINFO_HELP_40", "Ältere Versionen von MySQL (kleiner als 4.0) werden die Tabellen nicht installieren in der Datenbank, man muss es dann manuell machen, die Struktur befindet sich in der plugin.php");
 define("ONLINEINFO_HELP_41", "The Cached data may not show to start with until the cached time has passed, set cache to 0 then go out of admin for it to catch the data and then reset the time of the cached info");
-define("ONLINEINFO_HELP_42", "Geburtstags-Avatar on/off option");
+define("ONLINEINFO_HELP_42", "Geburtstags-Avatar an/aus Option");
 define("ONLINEINFO_HELP_43", "Gallery 2 Kommentare jetzt hinzugefügt zu 'was ist neu' Kommentare");
 define("ONLINEINFO_HELP_44", "Simple Machine Forum Integriert");
-define("ONLINEINFO_HELP_45", "'Bugtracker3' Plugin von <a href='http://www.bugrain.plus.com' title='http://www.bugrain.plus.com'>bugrain</a>");
-define("ONLINEINFO_HELP_46", "'Bugtracker3' Integration");
-define("ONLINEINFO_HELP_47", "Was ist neu im Menü kann nun versteckt werden wenn es nichts neues hat.");
+define("ONLINEINFO_HELP_45", "'Fehler-Tracker3' Plugin von <a href='http://www.bugrain.plus.com' title='http://www.bugrain.plus.com'>bugrain</a>");
+define("ONLINEINFO_HELP_46", "'Fehler-Tracker3' Integration");
+define("ONLINEINFO_HELP_47", "'Was ist neu' im Menü kann nun versteckt werden, wenn es nichts neues gibt.");
 
-define("ONLINEINFO_HELP_48", "FIXED - Letzte Änderungen zeigen immer 0 an wenn es versteckt ist.");
-define("ONLINEINFO_HELP_49", "FIXED - Error im SQL-Code des plugin.php welches die neuinstallation verhinderte.");
+define("ONLINEINFO_HELP_48", "FIXED - Letzte Änderungen zeigen immer 0 an, wenn es versteckt ist.");
+define("ONLINEINFO_HELP_49", "FIXED - Fehler im SQL-Code der plugin.php, welcher die Neuinstallation verhinderte.");
 define("ONLINEINFO_HELP_50", "ADDED - Deutsche Sprachdateien.");
-define("ONLINEINFO_HELP_51", "FIXED - Gemeldetes Problem bei einigen alten Plugins / Konflikt beim auslesen der Systemeinstellungen.");
-define("ONLINEINFO_HELP_52", "FIXED - Flash chat Benutzer Anzeige in den Räumen");
+define("ONLINEINFO_HELP_51", "FIXED - Gemeldetes Problem bei einigen alten Plugins / Konflikt beim Auslesen der Systemeinstellungen.");
+define("ONLINEINFO_HELP_52", "FIXED - Flash Chat Benutzer Anzeige in den Räumen");
 define("ONLINEINFO_HELP_53", "FIXED - Mögliches Problem im Admin-Abschnitt durch Nowwhat@ mein Forum");
 define("ONLINEINFO_HELP_54", "ADDED - Haupt-Admin werden seperat gegenüber normalen Admin's angezeigt in 'Heutige Besucher' und bei 'Jetzt Online' by His MAJESTY @ my forum.");
 define("ONLINEINFO_HELP_55", "Extra Bots hinzugefügt");
+
+//added for v8.5.0
+define("ONLINEINFO_HELP_56", "'Chatbox II' Plugin von <a href='http://www.vitalogix.com' title='http://www.vitalogix.com'>Vitalogix</a>");
+define("ONLINEINFO_HELP_57", "ADDED - 'Chatbox II' Integration.");
+define("ONLINEINFO_HELP_58", "ADDED - Updates Checker (neue Versions Nummerierung.)");
+define("ONLINEINFO_HELP_59", "ADDED - 'Coppermine Bild Galerie' Integration.");
+define("ONLINEINFO_HELP_60", "Vorhergehende Updates");
+define("ONLINEINFO_HELP_61", "ADDED - Benutzer Klassen Farben.");
+define("ONLINEINFO_HELP_62", "CHANGED - Alle Funktionen in eigene php Datei verschoben, um die Kodierung zu verkürzen.");
+define("ONLINEINFO_HELP_63", "FIXED - Table Render um den Admin Bereich entfernt.");
+define("ONLINEINFO_HELP_64", "FIXED - PN Überschrift hat jetzt die gleiche Klasse wie andere, wenn sie nicht versteckt wird.");
+define("ONLINEINFO_HELP_65", "FIXED - Einige kleine Fehler im Code.");
+define("ONLINEINFO_HELP_66", "ADDED - 'Witze Menü' Intergration.");
+define("ONLINEINFO_HELP_67", "'Witze Menü' Plugin von <a href='http://www.keal.me.uk' title='www.keal.me.uk'>Father Barry</a>");
+define("ONLINEINFO_HELP_68", "ADDED - 'UserJournals' Integration.");
+define("ONLINEINFO_HELP_69", "'UserJournals' Plugin von <a href='http://http://www.bugrain.plus.com' title='http://www.bugrain.plus.com'>Del Rudolph, SKiTZ716, bkwon, bugrain</a>");
+define("ONLINEINFO_HELP_70", "ADDED - 'Vorschläge Menü' Integration.");
+define("ONLINEINFO_HELP_71", "'Vorschläge Menü' Plugin von <a href='http://www.keal.me.uk' title='www.keal.me.uk'>Father Barry</a>");
+define("ONLINEINFO_HELP_72", "ADDED - Kommentare für 'Was ist Neu' können jetzt an- oder abgeschaltet werden.");
+define("ONLINEINFO_HELP_73", "CHANGED - Admin's & User Klassen Farben werden jetzt im gesamten Plugin benutzt.");
+define("ONLINEINFO_HELP_74", "ADDED - Mitglieder Avatar kann jetzt abgeschaltet werden, um nur das Einstellungen Menü anzuzeigen.");
+define("ONLINEINFO_HELP_75", "ADDED - Standart Benutzer Klassen (Hauptseiten-Administrator, Administrator, usw.) können jetzt ein- oder ausgeschaltet werden.");
+
+//added for v8.5.1
+define("ONLINEINFO_HELP_76", "FIXED - Fehlende Kommentare für Krooze Arcade auf der Was ist neu Seite.");
+//added for v8.5.2
+define("ONLINEINFO_HELP_77", "FIXED - Fehlende Kommentare für Agenda auf der Was ist neu Seite.");
+
 
 define("ONLINEINFO_SMF_1", "Simple Machines Forum");
 define("ONLINEINFO_SMF_2", "Wieviele Einträge von SMF anzeigen: ");

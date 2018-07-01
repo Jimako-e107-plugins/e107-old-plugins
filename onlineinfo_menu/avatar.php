@@ -22,7 +22,7 @@ if ($orderhide == 1)
 
 unset($avatardata);
 unset($avatarimage);
-	
+
 		$sql = new db;
 		if($sql -> db_Select("user", "*", "user_id='".USERID."'")){
 			$row = $sql -> db_Fetch();
@@ -35,33 +35,45 @@ unset($avatarimage);
 				$user_image = avatar($user_image);
 				$avatarimage .= '<img src="'.$user_image.'" width="50" alt="" />';
 			}
-		
+
 			if(ADMIN == TRUE){
-				$adminfpage = (!$pref["adminstyle"] || $pref["adminstyle"] == 'default' ? 'admin.php' : $pref["adminstyle"].'.php');				
+				$adminfpage = (!$pref["adminstyle"] || $pref["adminstyle"] == 'default' ? 'admin.php' : $pref["adminstyle"].'.php');
 				$avatardata .= ($pref["maintainance_flag"]==1 ? '<div style="text-align:center"><b>'.ONLINEINFO_LOGIN_MENU_L10.'</div></b><br />' : '' );
 				$avatardata .= '<img src="'.$bulletimage.'" alt="bullet" />&nbsp;<a href="'.e_ADMIN.$adminfpage.'">'.ONLINEINFO_LOGIN_MENU_L11.'</a><br />';
 			}
-			
+
 				$sql3 = new db;
 						$bikeplugin = $sql3->db_Count("plugin", "(*)", "WHERE plugin_name='My Bike' and plugin_installflag='1'");
 
 					  if ($bikeplugin)
 				      {
-						
-						$avatardata.='<img src="'.$bulletimage.'" alt="bullet" /> <a href="'.e_PLUGIN.'bikes/bike.php?id.'.USERID.'">'.ONLINEINFO_LIST_BIKE1.'</a><br />';
-						
-					}
-					
-					
-			// Add in look for Delete Me Plugin
-			
 
-			
+						$avatardata.='<img src="'.$bulletimage.'" alt="bullet" /> <a href="'.e_PLUGIN.'bikes/bike.php?id.'.USERID.'">'.ONLINEINFO_LIST_BIKE1.'</a><br />';
+
+					}
+
+					// car plugin for Andy
+
+					$sql4 = new db;
+					$carplugin = $sql4->db_Count("plugin", "(*)", "WHERE plugin_name='My Car' and plugin_installflag='1'");
+
+				  if ($carplugin)
+				  {
+
+					$avatardata.='<img src="'.$bulletimage.'" alt="bullet" /> <a href="'.e_PLUGIN.'cars/car.php?id.'.USERID.'">'.ONLINEINFO_LIST_CAR1.'</a><br />';
+
+					}
+
+
+			// Add in look for Delete Me Plugin
+
+
+
 			if ($pref['onlineinfo_deleteme']==1)
 				      {
 			$avatardata.='<img src="'.$bulletimage.'" alt="bullet" /> <a href="'.e_PLUGIN.'deleteme/deleteme.php">'.ONLINEINFO_LOGIN_MENU_L93.'</a><br />';
 			}
-			
+
 			$avatardata .= '<img src="'.$bulletimage.'" alt="bullet" /> <a href="'.e_BASE.'usersettings.php">'.ONLINEINFO_LOGIN_MENU_L12.'</a><br /><img src="'.$bulletimage.'" alt="bullet" /> <a href="'.e_BASE.'user.php?id.'.USERID.'">'.ONLINEINFO_LOGIN_MENU_L13.'</a><br /><img src="'.$bulletimage.'" alt="bullet" /> <a href="'.e_BASE.'index.php?logout">'.ONLINEINFO_LOGIN_MENU_L8.'</a>';
 			if(!$sql -> db_Select("online", "*", "online_ip='".$ip."' AND online_user_id='0' ")){
 				$sql -> db_Delete("online", "online_ip='".$ip."' AND online_user_id='0' ");
@@ -69,16 +81,16 @@ unset($avatarimage);
 		$new_total = 0;
 		$time = USERLV;
 		}
-		
-		
+
+
 		$text .='<table style="width:'.$onlineinfomenuwidth.'">
 		<tr>
 		<td valign="middle">';
-		
+
 		if($pref['onlineinfo_turnoffavatar']==0){
 		$text.=$avatarimage;
 		}
-		
+
 		$text.='</td>
 		<td valign="middle" align="left">'.$avatardata.'</td>
 		</tr></table>

@@ -131,6 +131,7 @@ define("ONLINEINFO_LOGIN_MENU_L120", "new blogs");
 define("ONLINEINFO_LOGIN_MENU_L121", "new suggestion");
 define("ONLINEINFO_LOGIN_MENU_L122", "new suggestions");
 define("ONLINEINFO_LOGIN_MENU_L123", "Chatbox 2");
+define("ONLINEINFO_LOGIN_MENU_L124", "User&acute;s IP Address");
 
 define("ONLINE_EL1", "Guests: ");
 define("ONLINE_EL2", "Members: ");
@@ -232,6 +233,7 @@ define("ONLINEINFO_LIST_58", "Blogs");
 define("ONLINEINFO_LIST_59", "Suggestions");
 define("ONLINEINFO_LIST_60", "Custom Page");
 define("ONLINEINFO_LIST_61", "krooze Arcade");
+define("ONLINEINFO_LIST_62", "Agenda");
 
 define('ONLINEINFO_LAN_PM', "Private Message");
 define('ONLINEINFO_LAN_PM_25', "Inbox");
@@ -313,6 +315,7 @@ define("ONLINENOW_9", "Member");
 define("ONLINENOW_10", "Forum Moderator");
 
 define("ONLINEINFO_LIST_BIKE1", "Bike Profile");
+define("ONLINEINFO_LIST_CAR1", "Car Profile");
 
 define("ONLINELASTSEEN_1", "Last Seen");
 define("ONLINELASTSEEN_2", "Total members that have visited today: ");
