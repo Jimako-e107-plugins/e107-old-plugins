@@ -5,11 +5,26 @@ Just backup
 https://chrome.google.com/webstore/detail/gitzip-for-github/ffabmkklhbepgcgfonabamgnfafbdlkn
 
 
-##  Burgrain e107 v0.7 compatible plugins
-source: http://www.bugrain.com/e107_plugins/psilo/psilo.php?cat.2
+=======
 
-Plugins:
+###  AACGC Arcade Addins by M@CH!N3 
 
+description: A plugin to implement an arcade in e107 with high score tables. 
+
+Original: break user profile, doesn't work under v2.1.7
+After quick fix:  not visible errors, Current Challenges Champion looks for not existing file
+
+Php version:  not compatible with php7
+
+=======
+
+### AACGC Item List  by M@CH!N3
+
+source: https://github.com/AACGC/Item-List
+
+Update for 2.1.2 https://github.com/Jimmi08/Item-List
+
+=======
 
 ### AACGC Public News  by M@CH!N3
 
@@ -25,11 +40,26 @@ just backup
 
 original version: 20-May-2008
 
+http://www.bugrain.com/e107_plugins/psilo/psilo.php?artifact.345
+
 Agenda is a calendar, appointment and event organiser.
 
 state: fixed all visible errors 
 
 compatible: 2.1.6
+
+=======
+
+###  Birthday Menu (e107 v7x) 
+Description: A Simple configurable birthday menu. Uses e107 extended field for birthday. Can also send an email or PM to users on their birthday.
+
+Author credit: Barry Keal (c) 2003 - 2008
+
+Original:
+ this is empty, not found on www.keal.org.uk
+ https://github.com/G4HDU-plugins-v1/birthday
+ 
+State: runs with 2.1.8, trying to create new version
 
 =======
 
@@ -63,7 +93,15 @@ note: needs to use e107_images/clan for images and a lot of extra stuff
 
 =======
 
-### Helper Project v1.1b
+### ebattles e107 plugin by Frederic Marchais (qam4)
+
+source: https://github.com/qam4/ebattles
+
+just backup
+
+=======
+
+### Helper Project v1.1b  by bugrain
 
 original version: 20-Nov-2008
 
@@ -71,9 +109,20 @@ state: fixed all visible errors
  
 compatible: 2.1.6
 
+http://www.bugrain.com/e107_plugins/psilo/psilo.php?artifact.350
+
 =======
 
 ### Helper Project Developer
+
+=======
+
+### EasyShop plugin by nlstart
+
+original:https://github.com/e107inc/e107-easyshop
+my fork: https://github.com/Jimmi08/e107-easyshop
+
+state: works with 2.1.3
 
 =======
 
@@ -98,6 +147,15 @@ state: just backup
  
 =======
 
+###Glossary e107 plugin v1.91 rc4 by  Shirka
+~~fully updated for version 2~~
+ 
+https://github.com/Jimmi08/glossary/ 
+
+active fork:  https://github.com/rica-carv/glossary
+
+=======
+
 ### Job search plugin by Father Barry
 
 this plugin is not available anymore
@@ -113,6 +171,25 @@ still able download: http://www.udesigns.be/shop-i81-e107-join-us
 state: just backup 
  
 note: needs to use e107_images/clan for images and a lot of extra stuff
+
+=======
+
+###  KroozeArcade for e107 v0.7.5 courtesy by Penbrock.com
+
+description: A plugin to implement an arcade in e107 with high score tables. 
+
+State: works with 2.1.7
+After quick fix: not visible errors
+
+Php version:  not compatible with php7
+
+*NEW*:  there is newer 8.0 version.  Fixed blank page for version 2.0.0.
+
+You can download it as 8.0.1 from https://www.e107.sk/download/category/1/kroozearcade/
+
+Php version:  not compatible with php7 
+
+Not fully tested without feedback.
 
 =======
 
@@ -156,6 +233,26 @@ state: fixed visible error
 
 =======
 
+### PageStat e107 plugin by Ajdar 
+~~fully updated for version 2.1.3 ~~
+
+https://github.com/Jimmi08/pagestat
+
+not used anymore
+ 
+=======
+
+###  PM Alert by Richard Perry 
+Description: A simple plugin that makes it obvious when you have unread private messages waiting.
+
+Author credit: Richard Perry
+
+Original:http://www.greycube.com/site/download.php?view.50 
+
+just backup
+
+=======
+
 ### Prune Inactive Users  by  Barry Keal
 
 original version: 27 September 2004
@@ -172,6 +269,26 @@ source: https://e107.org/plugins/?id=302
 
 Fix: avatar issue and layout change
 
+=======
+
+###  Signup Secure 
+
+Description: With this Plugin you defend your website from spam bots.
+
+Author credit: Oyabun
+
+Original: from e107.org
+ 
+Update for version 2:  https://www.e107.sk/download/17/signup-secure-v1-3-original-made-by-oyabun
+
+Version 1.3:
+
+Updated to be compatible with version 2
+added plugin.xml
+updated redirect
+checked not hardcoded 'signup.php' but value e_SIGNUP
+Warning: This will work until core signup template is not changed
+ 
 =======
 
 ### Simple Content v1.0b
@@ -205,81 +322,10 @@ just backup
 
 =======
 
-# e107 old plugins moved in separate directories
-
-### Glossary e107 plugin v1.91 rc4 by  Shirka
-~~fully updated for version 2~~
- 
-https://github.com/Jimmi08/glossary/ 
-
-active fork:  https://github.com/rica-carv/glossary
-
-=======
-
-### PageStat e107 plugin by Ajdar 
-~~fully updated for version 2.1.3 ~~
-
-https://github.com/Jimmi08/pagestat
-
-not used anymore
-=======
-
-### e107 EasyShop plugin by nlstart
-
-original:https://github.com/e107inc/e107-easyshop
-my fork: https://github.com/Jimmi08/e107-easyshop
-
-state: works with 2.1.3
-
-=======
-
 ### User Flags Menu by  JmoRava, Oxigen 
 ~~fully updated for version 2~~
 
 https://github.com/Jimmi08/userlanguage_flags_menu/
-
-=======
-
-### ebattles e107 plugin by Frederic Marchais (qam4)
-
-source: https://github.com/qam4/ebattles
-
-just backup
-
-=======
-
-### AACGC Item List  by M@CH!N3
-
-source: https://github.com/AACGC/Item-List
-
-Update for 2.1.2 https://github.com/Jimmi08/Item-List
-
-=======
-
-###  KroozeArcade for e107 v0.7.5 courtesy by Penbrock.com
-
-description: A plugin to implement an arcade in e107 with high score tables. 
-
-State: works with 2.1.7
-After quick fix: not visible errors
-
-Php version:  not compatible with php7
-
-*NEW*:  there is newer 8.0 version.  Fixed blank page for version 2.0.0.
-
-You can download it as 8.0.1 from https://www.e107.sk/download/category/1/kroozearcade/
-
-Php version:  not compatible with php7 
-=======
-
-###  AACGC Arcade Addins by M@CH!N3 
-
-description: A plugin to implement an arcade in e107 with high score tables. 
-
-Original: break user profile, doesn't work under v2.1.7
-After quick fix:  not visible errors, Current Challenges Champion looks for not existing file
-
-Php version:  not compatible with php7
 
 =======
 
@@ -292,54 +338,13 @@ Author credit: Yodjik
 Original: http://www.e107club.ru/download.php?view.437
 working only with Russian version
  
-
-=======
-
-###  Signup Secure 
-
-Description: With this Plugin you defend your website from spam bots.
-
-Author credit: Oyabun
-
-Original: from e107.org
- 
-Update for version 2:  https://www.e107.sk/download/17/signup-secure-v1-3-original-made-by-oyabun
-
-Version 1.3:
-
-Updated to be compatible with version 2
-added plugin.xml
-updated redirect
-checked not hardcoded 'signup.php' but value e_SIGNUP
-Warning: This will work until core signup template is not changed
- 
-=======
-
-###  Birthday Menu (e107 v7x) 
-Description: A Simple configurable birthday menu. Uses e107 extended field for birthday. Can also send an email or PM to users on their birthday.
-
-Author credit: Barry Keal (c) 2003 - 2008
-
-Original:
- this is empty, not found on www.keal.org.uk
- https://github.com/G4HDU-plugins-v1/birthday
+Works through the wargaming.net API directly, without passing data to third-party services.
+Since this is an alpha, some things will be further developed, but in general the module is already functional.
+To use, you need to get the Application ID here.
 
 =======
 
 
-### e107 Prune Users plugin by Father Barry
 
-still able download: http://www.keal.me.uk/e107_plugins/download/download.php?action=view&id=139
 
-state: working for e107 2.7 tested on php 7.0
 
-=======
-
-###  PM Alert by Richard Perry 
-Description: A simple plugin that makes it obvious when you have unread private messages waiting.
-
-Author credit: Richard Perry
-
-Original:http://www.greycube.com/site/download.php?view.50 
-
-=======
