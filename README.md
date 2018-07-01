@@ -46,6 +46,12 @@ just backup
 
 =======
 
+### Advanced Medal System V1.2 by Marc Peppler, Updated version 1.3, 1.4 by garyt
+
+just backup
+
+=======
+
 ### Agenda v1.7 b2 by bugrain
 
 original version: 20-May-2008
@@ -60,26 +66,18 @@ compatible: 2.1.6
 
 =======
 
-### Advanced Medal System V1.2 by Marc Peppler, Updated version 1.3, 1.4 by garyt
-
-just backup
-
-=======
-
-original version:
-
 ###  Birthday Menu (e107 v7x) 
 Description: A Simple configurable birthday menu. Uses e107 extended field for birthday. Can also send an email or PM to users on their birthday.
 
 Author credit: Barry Keal (c) 2003 - 2008
+
+=======
 
 Original:
  this is empty, not found on www.keal.org.uk
  https://github.com/G4HDU-plugins-v1/birthday
  
 State: runs with 2.1.8, trying to create new version
-
-=======
 
 ### Challenge Us by udesigns
  
@@ -88,6 +86,19 @@ still able download: http://www.udesigns.be/shop-i82-e107-challenge-us
 state: just backup 
 
 note: needs to use e107_images/clan for images
+
+=======
+
+### CHATBOX II by Billy Smith http://www.vitalogix.com
+
+state: just backup 
+
+=======
+
+
+###  cl_widgets
+
+state: just backup 
 
 =======
 
@@ -108,14 +119,6 @@ still able download: http://www.udesigns.be/shop-i80-e107-clan-wars
 state: just backup 
 
 note: needs to use e107_images/clan for images and a lot of extra stuff
-
-=======
-
-### ebattles e107 plugin by Frederic Marchais (qam4)
-
-source: https://github.com/qam4/ebattles
-
-just backup
 
 =======
 
@@ -144,6 +147,14 @@ state: works with 2.1.3
 
 =======
 
+### ebattles e107 plugin by Frederic Marchais (qam4)
+
+source: https://github.com/qam4/ebattles
+
+just backup
+
+=======
+
 ### ePlayer v1.91 rc4 by bugrain  **_ beyond repair _**
 
 original version: 29-May-2007
@@ -165,12 +176,31 @@ state: just backup
  
 =======
 
-###Glossary e107 plugin v1.91 rc4 by  Shirka
+### Google Ad menu by PhpToys  **_ beyond repair _**
+
+Description: Google adwords menu plugin for e107
+
+state: replaced by new plugin
+
+You can't change original script, all visual setting you are doing now in your GAd account
+
+Replacement:  https://www.e107.sk/download/category/9/jm-google-ad-plugin/
+
+=======
+
+### Glossary e107 plugin v1.91 rc4 by  Shirka
 ~~fully updated for version 2~~
  
 https://github.com/Jimmi08/glossary/ 
 
 active fork:  https://github.com/rica-carv/glossary
+
+
+=======
+
+###  Image gallery
+
+just backup
 
 =======
 
@@ -252,6 +282,7 @@ state: fixed visible error
 =======
 
 ### PageStat e107 plugin by Ajdar 
+
 ~~fully updated for version 2.1.3 ~~
 
 https://github.com/Jimmi08/pagestat
@@ -289,6 +320,12 @@ Fix: avatar issue and layout change
 
 =======
 
+### Sgallery 
+
+just backup
+
+=======
+
 ###  Signup Secure 
 
 Description: With this Plugin you defend your website from spam bots.
@@ -298,14 +335,6 @@ Author credit: Oyabun
 Original: from e107.org
  
 Update for version 2:  https://www.e107.sk/download/17/signup-secure-v1-3-original-made-by-oyabun
-
-Version 1.3:
-
-Updated to be compatible with version 2
-added plugin.xml
-updated redirect
-checked not hardcoded 'signup.php' but value e_SIGNUP
-Warning: This will work until core signup template is not changed
  
 =======
 
