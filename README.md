@@ -21,7 +21,7 @@ just backup
 
 =======
 
-### e107 Agenda v1.7 b2 by bugrain
+### Agenda v1.7 b2 by bugrain
 
 original version: 20-May-2008
 
@@ -33,7 +33,7 @@ compatible: 2.1.6
 
 =======
 
-### e107 Challenge Us by udesigns
+### Challenge Us by udesigns
  
 still able download: http://www.udesigns.be/shop-i82-e107-challenge-us
 
@@ -43,7 +43,7 @@ note: needs to use e107_images/clan for images
 
 =======
 
-### e107 Clan Members e107  by udesigns
+###  Clan Members e107  by udesigns
 
 still able download: http://www.udesigns.be/shop-i79-e107-clan-members
 
@@ -53,7 +53,7 @@ note: needs to use e107_images/clan for images and a lot of extra stuff
 
 =======
 
-###  e107 Clan Wars by udesigns
+###  Clan Wars by udesigns
 
 still able download: http://www.udesigns.be/shop-i80-e107-clan-wars
 
@@ -63,7 +63,7 @@ note: needs to use e107_images/clan for images and a lot of extra stuff
 
 =======
 
-### e107 Helper Project v1.1b
+### Helper Project v1.1b
 
 original version: 20-Nov-2008
 
@@ -73,11 +73,11 @@ compatible: 2.1.6
 
 =======
 
-### e107 Helper Project Developer
+### Helper Project Developer
 
 =======
 
-### e107 ePlayer v1.91 rc4 by bugrain  **_ beyond repair _**
+### ePlayer v1.91 rc4 by bugrain  **_ beyond repair _**
 
 original version: 29-May-2007
 
@@ -88,7 +88,7 @@ not point to fix it, this functionality is in core now
 
 =======
 
-### e107 FAQ Plugin  by Father Barry
+### FAQ Plugin  by Father Barry
 
 This is rewritten as kbase plugin in https://github.com/G4HDU-plugins/kbase
 probably because FAQ plugin in core now. But it doesn't work.
@@ -98,7 +98,7 @@ state: just backup
  
 =======
 
-### e107 job search plugin by Father Barry
+### Job search plugin by Father Barry
 
 this plugin is not available anymore
 
@@ -106,7 +106,7 @@ state: just backup
 
 =======
 
-### e107 Join Us by udesigns
+### Join Us by udesigns
 
 still able download: http://www.udesigns.be/shop-i81-e107-join-us
 
@@ -128,7 +128,7 @@ just backup
 
 =======
 
-### e107 Locator Plugin by nlstart **_ beyond repair _**
+### Locator Plugin by nlstart **_ beyond repair _**
 
 Original version 1.3 (released January 20, 2011)
 
@@ -138,13 +138,13 @@ not possible just fix it, google API totally changed
 
 =======
 
-### e107 MemberList - Alternative Member List by Michiel Horvers
+### MemberList - Alternative Member List by Michiel Horvers
 
 just backup 
 
 =======
 
-### e107 On This Day plugin V1.5 by Father Barry
+### On This Day plugin V1.5 by Father Barry
 
 original version: 16 February 2009
 
@@ -156,7 +156,7 @@ state: fixed visible error
 
 =======
 
-### e107 Prune Inactive Users  by  Barry Keal
+### Prune Inactive Users  by  Barry Keal
 
 original version: 27 September 2004
 
@@ -164,7 +164,7 @@ just backup
 
 =======
 
-### e107 Random Avatar Menu v0.2.2 by killerpope
+### Random Avatar Menu v0.2.2 by killerpope
 
 Displays any number of user-avatars in a menu. The list is generated randomly every second/hour/day/week/month. You can also exclude certain avatars (e.g. generic avatars provided for people who don't want to upload their own avatar)
  
@@ -174,7 +174,7 @@ Fix: avatar issue and layout change
 
 =======
 
-### e107 Simple Content v1.0b
+### Simple Content v1.0b
 
 original version: 20-Nov-2008
 
@@ -184,7 +184,7 @@ compatible: 2.1.6
 
 =======
 
-### e107 Tournaments v1.2 by morpheas
+### Tournaments v1.2 by morpheas
 
 This is a plug-in that can run a tournament on a flash game similar to those used in kroozearcade. You only have to upload the game and set up a tournament on it!
  
@@ -194,7 +194,7 @@ just backup
 
 =======
 
-### e107 Tutorial Archiver 2.0 by e107 Italia in 2013 
+### Tutorial Archiver 2.0 by e107 Italia in 2013 
 Original plugin by: Jordan 'Glasseater' Mellow, 2007
 
 original version: 2007 + revison 2013
@@ -207,7 +207,7 @@ just backup
 
 # e107 old plugins moved in separate directories
 
-### e107 Glossary plugin v1.91 rc4 by  Shirka
+### Glossary e107 plugin v1.91 rc4 by  Shirka
 ~~fully updated for version 2~~
  
 https://github.com/Jimmi08/glossary/ 
@@ -216,7 +216,7 @@ active fork:  https://github.com/rica-carv/glossary
 
 =======
 
-### e107 PageStat plugin by Ajdar 
+### PageStat e107 plugin by Ajdar 
 ~~fully updated for version 2.1.3 ~~
 
 https://github.com/Jimmi08/pagestat
@@ -265,9 +265,11 @@ After quick fix: not visible errors
 
 Php version:  not compatible with php7
 
-UPDATE:  there is newer 8.0 version.  Fixed blank page for version 2.0.0.
-You can download it as 8.0.1 from https://www.e107.sk
-Php version:  not compatible with php7
+*NEW*:  there is newer 8.0 version.  Fixed blank page for version 2.0.0.
+
+You can download it as 8.0.1 from https://www.e107.sk/download/category/1/kroozearcade/
+
+Php version:  not compatible with php7 
 =======
 
 ###  AACGC Arcade Addins by M@CH!N3 
