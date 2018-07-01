@@ -112,6 +112,14 @@ note: needs to use e107_images/clan for images and a lot of extra stuff
 
 =======
 
+### ClanSystem by Sherwood McGowan & Shannon Kamer 
+
+description:  Complete Clan Management Plugin
+
+state: just backup 
+
+=======
+
 ###  Clan Wars by udesigns
 
 still able download: http://www.udesigns.be/shop-i80-e107-clan-wars
