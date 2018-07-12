@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<e107Plugin name="Gold System" version="4.1.16" compatibility="0.8" installRequired="true" >
+	<author name="Father Barry" url="http://www.e107gold.com" email="noone@example.com" />
+	<description>ADLAN_GS_PM_02</description>
+	<readMe>admin_readme.php</readMe>
+	<folder>gold_system</folder>
+	<administration>
+		<configFile>admin_config.php</configFile>
+		<icon>images/gold_32.gif</icon>
+		<iconSmall>images/gold_16.gif</iconSmall>
+		<caption>ADLAN_GS_PM_05</caption>
+		<installDone>ADLAN_GS_PM_03</installDone>
+	</administration>
+	<logLanguageFile filename='languages/--LAN--_log.php' />
+	<upgradeCheck url="http://www.e107gold.com" method="xml_list" id="Gold System" />
+	<menuLink name="Gold Centre" url="gold_system/index.php" perm="everyone" />
+	<userclass name="Gold Member" description="User of Gold System" />
+	<depends>
+	    <PHP name='core' min_version='5' />
+	    <MySQL name='server' min_version='4' />
+  </depends>
+</e107Plugin>

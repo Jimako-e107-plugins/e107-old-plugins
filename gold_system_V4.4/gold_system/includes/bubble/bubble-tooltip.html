@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>Balloon tooltip</title>
+	<style type="text/css">
+	body{
+		background-image:url('../../images/heading3.gif');
+		background-repeat:no-repeat;
+		padding-top:85px;	
+		font-family: Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif;
+		font-size:0.9em;
+		line-height:130%;
+
+	}
+	a{
+		color: #D60808;
+		text-decoration:none;
+	}
+	a:hover{
+		border-bottom:1px dotted #317082;
+		color: #307082;
+	}
+	</style>
+	<link rel="stylesheet" href="css/bubble-tooltip.css" media="screen">
+	<script type="text/javascript" src="js/bubble-tooltip.js"></script>
+</head>
+<body>
+<div id="bubble_tooltip">
+	<div class="bubble_top"><span></span></div>
+	<div class="bubble_middle"><span id="bubble_tooltip_content">Content is comming here as you probably can see.Content is comming here as you probably can see.</span></div>
+	<div class="bubble_bottom"></div>
+</div>
+<h1>DHTML Balloon tooltip</h1>
+<p>This demo demonstrates how the balloon tooltip works. Roll your mouse over the red links in the text below.</p>
+<p><a href="#" onmouseover="showToolTip(event,'This is a simple, simple test');return false" onmouseout="hideToolTip()">Roll over me</a> to see the tooltip in action.</p>
+<p>And here's some more content
+<a href="#" onmouseover="showToolTip(event,'This is the content of the tooltip. Tsdf sddsfgsdfgsdfg sdfg sdfg sdf gsdfg sdf gdsfg sdfg sdf gsdf gsdf gsdf gsdf gsdfg sdfg d his is the content of the tooltip.');return false" onmouseout="hideToolTip()">Roll over me</a> </p>
+<p>This is the last piece of the content on this web page</p>
+</body>
+</html>
