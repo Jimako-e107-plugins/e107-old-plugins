@@ -464,6 +464,8 @@ source: e107-german.de
 			
 source: e107-german.de
 
+e_Classifieds Plugin for e107 updated, here is original version too
+
 =======
 
 ###  ROOFDOG DONATION TRACKER v2.7
@@ -483,4 +485,11 @@ source: e107-german.de
 source: e107-german.de
 
 =======
+
+###  e_Classifieds Plugin for e107
+			
+source: e107-german.de
+
+=======
+
 
