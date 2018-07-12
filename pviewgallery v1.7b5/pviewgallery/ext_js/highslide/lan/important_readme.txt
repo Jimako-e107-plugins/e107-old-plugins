@@ -1,0 +1,1 @@
+If you change language files, set file format to UTF-8 before saving!

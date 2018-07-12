@@ -1,0 +1,30 @@
+Changes to make lightbox compatible to PViewGallery and e107.
+
+e_meta.php:
+- set path to closeimage and loadimage using vars (lb_loadimage, lb_closeimage)
+- included a js languagefile. this script sets two vars (lbLan1, lbLan2)
+- if languagefile not exists: english will used
+- included all scriptfiles and CSS files
+
+lightbox.js:
+LightboxOptions = Object.extend({
+
+    fileBottomNavCloseImage: lb_closeimage,  -->changed!
+	fileLoadingImage:        lb_loadimage,  -->changed!
+	
+    overlayOpacity: 0.8,   // controls transparency of shadow overlay
+
+    animate: true,         // toggles resizing animations
+    resizeSpeed: 7,        // controls the speed of the image resizing animations (1=slowest and 10=fastest)
+
+    borderSize: 10,         //if you adjust the padding in the CSS, you will need to update this variable
+
+	// When grouping images this is used to write: Image # of #.
+	labelImage: lbLan1,  -->changed!
+	labelOf: lbLan2	  -->changed!
+	
+}, window.LightboxOptions || {});
+
+lightbox.css:
+#prevLink:hover, #prevLink:visited:hover { background: url(../images/prev.gif) left 15% no-repeat; }
+#nextLink:hover, #nextLink:visited:hover { background: url(../images/next.gif) right 15% no-repeat; }
