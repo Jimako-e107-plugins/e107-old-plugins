@@ -31,7 +31,7 @@ if ($pref['rndava_horizontal']) {
 }
 foreach($pref['rndava_user_id'] as $user_id)
 {
-    $user = get_user_data($user_id);
+    $user = e107::user($user_id);
  
     if (!$pref['rndava_horizontal']) {
         $text .= "<div class='col-xs-12 col-sm-3 col-md-2'>";

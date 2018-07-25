@@ -25,12 +25,12 @@
     include_once(e_PLUGIN.$eplug_folder."/languages/English.php");
     
     $eplug_name         = "Random Avatar Menu";
-    $eplug_version      = "0.2.2";
+    $eplug_version      = "0.2.3";
     $eplug_author       = "Eugen Beck(alias Killerpope)";
     $eplug_url          = "http://killerpopes-world.com";
     $eplug_email        = "killerpope68@yahoo.de";
     $eplug_description  = LAN_RNDAVA_1;
-    $eplug_compatible   = "e107v0.7+";
+    $eplug_compatible   = "e107v2+";
     $eplug_readme       = "";
     $eplug_compliant    = FALSE;
     $eplug_conffile     = "admin_config.php";
