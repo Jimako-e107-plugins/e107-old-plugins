@@ -181,13 +181,17 @@ not point to fix it, this functionality is in core now
 
 =======
 
-### FAQ Plugin  by Father Barry
+### FAQ Plugin  by Father Barry 
+
+Version: 4.9
 
 This is rewritten as kbase plugin in https://github.com/G4HDU-plugins/kbase
 probably because FAQ plugin in core now. But it doesn't work.
 Easier would be start from beginning.
 
 state: just backup
+
+version from e107-german.de : 4.2
  
 =======
 
@@ -219,6 +223,8 @@ Version: 4.2
 Source: https://osdn.net/projects/sfnet_e107german/releases/
 
 Just backup
+
+version from e107-german.de 4.1
  
 ======= 
 
@@ -454,7 +460,49 @@ To use, you need to get the Application ID here.
 
 =======
 
+###  TG Link To Us
+			
+source: e107-german.de
+
+=======
+
+###  shop_e107
+			
+source: e107-german.de
+
+e_Classifieds Plugin for e107 updated, here is original version too
+
+=======
+
+###  ROOFDOG DONATION TRACKER v2.7
+			
+source: e107-german.de
+
+=======
+
+###  PView Gallery
+			
+source: e107-german.de
+
+=======
+
+###  my_gallery
+			
+source: e107-german.de
+
+=======
+
+###  e_Classifieds Plugin for e107
+			
+source: e107-german.de
+
+=======
 
 
+###  Gold System for e107 v7xx - by Father Barry
+			
+source: e107-german.de
 
+=======
 
+ 

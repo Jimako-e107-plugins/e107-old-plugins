@@ -1,0 +1,139 @@
+Version history PView Gallery
+
+v1.7
+(read Readme - Update!.txt)
+add:	new lightbox script (latest jquery version)
+add:	e107 cache integration (better performance with more then 1000 pics)
+add:	Pagetitle activated, gallery name will be used
+bugfix:	some html notations fixed
+bugfix:	Adminpage (email, print,pdf) feedback msg. fixed
+bugfix:	img-links in statsmenu fixed
+bugfix:	database insert during new installation fixed 
+change:	BETA note for watermarking removed
+
+v1.6B1
+(read Readme - Update!.txt)
+bugfix:	language problem in admin_config.php (special view)
+add:	watermarking; many options to adjust wm, wm will generated on the fly (no changes at images)
+add:	POTD menu (Picture of the day) full automatic menu without admin-adjustment
+add:	Featured Images... nominate, activate and show special images in a new menu and on advanced frontpage, incl. admin page
+add:	Featured Albums... nominate, activate and show special albums in a new menu and on advanced frontpage, incl. admin page
+change:	new database table for the new features > use plugin-manager for updating!!!
+change:	Comments menu... 3 options added (img only, img and text, text only)
+change:	menu content will now created in seperate file in templates (so menus can adapted to template look without changing core code)
+
+v1.5
+(read Readme - Update!.txt)
+bugfix:	WYSIWYG comments with e107 > v0726 fixed
+bugfix:	external javascript integration improved
+bugfix:	filesize of image fixed (admin_activate.php)
+add:	new template... Galleriffic1 (a very nice dhtml script with fade in/out and mouseover effects)
+
+v1.5B
+(read Readme - Update!.txt)
+add:	external javascripts integrated: highslide, shadowbox, lightbox (is now working without third party plugin)
+bugfix:	batch_upload dir in zip file no longer missing
+bugfix:	filesize of image fixed
+change:	images can displayed with selected javascript in all templates, support this feature (fun, original, textbuttons)
+change: template "Lightbox" deleted, this is now available in all supporting templates
+change:	Image Activation: Reply mailaddress is now from activating admin (was: mainadmin)
+
+v1.4
+(read Readme - Update!.txt)
+add:	profile-extension: userimages, usercomments and gallery link
+add:	additional admin page (admin_profile.php), help for shortcode integration and profilepage management
+add:	additional image for users without avatar
+change:	gallery-module in frontpage adapted
+change:	Help File updated (pdf, still german only... sorry)
+bugfix:	some minor fixes
+
+v1.3.4B
+(read Readme - Update!.txt)
+bugfix:	cat-view, images
+bugfix: pdf and email generation
+bugfix:	column-width fixed
+add:	external images - integration (incl. permission)
+add:	frontpage with a lot of statistics
+add:	new admin panel (admin_startpage.php), Management for new (advanced) frontpage
+change:	Help File updated (pdf, still german only... sorry)
+change:	admin panel: Uploads adapted
+change:	Submit button focus for upload forms optimized
+change:	template management: easy template creation
+
+v1.3.3B skipped
+
+v1.3.2B
+(read Readme - Update!.txt)
+bugfix:	smilies in comments
+bugfix:	link 'back to album' get the correct page of album
+add:	additional admin page (admin_view.php), Views are adjustable on admin page without template-coding
+add:	seo optimization, links to images include name
+add:	sort options improved, usersort and more sort options (adjustable on admin page)
+add:	category view, images by category
+add:	user view, images by user
+change:	some layout options (center thumbs, columns, show or hide informations, sorting) are adjustable on admin page
+change:	template 'SIMPLE' deleted, all options available in template 'ORIGINAL'
+
+v1.3.1B
+(if you update from v0.9x read update.txt!)
+bugfix:	lightbox detection improved
+bugfix:	plugin.php (update items and path corrected)
+bugfix: help.php (default helptext corrected)
+add:	CHMOD Tool (directory status and CHMOD settings)
+add:	new template, textbuttons (no icons, commentscount in albumview)
+change:	batch-upload, category will be preselected (like album), imagename from filename
+
+v1.3
+(if you update from v0.9x read update.txt!)
+add:	searchresults, listnew results and menupics ready for lightbox
+add:	scroller improved, more pics in same scroller dimension
+change:	procedure for filerenaming during upload changed
+bugfix:	comments menu; readable text for html/bbCode comments
+bugfix:	some minor fixes
+
+v1.2
+(if you update from v0.9x read update.txt!)
+add:	batch upload
+change:	Help File (pdf, german only)
+
+v1.11
+(if you update from v0.9x read update.txt!)
+bugfix:	missing menu-entry in adminpanel
+bugfix:	menus ready for advanced menustyle ($mode)
+
+v1.1
+(if you update from v0.9x read update.txt!)
+add:	site-search integration (e_search interface)
+add:	list_new integration (e_list interface)
+add:	printerfriendly version (e_emailprint interface)
+add:	send image (e_emailprint interface) incl. permission
+add:	make pdf (e_emailprint interface)
+
+v1.01
+(if you update from v0.9x read update.txt!)
+bugfix:	images for rating in template.js fixed
+
+v1.0
+(if you update to v1.0 read update.txt!)
+bugfix:	some small fixes
+change:	notification mail header extended
+change:	template management
+add:	new templates
+add:	Help File; Templates (pdf, german only)
+
+v0.93
+bugfix:	statsmenu
+bugfix: plugin.php
+add:	comments menu
+
+v0.92
+bugfix:	themecrash in uploadform
+change:	Imagearrangement in Albumview adjustable in Adminpanel (ASC/DESC)
+
+v0.9.1
+bugfix:	themecrash during itemedit
+bugfix:	permission problem with newer e107 versions
+add:	pdf readme, adminpanel corrected
+add:	folder structure in zip file corrected
+
+v0.9 first release

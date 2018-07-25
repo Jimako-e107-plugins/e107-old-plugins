@@ -1,0 +1,116 @@
+/*
++ ----------------------------------------------------------------------------------------------+
+|     e107 website system  : http://e107.org.ru
+|     Released under the terms and conditions of the GNU General Public License (http://gnu.org).
+|     
+|     Plugin "my_gallery"
+|     Author: Alex ANP alex-anp@ya.ru 
++-----------------------------------------------------------------------------------------------+
+*/
+
+.mygall_folder_a {
+    display: block;
+	color: black;
+	font-size: 9px;
+	font-weight: bold;
+	text-align: right;
+	text-transform: uppercase;
+    text-decoration: none;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+    background-color: white;
+    margin: 2px 2px 2px 2px;
+    padding: 2px 2px 2px 2px;
+
+}
+
+.mygall_folder_b {
+	text-align: center;
+	text-transform: capitalize;
+}
+
+.mygall_page_nav {
+    display: block;
+	color: black;
+	font-size: 9px;
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+    text-decoration: none;
+	padding: 2px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+    background-color: white;
+}
+
+.memo_edit_buton {
+	text-align: right;
+}
+
+.memo_edit_msg {
+    display: block;
+	color: black;
+	font-size: 9px;
+	font-weight: bold;
+	text-align: center;
+    text-decoration: none;
+	padding: 4px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+    background-color: gray;
+}
+
+.my_gall_page table {
+    width: 100%;
+    padding: 0px 0px 5px 0px;
+
+}
+
+.my_gall_page td {
+    text-align: center;
+    vertical-align: top;
+    padding: 3px 0px 7px 0px;
+/*    border: 1px dotted black;*/
+
+}
+
+.my_gall_page th {
+	color: black;
+	font-size: 9px;
+	font-weight: bold;
+	text-align: right;
+	text-transform: uppercase;
+    text-decoration: none;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+    background-color: white;
+    margin: 2px 2px 2px 2px;
+    padding: 2px 2px 2px 2px;
+}
+
+.my_gall_comm_img {
+    text-align: center;
+}
+
+.my_gall_comm_img img {
+    margin: 3px;
+    padding: 3px;
+}
+
+.my_gall_comm_img table {
+    width: 95%;
+}
+
+/*.my_gall_comm_img td {
+    border: 1px dotted black;
+} */
+
+.my_gall_img_title {
+font-weight: bold;
+text-align: left;
+}
+
+.my_gall_img_text {
+    margin: 3px;
+    padding: 3px;
+}

@@ -1,0 +1,12 @@
+Changes to make shadowbox compatible to PViewGallery and e107.
+
+e_meta.php:
+- included a js languagefile. this script sets all labels (array pview_lan)
+- if languagefile not exists: english will used
+- included all scriptfiles and CSS files
+- start script: Shadowbox.init();
+
+shadowbox.js:
+- html notation: rel=lightbox deleted, only rel=shadowbox will be used
+- replaced fixed language array with pview_lan
+

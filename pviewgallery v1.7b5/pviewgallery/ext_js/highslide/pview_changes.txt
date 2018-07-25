@@ -1,0 +1,20 @@
+Changes to make highslide compatible to PViewGallery and e107.
+
+e_meta.php:
+- included a js languagefile. this script sets all labels (array hs.lang)
+- if languagefile not exists: english will used
+- included all scriptfiles and CSS files
+
+highslide.config.js:
+- set groups for different cases (gallery, menus, search results, profile page)
+- moved language settings to a seperate language file
+
+highslide.css:
+.highslide img {
+	/*border: 1px solid #D0D0D0; pview*/
+	border: none;
+}
+
+All scripts are unchanged. Using highslide-full.js!
+
+

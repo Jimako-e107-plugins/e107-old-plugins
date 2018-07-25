@@ -1,0 +1,3 @@
+﻿// English language strings
+var pview_lan;
+pview_lan={code:"en",of:"of",loading:"loading",cancel:"cancel",next:"next",previous:"previous",play:"play",pause:"pause",close:"close",errors:{single:'To see the content you have to install the browser extension <a href="{0}">{1}</a>.',shared:'To see the content you have to install these two browser extensions <a href="{0}">{1}</a> and <a href="{2}">{3}</a>.',either:'To see the content you have to install one of these browser extensions <a href="{0}">{1}</a> or <a href="{2}">{3}</a>.'}};

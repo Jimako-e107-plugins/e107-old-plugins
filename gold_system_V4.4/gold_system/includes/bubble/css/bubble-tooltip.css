@@ -1,0 +1,32 @@
+#bubble_tooltip{
+	width:147px;
+	position:absolute;
+	display:none;
+}
+#bubble_tooltip .bubble_top{
+	background-image: url('../../../../gold_system/includes/bubble/images/bubble_top.gif');
+	background-repeat:no-repeat;
+	height:16px;
+}
+#bubble_tooltip .bubble_middle{
+	background-image: url('../../../../gold_system/includes/bubble/images/bubble_middle.gif');
+	background-repeat:repeat-y;
+	background-position:bottom left;
+	color:#ff0000;
+	padding-left:7px;
+	padding-right:7px;
+}
+#bubble_tooltip .bubble_middle span{
+	position:relative;
+	top:-8px;
+	font-family: Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif;
+	font-size:11px;
+}
+#bubble_tooltip .bubble_bottom{
+	background-image: url('../../../../gold_system/includes/bubble/images/bubble_bottom.gif');
+	background-repeat:no-repeat;
+	background-repeat:no-repeat;
+	height:44px;
+	position:relative;
+	top:-6px;
+}
