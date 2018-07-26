@@ -376,7 +376,9 @@ Displays any number of user-avatars in a menu. The list is generated randomly ev
  
 source: https://e107.org/plugins/?id=302
 
-Fix: avatar issue and layout change
+*FIXED* version 0.2.3  _(not updated)_
+Fix: avatar issue and layout change, removed deprecated fuction
+Download 0.2.3: possible from https://www.e107.sk/
 
 =======
 
