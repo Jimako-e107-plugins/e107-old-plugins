@@ -391,6 +391,17 @@ just backup
 =======
 
 
+### Reviewer by Father Barry
+
+A Plugin to list and solicit reviewer from users
+
+Version		:	1.7
+
+just backup
+
+=======
+
+
 ### Sgallery 
 
 just backup

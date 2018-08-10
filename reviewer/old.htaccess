@@ -1,0 +1,8 @@
+#*** REVIEWER REWRITE BEGIN ***
+RewriteEngine On
+RewriteBase /plugins/reviewer/
+RewriteRule reviewer.html reviewer.php
+RewriteRule reviewer-([0-9]*)-([a-z]*)\.html(.*)$ reviewer.php?$1.$2.$3
+RewriteRule reviewer-([0-9]*)-([a-z]*)-([0-9]*)\.html(.*)$ reviewer.php?$1.$2.$3
+RewriteRule reviewer-([0-9]*)-([a-z]*)-([0-9]*)-([0-9]*)\.html(.*)$ reviewer.php?$1.$2.$3.$4
+#*** REVIEWER REWRITE END ***
