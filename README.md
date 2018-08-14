@@ -511,7 +511,6 @@ source: e107-german.de
 
 =======
 
-
 ###  Gold System for e107 v7xx - by Father Barry
 			
 source: e107-german.de
@@ -722,3 +721,21 @@ Original:  greycube.com  [site is down]
 just backup
 
 ======= 
+
+###  IPN PayPal Donate Menu v1.0 by Klutsh
+
+The IPN PayPal Donate Menu Plugin allows you to quickly and easily setup a PayPal donation button on your website.
+
+This version I started after deciding to set a Donators class on my site, and got fed up doing it all by hand.
+
+Based on PayPal Donate Menu 1.3 by whoisrich, I have added IPN notification.
+
+A New MySQL table is used to log all transactions, and as it is the IPN script updates signed-in users to the class with ID 2.
+
+Option to display the Total of the Recoreded donations.
+
+I have also added SandBox mode to allow you to play about with it should you want.
+			
+source: e107.org
+
+=======
