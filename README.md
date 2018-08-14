@@ -356,7 +356,7 @@ Description: A simple plugin that makes it obvious when you have unread private 
 
 Author credit: Richard Perry
 
-Original:http://www.greycube.com/site/download.php?view.50 
+Original:  greycube.com  [site is down]  
 
 just backup
 
@@ -518,4 +518,29 @@ source: e107-german.de
 
 =======
 
- 
+###  ecaptcha by Richard Perry 
+Description: A simple plugin that makes it obvious when you have unread private messages waiting.
+
+Author credit: Richard Perry
+
+Want to allow anonymous posting without the spam ?
+
+Want to prevent bots registering accounts on your site ?
+
+eCaptcha is here to help guard your site.
+
+Protection measures range from the simple invisible and submit buttom to the advanced image audio captcha and reCaptcha.net
+
+A moderation system allows you to quarantine any link spam that gets through.
+
+----------------------------------------------------
+
+Protections:
+
+Signup, Comments, Forum, Chatbox, Logon, Forgot Password, Contact Form, Submit News, Submit Content, Submit Link, Report Broken Download, Guestbook 3.3+
+
+Original:  greycube.com  [site is down] 
+
+just backup
+
+======= 
