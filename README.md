@@ -585,3 +585,22 @@ Original:  greycube.com  [site is down]
 just backup
 
 ======= 
+
+###  Enemy Down Rank v1.3 by Richard Perry 
+
+Description: This shows your league rank on Enemy Down without needing to embed javascript in your site.
+
+Author credit: Richard Perry
+
+Why use this instead of the javascript ?
+
+- It integrates and matches with your e107 theme.
+- The javascript increases page loading times.
+- The javascript can freeze a visitors browser if Enemy Down has problems.
+- You can edit the code and use your own custom layout.
+
+Original:  greycube.com  [site is down] 
+
+just backup
+
+======= 
