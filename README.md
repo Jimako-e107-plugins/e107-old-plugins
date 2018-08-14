@@ -544,3 +544,24 @@ Original:  greycube.com  [site is down]
 just backup
 
 ======= 
+
+###  Another Online Menu v1.5 by Richard Perry 
+
+Description: shows the people currently viewing your site, in a clean and easy to read style.
+
+Author credit: Richard Perry
+
+Features:
+
+- Intelligent location names
+- Expandable sections
+- Guests shown as a masked IP address
+- Admin Area is hidden to prevent revealing non default paths
+- Option to always hide an admins location
+- Option for admins to see hostnames when hovering over a name 
+
+Original:  greycube.com  [site is down] 
+
+just backup
+
+======= 
