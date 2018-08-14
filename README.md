@@ -565,3 +565,23 @@ Original:  greycube.com  [site is down]
 just backup
 
 ======= 
+
+###  PayPal Donate Menu v1.3 by Richard Perry 
+
+Description: The PayPal Donate Menu Plugin allows you to quickly and easily setup a PayPal donation button on your website.
+
+Author credit: Richard Perry
+
+This version I started after my PayPal email address was being harvested and started getting lots of spam.
+
+Based on PayPal Donate Menu 1.2 by Cam and Bazzer, I have added light protection, designed to mask the PayPal email without causing hassle to any donors.
+
+I also took the opportunity to go through all the code, updating, tidying and fixing a few things.
+
+If you want to try it out, feel free to make a donation at GreyCube.com
+
+Original:  greycube.com  [site is down] 
+
+just backup
+
+======= 
