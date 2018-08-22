@@ -1,0 +1,52 @@
+/*
++---------------------------------------------------------------+
+|        Plugin: Advanced Bbcodes
+|        Version: 0.4
+|        Date: 12/01/2009
+|        Auteur: The_Death_Raw 
+|        Email: postmaster@e107plugins.fr
+|        Website: www.e107plugins.fr
+|
+|        Released under the terms and conditions of the
+|        GNU General Public License (http://gnu.org).
++---------------------------------------------------------------+
+*/
+
+/* style spoiler */
+.spoiler_button {
+    border:1px solid #A5ACB2;
+    background-image:url(../images/button.png);
+}
+
+.spoiler_button:hover {
+    background-image:url(../images/buttonover.png);
+}
+
+/* style toolfaq */
+a.tool {
+   font-weight: bold;
+   position: relative;
+   text-decoration: none;
+   cursor: help;
+}
+
+a.tool span {
+   position: absolute;
+   font-weight: normal;
+   border: 1px solid #8b8b8b;
+   background-color: #FFFFFF;
+   padding: 10px;      
+   color: black;
+   width: 225px;
+   left: -9999em;
+}
+
+a.tool:hover {
+   visibility: visible;
+   z-index: 100;
+}
+
+a.tool:hover span, a.tooltip:focus span {
+   left: 30px;
+   text-decoration: none;
+}
