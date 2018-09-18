@@ -739,3 +739,22 @@ I have also added SandBox mode to allow you to play about with it should you wan
 source: e107.org
 
 =======
+
+### Contact Form v1.7  by  bugrain
+
+A versatile Contact Form for e107.
+
+Features:
+Hides e-mail addresses from spammers/robots/etc.
+Allows for multiple e-mail addresses for different parts of the organisations (sales, marketing, etc.)
+Can have multiple contact pages with different addressee lists and form fields.
+User has the option to copy themselves on the e-mail for their records (admin configurable).
+Admin can set most fields on the form to be hidden or shown.
+The symbol and colour of the mandatory field marker is configurable
+Multiple custom fields of different types
+
+
+Requires the e107 Helper Project to be installed.
+
+source: https://e107.org/plugins/?id=226
+=======

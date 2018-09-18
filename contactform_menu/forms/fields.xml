@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="userjournals_prefs_form" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <div name="contactform_div1" text="CONTACTFORM_PREF_FIELDS_10_0">
+         <style name="font-weight">bold</style>
+      </div>
+
+      <span name="contactform_span1" text="CONTACTFORM_PREF_FIELDS_11_0">
+      </span>
+
+      <text name="contactform_custom_1" label="CONTACTFORM_PREF_FIELDS_05_0" prompt="CONTACTFORM_PREF_FIELDS_05_1" class="tbox">
+         <default var="e107pref"></default>
+         <attribute name='size'>50</attribute>
+         <attribute name='maxlength'>50</attribute>
+      </text>
+
+      <text name="contactform_custom_2" label="CONTACTFORM_PREF_FIELDS_06_0" prompt="CONTACTFORM_PREF_FIELDS_06_1" class="tbox">
+         <default var="e107pref"></default>
+         <attribute name='size'>50</attribute>
+         <attribute name='maxlength'>50</attribute>
+      </text>
+
+      <text name="contactform_custom_3" label="CONTACTFORM_PREF_FIELDS_07_0" prompt="CONTACTFORM_PREF_FIELDS_07_1" class="tbox">
+         <default var="e107pref"></default>
+         <attribute name='size'>50</attribute>
+         <attribute name='maxlength'>50</attribute>
+      </text>
+
+      <text name="contactform_custom_4" label="CONTACTFORM_PREF_FIELDS_08_0" prompt="CONTACTFORM_PREF_FIELDS_08_1" class="tbox">
+         <default var="e107pref"></default>
+         <attribute name='size'>50</attribute>
+         <attribute name='maxlength'>50</attribute>
+      </text>
+
+   </form>
+
+</e107HelperForm>
