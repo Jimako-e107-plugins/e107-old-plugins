@@ -30,7 +30,7 @@ if (date("d", $OTD_PREF['otd_last']) != date("d", $otd_now))
     $e107cache->clear("nq_otdmenu");
     $e107cache->clear("otd_display");
     $OTD_PREF['otd_last'] = $otd_now;
-    save_prefs();
+    $otd_obj->save_prefs();
 }
 if ($cacheData = $e107cache->retrieve("nq_otdmenu"))
 {
