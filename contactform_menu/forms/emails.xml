@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="contactform_emails_form" type="HELPER_FORM_TYPE_DB_ROW">
+      <errorsattop value="true" />
+
+      <dbdetails>
+         <dbtable>contactform</dbtable>
+         <index>id</index>
+         <data>display_order, title, full_name</data>
+         <order>display_order ASC</order>
+         <liststyle>tbox</liststyle>
+      </dbdetails>
+
+      <integer name="display_order" label="CONTACTFORM_PREF_EMAILS_00_0" prompt="CONTACTFORM_PREF_EMAILS_00_1" class="tbox">
+         <default var="db"/>
+         <attribute name="size">4</attribute>
+         <attribute name="maxlength">4</attribute>
+         <maxlength>4</maxlength>
+      </integer>
+
+      <table name="page_id" label="CONTACTFORM_PREF_EMAILS_05_0" prompt="CONTACTFORM_PREF_EMAILS_05_1" class="tbox">
+         <default var="db"/>
+         <attribute name="size">5</attribute>
+         <attribute name="multiple">true</attribute>
+         <value key="table">contactform_pages</value>
+         <value key="columns">cf_page_id, cf_page_name</value>
+         <value key="order">cf_page_name ASC</value>
+      </table>
+
+
+      <text name="title" label="CONTACTFORM_PREF_EMAILS_01_0" prompt="CONTACTFORM_PREF_EMAILS_01_1" class="tbox">
+         <default var="db"/>
+         <attribute name="size">50</attribute>
+         <attribute name="maxlength">50</attribute>
+         <maxlength>50</maxlength>
+      </text>
+
+      <textarea name="email" label="CONTACTFORM_PREF_EMAILS_02_0" prompt="CONTACTFORM_PREF_EMAILS_02_1" class="tbox">
+         <default var="db"/>
+         <attribute name="rows">5</attribute>
+         <style name="width">100%</style>
+      </textarea>
+
+      <text name="full_name" label="CONTACTFORM_PREF_EMAILS_03_0" prompt="CONTACTFORM_PREF_EMAILS_03_1" class="tbox">
+         <default var="db"/>
+      </text>
+
+      <textarea name="description" label="CONTACTFORM_PREF_EMAILS_04_0" prompt="CONTACTFORM_PREF_EMAILS_04_1" class="tbox">
+         <default var="db"/>
+         <style name="width">100%</style>
+      </textarea>
+
+   </form>
+
+</e107HelperForm>

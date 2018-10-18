@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="contactform_pages_form" type="HELPER_FORM_TYPE_DB_ROW">
+      <errorsattop value="true" />
+
+      <dbdetails>
+         <dbtable>contactform_pages</dbtable>
+         <index>cf_page_id</index>
+         <data>cf_page_name</data>
+         <order>cf_page_name ASC</order>
+         <liststyle>tbox</liststyle>
+      </dbdetails>
+
+      <text name="cf_page_name" label="CONTACTFORM_PREF_PAGES_00_0" prompt="CONTACTFORM_PREF_PAGES_00_1" class="tbox">
+         <default var="db"/>
+         <attribute name="size">30</attribute>
+         <attribute name="maxlength">255</attribute>
+         <maxlength>255</maxlength>
+      </text>
+
+      <textarea name="cf_page_description" label="CONTACTFORM_PREF_PAGES_03_0" prompt="CONTACTFORM_PREF_PAGES_03_1" class="tbox">
+         <default var="db"/>
+         <attribute name="rows">5</attribute>
+         <style name="width">100%</style>
+      </textarea>
+
+      <text name="cf_page_query" label="CONTACTFORM_PREF_PAGES_02_0" prompt="CONTACTFORM_PREF_PAGES_02_1" class="tbox">
+         <default var="db"/>
+         <attribute name="size">30</attribute>
+         <attribute name="maxlength">255</attribute>
+         <maxlength>255</maxlength>
+      </text>
+
+      <accesstable name="cf_page_userclass" label="CONTACTFORM_PREF_PAGES_01_0" prompt="CONTACTFORM_PREF_PAGES_01_0" class="tbox">
+         <default var="db"/>
+      </accesstable>
+
+      <radio name="cf_page_sender_name" label="CONTACTFORM_PREF_PAGES_04_0" prompt="CONTACTFORM_PREF_PAGES_04_1" class="tbox">
+         <default var="db">2</default>
+         <value key="0">CONTACTFORM_PREF_DISPLAY_00</value>
+         <value key="1">CONTACTFORM_PREF_DISPLAY_01</value>
+         <value key="2">CONTACTFORM_PREF_DISPLAY_02</value>
+      </radio>
+
+      <radio name="cf_page_sender_email" label="CONTACTFORM_PREF_PAGES_05_0" prompt="CONTACTFORM_PREF_PAGES_05_1" class="tbox">
+         <default var="db">2</default>
+         <value key="0">CONTACTFORM_PREF_DISPLAY_00</value>
+         <value key="1">CONTACTFORM_PREF_DISPLAY_01</value>
+         <value key="2">CONTACTFORM_PREF_DISPLAY_02</value>
+      </radio>
+
+      <radio name="cf_page_subject" label="CONTACTFORM_PREF_PAGES_06_0" prompt="CONTACTFORM_PREF_PAGES_06_1" class="tbox">
+         <default var="db">2</default>
+         <value key="0">CONTACTFORM_PREF_DISPLAY_00</value>
+         <value key="1">CONTACTFORM_PREF_DISPLAY_01</value>
+         <value key="2">CONTACTFORM_PREF_DISPLAY_02</value>
+      </radio>
+
+      <radio name="cf_page_message" label="CONTACTFORM_PREF_PAGES_07_0" prompt="CONTACTFORM_PREF_PAGES_07_1" class="tbox">
+         <default var="db">1</default>
+         <value key="1">CONTACTFORM_PREF_DISPLAY_01</value>
+         <value key="2">CONTACTFORM_PREF_DISPLAY_02</value>
+      </radio>
+
+      <radio name="cf_page_cc" label="CONTACTFORM_PREF_PAGES_08_0" prompt="CONTACTFORM_PREF_PAGES_08_1" class="tbox">
+         <default var="db">1</default>
+         <value key="0">CONTACTFORM_PREF_DISPLAY_00</value>
+         <value key="1">CONTACTFORM_PREF_DISPLAY_01</value>
+      </radio>
+
+      <customfields name="cf_page_custom" label="CONTACTFORM_PREF_PAGES_09_0" prompt="CONTACTFORM_PREF_PAGES_09_1" class="tbox">
+         <default var="db"/>
+      </customfields>
+
+   </form>
+
+</e107HelperForm>

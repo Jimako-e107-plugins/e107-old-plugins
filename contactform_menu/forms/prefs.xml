@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="userjournals_prefs_form" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <text name="contactform_subject_prefix" label="CONTACTFORM_PREF_CONFIG_04_0" prompt="CONTACTFORM_PREF_CONFIG_04_1" class="tbox">
+         <default var="e107pref"></default>
+         <attribute name='size'>50</attribute>
+         <attribute name='maxlength'>50</attribute>
+      </text>
+
+      <text name="contactform_default_from_email" label="CONTACTFORM_PREF_CONFIG_15_0" prompt="CONTACTFORM_PREF_CONFIG_15_1" class="tbox">
+         <default var="e107pref"></default>
+         <attribute name='size'>50</attribute>
+         <attribute name='maxlength'>100</attribute>
+      </text>
+
+      <text name="contactform_default_from_name" label="CONTACTFORM_PREF_CONFIG_16_0" prompt="CONTACTFORM_PREF_CONFIG_16_1" class="tbox">
+         <default var="e107pref"></default>
+         <attribute name='size'>50</attribute>
+         <attribute name='maxlength'>100</attribute>
+      </text>
+
+      <checkbox name="contactform_image_code_verify" label="CONTACTFORM_PREF_CONFIG_13_0" prompt="CONTACTFORM_PREF_CONFIG_13_1" class="tbox">
+         <default var="e107pref">N</default>
+         <value>Y</value>
+      </checkbox>
+
+      <checkbox name="contactform_track_ip" label="CONTACTFORM_PREF_CONFIG_14_0" prompt="CONTACTFORM_PREF_CONFIG_14_1" class="tbox">
+         <default var="e107pref">N</default>
+         <value>Y</value>
+         <default>N</default>
+      </checkbox>
+
+      <text name="contactform_mandatory_symbol" label="CONTACTFORM_PREF_CONFIG_00_0" prompt="CONTACTFORM_PREF_CONFIG_00_1" class="tbox">
+         <default var="e107pref"></default>
+         <attribute name='size'>1</attribute>
+         <attribute name='maxlength'>1</attribute>
+      </text>
+
+      <color name="contactform_mandatory_color" label="CONTACTFORM_PREF_CONFIG_01_0" prompt="CONTACTFORM_PREF_CONFIG_01_1" class="tbox">
+         <default var="e107pref"></default>
+      </color>
+
+      <checkbox name="contactform_send_to_as_colums" label="CONTACTFORM_PREF_CONFIG_02_0" prompt="CONTACTFORM_PREF_CONFIG_02_1" class="tbox">
+         <default var="e107pref">N</default>
+         <value>Y</value>
+      </checkbox>
+
+      <accesstable name="contactform_visibility" label="CONTACTFORM_PREF_CONFIG_03_0" prompt="CONTACTFORM_PREF_CONFIG_03_1" class="tbox">
+         <default var="e107pref"></default>
+      </accesstable>
+
+      <textarea name="contactform_confirmation_message" label="CONTACTFORM_PREF_CONFIG_09_0" prompt="CONTACTFORM_PREF_CONFIG_09_1" class="tbox">
+         <default var="e107pref">CONTACTFORM_11</default>
+         <attribute name='rows'>5</attribute>
+         <style name='width'>100%</style>
+      </textarea>
+
+      <!--checkbox name="contactform_htmlarea" label="CONTACTFORM_PREF_CONFIG_11_0" prompt="CONTACTFORM_PREF_CONFIG_11_1" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox-->
+
+      <list name="contactform_contact_details" label="CONTACTFORM_PREF_CONFIG_12_0" prompt="CONTACTFORM_PREF_CONFIG_12_1" class="tbox">
+         <default var="e107pref"/>
+         <value key="0">CONTACTFORM_PREF_CONFIG_12_L0</value>
+         <value key="1">CONTACTFORM_PREF_CONFIG_12_L1</value>
+         <value key="2">CONTACTFORM_PREF_CONFIG_12_L2</value>
+      </list>
+
+      <!-- always leave this one 'till last -->
+      <checkbox name="contactform_debug" label="CONTACTFORM_PREF_CONFIG_10_0" prompt="CONTACTFORM_PREF_CONFIG_10_1" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+   </form>
+
+</e107HelperForm>

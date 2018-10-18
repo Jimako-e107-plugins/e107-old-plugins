@@ -356,7 +356,7 @@ Description: A simple plugin that makes it obvious when you have unread private 
 
 Author credit: Richard Perry
 
-Original:http://www.greycube.com/site/download.php?view.50 
+Original:  greycube.com  [site is down]  
 
 just backup
 
@@ -376,13 +376,26 @@ Displays any number of user-avatars in a menu. The list is generated randomly ev
  
 source: https://e107.org/plugins/?id=302
 
-Fix: avatar issue and layout change
+*FIXED* version 0.2.3  _(not updated)_
+Fix: avatar issue and layout change, removed deprecated fuction
+Download 0.2.3: possible from https://www.e107.sk/
 
 =======
 
 ### Rank System by Michiel Horvers
 
 Version		:	1.5
+
+just backup
+
+=======
+
+
+### Reviewer by Father Barry
+
+A Plugin to list and solicit reviewer from users
+
+Version		:	1.7
 
 just backup
 
@@ -498,11 +511,250 @@ source: e107-german.de
 
 =======
 
-
 ###  Gold System for e107 v7xx - by Father Barry
 			
 source: e107-german.de
 
 =======
 
- 
+###  ecaptcha by Richard Perry 
+Description: A simple plugin that makes it obvious when you have unread private messages waiting.
+
+Author credit: Richard Perry
+
+Want to allow anonymous posting without the spam ?
+
+Want to prevent bots registering accounts on your site ?
+
+eCaptcha is here to help guard your site.
+
+Protection measures range from the simple invisible and submit buttom to the advanced image audio captcha and reCaptcha.net
+
+A moderation system allows you to quarantine any link spam that gets through.
+
+----------------------------------------------------
+
+Protections:
+
+Signup, Comments, Forum, Chatbox, Logon, Forgot Password, Contact Form, Submit News, Submit Content, Submit Link, Report Broken Download, Guestbook 3.3+
+
+Original:  greycube.com  [site is down] 
+
+just backup
+
+======= 
+
+###  Another Online Menu v1.5 by Richard Perry 
+
+Description: shows the people currently viewing your site, in a clean and easy to read style.
+
+Author credit: Richard Perry
+
+Features:
+
+- Intelligent location names
+- Expandable sections
+- Guests shown as a masked IP address
+- Admin Area is hidden to prevent revealing non default paths
+- Option to always hide an admins location
+- Option for admins to see hostnames when hovering over a name 
+
+Original:  greycube.com  [site is down] 
+
+just backup
+
+======= 
+
+###  PayPal Donate Menu v1.3 by Richard Perry 
+
+Description: The PayPal Donate Menu Plugin allows you to quickly and easily setup a PayPal donation button on your website.
+
+Author credit: Richard Perry
+
+This version I started after my PayPal email address was being harvested and started getting lots of spam.
+
+Based on PayPal Donate Menu 1.2 by Cam and Bazzer, I have added light protection, designed to mask the PayPal email without causing hassle to any donors.
+
+I also took the opportunity to go through all the code, updating, tidying and fixing a few things.
+
+If you want to try it out, feel free to make a donation at GreyCube.com
+
+Original:  greycube.com  [site is down] 
+
+just backup
+
+======= 
+
+###  Enemy Down Rank v1.3 by Richard Perry 
+
+Description: This shows your league rank on Enemy Down without needing to embed javascript in your site.
+
+Author credit: Richard Perry
+
+Why use this instead of the javascript ?
+
+- It integrates and matches with your e107 theme.
+- The javascript increases page loading times.
+- The javascript can freeze a visitors browser if Enemy Down has problems.
+- You can edit the code and use your own custom layout.
+
+Original:  greycube.com  [site is down] 
+
+just backup
+
+======= 
+
+###   Live Game Server List v5.7  by Richard Perry 
+
+Description: LGSL shows live game server info on your website.
+See the screenshot below to see an example setup.
+
+Author credit: Richard Perry
+
+MAP IMAGES FOR LGSL ARE IN A SEPERATE DOWNLOAD HERE:
+http://www.greycube.com/site/download.php?view.60
+
+----------------------------------------------------------
+
+LGSL shows live game server information on a website.
+
+Supports the following types and games using their engine:
+
+Americas Army
+Americas Army 3
+Arca Sim Racing
+ArmA: Armed Assault
+ArmA 2
+Aliens VS. Predator 2
+Battlefield Vietnam
+Battlefield 1942
+Battlefield 2
+Battlefield 2142
+Call Of Duty
+Call Of Duty: United Offensive
+Call Of Duty: World at War
+Call Of Duty 2
+Call Of Duty 4
+Command and Conquer: Renegade
+Crysis
+Crysis Wars
+Cube Engine ( AssaultCube, Sauerbraten, Blood Frontier )
+Doom - Skulltag
+Doom - ZDaemon
+Doom 3
+Deer Hunter 2005
+Far Cry
+F.E.A.R.
+Operation Flashpoint
+Freelancer
+Frontlines: Fuel Of War
+F1 Challenge 99-02
+Generic GameSpy Protocol 1
+Generic GameSpy Protocol 2
+Generic GameSpy Protocol 3
+Ghost Recon
+Ghost Recon: Advanced Warfighter
+Ghost Recon: Advanced Warfighter 2
+GTR 2
+Hidden and Dangerous 2
+Half-Life 1 Steam ( CS 1.6, Natural Selection, FireArms, etc, etc )
+Half-Life 1 WON ( CS 1.5 etc )
+Halo
+IL-2 Sturmovik
+JediKnight 2: Jedi Outcast
+JediKnight: Jedi Academy
+Killing Floor
+Kingpin: Life of Crime
+Medal of Honor: Allied Assault
+Medal of Honor: Allied Assault Breakthrough
+Medal of Honor: Allied Assault Spearhead
+Medal of Honor: Pacific Assault
+Multi Theft Auto
+Nascar Thunder 2004
+NeverWinter Nights
+NeverWinter Nights 2
+Nexuiz
+Open Transport Tycoon Deluxe
+PainKiller
+Prey
+Quake World
+Enemy Territory: Quake Wars
+Quake 2
+Quake 3
+Quake 4
+Raven Shield
+Red Orchestra
+RFactor
+San Andreas Multiplayer
+Savage
+Savage 2
+Serious Sam
+Serious Sam 2
+Soldier of Fortune 2
+Soldat
+Source ( Half-Life 2, CS:Source, TF2, Left4Dead, NeoTokyo, etc, etc )
+S.T.A.L.K.E.R.
+S.T.A.L.K.E.R. Clear Sky
+StarTrek Elite-Force
+Star Wars: Battlefront
+Star Wars: Battlefront 2
+Star Wars: Republic Commando
+SWAT 4
+Teeworlds
+Tribes ( Starsiege )
+Tribes 2
+Tribes Vengeance
+UrbanTerror
+Unreal Tournament
+Unreal Tournament 2003
+Unreal Tournament 2004
+Unreal Tournament 3
+Vietcong
+Vietcong 2
+Warsow
+Wolfenstein: Enemy Territory
+Wolfenstein: Return To Castle Wolfenstein
+Wolfenstein ( 2009 By Raven )
+
+Original:  greycube.com  [site is down] 
+
+just backup
+
+======= 
+
+###  IPN PayPal Donate Menu v1.0 by Klutsh
+
+The IPN PayPal Donate Menu Plugin allows you to quickly and easily setup a PayPal donation button on your website.
+
+This version I started after deciding to set a Donators class on my site, and got fed up doing it all by hand.
+
+Based on PayPal Donate Menu 1.3 by whoisrich, I have added IPN notification.
+
+A New MySQL table is used to log all transactions, and as it is the IPN script updates signed-in users to the class with ID 2.
+
+Option to display the Total of the Recoreded donations.
+
+I have also added SandBox mode to allow you to play about with it should you want.
+			
+source: e107.org
+
+=======
+
+### Contact Form v1.7  by  bugrain
+
+A versatile Contact Form for e107.
+
+Features:
+Hides e-mail addresses from spammers/robots/etc.
+Allows for multiple e-mail addresses for different parts of the organisations (sales, marketing, etc.)
+Can have multiple contact pages with different addressee lists and form fields.
+User has the option to copy themselves on the e-mail for their records (admin configurable).
+Admin can set most fields on the form to be hidden or shown.
+The symbol and colour of the mandatory field marker is configurable
+Multiple custom fields of different types
+
+
+Requires the e107 Helper Project to be installed.
+
+source: https://e107.org/plugins/?id=226
+=======
