@@ -11,7 +11,7 @@ CREATE TABLE sgallery (
       thsrc varchar(50) NOT NULL default '',
       active tinyint(1) NOT NULL default '0',
       album_viewed int(10) unsigned NOT NULL default '0',
-      album_ustatus tinyint(1) NOT NULL default '1' ,
+      album_ustatus tinyint(1) NOT NULL default '1',
       PRIMARY KEY (album_id),
       KEY sgal_user (sgal_user),
       KEY album_ustatus (album_ustatus)
