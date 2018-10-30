@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Id$ -->
+<e107Plugin name="Corllete Lab Gallery" version="2.13" compatibility="0.8" installRequired="true" xhtmlcompliant="true"  csscompliant="true">
+	<author name="e107 Inc." url="http://e107.org" />
+	<description>This plugin is a fully e107 picture Gallery</description>
+	<category>content</category> 
+	<adminLinks>
+		<link url="admin_config.php" description="Gallery Front Page" icon="images/icon_32.png" iconSmall="images/icon_16.png" primary='true'>Manage Albums</link>
+		<link url="admin_config.php?cat" description="Create Gallery Parents"  icon="add" >Manage Galleries</link>
+		<link url='admin_config.php?config' description='Configure Gallery' icon="configure">Configure</link>
+	</adminLinks>
+	<siteLinks>
+		<link url="sgallery/gallery.php" perm='everyone'>Gallery</link>		
+	</siteLinks>
+	<mainPrefs>
+		<pref name="sgal_active">0</pref>
+		<pref name="sgal_wperms">253</pref>
+		<pref name="sgal_advwperms">254</pref>
+		<pref name="sgal_bbthumbperms">253</pref>
+		<pref name="sgal_version">2.13</pref>
+	</mainPrefs>	
+</e107Plugin>

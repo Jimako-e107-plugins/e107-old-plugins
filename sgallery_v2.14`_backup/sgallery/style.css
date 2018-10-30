@@ -1,0 +1,71 @@
+#sgallery {
+
+}
+
+#sgallery table.fborder {
+
+}
+
+#sgallery td.forumheader {
+
+}
+
+#sgallery td.forumheader3 {
+
+}
+/*etc*/
+/* 	Costumize your NEXPREV LOOK
+.pagelink a:active,
+.pagelink a:visited,
+.pagelink a:link
+{
+
+	background-color: #F0F5FA;
+	font-family: Verdana, Arial, Georgia;
+	font-size: 10px;
+	border: 1px solid #ddd;
+	padding: 2px 3px 2px 3px;
+	color: #393939;
+	font-weight: bold;
+	text-decoration: none;
+	
+}
+.pagelinklast a:active,
+.pagelinklast a:visited,
+.pagelinklast a:link
+{
+	background-color: #DFE6EF;
+	font-family: Verdana, Arial, Georgia;
+	font-size: 10px;
+	border: 1px solid #ddd;
+	padding: 2px 3px 2px 3px;
+	color: #393939;
+	font-weight: bold;
+	text-decoration: none;
+}
+.pagecurrent a:active,
+.pagecurrent a:visited,
+.pagecurrent a:link
+{
+	background-color: #C7E8C9;
+	font-family: Verdana, Arial, Georgia;
+	font-size: 10px;
+	border: 1px solid #ddd;
+	padding: 2px 3px 2px 3px;
+	color: #393939;
+	font-weight: bold;
+	text-decoration: none;
+}
+.pagelink a:hover,
+.pagelinklast a:hover
+{
+	background-color: White;
+	font-family: Verdana, Arial, Georgia;
+	font-size: 10px;
+	border: 1px solid #ddd;
+	padding: 2px 3px 2px 3px;
+	color: #E80000;
+	font-weight: bold;
+	text-decoration: none;
+}
+*/
