@@ -165,7 +165,7 @@ class sgal_render_class {
         global $sgal_pref, $THCONFIG_THDEF, $tp;
 
         //icons
-        $imagedir = e_IMAGE_ABS."admin_images/";
+        $imagedir = SGAL_PATH_ABS."admin_images/";
         if (!defined("SGAL_ICON_MAINPIC_SRC")){ define("SGAL_ICON_MAINPIC_SRC", (file_exists(THEME."images/sgal_mainpic_16.png") ? THEME_ABS."images/sgal_mainpic_16.png" : $imagedir."frontpage_16.png")); }
         if (!defined("SGAL_ICON_AUTOTHUMB_SRC")){ define("SGAL_ICON_AUTOTHUMB_SRC", (file_exists(THEME."images/sgal_custom_16.png") ? THEME_ABS."images/sgal_custom_16.png" : $imagedir."custom_16.png")); }
         
