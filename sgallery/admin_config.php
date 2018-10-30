@@ -36,7 +36,7 @@ $e_wysiwyg = 'album_description,cat_description';
 function headerjs()
 {
  
-    $txt .= "<script type='text/javascript' src='".e_FILE_ABS."e_ajax.js'></script>";
+    $txt .= "<script type='text/javascript' src='".SGAL_INCPATH."e_ajax.js'></script>";
     $txt .= "
          <script type='text/javascript'>
            var el_loaded = new Array();
