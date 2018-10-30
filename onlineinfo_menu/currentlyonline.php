@@ -22,7 +22,7 @@
 */
 
 if (!defined('e107_INIT')) { exit; }
-
+ 
 if(check_class($orderclass)){
 
 

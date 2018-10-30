@@ -129,6 +129,22 @@ note: needs to use e107_images/clan for images and a lot of extra stuff
 
 =======
 
+###  Calender menu plugin
+
+just backup of 1.0.4 version
+
+Available sources of new version:
+
+ https://github.com/e107inc/calendar_menu
+ https://github.com/Jimmi08/calendar_menu
+ 
+ Information:
+ https://www.e107.sk/knowledge_base/calendar-menu-plugin/?cat.51
+ Support:
+ https://www.e107.sk/forum/calendar-menu/
+
+=======
+
 ### Delete me v 1.7 Barry Keal
 
 Source: https://osdn.net/projects/sfnet_e107german/releases/
