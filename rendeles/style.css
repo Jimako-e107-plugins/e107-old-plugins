@@ -1,0 +1,16 @@
+
+.button                  { background: transparent; text-transform: uppercase; font-weight: bold; box-shadow: 1px 1px 2px #000; border-radius: 5px 5px 5px 5px; border: 1px solid #c9d6eb; font-size: 14px; text-align: center; color: #000; padding:5px; }
+.button:hover            { background: #c9d6eb; text-shadow: 1px 1px 1px #fff; }
+#flower                  { font-weight: bold; text-shadow: 1px 1px 1px #fff; text-align: center; color: #000; }
+td                       { margin: 10px; padding: 10px; }
+.price                   { font-size: 20px; font-weight: bold; }
+.completed               { font-size: 20px; font-weight: bold; }
+#date                    { font-size: 20px; border: 1px #000 solid; padding: 5px; }
+#name                    { background: url('images/name.png') repeat-x top left; font: 25px "Georgia", Times New Roman , Times, serif;  text-transform: uppercase; }
+.font-left               { font-size: 18px; font-weight: none; text-align: right; padding-right: 25px;}
+.font                    { font-size: 16px; font-weight: none; text-align: left; padding-left: 50px; }
+.font-type               { font-size: 18px; font-weight: none; text-transform: uppercase; }
+.date-font               { font-size: 16px; font-weight: none; }
+.banners-font            { font-size: 16px; font-weight: none; }
+.forumheader a           { color: #000; }
+.forumheader a:hover     { text-decoration: underline; }
