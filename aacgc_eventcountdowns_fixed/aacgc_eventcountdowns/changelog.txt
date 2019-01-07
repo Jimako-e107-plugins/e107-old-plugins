@@ -1,0 +1,8 @@
+Changes for version 2:
+
+- removed old calendar    DONE
+- removed ecds_tzone - times work differently in version 2   DONE
+- removed special date format 'ecds_dateformat' - already set in e107 itself , used "long" version from e107 prefs in admin area
+- removed special date format 'ecds_dateformat' - used short for frontend, relative doesn't work, see issue #3605
+- removed 'ecds_dateoffset'  - already set in e107 itself 
+- removed global $tp    DONE

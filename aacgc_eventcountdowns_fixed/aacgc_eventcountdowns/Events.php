@@ -31,9 +31,10 @@ $adminadd = "<a href='".e_PLUGIN."aacgc_eventcountdowns/admin_events.php'><img w
 }
 	
 //----------------# gather events #---------------+		
-$offset = $pref['ecds_dateoffset'];
-$now = time() + ($offset * 60);
-
+/*$offset = $pref['ecds_dateoffset'];
+$now = time() + ($offset * 60);*/
+$now = time();
+ 
 $text .= "<table style='width:100%' class='".$themea."'>";
 
 $text .= "
@@ -89,8 +90,7 @@ $text .= "
 	</tr>
 	<tr>
 		<td style='text-align:center;' class='".$themeb."' colspan='2'>
-			".date($pref['ecds_dateformat'], $row['ecds_date'])." ".$row['ecds_tzone']."
-			<br/>			
+			".$tp->toDate($row['ecds_date'], "short")."<br/>			
 			<div id='currcountbox".$nexteventid."' style='width:100%; text-align:center; color:".$color."; font-size:".$pref['ecds_countersize']."px' align='center'></div>
 		</td>
 	</tr>";
@@ -102,14 +102,16 @@ $text .= "<tr>
 	</tr>
 ";
 
-$sql2 = new db;                                   
-$sql2->db_Select("aacgc_eventcountdowns", "*", "ecds_date > ".$now." order by ecds_date asc");
+$sql2 = new db;
+$sql2->db_Select("aacgc_eventcountdowns", "*", "ecds_date > ".$now." order by ecds_date asc limit 1,999");
 while($row2 = $sql2->db_Fetch()){
 	
 $text .= "
 	<tr>
 		<td style='text-align:center; width:50%;' class='".$themeb."'><a href='".e_PLUGIN."aacgc_eventcountdowns/Event_Details.php?".$row2['ecds_id']."'>".$tp -> toHTML($row2['ecds_title'], TRUE)."</a></td>
-		<td style='text-align:center; width:50%;' class='".$themeb."'>".date($pref['ecds_dateformat'], $row2['ecds_date'])." ".$row2['ecds_tzone']."</td>
+		<td style='text-align:center; width:50%;' class='".$themeb."'>
+    ".e107::getParser()->toDate($row2['ecds_date'], "short")." <br>
+    </td>
 	</tr>
 ";	
 	

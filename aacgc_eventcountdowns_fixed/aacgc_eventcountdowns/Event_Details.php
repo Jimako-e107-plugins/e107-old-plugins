@@ -8,48 +8,30 @@
 #######################################
 */
 
-global $tp;	
+ 
 
 require_once("../../class2.php");
 require_once(HEADERF);
-
+if (e_QUERY) {
+        $tmp = explode('.', e_QUERY);
+        $action = $tmp[0];
+        $sub_action = $tmp[1];
+        $id = $tmp[2];
+        unset($tmp);
+}
 if($pref['ecds_theme'] == "1"){
 $themea = "forumheader3";
 $themeb = "indent";}
 else
 {$themea = "";
 $themeb = "";}
+
+$tp = e107::getParser();
 include_lan(e_PLUGIN."aacgc_eventcountdowns/languages/".e_LANGUAGE.".php");
 
-//-------------------------# Menu Title #--------------------------------------------------------------------+
-$title .= $pref['ecds_pagetitle'];
 //-----------------------------------------------------------------------------------------------------------+
 
-$historylink = "<a href='".e_PLUGIN."aacgc_eventcountdowns/Event_History.php'><img width='16px' height='16px' src='".e_PLUGIN."aacgc_eventcountdowns/images/history.png' align='right' /></a>";
-if(ADMIN){
-$adminadd = "<a href='".e_PLUGIN."aacgc_eventcountdowns/admin_events.php'><img width='16px' height='16px' src='".e_PLUGIN."aacgc_eventcountdowns/images/add.png' align='left' /></a>";
-}
-	
-//----------------# gather events #---------------+		
-$offset = $pref['ecds_dateoffset'];
-$now = time() + ($offset * 60);
-
-$text .= "<table style='width:100%' class='".$themea."'>";
-
-$text .= "
-	<tr>
-		<td style='text-align:center;' class='' colspan='2'>
-			".$tp -> toHTML($pref['ecds_header'], TRUE)."<br/><br/>
-		</td>
-	</tr>
-	<tr>
-		<td style='text-align:center;' class='' colspan='2'>
-		".$adminadd." ".$historylink."
-		</td>
-	</tr>
-";
-
-$sql->db_Select("aacgc_eventcountdowns", "*", "ecds_date > ".$now." order by ecds_date asc limit 0,1");
+$sql->db_Select("aacgc_eventcountdowns", "*", "ecds_id = '".$action."'");
 $row = $sql->db_Fetch();
 
 	$nexteventid = $row['ecds_id'];
@@ -68,11 +50,11 @@ $row = $sql->db_Fetch();
 	$nextdateminshow = date($nextdatemin, $nexteventtimestamp);
 	$nextdatemonthfixed = $nextdatemonthshow - 1;
 	$nextshowcounter = "".$nextdateyearshow.",".$nextdatemonthfixed.",".$nextdatedayshow.",".$nextdatehourshow.",".$nextdateminshow."";
-	
+
 require_once("".e_PLUGIN."aacgc_eventcountdowns/counter.php");
 $text .= $counterscript;
 
-//----------------# show events and countdowns #-----------------+
+//----------------# show event and countdown #-----------------+
 
 if($pref['ecds_countercolor'] == "black"){$color = "#000000";}
 if($pref['ecds_countercolor'] == "white"){$color = "#ffffff";}
@@ -81,43 +63,31 @@ if($pref['ecds_countercolor'] == "yellow"){$color = "#ffff00";}
 if($pref['ecds_countercolor'] == "green"){$color = "#00ff00";}
 if($pref['ecds_countercolor'] == "blue"){$color = "#0000ff";}
 
-$text .= "
+$backlink = "<a href='".e_PLUGIN."aacgc_eventcountdowns/Events.php'><img width='16px' height='16px' src='".e_PLUGIN."aacgc_eventcountdowns/images/back.png' align='left' /></a>";
+if(ADMIN){$adminedit = "<a href='".e_PLUGIN."aacgc_eventcountdowns/admin_events.php?edit.".$row['ecds_id']."'><img width='16px' height='16px' src='".e_PLUGIN."aacgc_eventcountdowns/images/edit.png' align='right' /></a>";}
+
+$text .= "".$backlink." ".$adminedit."
+<table style='width:100%' class='".$themea."'>
 	<tr>
-		<td style='text-align:center;' class='".$themea."' colspan='2'>
-			<a href='".e_PLUGIN."aacgc_eventcountdowns/Event_Details.php?".$row['ecds_id']."'>".$tp -> toHTML($row['ecds_title'], TRUE)."</a>
-		</td>
+		<td style='text-align:center' class='".$themea."'>".$tp -> toHTML($row['ecds_title'], TRUE)."</td>
 	</tr>
 	<tr>
-		<td style='text-align:center;' class='".$themeb."' colspan='2'>
-			".date($pref['ecds_dateformat'], $row['ecds_date'])." ".$row['ecds_tzone']."
-			<br/>			
+		<td style='text-align:center;' class=''>
+			". $tp->toDate($row['ecds_date'], "short")."
+		</td>
+	</tr>	
+	<tr>
+		<td style='text-align:center;' class='".$themeb."'>
 			<div id='currcountbox".$nexteventid."' style='width:100%; text-align:center; color:".$color."; font-size:".$pref['ecds_countersize']."px' align='center'></div>
 		</td>
-	</tr>";
-	
-if($pref['ecds_showfuturepage'] == "1"){
-	
-$text .= "<tr>
-		<td style='text-align:center;' class='".$themea."' colspan='2'><b>".ECDS_01."</b></td>
-	</tr>
-";
-
-$sql2 = new db;                                   
-$sql2->db_Select("aacgc_eventcountdowns", "*", "ecds_date > ".$now." order by ecds_date asc");
-while($row2 = $sql2->db_Fetch()){
-	
-$text .= "
 	<tr>
-		<td style='text-align:center; width:50%;' class='".$themeb."'><a href='".e_PLUGIN."aacgc_eventcountdowns/Event_Details.php?".$row2['ecds_id']."'>".$tp -> toHTML($row2['ecds_title'], TRUE)."</a></td>
-		<td style='text-align:center; width:50%;' class='".$themeb."'>".date($pref['ecds_dateformat'], $row2['ecds_date'])." ".$row2['ecds_tzone']."</td>
+		<td style='' class=''>".$tp -> toHTML($row['ecds_detail'], TRUE)."</td>
 	</tr>
-";	
-	
-}
-}
+</table>";
 
-$text .= "</table>";
+//-------------------------# Page Title #--------------------------------------------------------------------+
 
+$title .= "".ACR_28."";
 
 //----#AACGC Plugin Copyright&reg; - DO NOT REMOVE BELOW THIS LINE! - #-------+
 require(e_PLUGIN . 'aacgc_eventcountdowns/plugin.php');
