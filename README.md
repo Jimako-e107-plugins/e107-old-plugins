@@ -778,6 +778,11 @@ source: https://e107.org/plugins/?id=226
 Simply Tagcloud menu v1.1
 by Jezza101
 
+Top Tag tagclouds for e107
+by Jezza101
+source: http://gnu.su/
+it's not on e107.org
+
 =======
 
 ForumThanks v0.5
