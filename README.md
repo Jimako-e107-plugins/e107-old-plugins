@@ -774,3 +774,16 @@ Requires the e107 Helper Project to be installed.
 
 source: https://e107.org/plugins/?id=226
 =======
+
+Simply Tagcloud menu v1.1
+by Jezza101
+
+=======
+
+ForumThanks v0.5
+by Jezza101
+
+ForumThanks v0.6
+Milad Pazouki
+
+=======
