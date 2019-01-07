@@ -88,7 +88,10 @@ if($action == 'up_type') {
                  $cfg['fltr'][] = 'bord|1|0|0|C0C0C0';
                  $url = makeURL("{e_PLUGIN}sgallery/pics/".$row['path'].'/'.$img['fname']);
                  $thumbpath = makeURL($imagepath);
-                 $text .= "<div style='float: left; margin: 0px 3px'><a href='".SGAL_ALBUMPATH_ABS.$row['path']."/{$img['fname']}' class='lightview' rel='gallery_{$id}' title='{$img['fname']}' onclick=\"sgalSmartOpen('".showJsThumb($thumbpath.$img['fname'], $img['fname'].': '.SGAL_LANADM_36, 'relative')."', 1, this); return false;\"><img src='".showThumb($url, $cfg, 'relative', "./includes/")."' alt='".$img['fname']."' style='border: 0px none;' /></a></div>";
+                 $text .= "<div style='float: left; margin: 0px 3px'>
+                 <a href='".SGAL_ALBUMPATH_ABS.$row['path']."/{$img['fname']}' class='lightview' rel='gallery_{$id}' title='{$img['fname']}' 
+                 onclick=\"sgalSmartOpen('".showJsThumb($thumbpath.$img['fname'], $img['fname'].': '.SGAL_LANADM_36, 'relative')."', 1, this); return false;\">
+                 <img src='".showThumb($imagepath.'/'.$img['fname'], $cfg )."' alt='".$img['fname']."' style='border: 0px none;' /></a></div>";
             }
         }
     }
