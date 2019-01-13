@@ -1,0 +1,134 @@
+table.roster {
+	border-width: 1px 1px 1px 1px;
+	border-color: #000000;
+	border-collapse: collapse;
+	border-style: outset outset outset outset;
+	border-spacing: 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+table.roster td {
+	border-width: 1px 1px 1px 1px;
+	padding: 5px 5px 5px 5px;
+	border-color: #000000;
+	border-style: inset inset inset inset;
+	border-spacing: 0px;
+}
+
+/* Style for the roster shown to admin */
+
+table.roster a:link {
+	color: #FFB000; 
+	text-decoration: underline;
+}
+table.roster a:active {
+	color: #FFB000;
+	text-decoration: underline;
+}
+table.roster a:visited {
+	color: #FFB000;
+	text-decoration: underline;
+}
+table.roster a:hover {
+	color: #FF9000; 
+	text-decoration: none;
+}
+
+.aroster_main {
+	background-image: url(../images/cellpic3.gif);
+	height: 25px;
+	color: #c7c0a5;
+	font-weight: bold;
+	text-align: center;
+}
+
+.aroster_header {
+	color: #A1A0A1;
+	background-color: #414141;
+	text-align: left;
+	vertical-align: middle;
+	height: 25px;
+}
+
+.aroster_footer {
+	color: #A1A0A1;
+	background-color: #414141;
+	text-align: left;
+	vertical-align: middle;
+	height: 25px;
+}
+
+.aroster_thumb1 {
+	color: #FFFFFF;
+	background-color: #616161;
+	text-align: center;
+	vertical-align: middle;
+	height: 25px;
+}
+
+.aroster_thumb2 {
+	color: #FFFFFF;
+	background-color: #818181;
+	text-align: center;
+	vertical-align: middle;
+	height: 25px;
+}
+
+.aroster_row1 {
+	color: #FFFFFF;
+	background-color: #616161;
+	text-align: left;
+	vertical-align: middle;
+	height: 25px;
+}
+
+.aroster_row2 {
+	color: #FFFFFF;
+	background-color: #818181;
+	text-align: left;
+	vertical-align: middle;
+	height: 25px;
+}
+
+/* Style for the roster */
+.roster_main {
+	background-image: url(../images/cellpic3.gif);
+	height: 25px;
+	color: #c7c0a5;
+	font-weight: bold;
+	text-align: center;
+}
+
+.roster_header {
+	color: #FFFFFF;
+	background-color: #414141;
+	text-align: center;
+	vertical-align: middle;
+	height: 20px;
+}
+
+.roster_row1 {
+	color: #FFFFFF;
+	background-color: #616161;
+	text-align: center;
+	vertical-align: middle;
+	/*height: 20px;*/
+}
+
+.roster_row2 {
+	color: #FFFFFF;
+	background-color: #818181;
+	text-align: center;
+	vertical-align: middle;
+	/*height: 20px;*/
+}
+
+.roster_uniform {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.roster_xfireprofile {
+	text-align: center;
+	vertical-align: middle;
+}

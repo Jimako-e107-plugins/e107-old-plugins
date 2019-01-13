@@ -821,3 +821,33 @@ Note: see plugins above from the same author.
 EDIT:  the author's site is not available anymore
 
 =======
+
+e107: Clan Members 1.0  
+
+Source: unknown
+
+Credit:  Untergang from udesigns.be
+
+state: just backup 
+
+Note: see plugins above from the same author. What is difference?
+
+EDIT:  the author's site is not available anymore
+
+=======
+
+Roster by Carl Taylor 
+
+Author: nephilim222
+
+Source: https://e107.org/plugins/?id=410
+
+Credit: The product is Copyrighted by Carl Taylor. 
+Any distribution or changing and redistribution of products without the consent of its original owner is a violation of Copyright laws.
+
+state: just backup 
+
+=======
+
+
+
