@@ -820,6 +820,8 @@ Note: see plugins above from the same author.
 
 EDIT:  the author's site is not available anymore
 
+* THERE IS AVAILABLE FULL VERSION for 0.7 - courtesy from Untergang *
+
 =======
 
 e107: Clan Members 1.0  
@@ -829,8 +831,6 @@ Source: unknown
 Credit:  Untergang from udesigns.be
 
 state: just backup 
-
-Note: see plugins above from the same author. What is difference?
 
 EDIT:  the author's site is not available anymore
 
