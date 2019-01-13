@@ -93,6 +93,8 @@ state: just backup
 
 note: needs to use e107_images/clan for images
 
+EDIT:  the author's site is not available anymore
+
 =======
 
 ### CHATBOX II by Billy Smith http://www.vitalogix.com
@@ -116,6 +118,8 @@ state: just backup
 
 note: needs to use e107_images/clan for images and a lot of extra stuff
 
+EDIT:  the author's site is not available anymore
+
 =======
 
 ### ClanSystem by Sherwood McGowan & Shannon Kamer 
@@ -133,6 +137,8 @@ still able download: http://www.udesigns.be/shop-i80-e107-clan-wars
 state: just backup 
 
 note: needs to use e107_images/clan for images and a lot of extra stuff
+
+EDIT:  the author's site is not available anymore
 
 =======
 
@@ -272,6 +278,8 @@ still able download: http://www.udesigns.be/shop-i81-e107-join-us
 state: just backup 
  
 note: needs to use e107_images/clan for images and a lot of extra stuff
+
+EDIT:  the author's site is not available anymore
 
 =======
 
@@ -797,5 +805,19 @@ by Jezza101
 
 ForumThanks v0.6
 Milad Pazouki
+
+=======
+
+e107: Clan Members Basic 1.0  
+
+Source: https://e107.org/plugins/?id=476
+
+Credit:  Untergang from udesigns.be
+
+state: just backup 
+
+Note: see plugins above from the same author. 
+
+EDIT:  the author's site is not available anymore
 
 =======
