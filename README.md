@@ -387,7 +387,7 @@ Description: A simple plugin that makes it obvious when you have unread private 
 
 Author credit: Richard Perry
 
-Original:  greycube.com  [site is down]  
+Original:  greycube.com   
 
 just backup
 
@@ -569,7 +569,7 @@ Protections:
 
 Signup, Comments, Forum, Chatbox, Logon, Forgot Password, Contact Form, Submit News, Submit Content, Submit Link, Report Broken Download, Guestbook 3.3+
 
-Original:  greycube.com  [site is down] 
+Original:  greycube.com 
 
 just backup
 
@@ -590,7 +590,7 @@ Features:
 - Option to always hide an admins location
 - Option for admins to see hostnames when hovering over a name 
 
-Original:  greycube.com  [site is down] 
+Original:  greycube.com 
 
 just backup
 
@@ -610,7 +610,7 @@ I also took the opportunity to go through all the code, updating, tidying and fi
 
 If you want to try it out, feel free to make a donation at GreyCube.com
 
-Original:  greycube.com  [site is down] 
+Original:  greycube.com  
 
 just backup
 
@@ -629,7 +629,7 @@ Why use this instead of the javascript ?
 - The javascript can freeze a visitors browser if Enemy Down has problems.
 - You can edit the code and use your own custom layout.
 
-Original:  greycube.com  [site is down] 
+Original:  greycube.com 
 
 just backup
 
@@ -747,7 +747,7 @@ Wolfenstein: Enemy Territory
 Wolfenstein: Return To Castle Wolfenstein
 Wolfenstein ( 2009 By Raven )
 
-Original:  greycube.com  [site is down] 
+Original:  greycube.com 
 
 just backup
 
@@ -849,5 +849,16 @@ state: just backup
 
 =======
 
+RWar v1.4 
 
+An E107 based Clan War Management plugin by Richard Perry
 
+Author: Richard Perry
+
+Source: https://www.greycube.com/site/download.php?view.11
+
+Credit:  
+
+state: just backup 
+
+=======

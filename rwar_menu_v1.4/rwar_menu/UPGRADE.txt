@@ -1,0 +1,59 @@
+  =======================================================================================
+  =                                                                                     =
+  =                 Instructions for upgrading RWar 0.6 to RWar 1.x                     =
+  =                                                                                     =
+  =======================================================================================
+
+  PLEASE FOLLOW CAREFULLY TO AVOID LOSS OF EXISTING WARS
+  
+  
+  1. Backup your E107 Database using CPanel or phpMyAdmin
+  
+     ( So if for some reason it goes wrong, you can restore back and contact me for help )
+  
+
+  2. Backup any custom images for Games - Types - Leagues
+  
+     ( You are going to delete your rwar folder later, so make sure you have a copy )
+    
+
+  3. Upload JUST the rwar_backup.php from RWar 1.x and overwrite the existing 0.6 version
+
+     ( in otherwords the new backup file will be running within the old rwar )
+
+  
+  3  Admin Area, RWAR, Backup, Save the file for later
+
+     ( the file will be a new format backup but made from the old rwar data )
+
+  
+  4. Admin Area, Plugin Manager, Un-Install RWar 0.6
+
+     ( do not try to upgrade as it will not work, the new rwar must be installed )
+
+
+  5. Delete RWar 0.6 folder /e107_plugins/rwar_menu/
+
+     ( or rename the folder, just do not leave any old files behind )
+
+
+  6. Upload RWar 1.x folder
+
+  7. Admin Area, Plugin Manager, Install RWar 1.x
+
+  8. Admin Area, RWar, Restore, Select the backup created earlier, Click upload
+
+
+  Finished.  Have you looked at the new README.txt ?
+  
+  =======================================================================================
+
+  LIMITATIONS OF THE UPGRADE
+  
+  - The Maps field is split by coma, so anything else will produce one large map name
+  
+  - Clan Tags will be made from the first part of a clans name
+  
+  - Pending Wars will be placed into the Previous War section
+
+  =======================================================================================
