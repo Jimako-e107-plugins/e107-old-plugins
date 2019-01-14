@@ -15,8 +15,11 @@ if (!defined('CM_ADMIN')) {
 	die ("Access Denied");
 }
 
-$abbr = mysql_real_escape_string($_POST['abbr']);
-$gname = mysql_real_escape_string($_POST['gname']);
+$tp = e107::getParser();
+$sql = e107::getDb();
+
+$abbr = $tp->toDB($_POST['abbr']);
+$gname = $tp->toDB($_POST['gname']);
 $inmembers = intval($_POST['inmembers']);
 $inwars = intval($_POST['inwars']);
 
@@ -64,8 +67,8 @@ if(isset($_FILES['gameicon'])) {
 	}
 }
 
-$sql->db_Select("clan_games", "position", "ORDER BY position DESC LIMIT 1", "");
-$row = $sql->db_Fetch();
+$sql->select("clan_games", "position", "ORDER BY position DESC LIMIT 1", "");
+$row = $sql->fetch();
 $position = $row['position'] + 1;
 
 if($gname !=""){

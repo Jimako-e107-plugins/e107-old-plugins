@@ -15,7 +15,7 @@ if (!defined('e107_INIT')) { exit; }
 
 // Plugin info -------------------------------------------------------------------------------------------------------
 $eplug_name = 'Clan Members';
-$eplug_version = '1.1.0';
+$eplug_version = '1.2.0';
 $eplug_author = 'Untergang';
 $eplug_url = 'http://www.udesigns.be';
 $eplug_email = '';

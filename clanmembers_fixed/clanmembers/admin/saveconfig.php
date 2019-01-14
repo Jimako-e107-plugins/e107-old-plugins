@@ -15,6 +15,9 @@ if (!defined('CM_ADMIN')) {
 	die ("Access Denied");
 }
 
+$tp = e107::getParser();
+$sql = e107::getDb();
+
 $orderorder = $_POST['orderorder'];
 $neworder = $_POST['neworder'];
 $profileorder = $_POST['profileorder'];
@@ -26,16 +29,16 @@ $xallowchangeinfo = intval($_POST['xallowchangeinfo']);
 $xallowupimage = intval($_POST['xallowupimage']);
 $maxwidth = intval($_POST['maxwidth']);
 $maxheight = intval($_POST['maxheight']);
-$cmtitle = mysql_real_escape_string($_POST['cmtitle']);
-$titlealign = mysql_real_escape_string($_POST['titlealign']);
-$banneralign = mysql_real_escape_string($_POST['banneralign']);
+$cmtitle = $tp->toDB($_POST['cmtitle']);
+$titlealign = $tp->toDB($_POST['titlealign']);
+$banneralign = $tp->toDB($_POST['banneralign']);
 $xshow_gname = intval($_POST['xshow_gname']);
 $padding = intval($_POST['padding']);
 $maxfilesize = intval($_POST['maxfilesize']);
 $xmembersperrow = intval($_POST['xmembersperrow']);
 $xrank_per_game = intval($_POST['xrank_per_game']);
-$joinformat = mysql_real_escape_string($_POST['joinformat']);
-$birthformat = mysql_real_escape_string($_POST['birthformat']);
+$joinformat = $tp->toDB($_POST['joinformat']);
+$birthformat = $tp->toDB($_POST['birthformat']);
 $enableprofile = intval($_POST['enableprofile']);
 $enablehardware = intval($_POST['enablehardware']);
 $enablegallery = intval($_POST['enablegallery']);
@@ -46,11 +49,11 @@ $thumbwidth = intval($_POST['thumbwidth']);
 $showuserimage = intval($_POST['showuserimage']);
 $profileimgwidth = intval($_POST['profileimgwidth']);
 $profileimgheight = intval($_POST['profileimgheight']);
-$listwidth = mysql_real_escape_string($_POST['listwidth']);
+$listwidth = $tp->toDB($_POST['listwidth']);
 $leftboxwidth = intval($_POST['leftboxwidth']);
 $leftsidewidth = intval($_POST['leftsidewidth']);
-$gamesorteams = mysql_real_escape_string($_POST['gamesorteams']);
-$profilealign = mysql_real_escape_string($_POST['profilealign']);
+$gamesorteams = $tp->toDB($_POST['gamesorteams']);
+$profilealign = $tp->toDB($_POST['profilealign']);
 $gamesmemberswars = intval($_POST['gamesmemberswars']);
 $teamsmemberswars = intval($_POST['teamsmemberswars']);
 $showlastwars = intval($_POST['showlastwars']);

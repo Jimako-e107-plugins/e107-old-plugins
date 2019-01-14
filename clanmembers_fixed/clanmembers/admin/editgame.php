@@ -17,8 +17,8 @@ if (!defined('CM_ADMIN')) {
 
 $gid = intval($_GET['gid']);
 
-$sql->db_Select("clan_games", "*", "gid='$gid'");
-$row = $sql->db_Fetch();
+$sql->select("clan_games", "*", "gid='$gid'");
+$row = $sql->fetch();
 	$gid = intval($row['gid']);
 	$abbr = $row['abbr'];
 	$gname = $row['gname'];
@@ -43,14 +43,12 @@ $row = $sql->db_Fetch();
             display:none;
 			cursor:pointer;
         }
-		#editgametable td{
-		padding: 1px;
-	}
+ 
     </style>
     <?php
 
 	$text =  "<form action='admin_old.php?savegame' method='post' enctype='multipart/form-data'>
-	<table id='editgametable'>
+	<table id='editgametable' class='table adminform'>  <tbody>
 		<tr>
 			<td align='left'>"._ABBRV.":&nbsp;</td>
 			<td align='left'><input type='text' name='abbr' value='$abbr'></td>
@@ -126,9 +124,9 @@ $row = $sql->db_Fetch();
 			</div>
 			<br />				
 			<div id='memberslist'>";
-			$sql1 = new db;
-			$sql->db_Select_gen("SELECT u.user_name, i.userid FROM #clan_members_info i, #user u WHERE u.user_id=i.userid Order BY u.user_name");
-				while($row = $sql->db_Fetch()){
+			$sql1 = e107::getDb();
+			$sql->gen("SELECT u.user_name, i.userid FROM #clan_members_info i, #user u WHERE u.user_id=i.userid Order BY u.user_name");
+				while($row = $sql->fetch()){
 					$memberid = $row['userid'];
 					$member = $row['user_name'];
 					$match = $sql1->db_Count("clan_members_gamelink", "(*)", "WHERE userid='$memberid' and gid='$gid'");
@@ -142,7 +140,7 @@ $row = $sql->db_Fetch();
 			<input type='hidden' name='e-token' value='".e_TOKEN."' />
 			<input type='submit' class='button' name='submit' value='"._SAVECHANGES."'></td>
 		</tr>
-	</table>
+	</tbody></table>
 	</form>";
 	
 	$ns->tablerender(_EDITGAME, $text);

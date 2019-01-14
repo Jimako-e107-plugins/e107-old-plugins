@@ -15,8 +15,11 @@ if (!defined('CM_ADMIN')) {
 	die ("Access Denied");
 }
 
+$tp = e107::getParser();
+$sql = e107::getDb();
+
 $rid = intval($_POST['rid']);
-$rank = mysql_real_escape_string($_POST['rank']);
+$rank = $tp->toDB($_POST['rank']);
 
 $qry = "";
 if(isset($_FILES['rankimage'])) { 

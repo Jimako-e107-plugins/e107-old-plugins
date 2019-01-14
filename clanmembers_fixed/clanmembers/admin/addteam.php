@@ -15,9 +15,12 @@ if (!defined('CM_ADMIN')) {
 	die ("Access Denied");
 }
 
-$team_tag = mysql_real_escape_string($_POST['team_tag']);
-$team_name = mysql_real_escape_string($_POST['team_name']);
-$team_country = mysql_real_escape_string($_POST['team_country']);
+$tp = e107::getParser();
+$sql = e107::getDb();
+
+$team_tag = $tp->toDB($_POST['team_tag']);
+$team_name = $tp->toDB($_POST['team_name']);
+$team_country = $tp->toDB($_POST['team_country']);
 $inmembers = intval($_POST['inmembers']);
 $inwars = intval($_POST['inwars']);
 if($team_country == "") $team_country = "Unknown";
@@ -64,8 +67,8 @@ if(isset($_FILES['teamicon'])) {
 	}
 }
 
-$sql->db_Select("clan_teams", "position", "ORDER BY position DESC LIMIT 1", "");
-$row = $sql->db_Fetch();
+$sql->select("clan_teams", "position", "ORDER BY position DESC LIMIT 1", "");
+$row = $sql->fetch();
 $position = $row['position'] + 1;
 
 if($team_tag !="" && $team_name !=""){

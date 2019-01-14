@@ -16,16 +16,7 @@ if (!defined('CM_ADMIN')) {
 }
 
 	?>
-	<style type="text/css">
-	.showpointer{
-		border:0;
-		cursor:default;
-	}
-	#awardstable td{
-		vertical-align: middle;
-		text-align:center;
-	}
-	</style>
+ 
 	<script type="text/javascript" src="includes/jquery.tablednd.js"></script>
 	<script type="text/javascript">
 	clanm_jq(document).ready(function() {
@@ -76,7 +67,7 @@ if (!defined('CM_ADMIN')) {
 
 	
 	$text = "<form action='admin_old.php?AddAward' method='post' enctype='multipart/form-data' onSubmit='return CheckForm();'>
-	<table border='0' cellpadding='0' cellspacing='2'>
+	<table class='table adminform'> <tbody>
 		<tr>
 			<td align='left'>"._TITLE.": </td>
 			<td align='left'><input id='awardtitle' type='text' name='awardtitle' maxlength='40'></td>
@@ -91,7 +82,7 @@ if (!defined('CM_ADMIN')) {
 		</tr><tr>
 			<td align='left' colspan='1'><input type='submit' class='button' name='submit' value='"._ADDAWARD."'> </td>
 		</tr>
-	</table>
+	</tbody></table>
 	
 	<input type='hidden' name='e-token' value='".e_TOKEN."' />
 	</form>";
@@ -103,9 +94,17 @@ if($sql->db_Count("clan_members_awards") > 0){
 	//Edit awards	
 	$text = "<form method='post' action='admin_old.php?giveaward' name='giveaward'>
 	<div align='right'><input type='submit' class='button' value='"._GIVEAWARDS."' title='"._CHECKAWARDSFIRST."' id='give1' disabled style='margin-bottom:2px;'></div>";
-	$text .= "<table id='awardstable' style='".ADMIN_WIDTH."' class='fborder'>";
-	$result = $sql->db_Select("clan_members_awards", "*", "ORDER BY position ASC", "");
-	while($row = $sql->db_Fetch()){
+	$text .= "<table id='awardstable' style='".ADMIN_WIDTH."' class='fborder table adminlist'>";
+		$text .= "<thead><tr>
+					<th class='fcaption'></th>
+					<th class='fcaption'><b>"._TITLE."</b></th>
+					<th class='fcaption'><b>"._DESCR."</b></th>
+					<th class='fcaption'><b>"._IMG."</b></th>";
+	$text .= "<th class='fcaption'><b>"._FUNCTIONS."</b></th>
+				</tr> </thead>
+				<tbody>";
+	$result = $sql->select("clan_members_awards", "*", "ORDER BY position ASC", "");
+	while($row = $sql->fetch()){
 		$rid = $row['rid'];
 		$title = $row['title'];
 		$description = $row['description'];
@@ -125,7 +124,7 @@ if($sql->db_Count("clan_members_awards") > 0){
 			<td class='forumheader3' width='10' nowrap><input type='button' class='button' value='"._EDIT."' onclick=\"window.location='admin_old.php?editaward&rid=$rid'\">&nbsp;<input type='button' class='button' value='"._DEL."' onclick=\"DelAward('$rid');\"></td>
 		</tr>";
 	}
-	$text .= "</table>";
+	$text .= "</tbody></table>";
 	$text .= "<div align='right'><input type='submit' class='button' value='"._GIVEAWARDS."' title='"._CHECKAWARDSFIRST."' id='give2' disabled style='margin-top:2px;'></div>
 		<input type='hidden' name='e-token' value='".e_TOKEN."' />
 		</form>";

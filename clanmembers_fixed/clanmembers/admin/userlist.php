@@ -47,8 +47,11 @@ if (!defined('CM_ADMIN')) {
 	die ("Access Denied");
 }
 
-$query = mysql_real_escape_string($_POST['query']);
-$games = mysql_real_escape_string($_POST['games']);
+$tp = e107::getParser();
+$sql = e107::getDb();
+
+$query = $tp->toDB($_POST['query']);
+$games = $tp->toDB($_POST['games']);
 if($games !="") $glist = explode(",", $games);
 
 
@@ -58,9 +61,9 @@ $where = "";
 if($query !=""){
 	$where = "WHERE user_name LIKE '%$query%'";
 }
-$sql1 = new db;
-$sql -> db_Select("user", "user_id, user_name", "$where ORDER BY user_name ASC", "");
-	while($row = $sql-> db_Fetch()){
+$sql1 = e107::getDB();
+$sql -> select("user", "user_id, user_name", "$where ORDER BY user_name ASC", "");
+	while($row = $sql-> fetch()){
 		$userid = $row['user_id'];
 		$member = $row['user_name'];
 		if($sql1->db_Count("clan_members_info", "(*)", "WHERE userid='$userid'") == 0){
@@ -75,8 +78,8 @@ if($nousers > 0){
 	//Games
 	if($sql->db_Count("clan_games", "(*)", "WHERE inmembers='1'") > 0){
 		$text = "";
-		$sql -> db_Select("clan_games", "gid, gname", "ORDER BY position ASC", "");
-		while($row = $sql-> db_Fetch()){
+		$sql -> select("clan_games", "gid, gname", "ORDER BY position ASC", "");
+		while($row = $sql-> fetch()){
 			$gid = $row['gid'];
 			$gname = $row['gname'];
 			$text .= "<label><input name='games[]' value='$gid' type='checkbox' ".($games !="" && in_array($gid,$glist)?"checked":"").">$gname</label><br />";
@@ -87,8 +90,8 @@ if($nousers > 0){
 	//Teams
 	if($sql->db_Count("clan_teams", "(*)", "WHERE inmembers='1'") > 0){
 	$text = "";
-	$sql -> db_Select("clan_teams", "tid, team_name", "ORDER BY position ASC", "");
-		while($row = $sql-> db_Fetch()){
+	$sql -> select("clan_teams", "tid, team_name", "ORDER BY position ASC", "");
+		while($row = $sql-> fetch()){
 			$tid = $row['tid'];
 			$team_name = $row['team_name'];
 			$text .= "<label><input name='teams[]' value='$tid' type='checkbox'>$team_name</label><br />";
@@ -100,8 +103,8 @@ if($nousers > 0){
 	if($sql->db_Count("clan_members_ranks") > 0){
 	$text = "<select name='rank'>
 		<option value='0'>"._NORANK."</option>";
-	$sql -> db_Select("clan_members_ranks", "rid, rank", "ORDER BY rankorder ASC", "");
-		while($row = $sql-> db_Fetch()){
+	$sql -> select("clan_members_ranks", "rid, rank", "ORDER BY rankorder ASC", "");
+		while($row = $sql-> fetch()){
 			$rid = $row['rid'];
 			$rank = $row['rank'];
 			$text .= "<option value='$rid'>$rank</option>";

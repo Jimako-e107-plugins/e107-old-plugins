@@ -30,17 +30,17 @@ $rid = intval($_GET['rid']);
 	</script>	
 	<?php
 	
-$sql->db_Select("clan_members_awards", "*", "rid='$rid'");
-$row = $sql->db_Fetch();
+$sql->select("clan_members_awards", "*", "rid='$rid'");
+$row = $sql->fetch();
 	$title = $row['title'];
 	$description = $row['description'];		
 	$image = $row['image'];		
 					
-echo"<center><table><tr><td align='left'>";
+echo"<center><table class='table '><tr><td align='left'>";
 echo "<center><font class='title'><b>"._EDITAWARD."</b></font><br><br></center>";
 
 echo "<form action='admin_old.php?saveaward' method='post' enctype='multipart/form-data' onSubmit='return CheckForm();'>
-	<table border='0' cellpadding='0' cellspacing='2'>
+	<table class='table adminform' > <tbody>
 		<tr>
 			<td align='left'>"._TITLE.": </td>
 			<td align='left'><input type='text' id='awardtitle' name='awardtitle' value='$title' size='25' maxlength='40'></td>
@@ -57,11 +57,11 @@ echo "<form action='admin_old.php?saveaward' method='post' enctype='multipart/fo
 			<td align='left' colspan='2'><font style='font-size:9px;'>"._LEAVEEMPTYNOTCHANGE."</font></td>
 		</tr>
 		
-	</table>
+	</tbody></table>
 	<br />
 	<input type='hidden' name='rid' value='".$rid."' />
 	<input type='hidden' name='e-token' value='".e_TOKEN."' />
-	<input type='submit' name='submit' value='"._SAVECHANGES."'> 
+	<input type='submit' class='button'  name='submit' value='"._SAVECHANGES."'> 
 	</form>";
 echo"</td></tr></table></center>";
 	

@@ -28,12 +28,12 @@ $rid = intval($_GET['rid']);
 	</script>	
 	<?php
 
-$sql->db_Select("clan_members_ranks", "*", "rid='$rid'");
-$row = $sql->db_Fetch();
+$sql->select("clan_members_ranks", "*", "rid='$rid'");
+$row = $sql->fetch();
 	$rank = $row['rank'];
 	$rimage = $row['rimage'];
 $text = "<center><form method='post' action='admin_old.php?SaveRank' enctype='multipart/form-data' onSubmit='return CheckForm();'>
-	<table border='0' cellpadding='0' cellspacing='2'>
+	<table class='table adminform'>
 		<tr>
 			<td align='left'>"._INFORank.": </td>
 			<td align='left'><input type='text' id='rank' name='rank' value='$rank' size='15' maxlength='100'></td>

@@ -15,9 +15,12 @@ if (!defined('CM_ADMIN')) {
 	die ("Access Denied");
 }
 
+$tp = e107::getParser();
+$sql = e107::getDb();
+
 $gid = intval($_POST['gid']);
-$abbr = mysql_real_escape_string($_POST['abbr']);
-$gname = mysql_real_escape_string($_POST['gname']);
+$abbr = $tp->toDB($_POST['abbr']);
+$gname = $tp->toDB($_POST['gname']);
 $delbanner = intval($_POST['delbanner']);
 $delicon = intval($_POST['delicon']);
 $inmembers = intval($_POST['inmembers']);
@@ -75,9 +78,9 @@ if(isset($_FILES['gameicon'])) {
 
 
 //Update Members
-$sql1 = new db;
-$sql->db_Select("clan_members_info", "userid", "Order BY userid ASC", "");
-while($row = $sql->db_Fetch()){
+$sql1 = e107::getDB();
+$sql->select("clan_members_info", "userid", "Order BY userid ASC", "");
+while($row = $sql->fetch()){
 	if(intval($_POST["add".$row['userid']]) == 1){
 		$match = $sql1->db_Count("clan_members_gamelink", "(*)", "WHERE userid='".$row['userid']."' and gid='$gid'");
 		if($match == 0){

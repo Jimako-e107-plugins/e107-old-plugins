@@ -25,8 +25,8 @@ for($i=0;$i<count($cmawards);$i++){
 	$text .= "<input type='hidden' name='cmawards[]' value='$cmawards[$i]'>";
 }
 
-$result = $sql->db_Select_gen("SELECT u.user_name, i.userid from #clan_members_info i, #user u WHERE u.user_id=i.userid order by u.user_name");
-	while($row = $sql->db_Fetch()){
+$result = $sql->gen("SELECT u.user_name, i.userid from #clan_members_info i, #user u WHERE u.user_id=i.userid order by u.user_name");
+	while($row = $sql->fetch()){
 		$memberid = $row['userid'];
 		$member = $row['user_name'];
 		

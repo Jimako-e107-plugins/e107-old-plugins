@@ -17,19 +17,7 @@ if (!defined('CM_ADMIN')) {
 $games = $sql->db_Count("clan_games");
 
 	?>
-	<style type="text/css">
-	.showpointer{
-		border:0;
-		cursor:default;
-	}
-	#gamestable td{
-		vertical-align: middle;
-		text-align:center;
-	}
-	#addgametable td{
-		padding: 1px;
-	}
-	</style>
+ 
     <script type="text/javascript">	
 	//LANG
 	var games = "<?php echo $games;?>";
@@ -41,22 +29,22 @@ $games = $sql->db_Count("clan_games");
 	<script type="text/javascript" src="includes/games.js"></script>
 	<?php
 	$text = "<center><form action='admin_old.php?AddGame' method='post' enctype='multipart/form-data' onSubmit='return CheckForm();'>
-		<table id='addgametable'>
+		<table id='addgametable' class='table adminform'><tbody>
 			<tr>
-				<td align='left'>"._ABBRV.":&nbsp;</td>
-				<td align='left'><input type='text' name='abbr' value=''></td>
+				<td align='left'  >"._ABBRV.":&nbsp;</td>
+				<td align='left'><input type='text' class='tbox form-control ' name='abbr' value=''></td>
 			</tr>
 			<tr>
 				<td align='left'>"._NAME.":&nbsp;</td>
-				<td align='left'><input type='text' id='gname' name='gname' value=''></td>
+				<td align='left'><input type='text' class='tbox form-control ' id='gname' name='gname' value=''></td>
 			</tr>
 			<tr>	
 				<td align='left'>"._BANNER.":&nbsp;</td>
-				<td align='left'><input type='file' name='gamebanner'></td>
+				<td align='left'><input type='file' class='tbox ' name='gamebanner'></td>
 			</tr>
 			<tr>	
 				<td align='left'>"._ICON.":&nbsp;</td>
-				<td align='left'><input type='file' name='gameicon'></td>
+				<td align='left'><input type='file' class='tbox ' name='gameicon'></td>
 			</tr>";
 			if(isset($pref['plug_installed']['clanwars'])){
 				$text .= "<tr>	
@@ -74,7 +62,7 @@ $games = $sql->db_Count("clan_games");
 			$text .= "<tr>
 				<td align='left' colspan='2'><input class='button' type='submit' name='submit' value='"._ADDGAME."'></td>
 			</tr>
-		</table>
+		</tbody></table>
 	<input type='hidden' name='e-token' value='".e_TOKEN."' />
 	</form></center>";
 	$ns->tablerender(_ADDGAME, $text);
@@ -82,22 +70,22 @@ if($games>0){
 
 	$text = "<form method='post' action='admin_old.php?assigngames' name='assigngames'>
 	<div align='right'><input type='submit' class='button' value='"._ASSIGNGAMES."' title='"._CHECKGAMESTOASSIGN."' id='give1' disabled style='margin-bottom:2px;'></div>";
-	$text .= "<table id='gamestable' style='".ADMIN_WIDTH."' class='fborder'>";	
-		$text .= "<tr>
-					<td class='fcaption'></td>
-					<td class='fcaption'><b>"._ABBR."</b></td>
-					<td class='fcaption'><b>"._NAME."</b></td>
-					<td class='fcaption'><b>"._BANNER."</b></td>
-					<td class='fcaption'><b>"._ICON."</b></td>";
+	$text .= "<table id='gamestable'   class='fborder table adminlist table-striped'>";	
+		$text .= "<thead><tr>
+					<th class='fcaption'></th>
+					<th class='fcaption'><b>"._ABBR."</b></th>
+					<th class='fcaption'><b>"._NAME."</b></th>
+					<th class='fcaption'><b>"._BANNER."</b></th>
+					<th class='fcaption'><b>"._ICON."</b></th>";
 				if(isset($pref['plug_installed']['clanwars'])){
-					$text .= "<td class='fcaption' nowrap><b>"._INMEMBERS."</b></td>
-					<td class='fcaption' nowrap><b>"._INWARS."</b></td>";
+					$text .= "<th class='fcaption' nowrap><b>"._INMEMBERS."</b></th>
+					<th class='fcaption' nowrap><b>"._INWARS."</b></th>";
 				}
-					$text .= "<td class='fcaption'><b>"._FUNCTIONS."</b></td>
-				</tr>
+					$text .= "<th class='fcaption'><b>"._FUNCTIONS."</b></th>
+				</tr> </thead>
 				<tbody>";
-		$sql -> db_Select("clan_games", "*", "ORDER BY position ASC", "");
-			while($row = $sql-> db_Fetch()){
+		$sql -> select("clan_games", "*", "ORDER BY position ASC", "");
+			while($row = $sql-> fetch()){
 				$gid = $row['gid'];
 				$abbr = $row['abbr'];
 				$gname = $row['gname'];

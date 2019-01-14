@@ -14,9 +14,9 @@
 if (!defined('CM_ADMIN')) {
 	die ("Access Denied");
 }
-$sql1 = new db;
-$sql->db_Select("clan_members_config", "lastclean");
-$row = $sql->db_Fetch();
+$sql1 = e107::getDb();
+$sql->select("clan_members_config", "lastclean");
+$row = $sql->fetch();
 $lastclean = $row['lastclean'];
 if($lastclean < time() - 24*60*60){
 	$sql->db_Update("clan_members_config", "lastclean='".time()."'");
@@ -108,16 +108,16 @@ if($lastclean < time() - 24*60*60){
 	
 	
 	//Check Awards
-	$sql1->db_Select("clan_members_awardlink", "award");
-		while($row = $sql->db_Fetch()){
+	$sql1->select("clan_members_awardlink", "award");
+		while($row = $sql->fetch()){
 			if($sql1->db_Count("clan_members_awards", "(*)", "WHERE rid='".$row['award']."'") == 0){
 				$sql1->db_Delete("clan_members_awardlink", "award='".$row['award']."'");
 			}
 		}
 	
 	//Check Gallery
-	$sql->db_Select("clan_members_gallery", "userid");
-		while($row = $sql->db_Fetch()){
+	$sql->select("clan_members_gallery", "userid");
+		while($row = $sql->fetch()){
 			if($sql1->db_Count("clan_members_info", "(*)", "WHERE userid='".$row['userid']."'") == 0){
 				$sql1->db_Delete("clan_members_gallery", "userid='".$row['userid']."'");
 			}
@@ -127,8 +127,8 @@ if($lastclean < time() - 24*60*60){
 	
 	
 //Check members_member table
-$sql->db_Select("clan_members_gamelink");
-	while($row = $sql->db_Fetch()){
+$sql->select("clan_members_gamelink");
+	while($row = $sql->fetch()){
 		$match = $sql1->db_Count("clan_members_info", "(*)", "WHERE userid='".$row['userid']."'");
 		if($match == 0){
 			$sql1->db_Delete("clan_members_gamelink", "id='".$row['id']."'");
@@ -136,8 +136,8 @@ $sql->db_Select("clan_members_gamelink");
 		
 	}	
 //Check members_teamlink table
-$sql->db_Select("clan_members_teamlink");
-	while($row = $sql->db_Fetch()){
+$sql->select("clan_members_teamlink");
+	while($row = $sql->fetch()){
 		$match = $sql1->db_Count("clan_members_info", "(*)", "WHERE userid='".$row['userid']."'");
 		if($match == 0){
 			$sql1->db_Delete("clan_members_teamlink", "id='".$row['id']."'");

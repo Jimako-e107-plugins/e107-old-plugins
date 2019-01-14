@@ -15,10 +15,13 @@ if (!defined('CM_ADMIN')) {
 	die ("Access Denied");
 }
 
+$tp = e107::getParser();
+$sql = e107::getDb();
+
 $tid = intval($_POST['tid']);
-$team_tag = mysql_real_escape_string($_POST['team_tag']);
-$team_name = mysql_real_escape_string($_POST['team_name']);
-$team_country = mysql_real_escape_string($_POST['team_country']);
+$team_tag = $tp->toDB($_POST['team_tag']);
+$team_name = $tp->toDB($_POST['team_name']);
+$team_country = $tp->toDB($_POST['team_country']);
 $delbanner = intval($_POST['delbanner']);
 $delicon = intval($_POST['delicon']);
 $inmembers = intval($_POST['inmembers']);
@@ -77,9 +80,9 @@ if(isset($_FILES['teamicon'])) {
 
 
 //Update Members
-$sql1 = new db;
-$sql->db_Select("clan_members_info", "userid", "Order BY userid ASC", "");
-while($row = $sql->db_Fetch()){
+$sql1 = e107::getDB();
+$sql->select("clan_members_info", "userid", "Order BY userid ASC", "");
+while($row = $sql->fetch()){
 	if(intval($_POST["add".$row['userid']]) == 1){
 		$match = $sql1->db_Count("clan_members_teamlink", "(*)", "WHERE userid='".$row['userid']."' and tid='$tid'");
 		if($match == 0){

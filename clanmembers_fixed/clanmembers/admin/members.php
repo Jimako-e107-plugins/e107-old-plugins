@@ -61,8 +61,8 @@ if (!defined('CM_ADMIN')) {
 	</tr>";
 	
 
-	$sql->db_Select_gen("SELECT i.*, u.user_name from #clan_members_info i, #user u WHERE u.user_id=i.userid order by u.user_name");
-		while($row = $sql->db_Fetch()){
+	$sql->gen("SELECT i.*, u.user_name from #clan_members_info i, #user u WHERE u.user_id=i.userid order by u.user_name");
+		while($row = $sql->fetch()){
 			$member = $row['user_name'];
 			$memberid = $row['userid'];
 			$realname = $row['realname'];
@@ -76,9 +76,9 @@ if (!defined('CM_ADMIN')) {
 			$active = $row['active'];
 			$gender = $row['gender'];
 			
-			$sql2 = new db;
-			$sql2->db_Select("clan_members_ranks", "rank", "rid='$rank'");
-			$rowrank = $sql2->db_Fetch();
+			$sql2 = e107::getDb();
+			$sql2->select("clan_members_ranks", "rank", "rid='$rank'");
+			$rowrank = $sql2->fetch();
 			$rank = $rowrank['rank'];
 
 			$text .= "<tr id='member$memberid'>

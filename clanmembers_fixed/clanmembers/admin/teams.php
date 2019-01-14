@@ -17,19 +17,6 @@ if (!defined('CM_ADMIN')) {
 $teams = $sql->db_Count("clan_teams");
 
 	?>
-	<style type="text/css">
-	.showpointer{
-		border:0;
-		cursor:default;
-	}
-	#teamstable td{
-		vertical-align: middle;
-		text-align:center;
-	}
-	#addteamtable td{
-		padding: 1px;
-	}
-	</style>
     <script type="text/javascript">	
 	//LANG
 	var teams = "<?php echo $teams;?>";
@@ -43,7 +30,7 @@ $teams = $sql->db_Count("clan_teams");
 	<script type="text/javascript" src="includes/teams.js"></script>
 	<?php
 	$text = "<center><form action='admin_old.php?AddTeam' method='post' enctype='multipart/form-data' onSubmit='return CheckForm();'>
-		<table id='addteamtable'>
+		<table id='addteamtable' class='table adminform'><tbody>
 			<tr>
 				<td align='left'>"._TAG.":&nbsp;</td>
 				<td align='left'><input type='text' id='team_tag' name='team_tag' value=''></td>
@@ -101,7 +88,7 @@ $teams = $sql->db_Count("clan_teams");
 			$text .= "<tr>
 				<td align='left' colspan='2'><input class='button' type='submit' name='submit' value='"._ADDTEAM."'></td>
 			</tr>
-		</table>
+		</tbody></table>
 	<input type='hidden' name='e-token' value='".e_TOKEN."' />
 	</form></center>";
 	$ns->tablerender(_ADDTEAM, $text);
@@ -109,23 +96,23 @@ if($teams>0){
 
 	$text = "<form method='post' action='admin_old.php?assignteams' name='assignteams'>
 	<div align='right'><input type='submit' class='button' value='"._ASSIGNTEAMS."' title='"._CHECKTEAMSTOASSIGN."' id='give1' disabled style='margin-bottom:2px;'></div>";
-	$text .= "<table id='teamstable' style='".ADMIN_WIDTH."' class='fborder'>";	
-		$text .= "<tr>
-					<td class='fcaption'></td>
-					<td class='fcaption'><b>"._INFOCountry."</b></td>
-					<td class='fcaption'><b>"._TAG."</b></td>
-					<td class='fcaption'><b>"._NAME."</b></td>
-					<td class='fcaption'><b>"._BANNER."</b></td>
-					<td class='fcaption'><b>"._ICON."</b></td>";
+	$text .= "<table id='teamstable' class='fborder table adminlist table-striped'>";	
+		$text .= "<thead><tr>
+					<th class='fcaption'></th>
+					<th class='fcaption'><b>"._INFOCountry."</b></th>
+					<th class='fcaption'><b>"._TAG."</b></th>
+					<th class='fcaption'><b>"._NAME."</b></th>
+					<th class='fcaption'><b>"._BANNER."</b></th>
+					<th class='fcaption'><b>"._ICON."</b></th>";
 				if(isset($pref['plug_installed']['clanwars'])){
-					$text .= "<td class='fcaption' nowrap><b>"._INMEMBERS."</b></td>
-					<td class='fcaption' nowrap><b>"._INWARS."</b></td>";
+					$text .= "<td class='fcaption' nowrap><b>"._INMEMBERS."</b></th>
+					<th class='fcaption' nowrap><b>"._INWARS."</b></th>";
 				}
-					$text .= "<td class='fcaption'><b>"._FUNCTIONS."</b></td>
-				</tr>
+					$text .= "<th class='fcaption'><b>"._FUNCTIONS."</b></th>
+				</tr> </thead>
 				<tbody>";
-		$sql -> db_Select("clan_teams", "*", "ORDER BY position ASC", "");
-			while($row = $sql-> db_Fetch()){
+		$sql -> select("clan_teams", "*", "ORDER BY position ASC", "");
+			while($row = $sql-> fetch()){
 				$tid = $row['tid'];
 				$team_tag = $row['team_tag'];
 				$team_name = $row['team_name'];

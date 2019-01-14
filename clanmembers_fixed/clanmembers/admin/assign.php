@@ -59,8 +59,8 @@ if($type == "Awards"){
 		for($j=0;$j<count($cmnames);$j++){
 		if($cmnames[$j] != ""){
 			if($sql->db_Count("clan_members_gamelink", "(*)", "WHERE userid='$cmnames[$j]' and gid='$games[$i]'") == 0){
-				$sql->db_Select("clan_members_info", "rank", "userid='$cmnames[$j]'");
-				$row = $sql->db_Fetch();				
+				$sql->select("clan_members_info", "rank", "userid='$cmnames[$j]'");
+				$row = $sql->fetch();				
 				$sql->db_Insert("clan_members_gamelink", array("gid" => $games[$i], "userid" => $cmnames[$j], "rank" => $row['rank']));
 			}
 		}
@@ -78,8 +78,8 @@ if($type == "Awards"){
 		for($j=0;$j<count($cmnames);$j++){
 		if($cmnames[$j] != ""){
 			if($sql->db_Count("clan_members_teamlink", "(*)", "WHERE userid='$cmnames[$j]' and tid='$teams[$i]'") == 0){
-				$sql->db_Select("clan_members_info", "rank", "userid='$cmnames[$j]'");
-				$row = $sql->db_Fetch();				
+				$sql->select("clan_members_info", "rank", "userid='$cmnames[$j]'");
+				$row = $sql->fetch();				
 				$sql->db_Insert("clan_members_teamlink", array("tid" => $teams[$i], "userid" => $cmnames[$j], "rank" => $row['rank']));
 			}
 		}

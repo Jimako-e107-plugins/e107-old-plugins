@@ -14,15 +14,19 @@
 if (!defined('CM_ADMIN')) {
 	die ("Access Denied");
 }
-$memberid = intval($_POST['memberid']);
-$member = mysql_real_escape_string($_POST['member']);
 
-$gender = mysql_real_escape_string($_POST['gender']);
-$xfire = mysql_real_escape_string($_POST['xfire']);
-$steam = mysql_real_escape_string($_POST['steam']);
-$realname = mysql_real_escape_string($_POST['realname']);
-$location = mysql_real_escape_string($_POST['location']);
-$country = mysql_real_escape_string($_POST['country']);
+$tp = e107::getParser();
+$sql = e107::getDb();
+
+$memberid = intval($_POST['memberid']);
+$member = $tp->toDB($_POST['member']);
+
+$gender = $tp->toDB($_POST['gender']);
+$xfire = $tp->toDB($_POST['xfire']);
+$steam = $tp->toDB($_POST['steam']);
+$realname = $tp->toDB($_POST['realname']);
+$location = $tp->toDB($_POST['location']);
+$country = $tp->toDB($_POST['country']);
 $xactive = intval($_POST['xactive']);
 $rank = intval($_POST['rank']);
 
@@ -33,20 +37,20 @@ $joind = intval($_POST['joind']);
 $joinm = intval($_POST['joinm']);
 $joiny = intval($_POST['joiny']);
 
-$manufacturer = mysql_real_escape_string($_POST['manufacturer']);
-$cpu = mysql_real_escape_string($_POST['cpu']);
-$memory = mysql_real_escape_string($_POST['memory']);
-$hdd = mysql_real_escape_string($_POST['hdd']);
-$vga = mysql_real_escape_string($_POST['vga']);
-$monitor = mysql_real_escape_string($_POST['monitor']);
-$sound = mysql_real_escape_string($_POST['sound']);
-$speakers = mysql_real_escape_string($_POST['speakers']);
-$keyboard = mysql_real_escape_string($_POST['keyboard']);
-$mouse = mysql_real_escape_string($_POST['mouse']);
-$surface = mysql_real_escape_string($_POST['surface']);
-$os = mysql_real_escape_string($_POST['os']);
-$mainboard = mysql_real_escape_string($_POST['mainboard']);
-$pccase = mysql_real_escape_string($_POST['pccase']);
+$manufacturer = $tp->toDB($_POST['manufacturer']);
+$cpu = $tp->toDB($_POST['cpu']);
+$memory = $tp->toDB($_POST['memory']);
+$hdd = $tp->toDB($_POST['hdd']);
+$vga = $tp->toDB($_POST['vga']);
+$monitor = $tp->toDB($_POST['monitor']);
+$sound = $tp->toDB($_POST['sound']);
+$speakers = $tp->toDB($_POST['speakers']);
+$keyboard = $tp->toDB($_POST['keyboard']);
+$mouse = $tp->toDB($_POST['mouse']);
+$surface = $tp->toDB($_POST['surface']);
+$os = $tp->toDB($_POST['os']);
+$mainboard = $tp->toDB($_POST['mainboard']);
+$pccase = $tp->toDB($_POST['pccase']);
 
 $showjoin = intval($_POST['showjoin']);
 $showage = intval($_POST['showage']);
@@ -119,10 +123,10 @@ if(isset($_FILES['newimage'])) {
 		$updateres = $sql->db_Update("clan_members_info", $qry." WHERE userid='$memberid'");
 		
 
-$sql1 = new db;
+$sql1 = e107::getDB();
 //Update Games Memberships
-$sql->db_Select("clan_games", "gid");	
-	while($row = $sql->db_Fetch()){
+$sql->select("clan_games", "gid");	
+	while($row = $sql->fetch()){
 	$gid = $row['gid'];
 	
 	if($_POST["game$gid"] == 1){			
@@ -144,8 +148,8 @@ $sql->db_Select("clan_games", "gid");
 }
 
 //Update Team Memberships
-$sql->db_Select("clan_teams", "tid");	
-	while($row = $sql->db_Fetch()){
+$sql->select("clan_teams", "tid");	
+	while($row = $sql->fetch()){
 	$tid = $row['tid'];
 	
 	if($_POST["team$tid"] == 1){			
@@ -167,9 +171,9 @@ $sql->db_Select("clan_teams", "tid");
 }
 
 //Awards
-$sql->db_Select("clan_members_awardlink", "id", "userid='$memberid'");	
+$sql->select("clan_members_awardlink", "id", "userid='$memberid'");	
 if($sql->db_Rows() > 0 && $conf['showawards']){
-	while($row = $sql->db_Fetch()){
+	while($row = $sql->fetch()){
 		$id = $row['id'];
 		if(intval($awards[$id]) == 0){
 			$sql1->db_Delete("clan_members_awardlink", "id='$id' AND userid='$memberid'");

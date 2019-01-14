@@ -15,11 +15,14 @@ if (!defined('CM_ADMIN')) {
 	die ("Access Denied");
 }
 
-$rank = mysql_real_escape_string($_POST['rank']);
+$tp = e107::getParser();
+$sql = e107::getDb();
+
+$rank = $tp->toDB($_POST['rank']);
 $text = "";
-if(isset($_FILES['rankimage'])) { 
+if(isset($_FILES['rankimage'])) {         
 	//select filename and filesize
-	$filename = $_FILES['rankimage']['name']; 
+	$filename = $_FILES['rankimage']['name'];       print_a($filename);
 	if($filename !=""){	
 		$filename = explode(".", $filename);
 		$ext = strtolower($filename[count($filename) -1]);
@@ -34,14 +37,16 @@ if(isset($_FILES['rankimage'])) {
 			chmod("images/Ranks/$rankimage", 0777);
 		}
 	}
+	else $rankimage = '';
 }
+else $rankimage = '';
 
-$sql->db_Select("clan_members_ranks", "*", "ORDER BY rankorder DESC LIMIT 1","");
-$row = $sql->db_Fetch();
+$sql->select("clan_members_ranks", "*", "ORDER BY rankorder DESC LIMIT 1","");
+$row = $sql->fetch();
 	$order = $row['rankorder'] + 1;
 
 $result = $sql->db_Insert("clan_members_ranks", array("rank" => $rank, "rimage" => $rankimage, "rankorder" => $order));
-
+	var_dump($rankimage);
 	if($result){
 		$text .= "<center><meta http-equiv='refresh' content='1;URL=admin_old.php?Ranks' />
 		<br />"._RANKADDED."<br /><br />";

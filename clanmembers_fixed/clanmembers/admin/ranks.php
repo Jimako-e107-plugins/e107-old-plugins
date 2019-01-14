@@ -15,16 +15,6 @@ if (!defined('CM_ADMIN')) {
 	die ("Access Denied");
 }
 	?>
-	<style type="text/css">
-	#rankstable td{
-		vertical-align: middle;
-		text-align:center;
-	}
-	.showpointer{
-		border:0;
-		cursor:default;
-	}
-	</style>
 	<script type="text/javascript" src="includes/jquery.tablednd.js"></script>
 	<script type="text/javascript">
 	clanm_jq(document).ready(function() {
@@ -62,7 +52,7 @@ if (!defined('CM_ADMIN')) {
 
 	//Add Rank
 	$text = "<form action='admin_old.php?addrank' method='post' enctype='multipart/form-data' onSubmit='return CheckForm();'>
-	<table border='0' cellpadding='0' cellspacing='2'>
+	<table id='addranktable'  class='table adminform'><tbody>
 		<tr>
 			<td align='left'>"._TITLE.": </td>
 			<td align='left'><input type='text' id='rank' name='rank' maxlength='85'></td>
@@ -76,7 +66,7 @@ if (!defined('CM_ADMIN')) {
 		</tr>
 	</table>	 
 	<input type='hidden' name='e-token' value='".e_TOKEN."' />
-	</form>
+	</tbody></form>
 	</center>";
 	
 	$ns->tablerender(_ADDRANK, $text);
@@ -86,9 +76,17 @@ if($sql->db_Count("clan_members_ranks") > 0){
 	//Ranks
 	$text = "<form method='post' action='admin_old.php?giverank' name='giverank'>
 	<div align='right'><input type='submit' class='button' value='"._GIVERANK."' title='"._CHECKRANKSTOGIVE."' id='give1' disabled style='margin-bottom:2px;'></div>";
-	$text .= "<table id='rankstable' style='".ADMIN_WIDTH."' class='fborder'>";
-	$sql->db_Select("clan_members_ranks", "*", "ORDER BY rankorder ASC", "");
-	while($row = $sql->db_Fetch()){
+	$text .= "<table id='rankstable'  class='fborder table adminlist table-striped'> ";
+	$text .= "<thead><tr>
+					<th class='fcaption'></th>
+					<th class='fcaption'><b>"._TITLE."</b></th>
+					<th class='fcaption'><b>"._IMG."</b></th>";
+	$text .= "<th class='fcaption'><b>"._FUNCTIONS."</b></th>
+				</tr> </thead>
+				<tbody>";
+				
+	$sql->select("clan_members_ranks", "*", "ORDER BY rankorder ASC", "");
+	while($row = $sql->fetch()){
 		$rid = $row['rid'];
 		$rank = $row['rank'];
 		$rimage = $row['rimage'];
@@ -107,7 +105,7 @@ if($sql->db_Count("clan_members_ranks") > 0){
 
 		</tr>";
 	}
-	$text .= "</table>";
+	$text .= "</tbody></table>";
 	$text .= "<div align='right'>
 		<input type='submit' class='button' value='"._GIVERANK."' title='"._CHECKRANKSTOGIVE."' id='give2' disabled style='margin-top:2px;'></div>
 		<input type='hidden' name='e-token' value='".e_TOKEN."' />
