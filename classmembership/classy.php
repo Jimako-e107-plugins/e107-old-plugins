@@ -27,14 +27,14 @@ $classy_selclass = (isset($_POST['classy_select'])?$_POST['classy_select']:0);
 
 $classy_text .= "<form id='classyform' method='post' action='" . e_SELF . "' >
 <div class='fborder' style='width:97%'>
-<div class='fcaption'>Úgy csatlakozhatsz egy csoporthoz ha a beállításaidnál bejelölöd. Itt viszont azt nézheted meg kik vannak egy bizonyos csoportban!</div>";
+<div class='fcaption'>" . CLASSY_1 . "</div>";
 $classy_text .= "<div class='forumheader2'>" . CLASSY_4 . "</div>
 <div class='forumheader3'><ul>";
 if ($sql->db_Select("userclass_classes", "*", "find_in_set(userclass_id,'" . USERCLASS_LIST . "')"))
 {
     while ($classy_in = $sql->db_Fetch())
     {
-        $classy_text .= "<li><b>" . $classy_in['userclass_name'] . "</b></li>";
+        $classy_text .= "<li>" . $classy_in['userclass_name'] . "</li>";
     }
 }
 else

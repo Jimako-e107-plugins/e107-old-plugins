@@ -24,7 +24,7 @@ $eplug_version = "1.02";
 $eplug_author = "Barry";
 $eplug_url = "http://www.keal.me.uk";
 $eplug_email = "";
-$eplug_description = "Ki van egy adott klubban?";
+$eplug_description = "Class membership";
 $eplug_compatible = "e107v7";
 $eplug_readme = "readme.rtf";	// leave blank if no readme file
 $eplug_compliant = TRUE;
@@ -57,7 +57,7 @@ $eplug_link_name = "Check Class Membership";
 $eplug_link_url = e_PLUGIN . "classmembership/classy.php";
 
 // Text to display after plugin successfully installed ------------------------------------------------------------------
-$eplug_done = "Telepítve!";
+$eplug_done = "Go to the plugin configuration panel to configure and administer the class membership plugin.";
 
 // upgrading ... //
 
