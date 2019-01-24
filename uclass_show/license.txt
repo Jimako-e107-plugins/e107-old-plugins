@@ -1,0 +1,49 @@
+e107wORks License 1.0
+
+
+[Italiano]
+e107works è un sito dedicato al supporto, allo sviluppo di temi, plugin ed altre risorse per il CMS e107.
+
+L'utilizzo del materiale e dei contenuti distribuiti su e107works, implica la lettura e l'accettazione dei seguenti termini e condizioni. 
+e107works si riserva il diritto di modificare senza preavviso le seguenti condizioni. Le modifiche saranno effettive dal momento della loro pubblicazione e comunque sempre visibili a fondo pagina , nel sito, ed eventualmente annunciate in spazi visibili all'Utenza, registrata e non, per presa visione nell'ipotesi di radicali cambiamenti. 
+Resta comunque implicito che il materiale scaricato secondo le condizioni qui espresse, precedentemente cioè a qualsiasi, eventuale, variazione di condizioni, resterà soggetto alla versione di licenza precedente come nel materiale stesso indicato.
+
+
+Licenza e copyright:
+
+Tutti i contenuti del sito e107works e la documentazione, eccetto dove espressamente indicato, sono rilasciati sotto Licenza Creative Commons (Attribuzione-Non commerciale-Non opere derivate 3.0).
+[ http://creativecommons.org/licenses/by-nc-nd/3.0/deed.it ]
+
+Eventuali modifiche, integrazioni, adattamenti e quant'altro applicato a materiali di terze parti ( plugin , temi , file , immagini, discussioni nel forum od altri contenuti ) , vengono rilasciati secondo le licenze e copyright dei rispettivi autori.
+Il materiale freeware presente nei nostri download o comunque reperibile nel nostro sito e non realizzato da e107works, resta di proprietà dei rispettivi autori secondo le licenze da loro indicate.
+
+E' autorizzata la redistribuzione dei materiali di e107works, in forma modificata e/o non modificata, a condizione che venga riconosciuto e chiaramente specificato l'autore dell'opera originale, LASCIANDO LE INDICAZIONI DI COPYRIGHT ORIGINALI INALTERATE COSÌ COME E DOVE SONO STATE RIPOSTE. 
+
+e107works non consente la vendita dei materiali ( sia in forma modificata o meno) contenenti il marchio e107works, a meno di autorizzazione scritta dell'autore da richiedere a info@e107works.org
+
+In nessun caso e107works è responsabile di qualsiasi danno derivante dall'uso del proprio materiale, come ampiamente specificato nelle condizioni d'uso del sito, e nei casi di distribuzione secondo le casistiche sopra riportate.
+
+
+
+[English]
+e107wORks is a support site dedicated to the development of themes, plugins and other resources for the e107 CMS.
+
+The use of the material and content distributed on e107works, implies read and agree to the following terms and conditions.
+e107works reserves the right to alter the following conditions, without notice. The changes will take effect upon its publication and still visible at the bottom of the page of the site. Possibly, in the case of radical changes, the changes will be announced in a visible space to the Users, registered or not, for taking vision.
+Is still implied that the downloaded material according to the here expressed conditions, previously that any possible variation of conditions, will remain subject to the previous version license as indicated in the material itself.
+
+
+License and copyright:
+
+All e107works site content and documentation, except where otherwise indicated, are released under Creative Commons License (Attribution-Noncommercial-No Derivative Works 3.0).
+[ http://creativecommons.org/licenses/by-nc-nd/3.0/ ]
+
+Any changes, additions, alterations and other applied to materials of third parties (plugins, themes, files, images, forum discussions, or other contents ), is subject to its own license and copyrighted by respective authors.
+The freeware material present in our downloads or otherwise available on our site and not realized by e107works, remains property of their respective authors according to their indicated licenses.
+
+Is authorized redistribution of  e107works material, in non modified form and/or modified, provided that is acknowledged and clearly specified original work paternity, INCLUDING ALL ORIGINAL COPYRIGHT INDICATIONS, UNCHANGED IN CONTENT AND POSITION.
+
+Sale for profit of materials (whether modified or not) containing e107wORks trademarks is NOT allowed, unless written permission from the author to ask at info@e107works.org
+
+In no case e107works is responsible for any damage resulting from the use of their material, as widely specified in the conditions of use of the site, and in cases of distribution according the above reported cases. 
+
