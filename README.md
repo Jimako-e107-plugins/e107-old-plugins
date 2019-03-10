@@ -872,3 +872,13 @@ state: just backup
 source: wrxxy
 
 =======
+
+e107 nCode Image Resizer
+
+Author: Mohamed Anouar Achoukhy
+
+state: just backup 
+
+source: wrxxy
+
+=======
