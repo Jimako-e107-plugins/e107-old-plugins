@@ -8,7 +8,7 @@
 */
 if (!defined('e107_INIT')) { exit; }
 
-$ir_path = e_PLUGIN.'resizer/';
+$ir_path = e_PLUGIN_ABS.'resizer/';
 include_lan($ir_path."languages/".e_LANGUAGE.".php");
 if($pref['ncode_imageresizer_enabled']){ 
 
