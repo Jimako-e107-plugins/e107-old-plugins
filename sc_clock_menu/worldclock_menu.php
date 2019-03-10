@@ -59,7 +59,7 @@ var MnthNam = new Array(
 </script>
 <?php
 echo "
-<script type='text/javascript' src='".e_PLUGIN."sc_clock_menu/clock.js'></script>
+<script type='text/javascript' src='".e_PLUGIN_ABS."sc_clock_menu/clock.js'></script>
 
 <script type=\"text/javascript\">\nwindow.setTimeout(\"tick('".$menu_pref['clock_dateprefix']."', '".$menu_pref['clock_format']."', '".$menu_pref['clock_datesuffix1']."', '".$menu_pref['clock_datesuffix2']."', '".$menu_pref['clock_datesuffix3']."', '".$menu_pref['clock_datesuffix4']."')\",150);\n</script>
 
@@ -68,7 +68,7 @@ echo "
 
 <?php
 echo "
-<script type='text/javascript' src='".e_PLUGIN."sc_clock_menu/greetings.js'></script>";
+<script type='text/javascript' src='".e_PLUGIN_ABS."sc_clock_menu/greetings.js'></script>";
 ?>
 
 <?php
