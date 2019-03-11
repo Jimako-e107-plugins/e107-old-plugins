@@ -27,13 +27,11 @@ else
 $themeb = "";}
 
 $tp = e107::getParser();
-include_lan(e_PLUGIN."aacgc_eventcountdowns/languages/".e_LANGUAGE.".php");
 
 //-----------------------------------------------------------------------------------------------------------+
 
-$sql->db_Select("aacgc_eventcountdowns", "*", "ecds_id = '".$action."'");
-$row = $sql->db_Fetch();
-
+$row = $sql->retrieve("aacgc_eventcountdowns", "*", "ecds_id = '".$action."'");
+ 
 	$nexteventid = $row['ecds_id'];
 	$nexteventtimestamp = $row['ecds_date'];
 	
@@ -51,9 +49,9 @@ $row = $sql->db_Fetch();
 	$nextdatemonthfixed = $nextdatemonthshow - 1;
 	$nextshowcounter = "".$nextdateyearshow.",".$nextdatemonthfixed.",".$nextdatedayshow.",".$nextdatehourshow.",".$nextdateminshow."";
 
-require_once("".e_PLUGIN."aacgc_eventcountdowns/counter.php");
-$text .= $counterscript;
 
+
+   
 //----------------# show event and countdown #-----------------+
 
 if($pref['ecds_countercolor'] == "black"){$color = "#000000";}
@@ -65,7 +63,7 @@ if($pref['ecds_countercolor'] == "blue"){$color = "#0000ff";}
 
 $backlink = "<a href='".e_PLUGIN."aacgc_eventcountdowns/Events.php'><img width='16px' height='16px' src='".e_PLUGIN."aacgc_eventcountdowns/images/back.png' align='left' /></a>";
 if(ADMIN){$adminedit = "<a href='".e_PLUGIN."aacgc_eventcountdowns/admin_events.php?edit.".$row['ecds_id']."'><img width='16px' height='16px' src='".e_PLUGIN."aacgc_eventcountdowns/images/edit.png' align='right' /></a>";}
-
+         
 $text .= "".$backlink." ".$adminedit."
 <table style='width:100%' class='".$themea."'>
 	<tr>
@@ -77,14 +75,54 @@ $text .= "".$backlink." ".$adminedit."
 		</td>
 	</tr>	
 	<tr>
-		<td style='text-align:center;' class='".$themeb."'>
+		<td style='text-align:center;' class='".$themeb."'>   
 			<div id='currcountbox".$nexteventid."' style='width:100%; text-align:center; color:".$color."; font-size:".$pref['ecds_countersize']."px' align='center'></div>
 		</td>
 	<tr>
 		<td style='' class=''>".$tp -> toHTML($row['ecds_detail'], TRUE)."</td>
 	</tr>
 </table>";
+//require_once(e_PLUGIN."aacgc_eventcountdowns/counter.php");
+// it doesn't work in 7.2 why?
+$counterscript .= '
+<script type="text/javascript">
+function GetCount$nexteventid(){
+	
+	dateEnd = new Date('.$nextshowcounter.');
+	amount = dateEnd.getTime() - new Date().getTime();		
 
+	if(amount < 0){	document.getElementById("currcountbox'.$nexteventid.'").innerHTML="...";}
+	else{
+	
+		days=0;hours=0;mins=0;secs=0;out="";
+
+		amount = Math.floor(amount/1000);//kill the "milliseconds" so just secs
+
+		days=Math.floor(amount/86400);//days
+		amount=amount%86400;
+
+		hours=Math.floor(amount/3600);//hours
+		amount=amount%3600;
+
+		mins=Math.floor(amount/60);//minutes
+		amount=amount%60;
+
+		secs=Math.floor(amount);//seconds
+
+		if(days != 0){out += days +" day"+((days!=1)?"s":"")+", ";}
+		if(days != 0 || hours != 0){out += hours +" hour"+((hours!=1)?"s":"")+", ";}
+		if(days != 0 || hours != 0 || mins != 0){out += mins +" minute"+((mins!=1)?"s":"")+", ";}
+		out += secs +" seconds";
+		document.getElementById("currcountbox'.$nexteventid.'").innerHTML=out;
+		setTimeout("GetCount$nexteventid()", 1000);
+	
+}}
+
+window.onload=GetCount$nexteventid;
+
+</script>		
+';
+$text .= $counterscript;
 //-------------------------# Page Title #--------------------------------------------------------------------+
 
 $title .= "".ACR_28."";
