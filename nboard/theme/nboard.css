@@ -1,0 +1,39 @@
+/*//============================= Notice-Board v4.0 =============================
+//	author: ComPolyS team, http://e107.compolys.ru, sunout@compolys.ru		
+//	coders: Sunout, Geo						
+//	language officer Georgy Pyankov
+//	license GNU GPL									
+//================================== Deсember 2011 =============================*/
+#container {
+	position: relative;
+	}
+div.navSectorNormal {
+	background:#fff;
+	margin:0px;
+	float:left;
+	}
+div.navSectorSelected {
+	background:#777777;
+	margin:0px;
+	float:left;
+	}
+#box {
+	background:#000;
+	position: absolute;
+	padding: 1px;
+	top: -100px;
+	right: 50;
+	border: 10px solid;
+	border-color: #eee;
+	border-radius:6px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:5px;
+	-khtml-border-radius:10px;
+	z-index: 1001;
+	}
+div.navSectorNormal #box {
+	    display: none;
+	}
+div.navSectorSelected #box {
+	    display: block;
+	}
