@@ -862,3 +862,23 @@ Credit:
 state: just backup 
 
 =======
+
+e107 Clock Menu 
+
+Author: Crytiqal
+
+state: just backup 
+
+source: wrxxy
+
+=======
+
+e107 nCode Image Resizer
+
+Author: Mohamed Anouar Achoukhy
+
+state: just backup 
+
+source: wrxxy
+
+=======

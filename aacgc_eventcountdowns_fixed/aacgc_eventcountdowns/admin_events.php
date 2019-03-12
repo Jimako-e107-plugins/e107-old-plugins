@@ -40,6 +40,7 @@ $themeb = "";}
 //-----------------------------------------------------------------------------------------------------------+
 //---# New #
 if ($_POST['add_event'] == '1') {
+ 
 $offset = $pref['ecds_dateoffset'];
 $settime = $_POST['ecds_date'] + ($offset * 60);
 $fixeddate = $settime;

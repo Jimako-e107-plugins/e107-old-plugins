@@ -77,8 +77,9 @@ $pageNum = 1;
 $pageNum = intval($action);
 $offset = ($pageNum - 1) * $rowsPerPage;
 
-$query = @mysql_query("SELECT ecds_id FROM ".MPREFIX."aacgc_eventcountdowns");
-$numrows = mysql_num_rows($query);
+$query = "SELECT ecds_id FROM ".MPREFIX."aacgc_eventcountdowns" ;
+$numrows = e107::getDb()->retrieve($query); 
+ 
 
 $maxPage = ceil($numrows/$rowsPerPage);
 $history = e_PLUGIN."aacgc_eventcountdowns/Event_History.php";
@@ -109,8 +110,8 @@ $eventsperpage = "".ECDS_07."<br><a href='".e_SELF."?".$action.".10.".$id."'>10<
 $limit = "LIMIT ".$offset.",".$rowsPerPage."";
 
 //----------------------# Events #------------------------------------------------
-$backlink = "<a href='".e_PLUGIN."aacgc_eventcountdowns/Events.php'><img width='16px' height='16px' src='".e_PLUGIN."aacgc_eventcountdowns/images/back.png' align='left' /></a>";
-if(ADMIN){$adminadd = "<a href='".e_PLUGIN."aacgc_eventcountdowns/admin_events.php'><img width='16px' height='16px' src='".e_PLUGIN."aacgc_eventcountdowns/images/add.png' align='right' /></a>";}
+$backlink = "<a href='".e_PLUGIN_ABS."aacgc_eventcountdowns/Events.php'><img width='16px' height='16px' src='".e_PLUGIN_ABS."aacgc_eventcountdowns/images/back.png' align='left' /></a>";
+if(ADMIN){$adminadd = "<a href='".e_PLUGIN_ABS."aacgc_eventcountdowns/admin_events.php'><img width='16px' height='16px' src='".e_PLUGIN_ABS."aacgc_eventcountdowns/images/add.png' align='right' /></a>";}
 
 $text .= "".$backlink." ".$adminadd."
 <table style='width:100%' class='".$themea."'>";

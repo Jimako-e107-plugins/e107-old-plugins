@@ -52,6 +52,7 @@ if($pref['ecds_countercolor'] == "yellow"){$color = "#ffff00";}
 if($pref['ecds_countercolor'] == "green"){$color = "#00ff00";}
 if($pref['ecds_countercolor'] == "blue"){$color = "#0000ff";}
 
+if($nexteventid) {
 $ecds_text .= "
 	<tr>
 		<td style='text-align:center;' class='".$themea."' colspan='2'>
@@ -63,7 +64,7 @@ $ecds_text .= "
 		</td>
 	</tr>
 ";
-
+}
 $ecds_text .= "</table>";
 
 //----------------# More Events #---------------------------------+

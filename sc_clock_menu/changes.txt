@@ -1,0 +1,25 @@
+/*
++---------------------------------------------------------------+
+| e107 Clock Menu
+| /clock_menu.php
+|
+| Compatible with the e107 content management system
+|  http://e107.org
+|
+| Released under the terms and conditions of the
+| GNU General Public License (http://gnu.org).
+|
+|     $Author: Crytiqal $
++---------------------------------------------------------------+
+*/
+
+CHANGES:
+
+v1.1
+- Adjusted some of the outdated javascript
+- Fixed some quotations in the javascript code of servertime.php
+- Moved the greetings code into a seperate javascript file, greetings.js
+- Made the entire menu XHTML-1.1 compliant
+
+v1.0
+- First release, added commentary to the code
