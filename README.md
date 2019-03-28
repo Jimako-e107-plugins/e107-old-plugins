@@ -218,9 +218,10 @@ This is rewritten as kbase plugin in https://github.com/G4HDU-plugins/kbase
 probably because FAQ plugin in core now. But it doesn't work.
 Easier would be start from beginning.
 
-state: just backup
+state: available fixed version for php 7.0 and e107 2.2.0 ! Only fixes, nothing more
 
-version from e107-german.de : 4.2
+version from e107-german.de : 4.2    - not available anymore
+
  
 =======
 
