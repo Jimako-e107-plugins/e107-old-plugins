@@ -721,7 +721,7 @@ class faqpost
             $sql->db_Select("faq_info", "*", "faq_info_parent !='0' ");
             while ($prow = $sql->db_Fetch())
             {
-                extract($row);
+                extract($prow);
                 $selected = $prow['faq_info_id'] == $id ? " selected='selected'" : "";
                 $faq_text .= "<option value='" . $prow['faq_info_id'] . "' $selected>" . $tp->toFORM($prow['faq_info_title']) . "</option>";
             }
