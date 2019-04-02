@@ -127,8 +127,9 @@ $faq_text = "
 
 $faq_sub = "<select class='tbox' name='faq_simple' >";
 $faq_sub .= "<option value='0' " . ($FAQ_PREF['faq_simple'] == 0?"selected='selected'":"") . ">" . FAQ_ADLAN_141 . "</option>";
-$sql->db_Select("faq_info", "faq_info_id,faq_info_title", "where faq_info_parent > 0", "nowhere", false);
-while ($faq_row = $sql->db_Fetch())
+$records = $sql->retrieve("faq_info", "faq_info_id,faq_info_title", "faq_info_parent > 0", true);
+ 
+foreach ($records as $faq_row )
 {
     $faq_sub .= "<option value='" . $faq_row['faq_info_id'] . "' " . ($FAQ_PREF['faq_simple'] == $faq_row['faq_info_id']?"selected='selected'":"") . ">" . $tp->toFORM($faq_row['faq_info_title']) . "</option>";
 } // while
