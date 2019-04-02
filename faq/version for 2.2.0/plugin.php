@@ -2,7 +2,7 @@
 include_lan(e_PLUGIN . 'faq/languages/admin/' . e_LANGUAGE . '.php');
 // Plugin info -------------------------------------------------------------------------------------------------------
 $eplug_name = 'FAQ';
-$eplug_version = '4.9';
+$eplug_version = '5.0';
 $eplug_author = 'Father Barry - Based on the original FAQ Plugin by Cameron';
 $eplug_url = 'http://www.keal.me.uk';
 $eplug_email = '';
