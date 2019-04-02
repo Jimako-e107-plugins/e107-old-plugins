@@ -422,7 +422,7 @@ class faq
             $faq_text .= $theanswer;
             $subject = (!$subject ? $tp->toFORM($faq_question, false, "no_make_clickable no_replace emotes_off") : $subject);
             // If this faq allows comments
-            if (check_class($faq_comment))
+            if (check_class($FAQ_PREF['faq_allowcomments']))
             {
                 $faq_action = "comment";
                 $table = "faqfb";
