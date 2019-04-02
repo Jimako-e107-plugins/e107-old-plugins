@@ -7,7 +7,7 @@ if (!defined('IMODE')) {
 }
 
 global $pref;
-
+ 
 /*
 
 SC_BEGIN FAQ_STATS_LINK
@@ -333,6 +333,45 @@ else
 }
 SC_END
 
+SC_BEGIN FAQ_LIST_FAQ_EXPAND_QUESTION
+global $res, $tp, $faq_question, $id, $faq_id, $faq_from, $faq_answer;
+$text = '
+
+                    <a data-toggle="collapse" data-parent="#accordion"   href="#collapse'.$faq_id.'">'.$tp->toHTML($faq_question, false, "no_make_clickable no_replace emotes_off").'</a>
+             
+         
+ 
+        ';
+return $text;
+SC_END
+
+SC_BEGIN FAQ_LIST_FAQ_EXPAND_ANSWER
+global $res, $tp, $faq_question, $id, $faq_id, $faq_from, $faq_answer;
+ 
+ 
+$text = '
+  <div id="collapse'.$faq_id.'" class="panel-collapse collapse in">
+      <div class="panel-body">
+       '.e107::getParser()->text_truncate($tp->toHTML($faq_answer, true, 'TITLE'), 100, '...') .'
+      </div>
+  </div>';
+ 
+  
+return $text;
+SC_END
+
+SC_BEGIN FAQ_LIST_FAQ_EXPAND_ANSWER_DETAIL
+global $res, $tp, $faq_question, $id, $faq_id, $faq_from;
+if ($res > 0)
+{
+    return "<a class='btn faq_detail_link' href='" . e_SELF . "?$faq_from.cat.$id.$faq_id'>" . LAN_READ_MORE . "</a>";
+}
+else
+{
+    return FAQLAN_103;
+}
+SC_END
+
 SC_BEGIN FAQ_LIST_ICON
 global $res;
 if ($res > 0)
@@ -344,6 +383,7 @@ else
     return "";
 }
 SC_END
+
 
 SC_BEGIN FAQ_NEW
 global $id, $FAQ_PREF,$faq_from;

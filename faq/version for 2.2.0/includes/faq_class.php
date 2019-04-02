@@ -254,7 +254,7 @@ class faq
     }
     function view_list($faq_action, $id)
     {
-        global $e107, $e107cache, $faq_cat_name, $faq_view_rating, $faq_rater, $sql, $faq_action, $row2, $res, $faq_count, $faq_info_icon, $faq_id, $id, $faq_from, $faq_question, $ns, $aj, $FAQ_PREF, $faq_from, $tp, $FAQ_LIST_HEADER, $FAQ_LIST_DETAIL, $FAQ_LIST_FOOTER, $faq_shortcodes;
+        global $e107, $e107cache, $faq_cat_name, $faq_view_rating, $faq_rater, $sql, $faq_action, $row2, $res, $faq_count, $faq_info_icon, $faq_id, $id, $faq_from, $faq_question, $faq_answer, $ns, $aj, $FAQ_PREF, $faq_from, $tp, $FAQ_LIST_HEADER, $FAQ_LIST_DETAIL, $FAQ_LIST_FOOTER, $faq_shortcodes;
         $cache_tag = "faqcat";
         if ($cacheData = $e107cache->retrieve($cache_tag))
         {
@@ -273,7 +273,7 @@ class faq
             {
                 // count the records for the page display
                 $faq_count = $sql->db_Count("faq", "(*)", "where faq_parent='$id' and faq_approved > 0 ");
-                $faq_arg = "select faq_question,faq_id,faq_parent from #faq
+                $faq_arg = "select faq_question, faq_answer, faq_id,faq_parent from #faq
 		left join #faq_info on faq_info_id=faq_parent where faq_parent='$id' and faq_approved > 0 and find_in_set(faq_info_class,'" . USERCLASS_LIST . "') order by faq_order limit $faq_from," . $FAQ_PREF['faq_perpage'] . "";
                 if ($res = $sql->db_Select_gen($faq_arg))
                 {
