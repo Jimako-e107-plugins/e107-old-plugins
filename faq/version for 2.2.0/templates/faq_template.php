@@ -233,8 +233,10 @@ if (!isset($FAQ_EDIT_DETAIL))
 				<td class='forumheader3' >{FAQ_EDIT_PICTURE}</td>
 			</tr>";
     }
-    if (check_class($pref['faq_allowcomments']))
+   
+    if (check_class($FAQ_PREF['faq_allowcomments']))
     {
+     
         $FAQ_EDIT_DETAIL .= "
 			<tr>
           		<td class='forumheader3'  style=\"width:20%; vertical-align:top\">" . FAQ_ADLAN_52 . "</td>
