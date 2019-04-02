@@ -14,14 +14,18 @@ if (!is_object($faq_obj))
 {
     $faq_obj = new FAQ;
 }
-if (is_readable(THEME . "faq_template.php"))
+
+
+if (is_readable(THEME . "templates/faq/faq_template.php"))
 {
-    define(FAQ_THEME, THEME . "faq_template.php");
+    define(FAQ_THEME, THEME . "templates/faq/faq_template.php");
 }
 else
 {
     define(FAQ_THEME, e_PLUGIN . "faq/templates/faq_template.php");
 }
+
+
 require_once(e_PLUGIN . "faq/includes/faq_shortcodes.php");
 $e_wysiwyg = "data";
 
@@ -31,7 +35,7 @@ if (!defined('FAQLAN_FAQ')) {
 
 if (!$faq_obj->faq_read)
 {
-    require_once(FAQ_THEME);
+    require_once(FAQ_THEME);  
     $faq_text .= $tp->parseTemplate($FAQ_NO_ACCESS, true, $faq_shortcodes);
     require_once(HEADERF);
     $faq_obj->tablerender(FAQLAN_FAQ , $faq_text, 'faq');
@@ -282,7 +286,7 @@ if ($faq_action == "" || $faq_action == "main")
 
 if ($faq_action == "cat")
 {
-    require_once(FAQ_THEME);
+    require_once(FAQ_THEME);   
     if ($idx > 0)
     {
         $faq_text = $faq_obj->view_faq($idx) ;
