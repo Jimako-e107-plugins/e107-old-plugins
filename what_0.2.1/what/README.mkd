@@ -1,0 +1,23 @@
+# What
+
+What is a collection of site activity based menu items. Over time more menus will be added. This file will attempt to describe what each menu item does.
+
+**If you are using this menu from the repo (it's flagged as v0.2.0), please report all issues in the issue tracker!**
+
+
+## Slim (slim_menu.php)
+
+The Slim menu is a basic "since your last visit" menu with a slight twist in that only items that are new are displayed.
+The functions of this menu item can also be seen in the core "login_menu" plugin in a similar form.
+
+
+## Fatty (fatty_menu.php)
+
+The Fatty menu provides new items that have happened within the last N days, where N is a configurable time frame (in seconds).
+Like the Slim menu, only items that should be displayed are displayed. The layout of this menu is similar to the "whappen" plugin
+that is used on the plugins.e107.org site.
+
+
+## Twobyfour (twobyfour_menu.php)
+
+The Twobyfour menu will display all the members that have visited your site in the last 24 hours.

@@ -1,0 +1,17 @@
+Top Downloads Menu
+--------------------------------
+
+1. Info
+	This menu will show your latest 5 (or whatever you like)
+	downloads on your e107 system. You can choose the downloads'
+	category, how many downloads and for what period (week, month)
+	to be shown.
+	
+	Ex.: This week's top 5 downloads; This month's top 15 downloads
+
+2. Istallation
+	No installation needed.
+	Just unpack the archive into your plugins dir.
+	Activate the menu through the Menu manager.
+	The config page is accessible through the config opion
+	in the dropdown menu in Menu manager

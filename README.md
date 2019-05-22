@@ -883,3 +883,63 @@ state: just backup
 source: wrxxy
 
 =======
+
+e107 What plugin
+
+Author:  Patrick Weaver
+
+What is a collection of site activity based menu items. 
+
+source: e107.org
+
+compatible:  e107v1+
+
+=======
+
+e107 Advanced XML Sitemap Generator
+
+Author:  Mohamed Anouar
+
+this plugin wil generate a XML Sitemap for all the news
+
+source: e107.org
+
+timestamp:  2010-08-22
+
+=======
+
+e107 Universal Seo Pack
+
+Author:  Mohamed Anouar
+
+Add SEO optimization , Robot Meta Tag , SEF urls to your site
+
+source: e107.org
+
+compatible:  e107v1+
+
+=======
+
+e107 Email Inbox
+
+Author:  Mohamed Anouar
+
+This plugin will let you manage inbox emails
+
+source: e107.org
+
+compatible:  e107v1+
+
+=======
+
+Top Downloads Menu
+
+Author:  SecretR
+
+This menu will show your latest 5 (or whatever you like) downloads on your e107 system. You can choose the downloads'category, how many downloads and for what period (week, month) to be shown.
+
+source: SecretR
+
+compatible: e107.org
+
+=======

@@ -1,0 +1,85 @@
+@charset "utf-8";
+.info, .success, .warning, .error, .theader, .spiderrow  {
+    border: 1px solid;
+    padding:5px 5px 5px 35px;
+    font: bold 12px verdana;
+    -moz-box-shadow: 0 0 5px #888;
+    -webkit-box-shadow: 0 0 5px#888;
+    box-shadow: 0 0 5px #888;
+    text-shadow: 2px 2px 2px #ccc;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+.info {
+    color: #00529B;
+    background: #BDE5F8 url('images/icon-info.png') no-repeat 10px center;
+}
+.success {
+    color: #4F8A10;
+    background: #DFF2BF url('images/icon-tick.png') no-repeat 10px center;
+}
+.warning {
+    color: #9F6000;
+    background: #FEEFB3 url('images/icon-warning.png') no-repeat 10px center;
+}
+.error {
+    color: #D8000C;
+    background: #FFBABA url('images/icon-cross.png') no-repeat 10px center;
+}
+
+.theader {
+    color: #12529B;
+    background: #FFE1B3 url('images/arrow-down.png') no-repeat 10px center;
+}
+
+#message_on{
+	background: #DFF2BF;
+	border:#4F8A10 1px solid;
+	-moz-border-radius: 6px;
+	-khtml-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;	
+	box-shadow: 0 0 5px #888;
+	}
+#message_off{
+	background:#FFBABA ;
+	border:#D8000C 1px solid;
+	-moz-border-radius: 6px;
+	-khtml-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	box-shadow: 0 0 5px #888;
+	}
+.warning ul {
+	margin-left: 20px;
+}
+
+.warning ul li {
+	list-style: square;
+	line-height:16px;
+}
+.spider {   font: bold 16px arial !important;}
+.spider a {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 3px 3px 3px 3px;
+    color: #333333;
+    display: inline;
+    font: bold 16px arial !important;
+    margin: 0 0 5px 5px;
+    padding: 1px 8px;
+    text-decoration: none;
+}
+.spider a:hover { color: #9F6000; border-color:#444; }
+.spiderrow {}
+.fade .items { clear:both; padding:6px 0; position:relative; top:0; left:0; height:auto; }
+.fade .idTabs { float:left;  }
+.fade .idTabs li { float:left; list-style:none; border:1px solid #444;  -moz-border-radius:2px; }
+.fade .idTabs li a { padding:5px 5px 5px 35px;color: #12529B; background: #FFE1B3 url('images/arrow-down.png') no-repeat 10px center;  display:block; float:left;  }
+.fade .idTabs li:hover { margin:0; border-width:2px; }
+.fade .idTabs li a.selected { border-color:#444; }
+
+
+
+

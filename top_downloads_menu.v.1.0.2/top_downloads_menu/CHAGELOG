@@ -1,0 +1,21 @@
+Top Downloads Menu
+--------------------------------
+
+v.1.0.2 - Bugfix
+----------------------------
+	
+	Fixed improper count for last period downloads
+	(reported by THRiLLCEEKAH)
+	
+	
+v.1.0.1 - Bugfix
+----------------------------
+	
+	Fixed missed check, leading to a Fatal Error message
+	and breaking everything
+	
+	
+v.1.0.0	- Initial release
+----------------------------
+	
+	Initial release
