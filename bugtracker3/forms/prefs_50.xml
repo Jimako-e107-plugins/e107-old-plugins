@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="bugtracker3_admin_prefs_50_form" type="HELPER_FORM_TYPE_DB_ROW">
+
+      <errorsattop value="true" />
+
+      <dbdetails>
+         <dbtable>bugtracker3_priorities</dbtable>
+         <index>bugtracker3_priority_id</index>
+         <data>bugtracker3_priority_name</data>
+         <order>bugtracker3_priority_order asc</order>
+         <liststyle>tbox</liststyle>
+      </dbdetails>
+
+      <text name="bugtracker3_priority_name" label="BUG3_ADMIN_PRIORITY_NAME" prompt="BUG3_ADMIN_PRIORITY_NAME_1" help="BUG3_ADMIN_PRIORITY_NAME_2" class="tbox">
+         <default var="db"/>
+         <mandatory>true</mandatory>
+         <attribute name="size">50</attribute>
+         <maxlength>50</maxlength>
+      </text>
+
+      <textarea name="bugtracker3_priority_description" label="BUG3_ADMIN_PRIORITY_DESCRIPTION" prompt="BUG3_ADMIN_PRIORITY_DESCRIPTION_1" help="BUG3_ADMIN_PRIORITY_DESCRIPTION_2" class="tbox">
+         <default var="db"/>
+         <style name="width">75%</style>
+      </textarea>
+
+      <color name="bugtracker3_priority_color" label="BUG3_ADMIN_PRIORITY_COLOR" prompt="BUG3_ADMIN_PRIORITY_COLOR_1" help="BUG3_ADMIN_PRIORITY_COLOR_2" class="tbox">
+         <default var="db"/>
+      </color>
+
+      <text name="bugtracker3_priority_order" label="BUG3_ADMIN_PRIORITY_ORDER" prompt="BUG3_ADMIN_PRIORITY_ORDER_1" help="BUG3_ADMIN_PRIORITY_ORDER_2" class="tbox">
+         <default var="db"/>
+         <attribute name="size">3</attribute>
+         <maxlength>3</maxlength>
+      </text>
+
+   </form>
+
+</e107HelperForm>

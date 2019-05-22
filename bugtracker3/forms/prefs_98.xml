@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="bugtracker3_admin_prefs_98_form" type="HELPER_FORM_TYPE_NO_BUTTONS">
+
+      <errorsattop value="true" />
+
+      <checkbox name="bugtracker3_import_merge" label="BUG3_ADMIN_IMPORT_MERGE" prompt="BUG3_ADMIN_IMPORT_MERGE_1" help="BUG3_ADMIN_IMPORT_MERGE_2" class="tbox">
+         <default></default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="bugtracker3_convert_comments" label="BUG3_ADMIN_IMPORT_COMMENTS" prompt="BUG3_ADMIN_IMPORT_COMMENTS_1" help="BUG3_ADMIN_IMPORT_COMMENTS_2" class="tbox">
+         <default></default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="bugtracker3_import_debug" label="BUG3_ADMIN_IMPORT_DEBUG" prompt="BUG3_ADMIN_IMPORT_DEBUG_1" help="BUG3_ADMIN_IMPORT_DEBUG_2" class="tbox">
+         <default></default>
+         <value>1</value>
+      </checkbox>
+
+      <button name="bugtracker3_import_go" label="BUG3_ADMIN_IMPORT_GO" prompt="BUG3_ADMIN_IMPORT_1" help="BUG3_ADMIN_IMPORT_2" class="button">
+         <value>BUG3_ADMIN_IMPORT_GO_3</value>
+         <event name="click">document.getElementById('bugtracker3_admin_prefs_98_form').submit();</event>
+      </button>
+
+   </form>
+
+</e107HelperForm>

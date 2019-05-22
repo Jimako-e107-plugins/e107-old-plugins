@@ -1,0 +1,35 @@
+/* DIV box for list */
+#id_autocomplete {
+	height:90px;
+	overflow:hidden;
+	border:1px solid #CCCCCC;
+	background-color:#F2F2F7;
+color:inherit;
+}
+
+#id_autocomplete ul {
+	margin:0px;
+	text-indent:0px;
+	padding:0px;
+}
+
+/* The individual items in a list */
+#id_autocomplete li {
+	list-style-type: none;
+	margin:0px;
+	text-indent:0px;
+	padding:2px;
+	cursor:pointer;
+position:relative; left:0px
+}
+
+
+#id_autocomplete li .informal {
+	float:right;
+	font-style:italic;
+}
+
+#id_autocomplete .selected { 
+	background-color:#DDDDDD;
+color:inherit;
+}

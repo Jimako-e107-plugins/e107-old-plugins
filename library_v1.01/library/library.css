@@ -1,0 +1,15 @@
+.disponible, .emprunte, .consultable{ 
+	padding: 4px;
+	border: 1px inset #264D00;
+	text-align: center;
+color:inherit;
+}
+.disponible{
+	background-color: #DFFF80;
+}
+.consultable{
+	background-color: #FFFF66;
+}
+.emprunte {
+	background-color: #CC6666;
+}

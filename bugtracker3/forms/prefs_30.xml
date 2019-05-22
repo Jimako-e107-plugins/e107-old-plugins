@@ -1,0 +1,152 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="bugtracker3_admin_prefs_30_form" type="HELPER_FORM_TYPE_DB_ROW">
+
+      <errorsattop value="true" />
+
+      <dbdetails>
+         <dbtable>bugtracker3_apps</dbtable>
+         <index>bugtracker3_apps_id</index>
+         <data>bugtracker3_apps_name</data>
+         <order>bugtracker3_apps_name asc</order>
+         <liststyle>tbox</liststyle>
+         <!--dbcallback>bugtracker3FormatAppsDropDown</dbcallback-->
+      </dbdetails>
+
+      <text name="bugtracker3_apps_name" label="BUG3_ADMIN_APP_NAME" prompt="BUG3_ADMIN_APP_NAME_1" help="BUG3_ADMIN_APP_NAME_2" class="tbox">
+         <default var="db"/>
+         <mandatory>true</mandatory>
+         <attribute name="size">50</attribute>
+         <maxlength>100</maxlength>
+      </text>
+
+      <textarea name="bugtracker3_apps_description" label="BUG3_ADMIN_APP_DESCRIPTION" prompt="BUG3_ADMIN_APP_DESCRIPTION_1" help="BUG3_ADMIN_APP_DESCRIPTION_2" class="tbox">
+         <default var="db"/>
+         <style name="width">95%</style>
+      </textarea>
+
+      <image name="bugtracker3_apps_icon" label="BUG3_ADMIN_APP_ICON" prompt="BUG3_ADMIN_APP_ICON_1" help="BUG3_ADMIN_APP_ICON_2" class="tbox">
+         <default var="e107pref"/>
+         <dir>e_IMAGE</dir>
+         <attribute name="size">60</attribute>
+      </image>
+
+      <list name="bugtracker3_apps_type" label="BUG3_ADMIN_APP_TYPE" prompt="BUG3_ADMIN_APP_TYPE_1" help="BUG3_ADMIN_APP_TYPE_2" class="tbox">
+         <default var="db">BUGC_APP_TYPE_BUGS</default>
+         <value key="BUGC_APP_TYPE_BUGS">BUG_LAN_LABEL_APP_TYPE_BUGS</value>
+         <value key="BUGC_APP_TYPE_FEATURES">BUG_LAN_LABEL_APP_TYPE_FEATURES</value>
+      </list>
+
+      <table name="bugtracker3_apps_current_version" label="BUG3_ADMIN_APP_CURRENT_VER" prompt="BUG3_ADMIN_APP_CURRENT_VER_1" help="BUG3_ADMIN_APP_CURRENT_VER_2" class="tbox">
+         <default var="db">0</default>
+         <value key="table">bugtracker3_app_versions</value>
+         <value key="columns">bugtracker3_appver_id, bugtracker3_appver_version</value>
+         <value key="order">bugtracker3_appver_version ASC</value>
+         <value key="where">bugtracker3_appver_app_id={THIS_ID}</value>
+      </table>
+
+      <checkbox name="bugtracker3_apps_visible" label="BUG3_ADMIN_APP_VISIBLE" prompt="BUG3_ADMIN_APP_VISIBLE_1" help="BUG3_ADMIN_APP_VISIBLE_2" class="tbox">
+         <default var="db">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="bugtracker3_apps_closed" label="BUG3_ADMIN_APP_CLOSED" prompt="BUG3_ADMIN_APP_CLOSED_1" help="BUG3_ADMIN_APP_CLOSED_2" class="tbox">
+         <default var="db">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <accesstable name="bugtracker3_apps_userclass" label="BUG3_ADMIN_APP_USERCLASS" prompt="BUG3_ADMIN_APP_USERCLASS_1" help="BUG3_ADMIN_APP_USERCLASS_2" class="tbox">
+         <default var="db"/>
+      </accesstable>
+
+      <accesstable name="bugtracker3_apps_postclass" label="BUG3_ADMIN_APP_POSTCLASS" prompt="BUG3_ADMIN_APP_POSTCLASS_1" help="BUG3_ADMIN_APP_POSTCLASS_2" class="tbox">
+         <default var="db"/>
+      </accesstable>
+
+      <accesstable name="bugtracker3_apps_editclass" label="BUG3_ADMIN_APP_EDITCLASS" prompt="BUG3_ADMIN_APP_EDITCLASS_1" help="BUG3_ADMIN_APP_EDITCLASS_2" class="tbox">
+         <default var="db"/>
+      </accesstable>
+
+      <table name="bugtracker3_apps_owner" label="BUG3_ADMIN_APP_OWNER" prompt="BUG3_ADMIN_APP_OWNER_1" help="BUG3_ADMIN_APP_OWNER_2" class="tbox">
+         <default var="db"/>
+         <listcallback class="bugtracker3">bugtracker3FormatAppsOwnerDropDown</listcallback>
+      </table>
+
+      <table name="bugtracker3_apps_categories" label="BUG3_ADMIN_APP_CATEGORY" prompt="BUG3_ADMIN_APP_CATEGORY_1" help="BUG3_ADMIN_APP_CATEGORY_2" class="tbox">
+         <default var="db"/>
+         <attribute name="size">5</attribute>
+         <attribute name="multiple">true</attribute>
+         <value key="table">bugtracker3_categories</value>
+         <value key="columns">bugtracker3_category_id, bugtracker3_category_name</value>
+         <value key="order">bugtracker3_category_name ASC</value>
+      </table>
+
+      <table name="bugtracker3_apps_priorities" label="BUG3_ADMIN_APP_PRIORITY_NAMES" prompt="BUG3_ADMIN_APP_PRIORITY_NAMES_1" help="BUG3_ADMIN_APP_PRIORITY_NAMES_2" class="tbox">
+         <default var="db"/>
+         <attribute name="size">5</attribute>
+         <attribute name="multiple">true</attribute>
+         <value key="table">bugtracker3_priorities</value>
+         <value key="columns">bugtracker3_priority_id, bugtracker3_priority_name</value>
+         <value key="order">bugtracker3_priority_name ASC</value>
+      </table>
+
+      <table name="bugtracker3_apps_resolutions" label="BUG3_ADMIN_APP_RESOLUTION" prompt="BUG3_ADMIN_APP_RESOLUTION_1" help="BUG3_ADMIN_APP_RESOLUTION_2" class="tbox">
+         <default var="db"/>
+         <attribute name="size">5</attribute>
+         <attribute name="multiple">true</attribute>
+         <value key="table">bugtracker3_resolutions</value>
+         <value key="columns">bugtracker3_resolution_id, bugtracker3_resolution_name</value>
+         <value key="order">bugtracker3_resolution_name ASC</value>
+      </table>
+
+      <table name="bugtracker3_apps_statuses" label="BUG3_ADMIN_APP_STATUS" prompt="BUG3_ADMIN_APP_STATUS_1" help="BUG3_ADMIN_APP_STATUS_2" class="tbox">
+         <default var="db"/>
+         <attribute name="size">5</attribute>
+         <attribute name="multiple">true</attribute>
+         <value key="table">bugtracker3_statuses</value>
+         <value key="columns">bugtracker3_status_id, bugtracker3_status_name</value>
+         <value key="order">bugtracker3_status_name ASC</value>
+      </table>
+
+      <list name="bugtracker3_apps_template" label="BUG3_ADMIN_APP_TEMPLATE" prompt="BUG3_ADMIN_APP_TEMPLATE_1" help="BUG3_ADMIN_APP_TEMPLATE_2" class="tbox">
+         <default var="db"/>
+         <listcallback class="bugtracker3">formatTemplatesDropDown</listcallback>
+         <callbackparam name="templatetype">BUG3_ADMIN_TEMPLATE_TYPE_APP</callbackparam>
+      </list>
+
+      <span name="ept_header" text="BUG3_ADMIN_APP_DEFAULTS">
+         <style name="font-weight">bold</style>
+      </span>
+
+      <table name="bugtracker3_apps_category_default" label="BUG3_ADMIN_APP_CATEGORY_DEFAULT" prompt="BUG3_ADMIN_APP_CATEGORY_DEFAULT_1" help="BUG3_ADMIN_APP_CATEGORY_DEFAULT_2" class="tbox">
+         <default var="db"/>
+         <value key="table">bugtracker3_categories</value>
+         <value key="columns">bugtracker3_category_id, bugtracker3_category_name</value>
+         <value key="order">bugtracker3_category_name ASC</value>
+      </table>
+
+      <table name="bugtracker3_apps_priority_default" label="BUG3_ADMIN_APP_PRIORITY_DEFAULT" prompt="BUG3_ADMIN_APP_PRIORITY_DEFAULT_1" help="BUG3_ADMIN_APP_PRIORITY_DEFAULT_2" class="tbox">
+         <default var="db"/>
+         <value key="table">bugtracker3_priorities</value>
+         <value key="columns">bugtracker3_priority_id, bugtracker3_priority_name</value>
+         <value key="order">bugtracker3_priority_name ASC</value>
+      </table>
+
+      <table name="bugtracker3_apps_resolution_default" label="BUG3_ADMIN_APP_RESOLUTION_DEFAULT" prompt="BUG3_ADMIN_APP_RESOLUTION_DEFAULT_1" help="BUG3_ADMIN_APP_RESOLUTION_DEFAULT_2" class="tbox">
+         <default var="db"/>
+         <value key="table">bugtracker3_resolutions</value>
+         <value key="columns">bugtracker3_resolution_id, bugtracker3_resolution_name</value>
+         <value key="order">bugtracker3_resolution_name ASC</value>
+      </table>
+
+      <table name="bugtracker3_apps_status_default" label="BUG3_ADMIN_APP_STATUS_DEFAULT" prompt="BUG3_ADMIN_APP_STATUS_DEFAULT_1" help="BUG3_ADMIN_APP_STATUS_DEFAULT_2" class="tbox">
+         <default var="db"/>
+         <value key="table">bugtracker3_statuses</value>
+         <value key="columns">bugtracker3_status_id, bugtracker3_status_name</value>
+         <value key="order">bugtracker3_status_name ASC</value>
+      </table>
+
+   </form>
+
+</e107HelperForm>

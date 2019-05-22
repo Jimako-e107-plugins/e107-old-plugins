@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="bugtracker3_admin_prefs_30_form" type="HELPER_FORM_TYPE_DB_ROW">
+
+      <errorsattop value="true" />
+
+      <dbdetails>
+         <dbtable>bugtracker3_filters</dbtable>
+         <index>bugtracker3_filter_id</index>
+         <data>bugtracker3_filter_name, bugtracker3_filter_owner, bugtracker3_filter_public</data>
+         <order>bugtracker3_filter_public desc, bugtracker3_filter_name asc</order>
+         <dbwherecallback class="bugtracker3">bugtracker3FormatFilterItemSelectionWhere</dbwherecallback>
+         <dbformatcallback class="bugtracker3">bugtracker3FormatFilterItemSelection</dbformatcallback>
+         <liststyle>tbox</liststyle>
+      </dbdetails>
+
+      <hidden name="bugtracker3_filter_owner">
+         <default var="db">USERID</default>
+      </hidden>
+
+      <text name="bugtracker3_filter_name" label="BUG_LAN_LABEL_FILTER_NAME" prompt="BUG_LAN_LABEL_FILTER_NAME_1" help="BUG_LAN_LABEL_FILTER_NAME_2" class="tbox">
+         <default var="db"/>
+         <mandatory>true</mandatory>
+         <attribute name="size">50</attribute>
+         <maxlength>100</maxlength>
+      </text>
+
+      <textarea name="bugtracker3_filter_description" label="BUG_LAN_LABEL_FILTER_DESCRIPTION" prompt="BUG_LAN_LABEL_FILTER_DESCRIPTION_1" help="BUG_LAN_LABEL_FILTER_DESCRIPTION_2" class="tbox">
+         <default var="db"/>
+         <style name="width">95%</style>
+      </textarea>
+
+      <checkbox name="bugtracker3_filter_public" label="BUG_LAN_LABEL_FILTER_PUBLIC" prompt="BUG_LAN_LABEL_FILTER_PUBLIC_1" help="BUG_LAN_LABEL_FILTER_PUBLIC_2" class="tbox">
+         <default var="e107pref"/>
+         <value>1</value>
+      </checkbox>
+
+      <table name="bugtracker3_filter_bug_owner_id" label="BUG_LAN_LABEL_FILTER_OWNER" prompt="BUG_LAN_LABEL_FILTER_OWNER_1" help="BUG_LAN_LABEL_FILTER_OWNER_2" class="tbox">
+         <default var="db"/>
+         <listcallback class="bugtracker3">bugtracker3FormatAppsOwnerDropDown</listcallback>
+         <callbackparam name="includeblank">true</callbackparam>
+         <callbackparam name="currentuser">true</callbackparam>
+      </table>
+
+      <table name="bugtracker3_filter_categories" label="BUG_LAN_LABEL_FILTER_CATEGORIES" prompt="BUG_LAN_LABEL_FILTER_CATEGORIES_1" help="BUG_LAN_LABEL_FILTER_CATEGORIES_2" class="tbox">
+         <default var="db"/>
+         <attribute name="size">5</attribute>
+         <attribute name="multiple">true</attribute>
+         <listcallback class="bugtracker3">getCategoriesFilter</listcallback>
+      </table>
+
+      <table name="bugtracker3_filter_priorities" label="BUG_LAN_LABEL_FILTER_PRIORITIES" prompt="BUG_LAN_LABEL_FILTER_PRIORITIES_1" help="BUG_LAN_LABEL_FILTER_PRIORITIES_2" class="tbox">
+         <default var="db"/>
+         <attribute name="size">5</attribute>
+         <attribute name="multiple">true</attribute>
+         <listcallback class="bugtracker3">getPrioritiesFilter</listcallback>
+      </table>
+
+      <table name="bugtracker3_filter_statuses" label="BUG_LAN_LABEL_FILTER_STATUSES" prompt="BUG_LAN_LABEL_FILTER_STATUSES_1" help="BUG_LAN_LABEL_FILTER_STATUSES_2" class="tbox">
+         <default var="db"/>
+         <attribute name="size">5</attribute>
+         <attribute name="multiple">true</attribute>
+         <listcallback class="bugtracker3">getStatusesFilter</listcallback>
+      </table>
+
+      <table name="bugtracker3_filter_resolutions" label="BUG_LAN_LABEL_FILTER_RESOLUTIONS" prompt="BUG_LAN_LABEL_FILTER_RESOLUTIONS_1" help="BUG_LAN_LABEL_FILTER_RESOLUTIONS_2" class="tbox">
+         <default var="db"/>
+         <attribute name="size">5</attribute>
+         <attribute name="multiple">true</attribute>
+         <listcallback class="bugtracker3">getResolutionsFilter</listcallback>
+      </table>
+
+   </form>
+
+</e107HelperForm>

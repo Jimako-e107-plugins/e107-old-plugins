@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="bugtracker3_admin_prefs_10_form" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <text name="bugtracker3_pagetitle" label="BUG3_ADMIN_PREFS_PAGE_TITLE" prompt="BUG3_ADMIN_PREFS_PAGE_TITLE_1" help="BUG3_ADMIN_PREFS_PAGE_TITLE_2" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">25</attribute>
+      </text>
+
+      <text name="bugtracker3_separator" label="BUG3_ADMIN_PREFS_SEPARATOR" prompt="BUG3_ADMIN_PREFS_SEPARATOR_1" help="BUG3_ADMIN_PREFS_SEPARATOR_2" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">5</attribute>
+      </text>
+
+      <accesstable name="bugtracker3_globalclass" label="BUG3_ADMIN_PREFS_GLOBALCLASS" prompt="BUG3_ADMIN_PREFS_GLOBALCLASS_1" help="BUG3_ADMIN_PREFS_GLOBALCLASS_2" class="tbox">
+         <default var="e107pref"/>
+      </accesstable>
+
+      <checkbox name="bugtracker3_adminedit" label="BUG3_ADMIN_PREFS_ADMIN_EDIT" prompt="BUG3_ADMIN_PREFS_ADMIN_EDIT_1" help="BUG3_ADMIN_PREFS_ADMIN_EDIT_2" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="bugtracker3_emoticons" label="BUG3_ADMIN_PREFS_USE_EMOTES" prompt="BUG3_ADMIN_PREFS_USE_EMOTES_1" help="BUG3_ADMIN_PREFS_USE_EMOTES_2" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <radio name="bugtracker3_bbcodes" label="BUG3_ADMIN_PREFS_USE_BBCODES" prompt="BUG3_ADMIN_PREFS_USE_BBCODES_1" help="BUG3_ADMIN_PREFS_USE_BBCODES_2" class="tbox">
+         <default var="e107pref">0</default>
+         <value key="0">BUG3_ADMIN_PREFS_USE_BBCODES_KEY_0</value>
+         <value key="1">BUG3_ADMIN_PREFS_USE_BBCODES_KEY_1</value>
+         <value key="2">BUG3_ADMIN_PREFS_USE_BBCODES_KEY_2</value>
+      </radio>
+
+      <checkbox name="bugtracker3_tooltips" label="BUG3_ADMIN_PREFS_TOOLTIPS" prompt="BUG3_ADMIN_PREFS_TOOLTIPS_1" help="BUG3_ADMIN_PREFS_TOOLTIPS_2" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="bugtracker3_ajax" label="BUG3_ADMIN_PREFS_AJAX" prompt="BUG3_ADMIN_PREFS_AJAX_1" help="BUG3_ADMIN_PREFS_AJAX_2" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <list name="bugtracker3_global_template" label="BUG3_ADMIN_PREFS_TEMPLATE" prompt="BUG3_ADMIN_PREFS_TEMPLATE_1" help="BUG3_ADMIN_PREFS_TEMPLATE_2" class="tbox">
+         <default var="e107pref"/>
+         <listcallback class="bugtracker3">formatTemplatesDropDown</listcallback>
+         <callbackparam name="templatetype">BUG3_ADMIN_TEMPLATE_TYPE_APPS</callbackparam>
+      </list>
+
+      <list name="bugtracker3_appsorder" label="BUG3_ADMIN_PREFS_ORDER" prompt="BUG3_ADMIN_PREFS_ORDER_1" help="BUG3_ADMIN_PREFS_ORDER_2" class="tbox">
+         <default var="e107pref"/>
+         <value key="BUGC_APPS_ORDER_KEY_0">BUG_LAN_APPS_ORDER_VALUE_0</value>
+         <value key="BUGC_APPS_ORDER_KEY_1">BUG_LAN_APPS_ORDER_VALUE_1</value>
+         <value key="BUGC_APPS_ORDER_KEY_2">BUG_LAN_APPS_ORDER_VALUE_2</value>
+         <value key="BUGC_APPS_ORDER_KEY_3">BUG_LAN_APPS_ORDER_VALUE_3</value>
+      </list>
+
+      <integer name="bugtracker3_appspage" label="BUG3_ADMIN_PREFS_APPS_PER_PAGE" prompt="BUG3_ADMIN_PREFS_APPS_PER_PAGE_1" help="BUG3_ADMIN_PREFS_APPS_PER_PAGE_2" class="tbox">
+         <default var="e107pref"/>
+         <mandatory>true</mandatory>
+         <minvalue>1</minvalue>
+         <attribute name="size">3</attribute>
+      </integer>
+
+      <integer name="bugtracker3_bugspage" label="BUG3_ADMIN_PREFS_BUGS_PER_PAGE" prompt="BUG3_ADMIN_PREFS_BUGS_PER_PAGE_1" help="BUG3_ADMIN_PREFS_BUGS_PER_PAGE_2" class="tbox">
+         <default var="e107pref"/>
+         <mandatory>true</mandatory>
+         <minvalue>1</minvalue>
+         <attribute name="size">3</attribute>
+      </integer>
+
+   </form>
+
+</e107HelperForm>

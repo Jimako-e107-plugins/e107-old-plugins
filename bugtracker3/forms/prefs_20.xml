@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="bugtracker3_admin_menus_10_form" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <text name="bugtracker3_menu_summary_title" label="BUG3_ADMIN_MENUS_SUMMARY_TITLE" prompt="BUG3_ADMIN_MENUS_SUMMARY_TITLE_1" help="BUG3_ADMIN_MENUS_SUMMARY_TITLE_2" class="tbox">
+         <default var="e107pref">BUG3_MENU_SUMMARY_TITLE_DEFAULT</default>
+         <attribute name="size">50</attribute>
+      </text>
+
+      <text name="bugtracker3_menu_application_title" label="BUG3_ADMIN_MENUS_APPLICATION_TITLE" prompt="BUG3_ADMIN_MENUS_APPLICATION_TITLE_1" help="BUG3_ADMIN_MENUS_APPLICATION_TITLE_2" class="tbox">
+         <default var="e107pref">BUG3_MENU_APPLICATION_TITLE_DEFAULT</default>
+         <attribute name="size">50</attribute>
+      </text>
+
+   </form>
+
+</e107HelperForm>

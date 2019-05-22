@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="bugtracker3_admin_prefs_55_form" type="HELPER_FORM_TYPE_DB_ROW">
+
+      <errorsattop value="true" />
+
+      <dbdetails>
+         <dbtable>bugtracker3_resolutions</dbtable>
+         <index>bugtracker3_resolution_id</index>
+         <data>bugtracker3_resolution_name</data>
+         <order>bugtracker3_resolution_name asc</order>
+         <liststyle>tbox</liststyle>
+         <!--dbcallback>bugtracker3FormatAppsDropDown</dbcallback-->
+      </dbdetails>
+
+      <text name="bugtracker3_resolution_name" label="BUG3_ADMIN_RESOLUTION_NAME" prompt="BUG3_ADMIN_RESOLUTION_NAME_1" help="BUG3_ADMIN_RESOLUTION_NAME_2" class="tbox">
+         <default var="db"/>
+         <mandatory>true</mandatory>
+         <attribute name="size">50</attribute>
+         <maxlength>50</maxlength>
+      </text>
+
+      <textarea name="bugtracker3_resolution_description" label="BUG3_ADMIN_RESOLUTION_DESCRIPTION" prompt="BUG3_ADMIN_RESOLUTION_DESCRIPTION_1" help="BUG3_ADMIN_RESOLUTION_DESCRIPTION_2" class="tbox">
+         <default var="db"/>
+         <style name="width">75%</style>
+      </textarea>
+
+   </form>
+
+</e107HelperForm>

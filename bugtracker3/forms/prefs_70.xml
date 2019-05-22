@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="bugtracker3_admin_prefs_70_form" type="HELPER_FORM_TYPE_DB_ROW">
+
+      <errorsattop value="true" />
+
+      <dbdetails>
+         <dbtable>bugtracker3_app_versions</dbtable>
+         <index>bugtracker3_appver_id</index>
+         <data>bugtracker3_appver_app_id, bugtracker3_appver_version</data>
+         <join>left join {MPREFIX}bugtracker3_apps on {MPREFIX}bugtracker3_app_versions.bugtracker3_appver_app_id = {MPREFIX}bugtracker3_apps.bugtracker3_apps_id</join>
+         <order>bugtracker3_apps_name asc, bugtracker3_appver_version asc</order>
+         <liststyle>tbox</liststyle>
+         <dbformatcallback class='bugtracker3'>formatAppVersionsItemSelection</dbformatcallback>
+      </dbdetails>
+
+      <table name="bugtracker3_appver_app_id" label="BUG3_ADMIN_APPVER_APP" prompt="BUG3_ADMIN_APPVER_APP_1" help="BUG3_ADMIN_APPVER_APP_2" class="tbox">
+         <default var="db"/>
+         <value key="table">bugtracker3_apps</value>
+         <value key="columns">*</value>
+         <value key="order">bugtracker3_apps_name ASC</value>
+      </table>
+
+      <text name="bugtracker3_appver_version" label="BUG3_ADMIN_APPVER_VERSION" prompt="BUG3_ADMIN_APPVER_VERSION_1" help="BUG3_ADMIN_APPVER_VERSION_2" class="tbox">
+         <default var="db"/>
+         <mandatory>true</mandatory>
+         <attribute name="size">50</attribute>
+         <maxlength>50</maxlength>
+      </text>
+
+      <textarea name="bugtracker3_appver_description" label="BUG3_ADMIN_APPVER_DESCRIPTION" prompt="BUG3_ADMIN_APPVER_DESCRIPTION_1" help="BUG3_ADMIN_APPVER_DESCRIPTION_2" class="tbox">
+         <default var="db"/>
+         <style name="width">75%</style>
+      </textarea>
+
+   </form>
+
+</e107HelperForm>

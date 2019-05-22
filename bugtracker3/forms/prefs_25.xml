@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="bugtracker3_admin_prefs_20_form" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <div name="bugtracker3_header_owner" text="BUG3_ADMIN_PREFS_NOTIFY_OWNER">
+         <style name="font-weight">bold</style>
+      </div>
+
+      <list name="bugtracker3_notify_owner_new" label="BUG3_ADMIN_PREFS_NOTIFY_NEW" prompt="BUG3_ADMIN_PREFS_NOTIFY_NEW_1" help="BUG3_ADMIN_PREFS_NOTIFY_NEW_2" class="tbox">
+         <default var="e107pref"/>
+         <value key="BUGC_NOTIFY_KEY_0">BUG_LAN_NOTIFY_VALUE_0</value>
+         <value key="BUGC_NOTIFY_KEY_1">BUG_LAN_NOTIFY_VALUE_1</value>
+         <value key="BUGC_NOTIFY_KEY_2">BUG_LAN_NOTIFY_VALUE_2</value>
+         <value key="BUGC_NOTIFY_KEY_3">BUG_LAN_NOTIFY_VALUE_3</value>
+      </list>
+
+      <list name="bugtracker3_notify_owner_edit" label="BUG3_ADMIN_PREFS_NOTIFY_EDIT" prompt="BUG3_ADMIN_PREFS_NOTIFY_EDIT_1" help="BUG3_ADMIN_PREFS_NOTIFY_EDIT_2" class="tbox">
+         <default var="e107pref"/>
+         <value key="BUGC_NOTIFY_KEY_0">BUG_LAN_NOTIFY_VALUE_0</value>
+         <value key="BUGC_NOTIFY_KEY_1">BUG_LAN_NOTIFY_VALUE_1</value>
+         <value key="BUGC_NOTIFY_KEY_2">BUG_LAN_NOTIFY_VALUE_2</value>
+         <value key="BUGC_NOTIFY_KEY_3">BUG_LAN_NOTIFY_VALUE_3</value>
+      </list>
+
+      <list name="bugtracker3_notify_owner_comment" label="BUG3_ADMIN_PREFS_NOTIFY_COMMENT" prompt="BUG3_ADMIN_PREFS_NOTIFY_COMMENT_1" help="BUG3_ADMIN_PREFS_NOTIFY_COMMENT_2" class="tbox">
+         <default var="e107pref"/>
+         <value key="BUGC_NOTIFY_KEY_0">BUG_LAN_NOTIFY_VALUE_0</value>
+         <value key="BUGC_NOTIFY_KEY_1">BUG_LAN_NOTIFY_VALUE_1</value>
+         <value key="BUGC_NOTIFY_KEY_2">BUG_LAN_NOTIFY_VALUE_2</value>
+         <value key="BUGC_NOTIFY_KEY_3">BUG_LAN_NOTIFY_VALUE_3</value>
+      </list>
+
+      <list name="bugtracker3_notify_owner_dev_comment" label="BUG3_ADMIN_PREFS_NOTIFY_DEV_COMMENT" prompt="BUG3_ADMIN_PREFS_NOTIFY_DEV_COMMENT_1" help="BUG3_ADMIN_PREFS_NOTIFY_DEV_COMMENT_2" class="tbox">
+         <default var="e107pref"/>
+         <value key="BUGC_NOTIFY_KEY_0">BUG_LAN_NOTIFY_VALUE_0</value>
+         <value key="BUGC_NOTIFY_KEY_1">BUG_LAN_NOTIFY_VALUE_1</value>
+         <value key="BUGC_NOTIFY_KEY_2">BUG_LAN_NOTIFY_VALUE_2</value>
+         <value key="BUGC_NOTIFY_KEY_3">BUG_LAN_NOTIFY_VALUE_3</value>
+      </list>
+
+      <div name="bugtracker3_header_poster" text="BUG3_ADMIN_PREFS_NOTIFY_POSTER">
+         <style name="font-weight">bold</style>
+      </div>
+
+      <list name="bugtracker3_notify_poster_new" label="BUG3_ADMIN_PREFS_NOTIFY_NEW" prompt="BUG3_ADMIN_PREFS_NOTIFY_NEW_1" help="BUG3_ADMIN_PREFS_NOTIFY_NEW_2" class="tbox">
+         <default var="e107pref"/>
+         <value key="BUGC_NOTIFY_KEY_0">BUG_LAN_NOTIFY_VALUE_0</value>
+         <value key="BUGC_NOTIFY_KEY_1">BUG_LAN_NOTIFY_VALUE_1</value>
+         <value key="BUGC_NOTIFY_KEY_2">BUG_LAN_NOTIFY_VALUE_2</value>
+         <value key="BUGC_NOTIFY_KEY_3">BUG_LAN_NOTIFY_VALUE_3</value>
+      </list>
+
+      <list name="bugtracker3_notify_poster_edit" label="BUG3_ADMIN_PREFS_NOTIFY_EDIT" prompt="BUG3_ADMIN_PREFS_NOTIFY_EDIT_1" help="BUG3_ADMIN_PREFS_NOTIFY_EDIT_2" class="tbox">
+         <default var="e107pref"/>
+         <value key="BUGC_NOTIFY_KEY_0">BUG_LAN_NOTIFY_VALUE_0</value>
+         <value key="BUGC_NOTIFY_KEY_1">BUG_LAN_NOTIFY_VALUE_1</value>
+         <value key="BUGC_NOTIFY_KEY_2">BUG_LAN_NOTIFY_VALUE_2</value>
+         <value key="BUGC_NOTIFY_KEY_3">BUG_LAN_NOTIFY_VALUE_3</value>
+      </list>
+
+      <list name="bugtracker3_notify_poster_comment" label="BUG3_ADMIN_PREFS_NOTIFY_COMMENT" prompt="BUG3_ADMIN_PREFS_NOTIFY_COMMENT_1" help="BUG3_ADMIN_PREFS_NOTIFY_COMMENT_2" class="tbox">
+         <default var="e107pref"/>
+         <value key="BUGC_NOTIFY_KEY_0">BUG_LAN_NOTIFY_VALUE_0</value>
+         <value key="BUGC_NOTIFY_KEY_1">BUG_LAN_NOTIFY_VALUE_1</value>
+         <value key="BUGC_NOTIFY_KEY_2">BUG_LAN_NOTIFY_VALUE_2</value>
+         <value key="BUGC_NOTIFY_KEY_3">BUG_LAN_NOTIFY_VALUE_3</value>
+      </list>
+
+      <list name="bugtracker3_notify_poster_dev_comment" label="BUG3_ADMIN_PREFS_NOTIFY_DEV_COMMENT" prompt="BUG3_ADMIN_PREFS_NOTIFY_DEV_COMMENT_1" help="BUG3_ADMIN_PREFS_NOTIFY_DEV_COMMENT_2" class="tbox">
+         <default var="e107pref"/>
+         <value key="BUGC_NOTIFY_KEY_0">BUG_LAN_NOTIFY_VALUE_0</value>
+         <value key="BUGC_NOTIFY_KEY_1">BUG_LAN_NOTIFY_VALUE_1</value>
+         <value key="BUGC_NOTIFY_KEY_2">BUG_LAN_NOTIFY_VALUE_2</value>
+         <value key="BUGC_NOTIFY_KEY_3">BUG_LAN_NOTIFY_VALUE_3</value>
+      </list>
+
+   </form>
+
+</e107HelperForm>

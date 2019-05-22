@@ -1,0 +1,209 @@
+<?php
+# $Id: lang.de,v 1.13 2003/11/11 21:59:14 jflarvoire Exp $
+
+# This file contains PHP code that specifies language specific strings
+# The default strings come from lang.en, and anything in a locale
+# specific file will overwrite the default. This is a German file.
+#
+# Translations provided by: Michael Redinger
+#
+# This file is PHP code. Treat it as such.
+
+# The charset to use in "Content-type" header
+$vocab["charset"]            = "iso-8859-1";
+
+# Used in style.inc
+$vocab["mrbs"]               = "Raumbuchungssystem MRBS";
+
+# Used in functions.inc
+$vocab["report"]             = "Bericht";
+$vocab["admin"]              = "Admin";
+$vocab["help"]               = "Hilfe";
+$vocab["search"]             = "Suche:";
+$vocab["not_php3"]             = "<H1>WARNING: This probably doesn't work with PHP3</H1>";
+
+# Used in day.php
+$vocab["bookingsfor"]        = "Einträge für";
+$vocab["bookingsforpost"]    = "";
+$vocab["areas"]              = "Bereiche";
+$vocab["daybefore"]          = "gehe zum vorherigen Tag";
+$vocab["dayafter"]           = "gehe zum nächsten Tag";
+$vocab["gototoday"]          = "gehe zum heutigen Tag";
+$vocab["goto"]               = "Start";
+
+# Used in trailer.inc
+$vocab["viewday"]            = "Zeige Tag";
+$vocab["viewweek"]           = "Zeige Woche";
+$vocab["viewmonth"]          = "Zeige Monat";
+$vocab["ppreview"]           = "Druckansicht";
+
+# Used in edit_entry.php
+$vocab["addentry"]           = "Eintrag hinzufügen";
+$vocab["editentry"]          = "Eintrag ändern";
+$vocab["editseries"]         = "Alle Einträge ändern";
+$vocab["namebooker"]         = "Eintrag von";
+$vocab["fulldescription"]    = "Volständige Beschreibung:<br>&nbsp;&nbsp;(Anzahl der Teilnehmer,<br>&nbsp;&nbsp;Intern/Extern etc)";
+$vocab["date"]               = "Tag:";
+$vocab["start_date"]         = "Anfangsdatum:";
+$vocab["end_date"]           = "Enddatum:";
+$vocab["time"]               = "Zeit:";
+$vocab["duration"]           = "Dauer:";
+$vocab["seconds"]            = "Sekunden";
+$vocab["minutes"]            = "Minuten";
+$vocab["hours"]              = "Stunden";
+$vocab["days"]               = "Tage";
+$vocab["weeks"]              = "Wochen";
+$vocab["years"]              = "Jahre";
+$vocab["all_day"]            = "Ganztägig";
+$vocab["type"]               = "Art:";
+$vocab["internal"]           = "Intern";
+$vocab["external"]           = "Extern";
+$vocab["save"]               = "Speichern";
+$vocab["rep_type"]           = "Art der Wiederholung:";
+$vocab["rep_type_0"]         = "Keine";
+$vocab["rep_type_1"]         = "täglich";
+$vocab["rep_type_2"]         = "wöchentlich";
+$vocab["rep_type_3"]         = "monatlich";
+$vocab["rep_type_4"]         = "jährlich";
+$vocab["rep_type_5"]         = "monatlich, entsprechender Tag";
+$vocab["rep_type_6"]         = "n-Weekly";
+$vocab["rep_end_date"]       = "Ende der Wiederholung:";
+$vocab["rep_rep_day"]        = "Tag der Wiederholung:";
+$vocab["rep_for_weekly"]     = "(für wöchentlich)";
+$vocab["rep_freq"]           = "Häufigkeit:";
+$vocab["rep_num_weeks"]      = "Number of weeks";
+$vocab["rep_for_nweekly"]    = "(for n-weekly)";
+$vocab["ctrl_click"]         = "Use Control-Click to select more than one room";
+$vocab["entryid"]            = "Entry ID ";
+$vocab["repeat_id"]          = "Repeat ID "; 
+$vocab["you_have_not_entered"] = "You have not entered a";
+$vocab["valid_time_of_day"]  = "valid time of day.";
+$vocab["brief_description"]  = "Brief Description.";
+$vocab["useful_n-weekly_value"] = "useful n-weekly value.";
+
+# Used in view_entry.php
+$vocab["description"]        = "Beschreibung:";
+$vocab["room"]               = "Raum:";
+$vocab["createdby"]          = "Erstellt von:";
+$vocab["lastupdate"]         = "Letzte Änderung:";
+$vocab["deleteentry"]        = "Eintrag löschen";
+$vocab["deleteseries"]       = "Alle Einträge löschen";
+$vocab["confirmdel"]         = "Sind Sie sicher,\\ndass Sie diesen Eintrag\\nlöschen wollen?\\n\\n";
+$vocab["returnprev"]         = "Zurück zur vorigen Seite";
+$vocab["invalid_entry_id"]   = "Invalid entry id.";
+
+# Used in edit_entry_handler.php
+$vocab["error"]              = "Fehler";
+$vocab["sched_conflict"]     = "Konflikt in der Planung";
+$vocab["conflict"]           = "Der neue Eintrag hat einen Konflikt mit folgenden Einträgen:";
+$vocab["too_may_entrys"]     = "Die gewählten Optionen würden zu viele Einträge erzeugen.<BR>Ändern Sie bitte die Optionen!";
+$vocab["returncal"]          = "Zurück zur Kalenderansicht";
+$vocab["failed_to_acquire"]  = "Failed to acquire exclusive database access"; 
+
+# Authentication stuff
+$vocab["accessdenied"]       = "Zugang verweigert";
+$vocab["norights"]           = "Sie haben keine Berechtigung, diesen Eintrag zu ändern";
+$vocab["please_login"]       = "Please log in";
+$vocab["user_name"]          = "Name";
+$vocab["user_password"]      = "Password";
+$vocab["unknown_user"]       = "Unknown user";
+$vocab["you_are"]            = "Sie sint";
+$vocab["login"]              = "Log in";
+$vocab["logoff"]             = "Log Off";
+
+# Used in search.php
+$vocab["invalid_search"]     = "Leerer oder ungültiger Suchbegriff.";
+$vocab["search_results"]     = "Suchergebnis für:";
+$vocab["nothing_found"]      = "Keine passenden Suchergebnisse gefunden.";
+$vocab["records"]            = "Ergebnisse ";
+$vocab["through"]            = " bis ";
+$vocab["of"]                 = " von ";
+$vocab["previous"]           = "Vorige";
+$vocab["next"]               = "Nächste";
+$vocab["entry"]              = "Eintrag";
+$vocab["view"]               = "Öffnen";
+$vocab["advanced_search"]    = "Advanced search";
+$vocab["search_button"]      = "Suche";
+$vocab["search_for"]         = "Search For";
+$vocab["from"]               = "From";
+
+# Used in report.php
+$vocab["report_on"]          = "Bericht über Termine:";
+$vocab["report_start"]       = "Bericht Beginn:";
+$vocab["report_end"]         = "Bericht Ende:";
+$vocab["match_area"]         = "Suche Bereich:";
+$vocab["match_room"]         = "Suche Raum:";
+$vocab["match_entry"]        = "Suche Kurzbeschreibung:";
+$vocab["match_descr"]        = "Suche Beschreibung:";
+$vocab["include"]            = "Generiere:";
+$vocab["report_only"]        = "nur Bericht";
+$vocab["summary_only"]       = "nur Zusammenfassung";
+$vocab["report_and_summary"] = "Bericht und Zusammenfassung";
+$vocab["summarize_by"]       = "Zusammenfassung nach:";
+$vocab["sum_by_descrip"]     = "Kurzbeschreibung";
+$vocab["sum_by_creator"]     = "Ersteller";
+$vocab["entry_found"]        = "Eintrag gefunden";
+$vocab["entries_found"]      = "Einträge gefunden";
+$vocab["summary_header"]     = "Stundenzusammenfassung der Einträge";
+$vocab["total"]              = "Gesamt";
+$vocab["submitquery"]        = "Bericht erstellen";
+
+# Used in week.php
+$vocab["weekbefore"]         = "gehe zur vorigen Woche";
+$vocab["weekafter"]          = "gehe zur nächsten Woche";
+$vocab["gotothisweek"]       = "gehe zu dieser Woche";
+
+# Used in month.php
+$vocab["monthbefore"]        = "gehe zum vorigen Monat";
+$vocab["monthafter"]         = "gehe zum nächsten Monat";
+$vocab["gotothismonth"]      = "gehe zu diesen Monat";
+
+# Used in {day week month}.php
+$vocab["no_rooms_for_area"]  = "Der Bereich enthält keinen Raum";
+
+# Used in admin.php
+$vocab["edit"]               = "Bearbeiten";
+$vocab["delete"]             = "Löschen";
+$vocab["rooms"]              = "Räume";
+$vocab["in"]                 = "in";
+$vocab["noareas"]            = "Keine Bereiche";
+$vocab["addarea"]            = "Bereich hinzufügen";
+$vocab["name"]               = "Name";
+$vocab["noarea"]             = "Kein Bereich ausgewählt";
+$vocab["browserlang"]        = "Die Spracheinstellung Ihres Browsers ist";
+$vocab["postbrowserlang"]    = ".";
+$vocab["addroom"]            = "Raum hinzufügen";
+$vocab["capacity"]           = "Kapazität";
+$vocab["norooms"]            = "Keine Räume vorhanden.";
+$vocab["administration"]     = "Administration";
+
+# Used in edit_area_room.php
+$vocab["editarea"]           = "Bereich bearbeiten";
+$vocab["change"]             = "Ändern";
+$vocab["backadmin"]          = "Zurück zu Admin";
+$vocab["editroomarea"]       = "Raum- oder Bereichsbeschreibung bearbeiten";
+$vocab["editroom"]           = "Raum bearbeiten";
+$vocab["update_room_failed"] = "Update room failed: ";
+$vocab["error_room"]         = "Error: room ";
+$vocab["not_found"]          = " not found";
+$vocab["update_area_failed"] = "Update area failed: ";
+$vocab["error_area"]         = "Error: area ";
+
+# Used in del.php
+$vocab["deletefollowing"]    = "Dadurch werden die folgenden Einträge gelöscht";
+$vocab["sure"]               = "Sind Sie sicher?";
+$vocab["YES"]                = "JA";
+$vocab["NO"]                 = "NEIN";
+$vocab["delarea"]            = "You must delete all rooms in this area before you can delete it<p>";
+
+# Used in help.php
+$vocab["about_mrbs"]         = "About MRBS";
+$vocab["database"]           = "Database: ";
+$vocab["system"]             = "System: ";
+$vocab["please_contact"]     = "Please contact ";
+$vocab["for_any_questions"]  = "for any questions that aren't answered here.";
+
+# Used in mysql.inc AND pgsql.inc
+$vocab["failed_connect_db"]  = "Fatal Error: Failed to connect to database";
+
+?>
