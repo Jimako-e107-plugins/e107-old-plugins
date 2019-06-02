@@ -109,7 +109,7 @@ if ($action == "show" || $action == "") {
 	
 	$clsList = loadClasses();
 	$showList = explode(",", $MBL_PREF['groups']);
-	print_a($MBL_PREF);
+	
 	$mbl_text .= $tp->parsetemplate($LIST_HEADER, true, $mbl_shortcodes);
 	
 	$filtercheck = "";
@@ -150,7 +150,7 @@ if ($action == "show" || $action == "") {
 			".getOrder($order, $invert)."
 		LIMIT $from,".$MBL_PREF['list_pagesize']."
 	";
-	print_a($query);
+	
 	if ($sql->db_Select_gen($query)) {
 		$uList = $sql->db_getList();
 	
