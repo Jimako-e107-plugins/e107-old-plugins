@@ -1,0 +1,10 @@
+<?php
+
+print "
+
+	</body>
+	</html>
+
+";
+
+?>

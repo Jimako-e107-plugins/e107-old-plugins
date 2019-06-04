@@ -1,0 +1,45 @@
+body {
+	background: #fff;
+	color: #000;
+	font-family: arial;
+}
+
+a {
+
+	color: #2D84B3;
+	text-decoration: none;
+
+}
+a:active {
+
+	text-decoration: none;
+
+}
+a:visited {
+
+	text-decoration: none;
+
+}
+a:hover {
+
+	color: #2D84B3;
+	text-decoration: underline;
+
+}
+
+
+.tbox {
+	background-color: #F4F7FA;
+	border: #5e5d63 1px solid;
+	color: #000000;
+	font: 10px verdana, tahoma, arial, helvetica, sans-serif;
+}
+
+.button {
+
+	border: #000 1px solid;
+	color: #000;
+	font: 9px verdana, tahoma, arial, helvetica, sans-serif;
+	text-align:center;
+
+}
