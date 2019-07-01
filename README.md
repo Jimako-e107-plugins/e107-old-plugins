@@ -943,3 +943,13 @@ source: SecretR
 compatible: e107.org
 
 =======
+
+Corllete Lab Feature Box v1.0
+
+Author: SecretR
+
+source: e107.org
+
+compatible:  e107v1+
+
+=======
