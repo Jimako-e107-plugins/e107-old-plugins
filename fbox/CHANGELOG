@@ -1,0 +1,15 @@
+Corllete Lab's Feature Box (e107 plugin) 
+Copyright (C) 2007 Corllete (R) Lab - Corllete ltd. under GNU GPL (http://gnu.org)
+http://www.clabteam.com
+http://www.free-source.net
+
+
+v1.0 beta
+- Bugfix - bug #3 (wrong image path)
+- Bugfix - wrong function namespace
+
+v1.0 RC2
+- Bugfix - fatal error
+
+v1.0 RC1 - initial version
+-----------------------
