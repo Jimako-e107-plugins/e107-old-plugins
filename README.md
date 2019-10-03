@@ -18,6 +18,20 @@ Php version:  not compatible with php7
 
 =======
 
+###  AACGC Clan Listing by M@CH!N3 
+
+source: https://github.com/AACGC/AACGC-Clan-Listing
+
+description: Displays Clan Names, Website, Information, and Game Server Banner, arranges into catagories and pages.BBcode & HTML supported. 
+
+Original: outdated for php 7, break admin area, outdated queries for e107 2.2
+
+After quick fix:  not visible errors, sending private messages commented
+
+Php version:  compatible with php7
+
+=======
+
 ### AACGC Item List  by M@CH!N3
 
 source: https://github.com/AACGC/Item-List
