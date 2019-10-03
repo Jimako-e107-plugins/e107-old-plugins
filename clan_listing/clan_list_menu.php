@@ -38,9 +38,9 @@ $clanmenu_text .= "<table style='width:100%' class=''>";
 $sql ->db_Select("clan_listing_cat", "*", "ORDER BY clan_cat_name ASC","");
 while($row = $sql ->db_Fetch()){
 
-$sqlcc = new db;
-$sqlcc->mySQLresult = @mysql_query("select clan_cat, count(clan_id) as cls from ".MPREFIX."clan_listing where clan_cat=".$row['clan_cat_id'].";");
-$clanic = $sqlcc->db_fetch();
+$sqlcc = e107::getDb();
+$sqlcc->gen("select clan_cat, count(clan_id) as cls from ".MPREFIX."clan_listing where clan_cat=".$row['clan_cat_id'].";");
+$clanic = $sqlcc->fetch();
 
 $clanmenu_text .= "
 <tr>
@@ -50,9 +50,9 @@ $clanmenu_text .= "
 </tr>";
 
 if ($pref['clanlist_enable_showclans'] == "1"){
-$sql2 = new db;
-$sql2 ->db_Select("clan_listing", "*", "WHERE clan_cat='".$row['clan_cat_id']."' ORDER BY clan_name ASC","");
-while($row2 = $sql2 ->db_Fetch()){
+$sql2 = e107::getDb();
+$rows = $sql2 ->retrieve("clan_listing", "*", "WHERE clan_cat='".$row['clan_cat_id']."' ORDER BY clan_name ASC", true);
+foreach($rows as $row2) {
 $clanmenu_text .= "
 <tr>
 <td style='width:100%' class='indent' colspan='3'>

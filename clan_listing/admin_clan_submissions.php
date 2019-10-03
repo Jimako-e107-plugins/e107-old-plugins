@@ -32,6 +32,9 @@ if (e_QUERY) {
 //-------------------------# BB Code Support #----------------------------------------------
 
 include(e_HANDLER."ren_help.php");
+$mes = e107::getMessage();
+$tp = e107::getParser();
+$frm = e107::getForm();
 
 //------------------------------------------------------------------------------------------
 
@@ -71,10 +74,34 @@ If ($newok == "0"){
 	$ns->tablerender("", $newtext);
 }
 If ($newok == "1"){
-$sql->db_Insert("clan_listing", "NULL, '".$newclanowner."', '".$newclanname."', '".$newclantag."', '".$newclanwebsite."', '".$newclantsip."', '".$newclantsport."', '".$newclanbanner."', '".$newclangame."', '".$newclancat."'") or die(mysql_error());
-$sql2 = new db;
-$sql2->db_Delete("clan_listing_submission", "submit_id='".$delete_id[0]."'");
-$ns->tablerender("", "<center><b>".ACLANLIST_CADD."</b></center>");
+
+			$insertQry = array(
+				'clan_id'           => NULL,
+				'clan_owner'         => $newclanowner,
+				'clan_name'          => $newclanname,
+				'clan_tag'           => $newclantag,
+				'clan_website'       => $newclanwebsite,
+				'clan_tsip'          => $newclantsip,
+				'clan_tsport'        => $newclantsport,
+				'clan_banner'        => $newclanbanner,
+				'clan_game_banner'   => $newclangame,
+				'clan_cat'           => $newclancat 
+			);
+      
+      $insertId = e107::getDb()->insert("clan_listing", $insertQry);
+      if($insertId) {
+        $mes->addSuccess(ACLANLIST_CADD. ' ID: '.$insertId);
+        $sql2 = e107::getDb();
+        $sql2->delete("clan_listing_submission", "submit_id='".$delete_id[0]."'");
+      }
+      else {
+         $error = e107::getDb()->mySQLerror;
+         $mes->addError($error);
+      }
+ 
+      
+
+$ns->tablerender("", "<center><b>".$mes->render()."</b></center>");
 }}
 
 if (isset($_POST['main_delete'])) {
@@ -104,15 +131,14 @@ if ($action == "") {
         <td style='width:25%' class='forumheader3'>".ACLANLIST_DTB."</td>
         <td style='width:0%' class='forumheader3'>".ACLANLIST_OPT."</td>
        </tr>";
-        $sql->db_Select("clan_listing_submission", "*", "ORDER BY submit_id ASC","");
-        while($row = $sql->db_Fetch()){
-
-        $sql2 = new db;
-        $sql2->db_Select("clan_listing_cat", "*", "WHERE clan_cat_id='".$row['clan_cat']."'", "");
-        $row2 = $sql2->db_Fetch();
-        $sql3 = new db;
-        $sql3->db_Select("user", "*", "WHERE user_id='".$row['clan_owner']."'", "");
-        $row3 = $sql3->db_Fetch();
+        $rows = $sql->retrieve("clan_listing_submission", "*", "ORDER BY submit_id ASC", true);
+        foreach($rows as $row) {
+          $sql2 = e107::getDb();
+          $sql2->select("clan_listing_cat", "*", "WHERE clan_cat_id='".$row['clan_cat']."'", "");
+          $row2 = $sql2->fetch();
+          $sql3 = e107::getDb();
+          $sql3->select("user", "*", "WHERE user_id='".$row['clan_owner']."'", "");
+          $row3 = $sql3->fetch();
 
         $text .= "
         <tr>

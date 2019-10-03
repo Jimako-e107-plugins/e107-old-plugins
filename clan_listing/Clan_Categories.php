@@ -43,12 +43,12 @@ $text .= "<table style='width:100%' class='forumheader3'>
 
 $text .= "<table style='width:100%' class='forumheader3'>";
 
-$sql->mySQLresult = @mysql_query("SELECT * FROM ".MPREFIX."clan_listing_cat ORDER BY clan_cat_order ASC");
-while($row = $sql->db_Fetch()){
+$sql->gen("SELECT * FROM ".MPREFIX."clan_listing_cat ORDER BY clan_cat_order ASC");
+while($row = $sql->fetch()){
 
-$sql2 = new db;
-$sql2->mySQLresult = @mysql_query("select clan_cat, count(clan_id) as cls from ".MPREFIX."clan_listing where clan_cat='".intval($row['clan_cat_id'])."';");
-$clanic = $sql2->db_fetch();
+$sql2 = e107::getDb();
+$sql2->gen("select clan_cat, count(clan_id) as cls from ".MPREFIX."clan_listing where clan_cat='".intval($row['clan_cat_id'])."';");
+$clanic = $sql2->fetch();
 
 $text .= "<tr>
 	  <td style='width:0%' class='indent'><a href='".e_PLUGIN."clan_listing/Clans.php?det.".$row['clan_cat_id']."'><img src='".e_PLUGIN."clan_listing/icons/".$row['clan_cat_icon']."' width='".$pref['clanlist_catpageiconsize']."px' align='left' /></td>

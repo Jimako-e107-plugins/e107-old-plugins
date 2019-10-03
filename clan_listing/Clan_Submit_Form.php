@@ -22,6 +22,10 @@ if ($pref['clanlist_enable_clansubmit'] == "1"){
 
 include(e_HANDLER."ren_help.php");
 
+$mes = e107::getMessage();
+$tp = e107::getParser();
+$frm = e107::getForm();
+
 //------------------------------------------------------------------------------------------
 
 //----------------------------------------------
@@ -73,50 +77,71 @@ If ($newok == "0"){
 	$ns->tablerender("", $newtext);
 }
 If ($newok == "1"){
-$sql->db_Insert("clan_listing_submission", "NULL, '".$newclanowner."', '".$newclanname."', '".$newclantag."', '".$newclanwebsite."', '".$newclantsip."', '".$newclantsport."', '".$newclanbanner."', '".$newclangame."', '".$newclancat."'") or die(mysql_error());
-$sql2->db_Insert("private_msg", "NULL, '".$newpmfrom."', '".$newpmto."', '".$newpmsent."', '".$newpmread."', '".$newpmsubject."', '".$newpmtext."', '".$newpmsenddel."', '".$newpmreaddel."', '".$newpmatt."', '".$newpmoption."', '".$newpmsize."'") or die(mysql_error());
+      //e107::getDb()->insert("clan_listing_submission", "NULL, '".$newclanowner."', '".$newclanname."', '".$newclantag."', '".$newclanwebsite."', '".$newclantsip."', '".$newclantsport."', '".$newclanbanner."', '".$newclangame."', '".$newclancat."'") or die(mysqli_error());
+      
+			$insertQry = array(
+				'submit_id'           => NULL,
+				'clan_owner'         => $newclanowner,
+				'clan_name'          => $newclanname,
+				'clan_tag'           => $newclantag,
+				'clan_website'       => $newclanwebsite,
+				'clan_tsip'          => $newclantsip,
+				'clan_tsport'        => $newclantsport,
+				'clan_banner'        => $newclanbanner,
+				'clan_game_banner'   => $newclangame,
+				'clan_cat'           => $newclancat
+			);
+      
+      $insertId =e107::getDb()->insert("clan_listing_submission", $insertQry);
+      if($insertId) {
+        $mes->addSuccess(CLANLIST_CSF_CSB. ' ID '.$insertId);
+      }
+      else {
+         $error = e107::getDb()->mySQLerror;
+         $mes->addError($error);
+      }
+ 
+ 
+//todo
+//e107::getDb()->insert("private_msg", "NULL, '".$newpmfrom."', '".$newpmto."', '".$newpmsent."', '".$newpmread."', '".$newpmsubject."', '".$newpmtext."', '".$newpmsenddel."', '".$newpmreaddel."', '".$newpmatt."', '".$newpmoption."', '".$newpmsize."'") or die(mysqli_error());
 
-$ns->tablerender("", "<center><b>".CLANLIST_CSF_CSB."</b></center>");
+$ns->tablerender("", "<center><b>".$mes->render()."</b></center>");
 }
 }
 //-----------------------------------------------------------------------------------------------------------+
 $text .= "<form method='POST' action='Clan_Submit_Form.php'>
-<table style='width:100%' class='fborder' cellspacing='0' cellpadding='0'>";
+<table style='width:100%' class='fborder' cellspacing='0' cellpadding='0' id='clan_submit_form'>";
 
 
-$sql->db_Select("clan_listing_cat", "*");
-$rows = $sql->db_Rows();
-for ($i=0; $i < $rows; $i++) {
-$option = $sql->db_Fetch();
-$options .= "<option name='clan_cat' value='".$option['clan_cat_id']."'>".$option['clan_cat_name']."</option>";}
+ 
+$rows = e107::getDb()->retrieve("clan_listing_cat", "*", true, true);
+ 
+foreach($rows as $option) { 
+  $options .= "<option name='clan_cat' value='".$option['clan_cat_id']."'>".$option['clan_cat_name']."</option>";
+}
 
-$text .= "
-        <tr>
-        <td style='width:40%; text-align:left' class='forumheader3'>".CLANLIST_CSF_CN.":</td>
-        <td style='width:60%' class='forumheader3'>
-        <input class='tbox' type='text' name='clan_name' size='80'>
-        <input type='hidden' name='clan_owner' value='".USERID."'>
-        </td>
-        </tr>
-        <tr>
-        <td style='width:40%; text-align:left' class='forumheader3'>".CLANLIST_CSF_CT.":</td>
-        <td style='width:60%' class='forumheader3'>
-        <input class='tbox' type='text' name='clan_tag' size='40'>
-        </td>
-        </tr>
-        <tr>
-        <td style='width:40%; text-align:left' class='forumheader3'>".CLANLIST_CSF_CW."</td>
-        <td style='width:60%' class='forumheader3'>
-	<input class='tbox' type='text' name='clan_website' size='80'>
-        </td>
-        </tr>
-        <tr>
-        <td style='width:40%; text-align:left' class='forumheader3'>".CLANLIST_CSF_CTS.":</td>
-        <td style='width:60%' class='forumheader3'>
-	IP:<input class='tbox' type='text' name='clan_tsip' size='30'>PORT:<input class='tbox' type='text' name='clan_tsport' size='15'>
-        </td>
-        </tr>
-        <tr>
+
+			$fields = array();
+			$fields['clan_name']      = array('title'=>CLANLIST_CSF_CN, 'type'=>'text', 'writeParms'=>array('maxlength'=>80, 'size'=>'xxlarge', 'required' => 1));
+			$fields['clan_tag']       = array('title'=>CLANLIST_CSF_CT, 'type'=>'text', 'writeParms'=>array('maxlength'=>40, 'size'=>'xxlarge'));
+			$fields['clan_website']       = array('title'=>CLANLIST_CSF_CW, 'type'=>'url', 'writeParms'=>array('maxlength'=>80, 'size'=>'xxlarge'));     
+
+			$fields['clan_tsip']       = array('title'=>CLANLIST_CSF_CTS.' IP:', 'type'=>'text', 'writeParms'=>array('maxlength'=>30, 'size'=>'xsmall'));     
+			$fields['clan_tsport']   = array('title'=>CLANLIST_CSF_CTS.' PORT:', 'type'=>'text', 'writeParms'=>array('maxlength'=>15, 'size'=>'xsmall'));  
+ 
+
+			foreach($fields as $key=>$fld)
+			{
+				$text .= "<tr><td style='width:20%' class='forumheader3'>
+							".$fld['title']
+							."</td>
+							<td style='width:80%' class='forumheader3'>".$frm->renderElement($key, '', $fld)."</td>
+						</tr>";
+			}
+ 
+ 
+$text .= "<input type='hidden' name='clan_owner' value='".USERID."'>";
+$text .= "<tr>
         <td style='width:40%; text-align:left' class='forumheader3'>".CLANLIST_CSF_CI.":</td>
         <td style='width:60%' class='forumheader3'>
 	<textarea class='tbox' name='clan_banner' rows='15' cols='80' onselect='storeCaret(this);' onclick='storeCaret(this);' onkeyup='storeCaret(this);'></textarea><br>";
