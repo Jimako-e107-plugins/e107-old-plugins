@@ -967,3 +967,11 @@ source: e107.org
 compatible:  e107v1+
 
 =======
+
+e107Slider for version 0.7 by xenthemes
+
+forked originally from https://github.com/nickypn/e107Slider
+
+but author site is not available anymore 
+
+=======
