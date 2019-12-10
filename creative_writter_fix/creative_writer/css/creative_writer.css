@@ -1,0 +1,79 @@
+.tbox {
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+input.e-date.form-control {
+     display: initial;
+     width: initial; 
+}
+
+table.fborder {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.fborder.table-small-calendar {
+	 margin: 5px;
+   border: 2px solid grey;
+   width: 95%;
+}
+
+table.fborder>tbody>tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+table.fborder>tbody>tr>td, 
+table.fborder>tbody>tr>th, 
+table.fborder>tfoot>tr>td, 
+table.fborder>tfoot>tr>th, 
+table.fborder>thead>tr>td, 
+table.fborder>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+
+.button {
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+} 
+
+/* to move to theme */
+
+.label-external {
+    position: absolute;
+    right: 1.5em;
+    top: 1.5em;
+}

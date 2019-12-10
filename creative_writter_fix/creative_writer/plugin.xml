@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e107Plugin name="Creative Writer" lan="LAN_CWRITER_G001" version="2.1.1" date="2017-11-11" compatibility="2.0" installRequired="true" >
+	<author name="Father Barry" url="http://keal.me.uk" />
+	<summary lan="">Creative Writing Publisher</summary>
+	<description lan="">Creative Writing Publisher</description>
+	<keywords>
+		<word>information</word>
+		<word>fanfiction</word>
+		<word>writer</word>
+	</keywords>
+	<category>content</category>
+	<copyright>Arabeska o.z.</copyright>
+	<adminLinks>
+		<link url="admin_config.php" description="" icon="images/cwriter_32.png" iconSmall="images/cwriter_16.png" icon128="" primary="true" >LAN_CONFIGURE</link>
+  </adminLinks>
+	<siteLinks>
+		<link url="{e_PLUGIN}creative_writer/cwriter.php" sef="creative_writer">Creative Writing</link>		
+		<link url="{e_PLUGIN}creative_writer/challenges.php" sef="challenges" >Challenges</link>	 
+		<link url="{e_PLUGIN}creative_writer/chapters.php" sef="chapters" >Challenges</link>
+	</siteLinks>
+  <mediaCategories>
+    <category type="image"  perm="everyone" image='{e_PLUGIN}creative_writer/images/cw_logo.png' primary='true'>CW Writer Images</category>
+  </mediaCategories>
+	<pluginPrefs>
+		<pref name='cwriter_approval'>255</pref>
+		<pref name='cwriter_read'>253</pref>
+		<pref name='cwriter_create'>250</pref>
+		<pref name='cwriter_admin'>250</pref>
+		<pref name='cwriter_terms'></pref>
+		<pref name='cwriter_perpage'>15</pref>
+		<pref name='cwriter_chapterperpage'>15</pref>
+		<pref name='cwriter_pich'>200</pref>
+		<pref name='cwriter_picw'>200</pref>
+		<pref name='cwriter_currency'></pref>
+		<pref name='cwriter_metad'></pref>
+		<pref name='cwriter_metak'></pref>
+		<pref name='cwriter_thumbs'>1</pref>
+		<pref name='cwriter_thumbheight'>100</pref>
+		<pref name='cwriter_userating'>1</pref>
+		<pref name='cwriter_usecomments'>1</pref>
+		<pref name='cwriter_dformat'>d-m-y</pref>
+    <pref name='cw_visibility_disclaimer'>1</pref>
+    <pref name='cw_visibility_warnings'>1</pref>  
+    <pref name='cw_visibility_logo'>0</pref> 
+    <pref name='cwriter_usereview'>1</pref> 
+    <pref name='bookterm_01'></pref>
+    <pref name='bookterm_02'></pref>
+    <pref name='bookterm_03'></pref>
+    <pref name='bookterm_04'></pref>
+    <pref name='chapterterm_01'></pref>
+    <pref name='chapterterm_02'></pref>
+    <pref name='chapterterm_03'></pref>
+    <pref name='chapterterm_04'></pref>
+    <pref name='cwriter_challengeperpage'>10</pref>
+		<pref name='cwriter_challenge'>250</pref> 
+    <pref name='cw_visibility_series'>0</pref> 
+    <pref name='cw_visibility_complete'>0</pref>     
+	</pluginPrefs>
+</e107Plugin>

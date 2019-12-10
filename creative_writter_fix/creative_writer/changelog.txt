@@ -1,0 +1,79 @@
+Changes in version 2.1.1
+- added challenge table
+- complete rewrite of frontend... in progress
+- advanced search
+
+Need to be fixed:
+- language strings
+- folder structure
+- set comments to books or chapters
+- search results
+
+Need to be added:
+- Ratings
+- Fandom (? category)
+
+
+Not touched yet:
+- e_header.php
+- mybooks.php (frontend admin)
+- e_module.php
+- e_list.php
+- e_top.php
+
+====== new version starts ======
+
+Changes in version 2.1.0
+- removed biography table
+- added user_id field to book table
+
+Changes in version 2.0.1
+
+- updated e_rss.php
+- removed e_update.php
+- removed search.php
+- fixed e_search.php, just basic search
+- added templating of book list
+- fixed icons for categories and genres
+- removed e_comment 
+- added comments to chapters
+
+Changes in version 2.0.0
+"FANFICTION VERSION"
+
+Warning:  this plugin will be highly customized. For original version use version from Releases.
+
+- added characters as table 
+- generated new admin interface
+- plugin.xml
+- installation data
+
+New admin interface: 
+- preferencies
+- category backend
+- genres backend
+- characters backend
+- part of book backend
+- submitted backend
+- media setting backend
+- deprecated e_latest,e_status replaced
+- new way e_notify
+
+What is needed to done:
+- Frontend
+
+
+What could be done:
+- preview and approve button for submitted books
+
+New features:
+- possibility to hide fields from view/edit mode:
+-- disclaimer
+-- warnings
+-- price  (change disabled didn't work before)
+-- logo   (change disabled frontend posting is not fixed)
+- possibility to use own strings instead Book/Chapter at Frontend
+
+Changes in version 1.2.0
+- see release 
+ 

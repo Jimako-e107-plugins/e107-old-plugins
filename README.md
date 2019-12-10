@@ -993,5 +993,14 @@ Site is down.
 
 added some old fix 
 
+=======
 
 
+### Creative-Writer for version 0.7 by Father Barry
+
+original:
+
+fix is part fixed plugin for new plugin and extended for fanfiction drabbles, never finished, they decided go for efiction script
+
+
+=======
