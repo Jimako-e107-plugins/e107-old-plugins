@@ -984,3 +984,14 @@ e_version plugin is my own copy, no idea from where
 
 backup version from 08/2016
 =======
+
+### JbClan for version 0.7 by jbWebWare  2013
+
+Source: https://github.com/jbWebWare/jbClan
+
+Site is down.
+
+added some old fix 
+
+
+
