@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e107Plugin name="Everziós Pluginok" lan="" version="2.0.1" date="2016-09-27" compatibility="2.0" installRequired="true" >
+	<author name="Barry" url="http://www.keal.me.uk" />
+	<summary lan="EVERSION_SUMMARY">Plugin Verzió Ellenőrző</summary>
+	<description lan="EVERSION_DESC">Plugin Verzió Ellenőrző</description>
+	<keywords>
+		<word>admin</word>
+		<word>plugin</word>
+		<word>tools</word>
+	</keywords>
+	<category>tools</category>
+	<copyright>Barry</copyright>
+	<adminLinks>
+		<link url="admin_config.php" description="" icon="images/icon.gif" iconSmall="images/icon_16.gif" primary="true" >LAN_CONFIGURE</link>
+	</adminLinks>
+	<siteLinks>
+		<link url="{e_PLUGIN}eversion/eversion.php" perm='everyone' lan="EVERSION_LINKTITLE">EVERSION_LINKTITLE</link>
+	</siteLinks>
+	<pluginPrefs>
+		<pref name='eversion_url'>url</pref>
+		<pref name='eversion_read'>254</pref>
+		<pref name='eversion_inmenu'>5</pref>
+		<pref name='eversion_noplug'>10</pref>
+		<pref name='eversion_usedownloads'>1</pref>
+		<pref name='eversion_usebugs'>1</pref>
+		<pref name='eversion_useforums'>1</pref>
+		<pref name='eversion_dformat'>Y-m-d</pref>
+	</pluginPrefs>
+</e107Plugin>    

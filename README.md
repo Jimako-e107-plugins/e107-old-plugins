@@ -976,3 +976,8 @@ but author site is not available anymore
 
 =======
 
+eversion plugin for version 0.7 by Father Barry
+
+forked originally from https://github.com/yesszus/eversion
+
+=======
