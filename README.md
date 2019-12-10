@@ -823,7 +823,7 @@ Milad Pazouki
 
 =======
 
-e107: Clan Members Basic 1.0  
+### e107: Clan Members Basic 1.0  
 
 Source: https://e107.org/plugins/?id=476
 
@@ -839,7 +839,7 @@ EDIT:  the author's site is not available anymore
 
 =======
 
-e107: Clan Members 1.0  
+### e107: Clan Members 1.0  
 
 Source: unknown
 
@@ -851,7 +851,7 @@ EDIT:  the author's site is not available anymore
 
 =======
 
-Roster by Carl Taylor 
+### Roster by Carl Taylor 
 
 Author: nephilim222
 
@@ -864,7 +864,7 @@ state: just backup
 
 =======
 
-RWar v1.4 
+### RWar v1.4 
 
 An E107 based Clan War Management plugin by Richard Perry
 
@@ -878,7 +878,7 @@ state: just backup
 
 =======
 
-e107 Clock Menu 
+### e107 Clock Menu 
 
 Author: Crytiqal
 
@@ -888,7 +888,7 @@ source: wrxxy
 
 =======
 
-e107 nCode Image Resizer
+### e107 nCode Image Resizer
 
 Author: Mohamed Anouar Achoukhy
 
@@ -898,7 +898,7 @@ source: wrxxy
 
 =======
 
-e107 What plugin
+### e107 What plugin
 
 Author:  Patrick Weaver
 
@@ -910,7 +910,7 @@ compatible:  e107v1+
 
 =======
 
-e107 Advanced XML Sitemap Generator
+### e107 Advanced XML Sitemap Generator
 
 Author:  Mohamed Anouar
 
@@ -922,7 +922,7 @@ timestamp:  2010-08-22
 
 =======
 
-e107 Universal Seo Pack
+### e107 Universal Seo Pack
 
 Author:  Mohamed Anouar
 
@@ -934,7 +934,7 @@ compatible:  e107v1+
 
 =======
 
-e107 Email Inbox
+### e107 Email Inbox
 
 Author:  Mohamed Anouar
 
@@ -946,7 +946,7 @@ compatible:  e107v1+
 
 =======
 
-Top Downloads Menu
+### Top Downloads Menu
 
 Author:  SecretR
 
@@ -958,7 +958,7 @@ compatible: e107.org
 
 =======
 
-Corllete Lab Feature Box v1.0
+### Corllete Lab Feature Box v1.0
 
 Author: SecretR
 
@@ -968,7 +968,7 @@ compatible:  e107v1+
 
 =======
 
-e107Slider for version 0.7 by xenthemes
+### e107Slider for version 0.7 by xenthemes
 
 forked originally from https://github.com/nickypn/e107Slider
 
@@ -976,8 +976,11 @@ but author site is not available anymore
 
 =======
 
-eversion plugin for version 0.7 by Father Barry
+### eversion plugin for version 0.7 by Father Barry
 
 forked originally from https://github.com/yesszus/eversion
 
+e_version plugin is my own copy, no idea from where 
+
+backup version from 08/2016
 =======
