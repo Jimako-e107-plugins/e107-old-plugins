@@ -1,0 +1,1 @@
+return "<span class='bukvica'>$code_text</span>";

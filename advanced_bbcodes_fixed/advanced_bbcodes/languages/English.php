@@ -15,8 +15,8 @@
 
 // plugin.php and stats_menu.php
 define("LAN_ADVANCED_BBCODES_NOM",                       "Advanced BBcodes");
-define("LAN_ADVANCED_BBCODES_CONFIG",                    "Configure Advanced BBcodes v0.4");
-define("LAN_ADVANCED_BBCODES_DESCR",                     "Can install new bbcodes in your e107 website.<br />Created for e107 bye The_Death_Raw - <a href='http://www.e107plugins.fr' target='_blank'>www.e107plugins.fr</a>.");
+define("LAN_ADVANCED_BBCODES_CONFIG",                    "Configure Advanced BBcodes v2.1");
+define("LAN_ADVANCED_BBCODES_DESCR",                     "Can install new bbcodes in your e107 website.<br />Created for e107 bye The_Death_Raw - www.e107plugins.fr.");
 
 // bbcodes
 define("LAN_ADVANCED_BBCODES_STRIKE",                    "Strikethrough text: [strike]Text[/strike]");
@@ -36,6 +36,7 @@ define("LAN_ADVANCED_BBCODES_ROLLER",                    "Deformation of the tex
 define("LAN_ADVANCED_BBCODES_SPOILER",                   "The Spoiler helps to reduce and view an item via a small button: [sp=About spoiler]Text[/sp]");
 define("LAN_ADVANCED_BBCODES_SPOILER_SHOW",              "Show");
 define("LAN_ADVANCED_BBCODES_SPOILER_HIDE",              "Hide");
+define("LAN_ADVANCED_BBCODES_BUKVICA",                 	 "Special symbol: [bukvica]Text[/bukvica]");
 
 // admin_prefs.php
 define("LAN_ADVANCED_BBCODES_PREFERENCES",               "Advanced BBcodes - Preferences");
@@ -52,6 +53,7 @@ define("LAN_ADVANCED_BBCODES_PARCHEMIN_ADMIN",           "<img src='".e_PLUGIN."
 define("LAN_ADVANCED_BBCODES_SPOILER_ADMIN",             "<img src='".e_PLUGIN."advanced_bbcodes/images/bbcodes/icon_spoiler.png' style='width: 22px; height: 22px; vertical-align: bottom' alt='' /> Use Spoiler bbcode?");
 define("LAN_ADVANCED_BBCODES_TOOLFAQ_ADMIN",             "<img src='".e_PLUGIN."advanced_bbcodes/images/bbcodes/icon_toolfaq.png' style='width: 22px; height: 22px; vertical-align: bottom' alt='' /> Use ToolFaq bbcode?");
 define("LAN_ADVANCED_BBCODES_ROLLER_ADMIN",              "<img src='".e_PLUGIN."advanced_bbcodes/images/bbcodes/icon_roller.png' style='width: 22px; height: 22px; vertical-align: bottom' alt='' /> Use Roller bbcode?");
+define("LAN_ADVANCED_BBCODES_BUKVICA_ADMIN",        		"<img src='".e_PLUGIN."advanced_bbcodes/images/bbcodes/icon_bukvica.png' style='width: 22px; height: 22px; vertical-align: bottom' alt='' /> Use Bukvica bbcode?");
 
 // admin_prefs_affichage
 define("LAN_ADVANCED_BBCODES_PREFS_AFFICHAGE",           "Advanced BBcodes - Viewing Preferences");
@@ -68,6 +70,7 @@ define("LAN_ADVANCED_BBCODES_PREFS_PARCHEMIN_NEWS",      "<img src='".e_PLUGIN."
 define("LAN_ADVANCED_BBCODES_PREFS_SPOILER_NEWS",        "<img src='".e_PLUGIN."advanced_bbcodes/images/bbcodes/icon_spoiler.png' style='width: 22px; height: 22px; vertical-align: bottom' alt='' /> Show the bbcode Spoiler only in the news and proposal news?");
 define("LAN_ADVANCED_BBCODES_PREFS_TOOLFAQ_NEWS",        "<img src='".e_PLUGIN."advanced_bbcodes/images/bbcodes/icon_toolfaq.png' style='width: 22px; height: 22px; vertical-align: bottom' alt='' /> Show the bbcode ToolFaq only in the news and proposal news?");
 define("LAN_ADVANCED_BBCODES_PREFS_ROLLER_NEWS",         "<img src='".e_PLUGIN."advanced_bbcodes/images/bbcodes/icon_roller.png' style='width: 22px; height: 22px; vertical-align: bottom' alt='' /> Show the bbcode Roller only in the news and proposal news?");
+define("LAN_ADVANCED_BBCODES_PREFS_BUKVICA_NEWS",        "<img src='".e_PLUGIN."advanced_bbcodes/images/bbcodes/icon_bukvica.png' style='width: 22px; height: 22px; vertical-align: bottom' alt='' /> Show the bbcode Bukvica only in the news and proposal news?");
 
 // save and booléen
 define("LAN_ADVANCED_BBCODES_YES",                       "Yes");

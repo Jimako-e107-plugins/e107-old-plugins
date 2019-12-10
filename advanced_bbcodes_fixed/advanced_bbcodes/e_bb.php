@@ -16,14 +16,13 @@
 // protection du fichier
 if (!defined('e107_INIT')) { exit; }
 
-global $pref;     
+$pref = e107::pref('advanced_bbcodes');  
 
 // raccourci chemin images bbcodes
 $advbbcodes_chemin = "advanced_bbcodes/images/bbcodes/";
 
 // Multilanguages
 @include(e_PLUGIN."advanced_bbcodes/languages/".e_LANGUAGE.".php");
-@include(e_PLUGIN."advanced_bbcodes/languages/French.php");
 
 /*---------------------------------------------------------------------------------------------------
 |        1.Hr bbcode
@@ -458,7 +457,43 @@ $BBCODE_TEMPLATE_NEWSPOST .= "{BB=toolfaq}";
 $BBCODE_TEMPLATE_SUBMITNEWS .= "{BB=toolfaq}";
 $BBCODE_TEMPLATE_ADMIN .= "{BB=toolfaq}";
 $BBCODE_TEMPLATE_CPAGE .= "{BB=toolfaq}";
+}
+
+$eplug_bb[] = $bb; // ajout à la liste gobale - Très Important!
+}
+else {
+}
+ 
+
+/*---------------------------------------------------------------------------------------------------
+|        14.Bukvica bbcode
+--------------------------------------------------------------------------------------------------- */
+
+if ($pref['advanced_bbcodes_bukvica']){
+// informations sur le bbcode bukvica
+$bb['name'] = 'bukvica';
+$bb['onclick'] = 'addtext';
+$bb['onclick_var'] = "[bukvica][/bukvica]";
+$bb['icon'] = e_PLUGIN_ABS."".$advbbcodes_chemin."icon_bukvica.png";
+$bb['helptext'] = "".LAN_ADVANCED_BBCODES_BUKVICA."";
+$bb['function'] = '';
+$bb['function_var'] = '';
+
+if ($pref['advanced_bbcodes_bukvica_news']){
+// ajout du bbcode juste pour les news et la proposition des news
+$BBCODE_TEMPLATE_NEWSPOST .= "{BB=bukvica}";
+$BBCODE_TEMPLATE_SUBMITNEWS .= "{BB=bukvica}";
 } 
+
+else {
+// ajout du bbcode aux templates par defaut
+$BBCODE_TEMPLATE .= "{BB=bukvica}"; 
+$BBCODE_TEMPLATE_NEWSPOST .= "{BB=bukvica}";
+$BBCODE_TEMPLATE_SUBMITNEWS .= "{BB=bukvica}";
+$BBCODE_TEMPLATE_ADMIN .= "{BB=bukvica}";
+$BBCODE_TEMPLATE_CPAGE .= "{BB=bukvica}";
+}
+
 
 $eplug_bb[] = $bb; // ajout à la liste gobale - Très Important!
 }

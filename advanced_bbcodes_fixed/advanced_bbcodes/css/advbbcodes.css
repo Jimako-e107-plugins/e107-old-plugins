@@ -50,3 +50,8 @@ a.tool:hover span, a.tooltip:focus span {
    left: 30px;
    text-decoration: none;
 }
+
+/* DO NOT REMOVE THE FOLLOWING STYLES */
+.bukvica {font-size: 20pt; color: #3a599d; font-weight: bold; font-family: verdana, tahoma, arial, helvetica, sans-serif; height: 15px; line-height: 20px; margin-top: 0px; margin-right: 1px; }
+.wrapright{ float: left;  margin-right: 5px; padding: 5px; width: 210px;  height: auto; border: 0px; }
+@media print{ .no-print { display: none !important; } }

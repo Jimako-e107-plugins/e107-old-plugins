@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e107Plugin name="Advanced BBcodes" lan="LAN_ADVANCED_BBCODES_NOM" version="2.1.0" date="2019-01-21" compatibility="2.0.2" installRequired="true" >
+	<author name="TheDeathRaw/Jimako" url="https://www.e107.sk/" />
+	<summary lan="LAN_ADVANCED_BBCODES_DESCR">Can install new bbcodes in your e107 website.</summary>
+	<description lan="LAN_ADVANCED_BBCODES_DESCR">Can install new bbcodes in your e107 website.</description>
+	<keywords>
+		<word>enhancement</word>
+		<word>bbcodes</word>
+		<word>editor</word>
+	</keywords>
+	<category>tools</category>
+	<copyright>GPL</copyright>
+	<adminLinks>
+		<link url="admin_config.php" description="" icon="images/icon_16.png" iconSmall="images/icon_32.png" icon128="images/icon_32.png" primary="true" >LAN_CONFIGURE</link>
+	</adminLinks>
+	<pluginPrefs>
+		<pref name='advanced_bbcodes_strike'>1</pref>
+		<pref name='advanced_bbcodes_hide'>1</pref>
+		<pref name='advanced_bbcodes_ligne'>1</pref>
+		<pref name='advanced_bbcodes_gvideo'>0</pref>
+		<pref name='advanced_bbcodes_youtube'>0</pref>
+		<pref name='advanced_bbcodes_dailymotion'>0</pref>
+		<pref name='advanced_bbcodes_metacafe'>0</pref>
+		<pref name='advanced_bbcodes_mplayer'>0</pref>
+		<pref name='advanced_bbcodes_parchemin'>1</pref>
+		<pref name='advanced_bbcodes_spoiler'>1</pref>
+		<pref name='advanced_bbcodes_toolfaq'>1</pref>
+		<pref name='advanced_bbcodes_roller'>1</pref>
+		<pref name='advanced_bbcodes_acronym'>1</pref>
+		<pref name='advanced_bbcodes_bukvica'>1</pref>		
+		<pref name='advanced_bbcodes_strike_news'>0</pref>
+		<pref name='advanced_bbcodes_hide_news'>0</pref>
+		<pref name='advanced_bbcodes_ligne_news"'>0</pref>
+		<pref name='advanced_bbcodes_gvideo_news'>0</pref>
+		<pref name='advanced_bbcodes_youtube_news'>0</pref>
+		<pref name='advanced_bbcodes_dailymotion_news'>0</pref>
+		<pref name='advanced_bbcodes_metacafe_news'>0</pref>
+		<pref name='advanced_bbcodes_mplayer_news'>0</pref>
+		<pref name='advanced_bbcodes_parchemin_news'>0</pref>
+		<pref name='advanced_bbcodes_sp_news'>0</pref>
+		<pref name='advanced_bbcodes_toolfaq_news'>0</pref>
+		<pref name='advanced_bbcodes_roller_news'>0</pref>
+		<pref name='advanced_bbcodes_acronym_news'>0</pref>	
+		<pref name='advanced_bbcodes_bukvica_news'>0</pref>			
+	</pluginPrefs>
+</e107Plugin>

@@ -15,7 +15,7 @@
 
 // plugin.php et stats_menu.php
 define("LAN_ADVANCED_BBCODES_NOM",                       "Advanced BBcodes");
-define("LAN_ADVANCED_BBCODES_CONFIG",                    "Configurer Advanced BBcodes v0.4");
+define("LAN_ADVANCED_BBCODES_CONFIG",                    "Configurer Advanced BBcodes v2.1");
 define("LAN_ADVANCED_BBCODES_DESCR",                     "Permet d'installer 13 nouveaux bbcodes a votre site e107.<br />Cr&eacute;er pour e107 par The_Death_Raw - <a href='http://www.e107plugins.fr' target='_blank'>www.e107plugins.fr</a>.");
 
 // bbcodes
@@ -36,7 +36,7 @@ define("LAN_ADVANCED_BBCODES_ROLLER",                    "D&eacute;formation du 
 define("LAN_ADVANCED_BBCODES_SPOILER",                   "Le Spoiler permet de reduire et afficher un &eacute;l&eacute;ment via un petit bouton: [sp=Sujet du spoiler]Texte[/sp]");
 define("LAN_ADVANCED_BBCODES_SPOILER_SHOW",              "Afficher");
 define("LAN_ADVANCED_BBCODES_SPOILER_HIDE",              "Reduire");
-
+        
 // admin_prefs.php
 define("LAN_ADVANCED_BBCODES_PREFERENCES",               "Advanced BBcodes - Pr&eacute;f&eacute;rences");
 define("LAN_ADVANCED_BBCODES_STRIKE_ADMIN",              "<img src='".e_PLUGIN."advanced_bbcodes/images/bbcodes/icon_strike.png' style='width: 22px; height: 22px; vertical-align: bottom' alt='' /> Utiliser le bbcode Strike?");
