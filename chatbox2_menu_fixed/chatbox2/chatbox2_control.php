@@ -83,8 +83,8 @@ if($_POST['cb2_insert']) {
 	// CHECK FOR ALLOW USER MULTI-POST
 	// ###############################
 	if($pref['cb2_multipost'] == 0){
-		$sql -> db_Select("chatbox2", "cb2_nick", "1=1 ORDER BY cb2_id DESC LIMIT 1");
-		$row = $sql->db_Fetch();
+		$sql -> select("chatbox2", "cb2_nick", "1=1 ORDER BY cb2_id DESC LIMIT 1");
+		$row = $sql->fetch();
 		$cb2_multipost = 0;
 		if( ($row[0] == $nick) && (!check_class($pref['cb2_mod_class'])) ){
 			$cb2_multipost = 1;
@@ -167,8 +167,8 @@ if($_POST['cb2_getlastid']) {
 		exit;
 	}
 
-	$sql->db_Select("chatbox2", "MAX(cb2_id)");
-	$row = $sql->db_Fetch();
+	$sql->select("chatbox2", "MAX(cb2_id)");
+	$row = $sql->fetch();
 	echo $row[0];
 	exit;
 }
@@ -231,8 +231,8 @@ if($_POST['cb2_getchat']) {
 			if($cb['user_name']){
 				if (USERID  && (isset($pref['gold_chatbox'])) && ($pref['cb2_gold_enable']== 1) ){
 					// IF USER AND GOLD SYSTEM INSTALLED AND CHATBOX ENABLES GOLD
-					$sql -> db_Select("gold_system", "id, orb", "id={$cb2_uid} LIMIT 1");
-					$row = $sql -> db_Fetch();
+					$sql -> select("gold_system", "id, orb", "id={$cb2_uid} LIMIT 1");
+					$row = $sql -> fetch();
 					if ($row['orb'] != "") {
 		        		$cb2_nick= "
 							<DIV class='{$row['orb']}' style='height:15px;' id='b_{$row['id']}'>

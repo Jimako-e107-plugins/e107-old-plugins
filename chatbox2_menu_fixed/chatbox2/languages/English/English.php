@@ -80,4 +80,8 @@ define("CB2_L10", "Delete Post");
 define("CB2_L15", "Post too long, or post empty");
 define("CB2_L25", "[Your posting is blocked]");
 
+
+define("NP_1", "Previous page");
+define("NP_2", "Next page");
+define("NP_3", "Go to page");
 ?>

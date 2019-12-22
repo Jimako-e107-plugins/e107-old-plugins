@@ -19,10 +19,10 @@ if (!defined('e107_INIT')) { exit; }
 
 	$bullet = $this -> getBullet($arr[6], $mode);
 
-	if(!$chatbox2_posts = $sql -> db_Select("chatbox2", "*", $qry)){
+	if(!$chatbox2_posts = $sql -> select("chatbox2", "*", $qry)){
 		$LIST_DATA = LIST_CHATBOX_2;
 	}else{
-		while($row = $sql -> db_Fetch()) {
+		while($row = $sql -> fetch()) {
 
 			$cb2_id		= substr($row['cb2_nick'] , 0, strpos($row['cb2_nick'] , "."));
 			$cb2_nick	= substr($row['cb2_nick'] , (strpos($row['cb2_nick'] , ".")+1));

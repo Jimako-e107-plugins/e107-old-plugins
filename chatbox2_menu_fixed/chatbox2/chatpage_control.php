@@ -37,10 +37,14 @@ if (file_exists(e_PLUGIN."chatbox2/languages/".e_LANGUAGE."/".e_LANGUAGE.".php")
 	include_once(e_PLUGIN."chatbox2/languages/English/English.php");
 }
 
+
+global $pref;
 // ##################################
 // CHAT PAGE - INSERT MESSAGE IN DB
 // ##################################
 //Check to see if a message was sent.
+ 
+
 if($_POST['cp2_insert']) {
 
 	if(check_class($pref['cb2_mute_class'])){
@@ -86,8 +90,8 @@ if($_POST['cp2_insert']) {
 	// CHECK FOR ALLOW USER MULTI-POST
 	// ###############################
 	if($pref['cb2_multipost'] == 0){
-		$sql -> db_Select("chatbox2", "cb2_nick", "1=1 ORDER BY cb2_id DESC LIMIT 1");
-		$row = $sql->db_Fetch();
+		$sql -> select("chatbox2", "cb2_nick", "1=1 ORDER BY cb2_id DESC LIMIT 1");
+		$row = $sql->fetch();
 		$cp2_multipost = 0;
 		if( ($row[0] == $nick) && (!check_class($pref['cb2_mod_class'])) ){
 			$cp2_multipost = 1;
@@ -129,13 +133,15 @@ if($_POST['cp2_insert']) {
 			$cp2_message = $tp -> toDB($cp2_message);
 
 			if($pref['cb2_allow_dups'] != 1){
-				if($sql -> db_Select("chatbox2", "*", "cb2_message='$cp2_message' AND cb2_datestamp+".$pref['cb2_dup_timer'].">".time())){
+				if($sql -> select("chatbox2", "*", "cb2_message='$cp2_message' AND cb2_datestamp+".$pref['cb2_dup_timer'].">".time())){
 					$cp2_emessage = CB2_L17;
 				}
 			}
 
 			if(!$cp2_emessage){
-				$cp2_emessage = ($sql -> db_Insert("chatbox2", "0, '$nick', '$cp2_message',  '$cp2_font_color', '".time()."', '0' , '$ip' ")) ? "noerr" : CB2_L30;
+                
+				$cp2_emessage = ($sql -> insert("chatbox2", "0, '$nick', '$cp2_message',  '$cp2_font_color', '".time()."', '0' , '$ip' " )) ? "noerr" : CB2_L30;
+                
 				if($cp2_emessage == "noerr"){
 					$edata_cp = array("cmessage" => $cp2_message, "ip" => $ip);
 					$e_event -> trigger("cbox2post", $edata_cp);
@@ -208,9 +214,12 @@ if($_POST['cp2_getlastid']) {
 		exit;
 	}
 
-	$sql->db_Select("chatbox2", "MAX(cb2_id)");
-	$row = $sql->db_Fetch();
-	echo $row[0];
+	$sql->select("chatbox2", "MAX(cb2_id) AS lastId" );
+
+	$row = $sql->fetch();
+	//echo $row[0];
+    echo $row['lastId'];
+ 
 	exit;
 }
 
@@ -273,8 +282,8 @@ if($_POST['cp2_getchat']) {
 
 				if (USERID  && (isset($pref['gold_chatbox'])) && ($pref['cb2_gold_enable']== 1) ){
 					// IF USER AND GOLD SYSTEM INSTALLED AND CHATBOX ENABLES GOLD
-					$sql -> db_Select("gold_system", "id, orb", "id={$cp2_uid} LIMIT 1");
-					$row = $sql -> db_Fetch();
+					$sql -> select("gold_system", "id, orb", "id={$cp2_uid} LIMIT 1");
+					$row = $sql -> fetch();
 					if ($row['orb'] != "") {
 						// IF ORB IS ON
 		        		$cp2_nick= "
@@ -352,7 +361,24 @@ if($_POST['cp2_getchat']) {
 			// BULLET
 			// ###########################
 			if($pref['cb2_show_bullet'] == 1){
-				$bullet = (defined("BULLET") ? "<img src='".THEME_ABS."images/".BULLET."' alt='' style='vertical-align: middle;' />" : "<img src='".THEME_ABS."images/".(defined("BULLET") ? BULLET : "bullet2.gif")."' alt='' style='vertical-align: middle;' />");
+				//$bullet = (defined("BULLET") ? "<img src='".THEME_ABS."images/".BULLET."' alt='' style='vertical-align: middle;' />" : "<img src='".THEME_ABS."images/".(defined("BULLET") ? BULLET : "bullet2.gif")."' alt='' style='vertical-align: middle;' />");
+//Bullet
+if(defined("BULLET"))
+{
+	$bullet = "<img src='".THEME_ABS."images/".BULLET."' alt='' class='icon' style='vertical-align: middle;'/>";
+	$bullet_src = THEME_ABS."images/".BULLET;
+}
+elseif(file_exists(THEME."images/bullet2.gif"))
+{
+	$bullet = "<img src='".THEME_ABS."images/bullet2.gif' alt='bullet' class='icon' style='vertical-align: middle;' />";
+	$bullet_src = THEME_ABS."images/bullet2.gif";
+}
+else
+{
+	$bullet = "";
+	$bullet_src = "";
+}
+
 			}else{
 				$bullet = "";
 			}

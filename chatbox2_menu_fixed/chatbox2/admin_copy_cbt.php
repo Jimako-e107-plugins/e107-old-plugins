@@ -55,7 +55,7 @@ if($_POST['submit'] == CB2_L4){
 		".$mySQLprefix."chatbox
 	";
 
-	$text .= $sql -> db_Select_gen($qry) ? "Transfer Completed...." : CB2_L31;
+	$text .= $sql -> gen($qry) ? "Transfer Completed...." : CB2_L31;
 
 	$text .= "
 		<br /><br />

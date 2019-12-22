@@ -92,8 +92,8 @@ $qry_where = (CB2_MOD ? "1" : "cb2_blocked=0");
 if ($fs) {
 	$page_count = 0;
 	$row_count = 0;
-	$sql->db_Select("chatbox2", "*", "{$qry_where} ORDER BY cb2_datestamp DESC");
-	while ($row = $sql -> db_Fetch()) {
+	$sql->select("chatbox2", "*", "{$qry_where} ORDER BY cb2_datestamp DESC");
+	while ($row = $sql -> fetch()) {
 		if ($row['cb2_id'] == $cgtm) {
 			$from = $page_count;
 			break;
@@ -148,13 +148,13 @@ $fanat1k_tmp = $row['cb2_nick'];
 	$CHAT_TABLE_FLAG = ($flag ? "forumheader3" : "forumheader4");
 
 	if (!$CHAT_TABLE) {
-		if (file_exists(THEME."chat_template.php"))
+		if (file_exists(THEME."chatbox2/chat2_template.php"))
 		{
-			require_once(THEME."chat_template.php");
+			require_once(THEME."chatbox2/chat2_template.php");
 		}
 		else
 		{
-			require_once(e_PLUGIN."chatbox2/chat2_template.php");
+			require_once(e_PLUGIN."chatbox2/templates/chat2_template.php");
 		}
 	}
 //	$textstring .= pregx_replace("/\{(.*?)\}/e", '$\1', $CHAT_TABLE); 

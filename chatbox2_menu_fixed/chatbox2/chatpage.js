@@ -129,7 +129,7 @@ function cpGetChat() {
 
 function cpHandleReceiveChat() {
 	if (cpReceiveReq.readyState == 4) {
-		cpChatDiv = document.getElementById('chat_page_posts');
+		cpChatDiv = document.getElementById('chat_page_posts');    
 		cpReceiveResponse = cpReceiveReq.responseText;
 		cpReceiveResponse = cpReceiveResponse.trim();
 		if(cpReceiveResponse != ""){
@@ -172,7 +172,7 @@ function cpSendChat() {
 		document.getElementById('cp2_emessage').innerHTML = msgNotSent;
 	}
 	// SET TO UPDATE FAST ON SUBMIT
-	cpRetries = 1;
+	cpRetries = 1;   
 	cpWatchDog();
 }
 
@@ -203,10 +203,10 @@ function cpWatchDog() {
 	cpGetNewLastID();
 	if(document.getElementById('chat_page_users')){
 		cpGetChatUsers();
-	}
+	}   
 	//Refresh our chat in 2 seconds minimum
 	if (cpRetries > 0){
-		cpTimer = setTimeout("cpWatchDog()",1000+(cpRefreshSubmit*1000));
+		cpTimer = setTimeout("cpWatchDog()",1000+(cpRefreshSubmit*1000));   
 		cpRetries--;
 	}else{
 		cpTimer = setTimeout("cpWatchDog()",2000+(cpRefreshTime*1000));

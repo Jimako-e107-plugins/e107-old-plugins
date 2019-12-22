@@ -119,8 +119,8 @@ if($_POST['cb2_mute_user']){
 	$cb2_mute_class = $pref['cb2_mute_class'];
 
 	// ADD TO MUTED CLASS
-	if ($sql->db_Select('user', 'user_id, user_class', "user_id='".$_POST['cb2_mute_user']."'")){
-		$row = $sql->db_Fetch();
+	if ($sql->select('user', 'user_id, user_class', "user_id='".$_POST['cb2_mute_user']."'")){
+		$row = $sql->fetch();
 		$uidList[$row['user_id']] = $row['user_class'];
 		require_once(e_HANDLER."userclass_class.php");
 		$uclass = new e_userclass;
@@ -166,8 +166,8 @@ if($_POST['cb2_submit']){
 //		}else if(check_class($userclass='253')){
 //			$script="SELECT forum_moderators FROM ".MPREFIX."forum WHERE forum_parent <> '0' GROUP BY forum_moderators";
 //			$fmod_sql = new db;
-//			$fmod = $fmod_sql->db_Select_gen($script);
-//			while ($row2 = $fmod_sql->db_Fetch()){
+//			$fmod = $fmod_sql->gen($script);
+//			while ($row2 = $fmod_sql->fetch()){
 //				if(check_class($row2[0])){
 //					$fresult=1;
 //					continue;
@@ -203,8 +203,8 @@ if($_POST['cb2_submit']){
 		// CHECK FOR ALLOW USER MULTI-POST
 		// ###############################
 		if($pref['cb2_multipost'] == 0){
-			$sql -> db_Select("chatbox2", "cb2_nick", "1=1 ORDER BY cb2_id DESC LIMIT 1");
-			$row = $sql->db_Fetch();
+			$sql -> select("chatbox2", "cb2_nick", "1=1 ORDER BY cb2_id DESC LIMIT 1");
+			$row = $sql->fetch();
 			$cb2_multipost = 0;
 			if( ($row[0] == $nick) && (!check_class($pref['cb2_mod_class'])) ){
 				$cb2_multipost = 1;
@@ -493,8 +493,8 @@ if(check_class($pref['cb2_view_class'])) {
 	// ###########################
 	if($cb2_initial_posts == 0){
 		// GET LAST ID IF NO INITIAL POSTS WANTED
-		$sql->db_Select("chatbox2", "cb2_id", "1='1' ORDER BY cb2_datestamp DESC LIMIT 1");
-		$row = $sql->db_Fetch();
+		$sql->select("chatbox2", "cb2_id", "1='1' ORDER BY cb2_datestamp DESC LIMIT 1");
+		$row = $sql->fetch();
 		$cb2_last_post = $row[0];
 
 	}else{
@@ -530,8 +530,8 @@ if(check_class($pref['cb2_view_class'])) {
 				if($cb['user_name']){
 					if (USERID  && (isset($pref['gold_chatbox'])) && ($pref['cb2_gold_enable']== 1) ){
 						// IF USER AND GOLD SYSTEM INSTALLED AND CHATBOX ENABLES GOLD
-						$sql -> db_Select("gold_system", "id, orb", "id={$cb2_uid} LIMIT 1");
-						$row = $sql -> db_Fetch();
+						$sql -> select("gold_system", "id, orb", "id={$cb2_uid} LIMIT 1");
+						$row = $sql -> fetch();
 						if ($row['orb'] != "") {
 							// IF ORB IS ON
 

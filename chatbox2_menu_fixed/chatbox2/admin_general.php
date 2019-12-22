@@ -127,9 +127,9 @@ if (isset($_POST['recalculate'])) {
 		WHERE u.user_id > 0
 		GROUP BY uid";
 
-		if ($sql -> db_Select_gen($qry)) {
+		if ($sql -> gen($qry)) {
 			$ret = array();
-			while($row = $sql -> db_Fetch())
+			while($row = $sql -> fetch())
 			{
 				$list[$row['uid']] = $row['count'];
 			}

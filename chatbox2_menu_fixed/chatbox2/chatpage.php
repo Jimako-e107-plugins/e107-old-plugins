@@ -42,18 +42,20 @@ if($pref['smiley_activate']){
 }
 
 if( (check_class($pref['cb2_view_class'])) && ( ($pref['cp2_layer'] == 2) || ($pref['cp2_layer'] == 3) ) ){
-	$footer_js[] = e_PLUGIN."chatbox2/chatpage.js";
+	//$footer_js[] = e_PLUGIN."chatbox2/chatpage.js";
+    e107::js('footer', e_PLUGIN."chatbox2/chatpage.js") ;
 }
 
 if($pref['cb2_user_font_color_activate']){
-	$footer_js[] = e_PLUGIN."chatbox2/jscolor/cb2color.js";
+	//$footer_js[] = e_PLUGIN."chatbox2/jscolor/cb2color.js";
+    e107::js('footer', e_PLUGIN."chatbox2/jscolor/cb2color.js") ;
 }
 
 // ###########################
 // VARS
 // ###########################
 $ip = $e107->getip();
-
+ 
 $cp2_emessage='';
 
 // ###########################
@@ -96,8 +98,8 @@ if($_POST['cb2_mute_user']){
 	$cp2_mute_class = $pref['cb2_mute_class'];
 
 	// ADD TO MUTED CLASS
-	if ($sql->db_Select('user', 'user_id, user_class', "user_id='".$_POST['cb2_mute_user']."'")){
-		$row = $sql->db_Fetch();
+	if ($sql->select('user', 'user_id, user_class', "user_id='".$_POST['cb2_mute_user']."'")){
+		$row = $sql->fetch();
 		$uidList[$row['user_id']] = $row['user_class'];
 		require_once(e_HANDLER."userclass_class.php");
 		$uclass = new e_userclass;
@@ -154,8 +156,8 @@ if($_POST['cp2_submit']){
 		// CHECK FOR ALLOW USER MULTI-POST
 		// ###############################
 		if($pref['cb2_multipost'] == 0){
-			$sql -> db_Select("chatbox2", "cb2_nick", "1=1 ORDER BY cb2_id DESC LIMIT 1");
-			$row = $sql->db_Fetch();
+			$sql -> select("chatbox2", "cb2_nick", "1=1 ORDER BY cb2_id DESC LIMIT 1");
+			$row = $sql->fetch();
 			$cp2_multipost = 0;
 			if( ($row[0] == $nick) && (!check_class($pref['cb2_mod_class'])) ){
 				$cp2_multipost = 1;
@@ -468,8 +470,8 @@ if(check_class($pref['cb2_view_class'])) {
 	// ###########################
 	if($cp2_initial_posts == 0){
 		// GET LAST ID IF NO INITIAL POSTS WANTED
-		$sql->db_Select("chatbox2", "cb2_id", "1='1' ORDER BY cb2_datestamp DESC LIMIT 1");
-		$row = $sql->db_Fetch();
+		$sql->select("chatbox2", "cb2_id", "1='1' ORDER BY cb2_datestamp DESC LIMIT 1");
+		$row = $sql->fetch();
 		$cp2_last_post = $row[0];
 
 	}else{
@@ -505,8 +507,8 @@ if(check_class($pref['cb2_view_class'])) {
 
 					if (USERID  && (isset($pref['gold_chatbox'])) && ($pref['cb2_gold_enable']== 1) ){
 						// IF USER AND GOLD SYSTEM INSTALLED AND CHATBOX ENABLES GOLD
-						$sql -> db_Select("gold_system", "id, orb", "id={$cp2_uid} LIMIT 1");
-						$row = $sql -> db_Fetch();
+						$sql -> select("gold_system", "id, orb", "id={$cp2_uid} LIMIT 1");
+						$row = $sql -> fetch();
 						if ($row['orb'] != "") {
 							// IF ORB IS ON
 							$cp2_nick= "
@@ -553,7 +555,8 @@ if(check_class($pref['cb2_view_class'])) {
 				// ###########################
 				// DATESTAMP
 				// ###########################
-				$cp2_datestamp = $obj2->convert_date($cp['cb2_datestamp'], "short");
+				//$cp2_datestamp = $obj2->convert_date($cp['cb2_datestamp'], "short");
+                $cp2_datestamp = $tp->toDate($cp['cb2_datestamp'], "relative");
 
 				$emotes_active = $pref['cb2_emote'] ? 'USER_BODY, emotes_on' : 'USER_BODY, emotes_off';
 
@@ -583,7 +586,23 @@ if(check_class($pref['cb2_view_class'])) {
 				// BULLET
 				// ###########################
 				if($pref['cb2_show_bullet'] == 1){
-					$bullet = (defined("BULLET") ? "<img src='".THEME_ABS."images/".BULLET."' alt='' style='vertical-align: middle;' />" : "<img src='".THEME_ABS."images/".(defined("BULLET") ? BULLET : "bullet2.gif")."' alt='' style='vertical-align: middle;' />");
+				//	$bullet = (defined("BULLET") ? "<img src='".THEME_ABS."images/".BULLET."' alt='' style='vertical-align: middle;' />" : "<img src='".THEME_ABS."images/".(defined("BULLET") ? BULLET : "bullet2.gif")."' alt='' style='vertical-align: middle;' />");
+//Bullet
+if(defined("BULLET"))
+{
+	$bullet = "<img src='".THEME_ABS."images/".BULLET."' alt='' class='icon' style='vertical-align: middle;'/>";
+	$bullet_src = THEME_ABS."images/".BULLET;
+}
+elseif(file_exists(THEME."images/bullet2.gif"))
+{
+	$bullet = "<img src='".THEME_ABS."images/bullet2.gif' alt='bullet' class='icon' style='vertical-align: middle;' />";
+	$bullet_src = THEME_ABS."images/bullet2.gif";
+}
+else
+{
+	$bullet = "";
+	$bullet_src = "";
+}
 				}else{
 					$bullet = "";
 				}
@@ -613,64 +632,18 @@ if(check_class($pref['cb2_view_class'])) {
 				// CHATPAGE FORMATTING
 				// ###########################
 				global $CHATPAGESTYLE;
-				if(!$CHATPAGESTYLE){
-					// default chatpage style
-					$CHATPAGESTYLE = "
-						<table style='width:97%;border:solid;border-width:0px'>
-							<tr>
-								<td style='width:25%;border:solid;border-width:1px;padding:1px;vertical-align:top;text-indent:1px;'>
-										{BULLET} <b>{USERNAME}</b>
-										{GOLDBREAK}
-										{CPCONTROL}
-					";
-					if($pref['cp2_show_date'] == 1){
-						$CHATPAGESTYLE .= "
-										<br />
-										<span class='smallblacktext'>
-										{TIMEDATE}
-										</span>
-						";
-					}
-					$CHATPAGESTYLE .= "
-								</td>
-								<td style='width:75%;border:solid;border-width:1px;padding:1px;vertical-align:top;text-indent:1px;'>
-									{MESSAGE}
-								</td>
-							</tr>
-						</table>
-						";
-				}
 
-// OLD STYLE
-//				// ###########################
-//				// CHATPAGE FORMATTING
-//				// ###########################
-//				global $CHATPAGESTYLE;
-//				if(!$CHATPAGESTYLE){
-//					// default chatpage style
-//					$CHATPAGESTYLE = "
-//						<div class='spacer'>
-//						{BULLET} <b>{USERNAME}</b>
-//						{GOLDBREAK}
-//						{CPCONTROL}
-//					";
-//					if($pref['cp2_show_date'] == 1){
-//						$CHATPAGESTYLE .= "
-//						<br />
-//						<span class='smallblacktext'>
-//						{TIMEDATE}
-//						</span>
-//						";
-//					}
-//					$CHATPAGESTYLE .= "
-//						<br />
-//						<span class='smalltext'>
-//						{MESSAGE}
-//						</span>
-//						</div>
-//						<hr>
-//					";
-//				}
+	if (!$CHATPAGESTYLE) {
+		if (file_exists(THEME."chatbox2/chat2_template.php"))
+		{
+			require_once(THEME."chatbox2/chat2_template.php");
+		}
+		else
+		{
+			require_once(e_PLUGIN."chatbox2/templates/chat2_template.php");
+		}
+	}
+ 
 
 				// NOW WRAP IN CHATPAGESTYLE_WRAP
 				$CHATPAGESTYLE_WRAP = "
