@@ -6,7 +6,7 @@ if (!defined('e107_INIT')) { exit; }
 $feed['name']		= 'Chatbox2';
 $feed['url']		= 'chatbox2';			//the identifier for the rss feed url
 $feed['topic_id']	= '';					//the topic_id, empty on default (to select a certain category)
-$feed['path']		= 'chatbox2_menu';		//this is the plugin path location
+$feed['path']		= 'chatbox2';		//this is the plugin path location
 $feed['text']		= 'this is the rss feed for the chatbox2 entries';
 $feed['class']		= '0';
 $feed['limit']		= '9';
@@ -22,7 +22,7 @@ if($items = $sql -> db_Select('chatbox2', "*", "cb2_blocked=0 ORDER BY cb2_dates
 		$tmp						= explode(".", $rowrss['cb2_nick']);
 		$rss[$i]['author']			= $tmp[1];
 		$rss[$i]['author_email']	= '';
-		$rss[$i]['link']			= $e107->base_path.$PLUGINS_DIRECTORY."chatbox2_menu/chat2.php?".$rowrss['cb2_id'];
+		$rss[$i]['link']			= $e107->base_path.$PLUGINS_DIRECTORY."chatbox2/chat2.php?".$rowrss['cb2_id'];
 		$rss[$i]['linkid']			= $rowrss['cb2_id'];
 		$rss[$i]['title']			= '';
 		$rss[$i]['description']		= $rowrss['cb2_message'];

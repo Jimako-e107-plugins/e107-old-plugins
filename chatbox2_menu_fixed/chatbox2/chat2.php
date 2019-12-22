@@ -21,15 +21,15 @@
 
 require_once("../../class2.php");
 
-if (file_exists(e_PLUGIN."chatbox2_menu/languages/".e_LANGUAGE."/".e_LANGUAGE.".php")) {
-	include_once(e_PLUGIN."chatbox2_menu/languages/".e_LANGUAGE."/".e_LANGUAGE.".php");
+if (file_exists(e_PLUGIN."chatbox2/languages/".e_LANGUAGE."/".e_LANGUAGE.".php")) {
+	include_once(e_PLUGIN."chatbox2/languages/".e_LANGUAGE."/".e_LANGUAGE.".php");
 } else {
-	include_once(e_PLUGIN."chatbox2_menu/languages/English/English.php");
+	include_once(e_PLUGIN."chatbox2/languages/English/English.php");
 }
 require_once(HEADERF);
 
-$sql->db_Select("menus", "*", "menu_name='chatbox2_menu'");
-$row = $sql->db_Fetch();
+$sql->select("menus", "*", "menu_name='chatbox2_menu'");
+$row = $sql->fetch();
 
 if (!check_class($row['menu_class'])) {
 	$ns->tablerender(CB2_L23, "<div style='text-align:center'>".CB2_L24."</div>");
@@ -114,7 +114,14 @@ $chatList = $sql->db_getList();
 foreach ($chatList as $row)
 {
 	$CHAT_TABLE_DATESTAMP = $obj2->convert_date($row['cb2_datestamp'], "long");
-	$CHAT_TABLE_NICK = preg_replace("/[0-9]+\./", "", $row['cb2_nick']);
+//	$CHAT_TABLE_NICK = pregx_replace("/[0-9]+\./", "", $row['cb2_nick']);  
+$fanat1k_tmp = $row['cb2_nick'];				
+			preg_match_all("/[0-9]+\./", $fanat1k_tmp, $matches);				
+			for($i = 0; $i < count($matches[1]); $i++){				
+					        $fanat1k_tmp = str_replace("{{$matches[1][$i]}}", ${$matches[1][$i]}, $fanat1k_tmp);				
+					}			
+		  $CHAT_TABLE_NICK = $fanat1k_tmp; 
+          
 	$cb2_message = $tp->toHTML($row['cb2_message'], TRUE,'USER_BODY');
 
 	if($row['cb2_blocked'])
@@ -147,15 +154,37 @@ foreach ($chatList as $row)
 		}
 		else
 		{
-			require_once(e_PLUGIN."chatbox2_menu/chat2_template.php");
+			require_once(e_PLUGIN."chatbox2/chat2_template.php");
 		}
 	}
-	$textstring .= preg_replace("/\{(.*?)\}/e", '$\1', $CHAT_TABLE);
+//	$textstring .= pregx_replace("/\{(.*?)\}/e", '$\1', $CHAT_TABLE); 
+$fanat1k_tmp = $CHAT_TABLE;				
+			preg_match_all("/\{(.*?)\}/", $fanat1k_tmp, $matches);				
+			for($i = 0; $i < count($matches[1]); $i++){				
+					        $fanat1k_tmp = str_replace("{{$matches[1][$i]}}", ${$matches[1][$i]}, $fanat1k_tmp);				
+					}			
+	$textstring .= $fanat1k_tmp; 
+               
 	$flag = (!$flag ? TRUE : FALSE);
 }
 
-$textstart = preg_replace("/\{(.*?)\}/e", '$\1', $CHAT_TABLE_START);
-$textend = preg_replace("/\{(.*?)\}/e", '$\1', $CHAT_TABLE_END);
+//$textstart = pregx_replace("/\{(.*?)\}/e", '$\1', $CHAT_TABLE_START); 
+$fanat1k_tmp = $CHAT_TABLE_START;				
+			preg_match_all("/\{(.*?)\}/", $fanat1k_tmp, $matches);				
+			for($i = 0; $i < count($matches[1]); $i++){				
+					        $fanat1k_tmp = str_replace("{{$matches[1][$i]}}", ${$matches[1][$i]}, $fanat1k_tmp);				
+					}			
+	$textstart = $fanat1k_tmp; 
+     
+//$textend = pregx_replace("/\{(.*?)\}/e", '$\1', $CHAT_TABLE_END); 
+  
+$fanat1k_tmp = $CHAT_TABLE_END;				
+			preg_match_all("/\{(.*?)\}/", $fanat1k_tmp, $matches);				
+			for($i = 0; $i < count($matches[1]); $i++){				
+					        $fanat1k_tmp = str_replace("{{$matches[1][$i]}}", ${$matches[1][$i]}, $fanat1k_tmp);				
+					}			
+$textend = $fanat1k_tmp; 
+       
 $text = $textstart.$textstring.$textend;
 if(CB2_MOD)
 {
@@ -169,7 +198,7 @@ if($message)
 $ns->tablerender(CB2_L20, $text);
 
 
-require_once(e_HANDLER."np_class.php");
+require_once(e_PLUGIN."chatbox2/handlers/np_class.php");
 $ix = new nextprev("chat2.php", $from, 30, $chat_total, CB2_L21);
 
 require_once(FOOTERF);

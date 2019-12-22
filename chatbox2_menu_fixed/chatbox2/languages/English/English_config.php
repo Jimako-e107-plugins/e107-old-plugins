@@ -139,7 +139,7 @@ Use Custom Settings Below? - Allows setting the Border and Colors of the Scrolli
 Match Following to Chatbox: - Copies the Scrolling Chatbox color settings to the ChatPage.
 <br /><br />
 <br /><br />
-To install the chatpage.php, you need to add a site link pointing to /e107_plugins/chatbox2_menu/chatpage.php
+To install the chatpage.php, you need to add a site link pointing to /e107_plugins/chatbox2/chatpage.php
 <br /><br />
 <br /><br />
 NOTE_1: When a POST is submitted Dynamically, it goes through two stages. Submit, and Retrieve. IF the Submit is not finished before trying to Retrieve it, it will fail. Using the Submit Timer allows for checking at a time faster than the Normal Refresh Timer. It could be set to a low value, but watch for Issues with Banning if it postings happen too fast compared to the Flood Protect settings.

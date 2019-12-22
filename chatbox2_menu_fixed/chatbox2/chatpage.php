@@ -25,10 +25,10 @@
 require_once("../../class2.php");
 require_once(HEADERF);
 
-if (file_exists(e_PLUGIN."chatbox2_menu/languages/".e_LANGUAGE."/".e_LANGUAGE.".php")) {
-	include_once(e_PLUGIN."chatbox2_menu/languages/".e_LANGUAGE."/".e_LANGUAGE.".php");
+if (file_exists(e_PLUGIN."chatbox2/languages/".e_LANGUAGE."/".e_LANGUAGE.".php")) {
+	include_once(e_PLUGIN."chatbox2/languages/".e_LANGUAGE."/".e_LANGUAGE.".php");
 } else {
-	include_once(e_PLUGIN."chatbox2_menu/languages/English/English.php");
+	include_once(e_PLUGIN."chatbox2/languages/English/English.php");
 }
 
 global $tp, $e107cache, $e_event, $e107, $pref, $user_pref, $footer_js, $PLUGINS_DIRECTORY;
@@ -42,11 +42,11 @@ if($pref['smiley_activate']){
 }
 
 if( (check_class($pref['cb2_view_class'])) && ( ($pref['cp2_layer'] == 2) || ($pref['cp2_layer'] == 3) ) ){
-	$footer_js[] = e_PLUGIN."chatbox2_menu/chatpage.js";
+	$footer_js[] = e_PLUGIN."chatbox2/chatpage.js";
 }
 
 if($pref['cb2_user_font_color_activate']){
-	$footer_js[] = e_PLUGIN."chatbox2_menu/jscolor/cb2color.js";
+	$footer_js[] = e_PLUGIN."chatbox2/jscolor/cb2color.js";
 }
 
 // ###########################
@@ -238,7 +238,7 @@ if( (!USER && ($pref['anon_post'] == 0)) || (check_class($pref['cb2_mute_class']
 	// HIDDEN INPUTS STILL USED FOR REFRESHING
 	if( ($pref['cp2_layer'] == 2) || ($pref['cp2_layer'] == 3) ){
 		$textm .= "
-			<input class='tbox' type='hidden' id='cp2_full_path' name='cp2_full_path' value='".SITEURLBASE."".e_PLUGIN_ABS."chatbox2_menu/' />
+			<input class='tbox' type='hidden' id='cp2_full_path' name='cp2_full_path' value='".SITEURLBASE."".e_PLUGIN_ABS."chatbox2/' />
 			<input class='tbox' type='hidden' id='cp2_refresh_time' name='cp2_refresh_time' value='".$pref['cp2_refresh']."' />
 			<input class='tbox' type='hidden' id='cp2_refresh_submit' name='cp2_refresh_submit' value='".$pref['cp2_refresh_submit']."' />
 			<input class='tbox' type='hidden' id='cp2_eself' name='cp2_eself' value='".e_SELF."' />
@@ -323,7 +323,7 @@ if( (!USER && ($pref['anon_post'] == 0)) || (check_class($pref['cb2_mute_class']
 	}
 
 	$textm .= "
-				<input class='tbox' type='hidden' id='cp2_full_path' name='cp2_full_path' value='".SITEURLBASE."".e_PLUGIN_ABS."chatbox2_menu/' />
+				<input class='tbox' type='hidden' id='cp2_full_path' name='cp2_full_path' value='".SITEURLBASE."".e_PLUGIN_ABS."chatbox2/' />
 				<input class='tbox' type='hidden' id='cp2_refresh_time' name='cp2_refresh_time' value='".$pref['cp2_refresh']."' />
 				<input class='tbox' type='hidden' id='cp2_refresh_submit' name='cp2_refresh_submit' value='".$pref['cp2_refresh_submit']."' />
 				<input class='tbox' type='hidden' id='cp2_eself' name='cp2_eself' value='".e_SELF."' />
@@ -389,7 +389,7 @@ if( (!USER && ($pref['anon_post'] == 0)) || (check_class($pref['cb2_mute_class']
 			$textm .= "
 				<embed id='cp2_newpost_sound' src='".$pref['cb2_sound_source']."' type='application/x-mplayer2' autostart='false' loop='false' volume='".$cp2_volume."' height='0' width='0' />
 				<input class='tbox' type='hidden' id='cp2_sound_status' name='cp2_sound_status' value='".$cp2_user_sound."' />
-				<input type='image'src='".SITEURLBASE."".e_PLUGIN_ABS."chatbox2_menu/images/".$cp2_sound_image."' size='16,16' border='0' style='vertical-align:bottom;text-align:top;' onClick=\"this.form.cp2_sound_status.value='111';submit();return false;\" />
+				<input type='image'src='".SITEURLBASE."".e_PLUGIN_ABS."chatbox2/images/".$cp2_sound_image."' size='16,16' border='0' style='vertical-align:bottom;text-align:top;' onClick=\"this.form.cp2_sound_status.value='111';submit();return false;\" />
 			";
 		}
 	}
@@ -596,7 +596,7 @@ if(check_class($pref['cb2_view_class'])) {
 				if( ((USERID == $cp2_uid) || CP2_MOD) && ($pref['cb2_enable_deletes'] == 1) ){
 					$cp_control = "
 						<input class='tbox' type='hidden' id='cp2_delete_message_id' name='cp2_delete_message_id' value='".$cp2_id."' />
-						<INPUT TYPE='image' SRC='".SITEURLBASE."".e_PLUGIN_ABS."chatbox2_menu/images/delete.png' HEIGHT='8' WIDTH='8' BORDER='0' ALT='".CB2_L35." - #".$cp2_id."' onClick=\"this.form.cp2_mute_user.value='';this.form.submit();\">
+						<INPUT TYPE='image' SRC='".SITEURLBASE."".e_PLUGIN_ABS."chatbox2/images/delete.png' HEIGHT='8' WIDTH='8' BORDER='0' ALT='".CB2_L35." - #".$cp2_id."' onClick=\"this.form.cp2_mute_user.value='';this.form.submit();\">
 					";
 
 				}
@@ -605,7 +605,7 @@ if(check_class($pref['cb2_view_class'])) {
 				if( (CP2_MOD) && ($pref['cb2_enable_muting'] == 1) && ($cp2_uid != USERID) ){
 					$cp_control .= "
 						<input class='tbox' type='hidden' id='cp2_mute_user' name='cp2_mute_user' value='".$cp2_uid."' />
-						<INPUT TYPE='image' SRC='".SITEURLBASE."".e_PLUGIN_ABS."chatbox2_menu/images/mute.png' HEIGHT='8' WIDTH='8' BORDER='0' ALT='".CB2_L36."' onClick='this.form.submit();'>
+						<INPUT TYPE='image' SRC='".SITEURLBASE."".e_PLUGIN_ABS."chatbox2/images/mute.png' HEIGHT='8' WIDTH='8' BORDER='0' ALT='".CB2_L36."' onClick='this.form.submit();'>
 				 	";
 				}
 
@@ -744,7 +744,7 @@ if(check_class($pref['cb2_view_class'])) {
 			<br />
 			<div style='text-align:center'>
 				<input class='tbox' type='hidden' id='cp2_last_post' name='cp2_last_post' value='".$cp2_last_post."' />
-				<a href='".e_PLUGIN."chatbox2_menu/chat2.php'>".(CP2_MOD ? CB2_L13 : CB2_L12)."</a> (".$show_total.")
+				<a href='".e_PLUGIN."chatbox2/chat2.php'>".(CP2_MOD ? CB2_L13 : CB2_L12)."</a> (".$show_total.")
 			</div>
 		";
 	}else{
@@ -764,7 +764,7 @@ if(check_class($pref['cb2_view_class'])) {
 	$textc = "";
 }
 
-$caption = (file_exists(THEME."images/chatbox2_menu.png") ? "<img src='".THEME_ABS."images/chatbox2_menu.png' alt='' /> ".CB2_CP40 : CB2_CP40);
+$caption = (file_exists(THEME."images/chatbox2.png") ? "<img src='".THEME_ABS."images/chatbox2.png' alt='' /> ".CB2_CP40 : CB2_CP40);
 
 
 // ###############################

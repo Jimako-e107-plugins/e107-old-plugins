@@ -23,10 +23,10 @@ require_once("../../class2.php");
 
 if(!getperms("P")) { header("location:".e_BASE."index.php"); exit; }
 
-if (file_exists(e_PLUGIN."chatbox2_menu/languages/".e_LANGUAGE."/".e_LANGUAGE."_config.php")) {
-	include_once(e_PLUGIN."chatbox2_menu/languages/".e_LANGUAGE."/".e_LANGUAGE."_config.php");
+if (file_exists(e_PLUGIN."chatbox2/languages/".e_LANGUAGE."/".e_LANGUAGE."_config.php")) {
+	include_once(e_PLUGIN."chatbox2/languages/".e_LANGUAGE."/".e_LANGUAGE."_config.php");
 } else {
-	include_once(e_PLUGIN."chatbox2_menu/languages/English/English_config.php");
+	include_once(e_PLUGIN."chatbox2/languages/English/English_config.php");
 }
 
 require_once(e_ADMIN."auth.php");
@@ -81,7 +81,7 @@ INFORMATION
 <br />
 To copy old ChatBox messages over to ChatBox II, Load the following page.
 <br /><br />
-[plugins_folder]/chatbox2_menu/admin_copy_cbt.php
+[plugins_folder]/chatbox2/admin_copy_cbt.php
 <br /><br />
 This should be done AFTER Installation but BEFORE any messages are put into ChatBox II.
 <br />
@@ -95,7 +95,7 @@ UPGRADING
 <br />
 Backup existing version (in case you want to revert back)
 <br />
-Copy files over existing chatbox2_menu files.
+Copy files over existing chatbox2 files.
 <br />
 Go to each page in PLUGIN ADMIN -  CHATBOX II and review each control field, then update settings.
 <br />
@@ -118,7 +118,7 @@ For full functionality you should install as follows;
 <br />
 * Don't activate menu until all else is completed so no one will post prematurely.
 <br />
-1) Upload the chatbox2_menu folder to your 'e107_plugins/' directory.
+1) Upload the chatbox2 folder to your 'e107_plugins/' directory.
 <br />
 2) Install the Chatbox2 Plugin.
 <br />
@@ -132,16 +132,16 @@ For full functionality you should install as follows;
 <br />
 7) Run the script to copy the Original chatbox chats to the NEW table BEFORE Allowing posting.
 <br />
-8) Go to ADMIN-MENU and enable chatbox2_menu
+8) Go to ADMIN-MENU and enable chatbox2
 <br />
 <br />
 There is also a chatpage.php page that could be installed in ADMIN-SITE LINKS, BUT the phpFreeChat has many more features.
 <br />
 <br />
-To install the chatpage.php, you need to add a site link to /e107_plugins/chatbox2_menu/chatpage.php
+To install the chatpage.php, you need to add a site link to /e107_plugins/chatbox2/chatpage.php
 <br />
 <br />
-It is recommended to go into ADMIN>MENU and select the chatbox2_menu and edit it's visibility.  Set it so that it becomes hidden when chatpage.php is selected.
+It is recommended to go into ADMIN>MENU and select the chatbox2 and edit it's visibility.  Set it so that it becomes hidden when chatpage.php is selected.
 <br />
 <br />
 <br />

@@ -33,10 +33,10 @@ $eplug_readme = "admin_readme.php";
 $eplug_status = TRUE;
 
 // Name of the plugin's folder -------------------------------------------------------------------------------------
-$eplug_folder = "chatbox2_menu";
+$eplug_folder = "chatbox2";
 
 // Name of menu item for plugin ----------------------------------------------------------------------------------
-$eplug_menu_name = "chatbox2_menu";
+$eplug_menu_name = "chatbox2";
 
 // Name of the admin configuration file --------------------------------------------------------------------------
 $eplug_conffile = "admin_general.php";
@@ -128,15 +128,15 @@ $upgrade_remove_prefs = "";
 $upgrade_alter_tables = "";
 
 
-if (!function_exists('chatbox2_menu_uninstall')) {
-	function chatbox2_menu_uninstall() {
+if (!function_exists('chatbox2_uninstall')) {
+	function chatbox2_uninstall() {
 		global $sql;
 		$sql -> db_Update("user", "user_chats='0'");
 	}
 }
 
-if (!function_exists('chatbox2_menu_install')) {
-	function chatbox2_menu_install() {
+if (!function_exists('chatbox2_install')) {
+	function chatbox2_install() {
 		global $sql;
 		$sql -> db_Update("user", "user_chats='0'");
 	}

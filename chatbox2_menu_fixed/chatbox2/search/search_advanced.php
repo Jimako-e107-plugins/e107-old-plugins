@@ -10,7 +10,7 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $Source: /cvsroot/e107/e107_0.7/e107_plugins/chatbox2_menu/search/search_advanced.php,v $
+|     $Source: /cvsroot/e107/e107_0.7/e107_plugins/chatbox2/search/search_advanced.php,v $
 |     $Revision: 1.2 $
 |     $Date: 2005/12/14 19:28:43 $
 |     $Author: sweetas $

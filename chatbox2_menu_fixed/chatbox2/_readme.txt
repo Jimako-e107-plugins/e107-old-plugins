@@ -35,7 +35,7 @@ TOC
 ==============================================
 IMPORTANT
 ==============================================
-* Don't activate chatbox2_menu until installation done or so no one will post prematurely. 
+* Don't activate chatbox2 until installation done or so no one will post prematurely. 
 * Be sure to make the Mute USERCLASS or you will get errors.
 * Make sure you 
 
@@ -150,7 +150,7 @@ FIX CURRENT
 ************
 This fix lets the user/mod delete X to show, and fixes CHATBOXSTYLE use in general. 
 
-To use all the functionality of the Chatbox II, you may need to modify the $CHATBOXSTYLE in the theme.php or elsewhere.  Or you can comment them out and use the default ones defined in chatbox2_menu.php.
+To use all the functionality of the Chatbox II, you may need to modify the $CHATBOXSTYLE in the theme.php or elsewhere.  Or you can comment them out and use the default ones defined in chatbox2.php.
 
 If you want to keep the CHATBOXSTYLE you have defined in the them, you may need to at least replace the 'BUTTON' html.
 
@@ -170,7 +170,7 @@ CUSTOM
 ************
 You may want to use the example CHATBOXSTYLE below, and modify it. Use it to replace your existing one in the theme.php file (I recommend commenting out current one in case you want to go back)
 
-OR, if your theme doesn't have one, add one of the examples below and edit as needed, OR look in the chatbox2_menu.php and use the CHATBOXSTYLE defined in there as a template. 
+OR, if your theme doesn't have one, add one of the examples below and edit as needed, OR look in the chatbox2.php and use the CHATBOXSTYLE defined in there as a template. 
 
 Here's some explaination. 
 {BULLET} - Looks for theme/images/bullet2.gif unless the bullet is defined elsewhere. You might want to leave the current link rather than replace it with {BULLET} if you already have it pointing to your desired bullet image.  
@@ -191,7 +191,7 @@ Modify style as needed to override some things like text-aligm:left  etc....
 ************
 EXAMPLE
 ************
-(also look in chatbox2_menu.php or chatpage.php for examples)
+(also look in chatbox2.php or chatpage.php for examples)
 
 $CHATBOXSTYLE = "
 	<div style='text-align:center;' class='spacer'>
@@ -261,7 +261,7 @@ if (isset($pref['plug_installed']['chatbox_menu']))
 and change it to;
 
 // CHATBOX II PERCENTAGE HACK 
-if (isset($pref['plug_installed']['chatbox2_menu']))
+if (isset($pref['plug_installed']['chatbox2']))
 
 2. THEN Look for the line;
 
@@ -316,7 +316,7 @@ if($page == ""){
 ==============================================
 CHANGING IMAGES
 ==============================================
-Images that are uses, such as the one for the speaker can be found in the sub-directory chatbox2_menu/images
+Images that are uses, such as the one for the speaker can be found in the sub-directory chatbox2/images
 
 If you change the image, just rename the old images to preserve them, then name the new images to the proper name. 
 

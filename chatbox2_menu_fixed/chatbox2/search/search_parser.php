@@ -10,7 +10,7 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $Source: /cvsroot/e107/e107_0.7/e107_plugins/chatbox2_menu/search/search_parser.php,v $
+|     $Source: /cvsroot/e107/e107_0.7/e107_plugins/chatbox2/search/search_parser.php,v $
 |     $Revision: 1.3 $
 |     $Date: 2006/01/05 09:06:46 $
 |     $Author: sweetas $
@@ -46,7 +46,7 @@ $results = $ps['results'];
 function search_chatbox2($row) {
 	global $con, $cb_count;
 	preg_match("/([0-9]+)\.(.*)/", $row['cb2_nick'], $user);
-	$res['link'] = e_PLUGIN."chatbox2_menu/chat.php?".$row['cb2_id'].".fs";
+	$res['link'] = e_PLUGIN."chatbox2/chat.php?".$row['cb2_id'].".fs";
 	$res['pre_title'] = LAN_SEARCH_7;
 	$res['title'] = $user[2];
 	$res['summary'] = $row['cb2_message'];

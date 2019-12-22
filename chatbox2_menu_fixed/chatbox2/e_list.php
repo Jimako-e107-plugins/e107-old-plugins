@@ -2,7 +2,7 @@
 
 if (!defined('e107_INIT')) { exit; }
 
-	if(!$chatbox2_install = $sql -> db_Select("plugin", "*", "plugin_path = 'chatbox2_menu' AND plugin_installflag = '1' ")){
+	if(!$chatbox2_install = $sql -> db_Select("plugin", "*", "plugin_path = 'chatbox2' AND plugin_installflag = '1' ")){
 		return;
 	}
 

@@ -25,16 +25,16 @@ require_once("../../class2.php");
 
 if(!getperms("P")) { header("location:".e_BASE."index.php"); exit; }
 
-if (file_exists(e_PLUGIN."chatbox2_menu/languages/".e_LANGUAGE."/".e_LANGUAGE.".php")) {
-	include_once(e_PLUGIN."chatbox2_menu/languages/".e_LANGUAGE."/".e_LANGUAGE.".php");
+if (file_exists(e_PLUGIN."chatbox2/languages/".e_LANGUAGE."/".e_LANGUAGE.".php")) {
+	include_once(e_PLUGIN."chatbox2/languages/".e_LANGUAGE."/".e_LANGUAGE.".php");
 } else {
-	include_once(e_PLUGIN."chatbox2_menu/languages/English/English.php");
+	include_once(e_PLUGIN."chatbox2/languages/English/English.php");
 }
 
-if (file_exists(e_PLUGIN."chatbox2_menu/languages/".e_LANGUAGE."/".e_LANGUAGE."_config.php")) {
-	include_once(e_PLUGIN."chatbox2_menu/languages/".e_LANGUAGE."/".e_LANGUAGE."_config.php");
+if (file_exists(e_PLUGIN."chatbox2/languages/".e_LANGUAGE."/".e_LANGUAGE."_config.php")) {
+	include_once(e_PLUGIN."chatbox2/languages/".e_LANGUAGE."/".e_LANGUAGE."_config.php");
 } else {
-	include_once(e_PLUGIN."chatbox2_menu/languages/English/English_config.php");
+	include_once(e_PLUGIN."chatbox2/languages/English/English_config.php");
 }
 
 require_once(e_ADMIN."auth.php");
@@ -62,7 +62,7 @@ if (isset($_POST['mj_editmess'])){
 		die ("Error: ".mysql_error());
 	}
 
-	$mj_send=e_PLUGIN."chatbox2_menu/chat2.php";
+	$mj_send=e_PLUGIN."chatbox2/chat2.php";
 	header("Location: $mj_send");
 	$text .="Changed OK... please wait...!";
 

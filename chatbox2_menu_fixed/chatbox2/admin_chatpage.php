@@ -25,16 +25,16 @@ require_once("../../class2.php");
 
 if(!getperms("P")) { header("location:".e_BASE."index.php"); exit; }
 
-if (file_exists(e_PLUGIN."chatbox2_menu/languages/".e_LANGUAGE."/".e_LANGUAGE."_config.php")) {
-	include_once(e_PLUGIN."chatbox2_menu/languages/".e_LANGUAGE."/".e_LANGUAGE."_config.php");
+if (file_exists(e_PLUGIN."chatbox2/languages/".e_LANGUAGE."/".e_LANGUAGE."_config.php")) {
+	include_once(e_PLUGIN."chatbox2/languages/".e_LANGUAGE."/".e_LANGUAGE."_config.php");
 } else {
-	include_once(e_PLUGIN."chatbox2_menu/languages/English/English_config.php");
+	include_once(e_PLUGIN."chatbox2/languages/English/English_config.php");
 }
 
 require_once(e_ADMIN."auth.php");
 require_once(e_HANDLER."userclass_class.php");
 
-$footer_js[] = e_PLUGIN."chatbox2_menu/jscolor/jscolor.js";
+$footer_js[] = e_PLUGIN."chatbox2/jscolor/jscolor.js";
 
 if (isset($_POST['updatesettings'])) {
 

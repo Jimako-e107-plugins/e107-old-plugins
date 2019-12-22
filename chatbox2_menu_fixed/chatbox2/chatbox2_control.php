@@ -27,10 +27,10 @@ header("Content-Type: text/plain; charset=utf-8");
 
 include_once("../../class2.php");
 
-if (file_exists(e_PLUGIN."chatbox2_menu/languages/".e_LANGUAGE."/".e_LANGUAGE.".php")) {
-	include_once(e_PLUGIN."chatbox2_menu/languages/".e_LANGUAGE."/".e_LANGUAGE.".php");
+if (file_exists(e_PLUGIN."chatbox2/languages/".e_LANGUAGE."/".e_LANGUAGE.".php")) {
+	include_once(e_PLUGIN."chatbox2/languages/".e_LANGUAGE."/".e_LANGUAGE.".php");
 } else {
-	include_once(e_PLUGIN."chatbox2_menu/languages/English/English.php");
+	include_once(e_PLUGIN."chatbox2/languages/English/English.php");
 }
 
 // ##################################
@@ -322,7 +322,7 @@ if($_POST['cb2_getchat']) {
 			if( ((USERID == $cb2_uid) || CB2_MOD) && ($pref['cb2_enable_deletes'] == 1) ){
 				$cbcontrol = "
 					<input class='tbox' type='hidden' id='cb2_delete_message_id' name='cb2_delete_message_id' value='".$cb2_id."' />
-					<INPUT TYPE='image' SRC='".SITEURLBASE."".e_PLUGIN_ABS."chatbox2_menu/images/delete.png' HEIGHT='8' WIDTH='8' BORDER='0' ALT='".CB2_L35." - #".$cb2_id."' onClick=\"this.form.cb2_mute_user.value='';this.form.submit();\">
+					<INPUT TYPE='image' SRC='".SITEURLBASE."".e_PLUGIN_ABS."chatbox2/images/delete.png' HEIGHT='8' WIDTH='8' BORDER='0' ALT='".CB2_L35." - #".$cb2_id."' onClick=\"this.form.cb2_mute_user.value='';this.form.submit();\">
 				";
 			}
 
@@ -330,7 +330,7 @@ if($_POST['cb2_getchat']) {
 			if( (CB2_MOD) && ($pref['cb2_enable_muting'] == 1) && ($cb2_uid != USERID) ){
 				$cbcontrol .= "
 					<input class='tbox' type='hidden' id='cb2_mute_user' name='cb2_mute_user' value='".$cb2_uid."' />
-					<INPUT TYPE='image' SRC='".SITEURLBASE."".e_PLUGIN_ABS."chatbox2_menu/images/mute.png' HEIGHT='8' WIDTH='8' BORDER='0' ALT='".CB2_L36."' onClick='this.form.submit();'>
+					<INPUT TYPE='image' SRC='".SITEURLBASE."".e_PLUGIN_ABS."chatbox2/images/mute.png' HEIGHT='8' WIDTH='8' BORDER='0' ALT='".CB2_L36."' onClick='this.form.submit();'>
 			 	";
 			}
 

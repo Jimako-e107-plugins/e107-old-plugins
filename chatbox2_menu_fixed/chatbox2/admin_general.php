@@ -25,10 +25,10 @@ if(!getperms("P")) { header("location:".e_BASE."index.php"); exit; }
 
 $pageid = "cb2_general";
 
-if (file_exists(e_PLUGIN."chatbox2_menu/languages/".e_LANGUAGE."/".e_LANGUAGE."_config.php")) {
-	include_once(e_PLUGIN."chatbox2_menu/languages/".e_LANGUAGE."/".e_LANGUAGE."_config.php");
+if (file_exists(e_PLUGIN."chatbox2/languages/".e_LANGUAGE."/".e_LANGUAGE."_config.php")) {
+	include_once(e_PLUGIN."chatbox2/languages/".e_LANGUAGE."/".e_LANGUAGE."_config.php");
 } else {
-	include_once(e_PLUGIN."chatbox2_menu/languages/English/English_config.php");
+	include_once(e_PLUGIN."chatbox2/languages/English/English_config.php");
 }
 
 require_once(e_ADMIN."auth.php");
@@ -80,7 +80,7 @@ if (isset($_POST['updatesettings'])) {
 	}
 
 	$pref['cb2_sound_volume'] = (ctype_digit($_POST['cb2_sound_volume']) ? $_POST['cb2_sound_volume'] : 50);
-	$pref['cb2_sound_source'] = ($_POST['cb2_sound_source'] ? $_POST['cb2_sound_source'] : e_PLUGIN_ABS."chatbox2_menu/sound/newpost_sound.wav");
+	$pref['cb2_sound_source'] = ($_POST['cb2_sound_source'] ? $_POST['cb2_sound_source'] : e_PLUGIN_ABS."chatbox2/sound/newpost_sound.wav");
 
 	if (isset($_POST['cb2_show_bullet'])) {
 		$pref['cb2_show_bullet'] = 	1;
