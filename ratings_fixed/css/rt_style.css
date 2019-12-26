@@ -1,0 +1,165 @@
+.ratingscat a{
+	padding: 10px;
+	font-size: 16px;
+}
+
+.ratingstd {
+  width:auto;
+	text-align: center;
+  height: 30px;
+	font-size: 14px;
+	padding: 5px;
+	border-bottom:1px solid #ccc;
+}
+
+.ratings_table {
+width:100%;
+border:0;
+background-color: #fff
+}
+
+.ratingscat a,
+a.rt_edit,
+.ratingstd.rt_td_title a {
+text-decoration:none;
+}
+.ratingstd.rt_td_title {
+text-align:left
+}
+
+.ratingscat {
+background-color: #fff;
+height: 30px;
+text-align:center;
+width:20%;
+}
+
+.rt_comments {
+border-top:1px solid #FFCC99;
+}
+.rt_news {
+border-top:1px solid #FFCCFF;
+}
+
+.rt_download {
+border-top:1px solid #99CCFF;
+}
+
+.rt_user {
+border-top:1px solid #99CC99;
+}
+
+.rt_user_tab,
+.rt_download_tab,
+.rt_news_tab,
+.rt_comments_tab{
+padding:5px;
+border-bottom:1px dashed #fff;
+}
+.rt_comments_tab { 
+background-color: #FFCC99
+}
+.rt_news_tab { 
+background-color: #FFCCFF;
+}
+
+.rt_download_tab {
+background-color: #99CCFF
+}
+
+.rt_user_tab {
+background-color: #99CC99
+}
+
+.rt_comments_table {
+border-bottom:1px solid #FFCC99;  
+color:#fff;
+}
+.rt_news_table {
+border-bottom:1px solid #FFCCFF;  
+color:#fff;
+}
+
+.rt_download_table {
+color:#fff;
+border-bottom:1px solid #99CCFF;
+}
+
+.rt_user_table {
+color:#fff;
+border-bottom:1px solid #99CC99;  
+
+}
+.ratings_table th {
+border-left:1px dashed #fff;
+
+border-bottom:1px solid #fff;
+}
+.rt_comments_thead {
+background-color: #FFCC99;   
+color:#fff;
+}
+.rt_news_thead {
+background-color: #FFCCFF;
+color:#fff;
+}
+
+.rt_download_thead { 
+background-color: #99CCFF;
+color:#fff;
+}
+
+.rt_code {
+padding:5px;
+border:0;
+border-left:2px solid #666;
+width:400px;
+height:50px;
+margin:10px;
+}
+.rt_code2 {
+padding:5px;
+border:0;
+border-left:2px solid #666;
+width:400px;
+height:200px;
+margin:10px;
+}
+.rt_user_thead {
+color:#fff;
+background-color: #99CC99;
+
+}
+
+.ratingstd select {
+height:30px;
+padding:5px;
+border:0;
+width:200px;
+font-size:12px;
+}
+
+.ratingstd input.text{
+padding:5px;
+width:175px;
+}
+
+.ratingstd b {
+color:#fff;
+}
+.ex {
+border-right: 1px dashed #666;
+padding:10px;
+text-align:left;
+}
+input.rt_button {
+ width:auto;
+ border-radius: 5px;
+-moz-border-radius: 5px; 
+-webkit-border-radius: 5px;
+ border:1px solid #ccc;
+ background-color:#fff;
+ padding:5px;
+ cursor:pointer;
+ margin:10px;  
+}

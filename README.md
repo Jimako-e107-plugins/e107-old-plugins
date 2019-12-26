@@ -1004,3 +1004,13 @@ fix is part fixed plugin for new plugin and extended for fanfiction drabbles, ne
 
 
 =======
+
+
+### Ratings
+
+Plugin make possible star rating - news, files in download, comments, users.
+
+Source: akogo
+
+=======
+

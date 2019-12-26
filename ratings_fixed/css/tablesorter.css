@@ -1,0 +1,47 @@
+.RatingsTableheader {
+	background-image: url(../images/header-bg.png);
+	background-repeat: no-repeat;
+	border-left: 1px solid #FFF;
+	border-right: 1px solid #000;
+	border-top: 1px solid #FFF;
+	padding-left: 30px;
+	padding-top: 3px;
+height: 30px;
+}
+.RatingsTableheaderSortUp {
+	background-image: url(../images/header-asc.png);
+	background-repeat: no-repeat;
+	border-left: 1px solid #FFF;
+	border-right: 1px solid #000;
+	border-top: 1px solid #FFF;
+	padding-left: 30px;
+	padding-top: 3px;
+height: 30px;
+}
+.RatingsTableheaderSortDown {
+	background-image: url(../images/header-desc.png);
+	background-repeat: no-repeat;
+	border-left: 1px solid #FFF;
+	border-right: 1px solid #000;
+	border-top: 1px solid #FFF;
+	padding-left: 30px;
+	padding-top: 3px;
+height: 30px;
+}
+th.t{
+background: url(../images/t.png) repeat-x;
+}
+
+
+a.ratingscat{
+padding:10px;
+font-size:10px
+}
+td.ratingstd {
+height:30px;
+font-size:10px;
+padding:5px;
+}
+td.ratingstd:hover {
+background: #ccc
+}
