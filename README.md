@@ -1010,7 +1010,9 @@ fix is part fixed plugin for new plugin and extended for fanfiction drabbles, ne
 
 Plugin make possible star rating - news, files in download, comments, users.
 
-Source: akogo
+Source: akogo // e107help.org
+
+Author: aSeptik
 
 =======
 

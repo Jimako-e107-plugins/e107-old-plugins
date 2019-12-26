@@ -4,29 +4,29 @@
 if (!$units) {$units = 5;} //$pref['units'];
 if (!$static) {$static = FALSE;}
 
-$sql = new db;
-$sql->db_select("ratings", "*", "rate_id='$id' AND total_cat = '$cat'");
-$numbers = $sql->db_Fetch();
-
+$sql = e107::getDb();
+$sql->select("ratings", "*", "rate_id='$id' AND total_cat = '$cat'");
+$numbers = $sql->fetch();
+ 
 //extract($numbers);
 
 if ($numbers['total_votes'] < 1) {
 	$count = 0;
 } else {
 	$count=$numbers['total_votes']; //how many votes total
-} 
+}      
 $current_rating=$numbers['total_value']; //total number of rating added together and stored
 $tense=($count==1) ? "vote" : "votes"; //plural form votes/vote
 
 // determine whether the user has voted, so we know how to draw the ul/li  
 if ( check_class( $pref['ratings_class'] ) ) {
 
-$voted = new db;
+$voted = e107::getDb();
 if ( $pref['ratings_class'] == 0 ) {
-$votes = $voted->db_count("ratings", "(*)", "WHERE used_ips LIKE '%$ip%' AND rate_id='$id' AND total_cat = '$cat'"); 
+$votes = $voted->count("ratings", "(*)", "WHERE used_ips LIKE '%$ip%' AND rate_id='$id' AND total_cat = '$cat'"); 
 
 } else {
-$votes = $voted->db_count("ratings", "(*)", "WHERE user_rid LIKE '%".USERID.".".USERNAME."%' AND rate_id='$id' AND total_cat = '$cat'");
+$votes = $voted->count("ratings", "(*)", "WHERE user_rid LIKE '%".USERID.".".USERNAME."%' AND rate_id='$id' AND total_cat = '$cat'");
 
 }
 
@@ -34,13 +34,17 @@ $votes = $voted->db_count("ratings", "(*)", "WHERE user_rid LIKE '%".USERID.".".
 
 // now draw the rating bar
 $rating_width = @number_format($current_rating/$count,2)*$rating_unitwidth;
+if($count == 0) {
+ $rating1 = 0;
+ $rating2 = 0;
+}
+else {
 $rating1 = @number_format($current_rating/$count,1);
 $rating2 = @number_format($current_rating/$count,2);
- 
+} 
 $rater ='';
-
-    
-if ( $sql->db_select("ratings", "*", "rate_id='$id' AND rate_this='0' AND total_cat = '$cat'") ){
+ 
+if ( $sql->select("ratings", "*", "rate_id='$id' AND rate_this='0' AND total_cat = '$cat'") ){
 if ($static == 'static') {
 
 		$static_rater = array();
@@ -70,7 +74,7 @@ if ($static == 'static') {
       
     switch ( $pref['ratings_class'] ) {
       case 0:
-      $USR = "";
+      $USR = "0.Anonymous";
       break;
       default:
       $USR = USERID.".".USERNAME;
@@ -118,8 +122,8 @@ if ($static == 'static') {
 }
 
    function getAllItems($cat){
-$sql = new db;
-$sql->db_select($cat, "*");
+$sql = e107::getDb();
+$rows = $sql->retrieve($cat, "*", null, true);
    switch($cat){
 		case "news":
 		$col = "news_id";
@@ -134,15 +138,12 @@ $sql->db_select($cat, "*");
 		$col = "user_id";
 		break;
 		}
-while ($row = $sql ->db_fetch()){
-$query = new db; 
-if (!$query->db_select("ratings", "*", "rate_id='".$row[$col]."' AND total_cat = '$cat' ")) {
-$result = new db;
-$result->db_Insert("ratings", array("rate_id" => $row[$col], "total_votes" => 0, "total_value" => 0, "total_cat" => $cat, "used_ips" => ''));
-
+foreach ($rows as $row) {           
+  $query = e107::getDb(); 
+  if (!$query->select("ratings", "*", "rate_id='".$row[$col]."' AND total_cat = '$cat' ")) {
+  $result = e107::getDb();
+  $result->insert("ratings", array("rate_id" => $row[$col], "total_votes" => 0, "total_value" => 0, "total_cat" => $cat, "used_ips" => ''));
 }
-
-
 }
    
    }
@@ -154,10 +155,10 @@ $result->db_Insert("ratings", array("rate_id" => $row[$col], "total_votes" => 0,
   $p = explode('-',$cid);
  	$cat = $p[1];
 	$id = $p[0];
-	if ( $sql->db_Select("ratings", "*", "rate_id='$id' AND rate_this='0' AND total_cat = '$cat'") ){
-	$sql->db_Update("ratings","rate_this = '1' WHERE rate_id='$id' AND total_cat = '$cat' ");
+	if ( $sql->select("ratings", "*", "WHERE rate_id='$id' AND rate_this='0' AND total_cat = '$cat'", true, true) ){
+	$sql->update("ratings","rate_this = '1' WHERE rate_id='$id' AND total_cat = '$cat' ", true);
 	} else {
-  $sql->db_Update("ratings","rate_this = '0' WHERE rate_id='$id' AND total_cat = '$cat'");
+  $sql->update("ratings","rate_this = '0' WHERE rate_id='$id' AND total_cat = '$cat'");
   }
   }
  }

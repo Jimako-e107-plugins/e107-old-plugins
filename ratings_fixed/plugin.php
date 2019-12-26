@@ -54,7 +54,7 @@ CREATE TABLE `".MPREFIX."ratings` (
   `rate_this` decimal(1,0) NOT NULL default '0',
   PRIMARY KEY  (`id`,`rate_id`),
   UNIQUE KEY (`rate_id`,`total_cat`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ; ");
+) ENGINE=MyISAM; ");
 
 
 

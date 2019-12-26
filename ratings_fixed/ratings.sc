@@ -5,13 +5,21 @@ include_lan(e_PLUGIN."ratings/languages/".e_LANGUAGE.".php");
 include_once (e_PLUGIN.'ratings/ratings_function.php');
 global $e107 , $comrow , $row , $dl , $user;
 
-$c = basename(e_SELF , '.php'); //get category name
-$i = explode('.', e_QUERY); //get ALL CAT id
+//$c = basename(e_SELF , '.php'); //get category name
 
+$c = e_PAGE;
 
-
-
-if ( $c == 'news' ) {
+//fix for download plugin 
+$plugin = defset('e_CURRENT_PLUGIN', '');
+if($plugin == 'download' && !empty($_GET['action']) && $_GET['action'] == 'view' && !empty($_GET['id']))
+{
+ $i = (int) $_GET['id'];
+}
+else {
+    $i = explode('.', e_QUERY); //get ALL CAT id
+}
+   
+if ( $c == 'news.php' ) {
 $news_item = getcachedvars('current_news_item');
 $id = $news_item['news_id']; 
 $cat = "news";
@@ -22,18 +30,22 @@ $id = $comrow['comment_id'];
 $cat = "comments";
 } else 
 
-if ( $c == 'download' ) {
-$id = ( $i[0] == 'list' ) ? $row['download_id']  : $dl['download_id'];
-$cat = "download";
+if ( $c == 'download.php' ) {
+  //$id = ( $i[0] == 'list' ) ? $row['download_id']  : $dl['download_id'];
+  $cat = "download";
+  if($plugin == 'download' && !empty($_GET['action']) && $_GET['action'] == 'view' && !empty($_GET['id']))
+  {
+   $id = (int) $_GET['id'];
+  }
 } else 
 
-if ( $c == 'user' ) {
+if ( $c == 'user.php' ) {
 $id = $user['user_id'];
 $cat = "user";
 } 
 
- $count = new db;
- $rtCount = $count->db_Count("ratings","(*)","WHERE rate_id = '$id' AND total_cat = '$cat' AND rate_this = '0' ");
+ $count = e107::getDb();
+ $rtCount = $count->count("ratings","(*)","WHERE rate_id = '$id' AND total_cat = '$cat' AND rate_this = '0' ");
 
 if ( !$rtCount ) {
    

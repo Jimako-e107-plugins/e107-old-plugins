@@ -15,7 +15,7 @@
 .ratings_table {
 width:100%;
 border:0;
-background-color: #fff
+/* background-color: #fff  */
 }
 
 .ratingscat a,
@@ -28,7 +28,7 @@ text-align:left
 }
 
 .ratingscat {
-background-color: #fff;
+/* background-color: #fff; */
 height: 30px;
 text-align:center;
 width:20%;

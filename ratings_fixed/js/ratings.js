@@ -4,13 +4,25 @@
  * @Last Update: 19.12.2009
  *
  */
-var $J = jQuery.noConflict();
+//var $J = jQuery.noConflict();
 /**
   * ajax location for e107
   *  
   */
 
+var e107 = e107 || {'settings': {}, 'behaviors': {}};
 
+
+jQuery(function ($) {
+
+    // preferences
+  var ratingsOpts = e107.settings.ratings;
+   var js_path = ratingsOpts.js_path;   
+ 
+   var rating_url = js_path.substring(0, js_path.lastIndexOf('/') - 2); 
+ 
+
+});
 
 
 /**
@@ -21,16 +33,22 @@ function rateThis(parameterString, id) {
           
     var query = 'action=ratings&query=' + parameterString;
 
-    $J('#response-' + id).fadeOut(200);
+    // preferences
+  var ratingsOpts = e107.settings.ratings;
+   var js_path = ratingsOpts.js_path;   
+ 
+   var rating_url = js_path.substring(0, js_path.lastIndexOf('/') - 2);  
+     console.log(rating_url);
+    $('#response-' + id).fadeOut(200);
     
-    $J.ajax({
+    $.ajax({
         type: 'POST',
-        url: rating_url.loc() + 'ajax.php',
+        url: rating_url  + 'ajax.php',
         data: query,
         cache: false,
         complete: function(data) {
 
-            $J('#response-' + id).html(data.responseText).fadeIn(200);
+            $('#response-' + id).html(data.responseText).fadeIn(200);
         },
         error: function() {
             alert('Ajax Request ' + query + ' Error!');
@@ -41,3 +59,4 @@ function rateThis(parameterString, id) {
     return false;
 
 };
+

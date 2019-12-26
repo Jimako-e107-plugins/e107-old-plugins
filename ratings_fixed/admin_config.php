@@ -68,11 +68,12 @@ break;
 
 
 
-$newsposts = $sql->db_Count("ratings","(*)","WHERE total_cat = '$getcat' ");
-
+$newsposts = e107::getDb()->count("ratings","(*)","WHERE total_cat = '$getcat' ");
+ 
 if (e_QUERY) 
 {
-  $tmp1 = eregi_replace("getCat=$getcat","", e_QUERY);
+  //$tmp1 = erexgi_replace("getCat=$getcat","", e_QUERY);
+  $tmp1 = preg_replace("getCat=$getcat","", e_QUERY);
   $tmp = explode(".", $tmp1);
   $action = $tmp[0] ? $tmp[0] : $getcat;
   $sub_action = varset($tmp[1],'') ? varset($tmp[1],'') : "id";
@@ -97,11 +98,11 @@ if ( isset( $_POST['cleanupratingsbbcode'] ) ) {
    $cat = "news";
    $col = "news_body";
    
-   global $sql;
+ 
    
-   if ( $sql->db_select_gen("SELECT * FROM #{$cat} WHERE {$col} LIKE '%ratings=%' ") ) {
+   if ( e107::getDb()->gen("SELECT * FROM #{$cat} WHERE {$col} LIKE '%ratings=%' ") ) {
    
-   while ( $row = $sql->db_Fetch() ) {
+   while ( $row = $sql->fetch() ) {
    
    extract($row);
    
@@ -139,8 +140,12 @@ global $pref;
 		$col = "user_id";
 		break;
 		}
-	if ($sql->db_Select($cat, "*", "$col='$id' ")) {
-	$row = $sql->db_Fetch();
+        
+       
+        $where  = "WHERE $col='$id' ";
+	if (e107::getDb()->select($cat, "*", $where , true  )) {   
+	$row = e107::getDb()->fetch();
+ 
 	exclude_children($row, $cid, $cat, $col);
 	
 	}
@@ -165,8 +170,6 @@ global $pref;
 		$sql->db_Delete("ratings", "id='$id'");
 	}
  }*/
- 
-
  
  
 if ( isset( $_POST['update_ratings'] ) )  {
@@ -355,7 +358,8 @@ $messageresponce_true = "";
  
  } else 
  
- if ( eregi( 'edit' , e_QUERY ) ) {
+// if ( erexgi( 'edit' , e_QUERY ) ) {
+ if ( preg_match( '#edit#i' , e_QUERY ) ) {
  
  global $sql;
  

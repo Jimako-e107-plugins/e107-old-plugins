@@ -14,23 +14,25 @@ if($_POST['action']){
 //getting the values
 $q = explode(",", $_POST['query']);
 
-
 $vote_sent = preg_replace("/[^0-9]/","",$q[0]);
 $id_sent = preg_replace("/[^0-9a-zA-Z]/","",$q[1]);
-$ip_num = preg_replace("/[^0-9\.]/","",$q[2]);
+//$ip_num = preg_replace("/[^0-9a-zA-Z\.]/","",$q[2]);
+$ip_num = preg_replace("/[^0-9a-zA-Z\:]/","",$q[2]);
 $units = preg_replace("/[^0-9]/","",$q[3]);
 $user_rid = preg_replace("/[^0-9a-zA-Z\.]/","",$q[4]);
 $ratings_cat = $q[5];
-
-$ip = $_SERVER['REMOTE_ADDR'];
+         
+//$ip = $_SERVER['REMOTE_ADDR'];      WHY THIS CHANGE????
+$ip = $e107->getip();
 $referer  = $_SERVER['HTTP_REFERER'];
 $rating_unitwidth = 15;
 if ($vote_sent > $units) die("Sorry, vote appears to be invalid."); // kill the script because normal users will never see this.
-$sql = new db;
-//connecting to the database to get some information
-$sql->db_Select("ratings", "total_votes, total_value, used_ips, user_rid", "rate_id='$id_sent' ");
 
-$numbers = $sql->db_Fetch();
+$sql = e107::getDb();
+//connecting to the database to get some information
+$sql->select("ratings", "*", "WHERE rate_id='{$id_sent}' AND total_cat = '{$ratings_cat}'", true );
+
+$numbers = $sql->fetch();
 
 $checkIP = unserialize($numbers['used_ips']);
 $checkRID = unserialize($numbers['user_rid']);
@@ -51,33 +53,35 @@ $tense = ($count==1) ? "vote" : "votes"; //plural form votes/vote
 $insertip=serialize($checkIP);
 $insertrid=serialize($checkRID);
 
-
-$voted = new db;
+ 
+$voted = e107::getDb();
 //check when voting
 if ($user_rid == ""){
-$votes = $voted->db_count("ratings", "(*)", "WHERE used_ips LIKE '%$insertip%' AND rate_id='$id_sent' AND total_cat = '$ratings_cat'");
+$votes = $voted->count("ratings", "(*)", "WHERE used_ips LIKE '%$insertip%' AND rate_id='$id_sent' AND total_cat = '$ratings_cat'");
 } else {
-$votes = $voted->db_count("ratings", "(*)", "WHERE user_rid LIKE '%$insertrid%' AND rate_id='$id_sent' AND total_cat = '$ratings_cat' ");
+$votes = $voted->count("ratings", "(*)", "WHERE user_rid LIKE '%$insertrid%' AND rate_id='$id_sent' AND total_cat = '$ratings_cat' ");
+
 }
-
+ 
 if(!$votes) {     //if the user hasn't yet voted, then vote normally...
-
-
+ 
 if (($vote_sent >= 1 && $vote_sent <= $units) && ($ip == $ip_num)) { // keep votes within range
 
-$result = new db;
-if ($user_rid == ""){
-$result ->db_update("ratings", "total_votes='".$added."', total_value='".$sum."', used_ips='".$insertip."' WHERE rate_id='$id_sent' AND total_cat = '$ratings_cat'");	
+$result = e107::getDb();
+if ($user_rid == ""){     
+$result ->update("ratings", "total_votes='".$added."', total_value='".$sum."', used_ips='".$insertip."' WHERE rate_id='$id_sent' AND total_cat = '$ratings_cat'");	
   } else {
-  $result ->db_update("ratings", "total_votes='".$added."', total_value='".$sum."', used_ips='".$insertip."', user_rid='".$insertrid."' WHERE rate_id='$id_sent' AND total_cat = '$ratings_cat'");
+    
+  $result ->update("ratings", "total_votes='".$added."', total_value='".$sum."', used_ips='".$insertip."', user_rid='".$insertrid."' WHERE rate_id='$id_sent' AND total_cat = '$ratings_cat'");
+    
   }
 } 
 
 } //end for the "if(!$voted)"
 $newtotals = new db;
-$newtotals ->db_Select("ratings", "*", "rate_id='$id_sent' AND total_cat = '$ratings_cat' ");
+$newtotals ->select("ratings", "*", "rate_id='$id_sent' AND total_cat = '$ratings_cat' ");
 
-$numbers = $newtotals ->db_Fetch();
+$numbers = $newtotals ->fetch();
 $count = $numbers['total_votes'];//how many votes total
 $current_rating = $numbers['total_value'];//total number of rating added together and stored
 $tense = ($count==1) ? "vote" : "votes"; //plural form votes/vote
