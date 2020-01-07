@@ -14,7 +14,7 @@ if (!defined('e107_INIT')) { exit; }
 
 
 $eplug_name = "tagcloud";
-$eplug_version = "1.2.0";
+$eplug_version = "2.0.0";
 $eplug_author = "Jezza101";
 $eplug_folder = "tagcloud";
 

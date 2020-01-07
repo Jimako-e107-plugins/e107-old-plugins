@@ -199,9 +199,9 @@ else {
 
 
 //-----------
-   define("META_KEYWORDS", "$tag_display");
-   define("META_DESCRIPTION", SITENAME." - Страница содержит весь материал о $tag_display !!!  Вы найдете всю интересующую информацию о  $tag_display тут. Все что вы хотели знать о $tag_display но боялись спросить!");
-   define("e_PAGETITLE", "$pagehead");
+//   define("META_KEYWORDS", "$tag_display");    FIX THIS
+//   define("META_DESCRIPTION", SITENAME." - Страница содержит весь материал о $tag_display !!!  Вы найдете всю интересующую информацию о  $tag_display тут. Все что вы хотели знать о $tag_display но боялись спросить!");
+   define("e_PAGETITLE", "$pagehead");     
    
    
 //	ob_start();					// Set up a new output buffer

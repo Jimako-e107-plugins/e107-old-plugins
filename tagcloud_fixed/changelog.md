@@ -32,3 +32,9 @@ PATCH version when you make backwards-compatible bug fixes.
  
 Functionality without USE SEO links works.
 
+## [2.0.0] -  working on updated version.
+
+Note: in this repository because plugin name conflict needs to be solved at first 
+
+### Removed
+- hardcoded metatags
