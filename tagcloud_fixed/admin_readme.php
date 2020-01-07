@@ -43,9 +43,6 @@
    <li>Check the user class to allow users to edit rags on their content, eg to add tags to a forum post they made.
    <li>Template override attempts to insert the {TAGS} shordcode into your theme.  This should work on standard themes, with the exception of tags on news
    items where the theme uses a newsstyle function.  If auto insertion fails, please manually insert the {TAGS} shortcode into your theme templates.
-   <li>Auto generate tags if none are found - this uses yahoo keyword generator to create some tags from the current content about to be displayed.
-   Note:  This could slow down your site if your content is too sparse to generate any keywords as the plugin will atempt to generate some keywords
-   each time the content is displayed.  You might want to add at least one tag manually in these cases.
    <li>Number of tags to show on the big page of tags page, eg  <a href='".e_PLUGIN."tagcloud/tagcloud.php'>here</a>
    <LI>The order of the tags shown in the tagcloud can be set.  This can be useful for ensuring the links in the cloud do not change so often and
    will allow Google to iterate over the links.
@@ -53,19 +50,6 @@
    The tagcloud shortcode can accept parameters to override settings.  This can be used if you want a particular type of cloud on a specific page
    <p>eg {TAGCLOUD=50|news|date} would show 50 news tags ordered by date
    <p>eg {TAGCLOUD=10|forum|alpha} would show 10 news tags in alphabetical order
-   <p>
-   <b>Cumulus</b>
-   <p>
-   Cumulus is a flash based animated tagcloud written by <a href='http://www.roytanck.com/about-my-themes/donations/'>Roy</a> and
-   ported to e107 by <a href='http://www.jezza101.co.uk'>jez</a>.  Note that it doesn't handle special characters by default
-   you need a version adapted for your own language's character set.  See Roy's site for more info.
-   <li>Switch on or off. Switch off to use a traditional html style cloud. Uses without flash (eg Google) will see
-   the old style html tags.   Remember to test that this looks how you expect.
-   <li>Width and Height:  Set a size appropriate for your theme. You need to work out how big the cloud should be.
-   <li>Set the tag colour
-   <li>Set the background colour or
-   <li>set the cloud to be transparent to use your theme's background
-   <li>Set the rotation speed.  A value of 100 is a good starting point.
    <p>
    <b>SEO</b>
    <p>
@@ -101,24 +85,6 @@
    <li>Colour gradient - enter a hex value for start and end colours (eg ffffff).  The tags will be automatically be coloured using colours between the ranges
    entered.
    <li>Min and Max determine the range of font sizes in the tag cloud, enter a % as desired here
-   <p>
-   <b>Yahoo:</b>
-   <p>
-   This Plugin uses the yahoo API to generate key words from the various e107 source tables. Hit the Update button to run.
-   <p>
-   Yahoo only allows 5000 lookups to its keyword generator per IP per day, if your site generates more entries than this then you will have problems!
-   <p>
-   Yahoo decides what are keywords in your text, not me, sometimes it seems to work well, othertimes its not so great.
-   Yahoo also ranks the tags in order of priority, again this is down to Yahoo's own algorithms.
-   Yahoo ID is required by the Yahoo API
-   <p>
-   <li>The Overwrite option will re-generate tags for all items in all areas, this may take a while.
-   With this unticked, new tags are not regenerated if they already exist, even if you update content.
-   <li>The yahoo ID is supplied by Yahoo, you require one to use their API, read more <a href ='http://developer.yahoo.com/faq/#apps'>here</a>.
-   I have generated one for release with this product, but I cant guarantee its validity - you may wish to register your own.
-   <li>The max no. look-ups is the number of content items that you will pass to the Yahoo API in one update, this enables you to run smaller batches
-   for a large site.  Remember the max is currently 5000 requests in one day.  If a large batch does fall over, tags created up to that point will be stored in the db.
-   Using this preference only makes sense if you have overwrite off above.
    <p>
    <b>Maintenance:</b>
    <p>

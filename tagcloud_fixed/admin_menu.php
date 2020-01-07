@@ -5,10 +5,6 @@
    $butlink[]  = "admin_config.php";
    $butid[]    = "config";
 
-   $butname[]  = "Cumulus Tags";
-   $butlink[]  = "admin_cumulus.php";
-   $butid[]    = "cumulus";
-
    $butname[]  = "Tag Style";
    $butlink[]  = "admin_style.php";
    $butid[]    = "style";
@@ -16,10 +12,6 @@
    $butname[]  = "Maintenance";
    $butlink[]  = "admin_maintenance.php";
    $butid[]    = "maintenance";
-
-   $butname[]  = "Yahoo Tag Generation";
-   $butlink[]  = "admin_yahooupdate.php";
-   $butid[]    = "yahoo";
 
    $butname[]  = "Read Me";
    $butlink[]  = "admin_readme.php";

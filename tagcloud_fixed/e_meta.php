@@ -1,9 +1,5 @@
 <?php
-
-if ($pref['tags_usecumulus']){
-echo '<script type="text/javascript" src="'.e_PLUGIN.'tagcloud/cumulus/swfobject.js"></script>';
-}
-
+ 
 if (e_PAGE == "news.php" && $pref['tags_emetanews']) {
         //echo "meta started";
 

@@ -6,64 +6,7 @@ if (!defined('e107_INIT')) { exit; }
 
 class e107tagcloud
 {
-
-   	function yahoo_keywords($string)
-	{
-         global $tp,$pref;
-
-         $tp->parseTemplate($string, FALSE);
-         $string = $tp->toRSS($string,FALSE);   //should remove unwanted text!
-         $string = preg_replace('#\W#','+',$string);
-
-         //echo"String:$string<p>";
-         $appid = $pref['tags_appid'];
-
-
-         //using Curl
-    if (function_exists('curl_init'))
-    {     //echo "Using CURL";
-          $ch = curl_init();
-          curl_setopt($ch, CURLOPT_URL, 'http://api.search.yahoo.com/ContentAnalysisService/V1/termExtraction');
-          curl_setopt($ch, CURLOPT_POST, 1);
-          curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-      
-          curl_setopt( $ch, CURLOPT_POSTFIELDS, 'appid='.$appid.'&context='.urlencode($string)."&output=php" );
-          $response = curl_exec($ch);
-          curl_close($ch);
-
-          $arrTerms = array();
-
-          $phpobj = unserialize($response);
-          //print_r($phpobj);
-          $set = $phpobj['ResultSet'];
-          $arrTerms = $set['Result'];
-          //echo "keywords: $word";
-          //print_r($arrTerms); die;
-              
-
-    }     //-- using file get contents
-    else{   //echo "Using fopen";
-            $request =  "http://search.yahooapis.com/ContentAnalysisService/V1/termExtraction?appid=".$appid."&context=".urlencode($string)."&output=php";   //&query=madonna
-            $response = file_get_contents($request);
-
-             //echo"<p>Req:$request<p>";
-             if ($response === false) {    echo "FAILED!";
-             	$ret = 'Request failed';
-             	exit;
-              }
-
-              //ADD: Test to see if yahoo's 5000 requests limit exceeded and return error!
-
-              $phpobj = unserialize($response);
-              //print_r($phpobj);
-              $set = $phpobj['ResultSet'];
-              $arrTerms = $set['Result'];
-              //echo "keywords: $word";
-          }
-	return $arrTerms;
-     }
-
-
+ 
 
   	function get_cloud_list($no,$ty,$order)
 	{

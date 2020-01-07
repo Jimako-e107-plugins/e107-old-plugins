@@ -120,7 +120,7 @@ if ($TAGMOD){
                  }
                  //else {continue;}   //caused an error
 
-                 $keywords =  $tagcloud->yahoo_keywords($ystring);
+                 $keywords =  array();
                  $limit    = 0;
                  $time     = time();
 

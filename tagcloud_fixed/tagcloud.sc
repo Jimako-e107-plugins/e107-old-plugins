@@ -55,33 +55,8 @@ parse_str($parm);
 }
            $htmlout .= "</div>";
            $xml     .= "</tags>";
-//$xml="<tags><a href='http://www.roytanck.com' style='22' color='0xff0000' hicolor='0x00cc00'>WordPress</a><a href='http://www.roytanck.com' style='12'>Flash</a><a href='http://www.roytanck.com' style='16'>Plugin</a><a href='http://www.roytanck.com' style='14'>WP-Cumulus</a><a href='http://www.roytanck.com' style='12'>3D</a><a href='http://www.roytanck.com' style='12'>Tag cloud</a><a href='http://www.roytanck.com' style='9'>Roy Tanck</a><a href='http://www.roytanck.com' style='10'>SWFObject</a><a href='http://www.roytanck.com' style='10'>Example</a><a href='http://www.roytanck.com' style='12'>Click</a><a href='http://www.roytanck.com' style='12'>Animation</a></tags>";
-//echo "$xml";
-
-//THIS SETS THE NORMAL HTML TAG
+ 
+ 
 $text = $tp->parseTemplate($htmlout)."\n";
-
-//this generates the cumulus cloud, using the html one if required
-if ($pref['tags_usecumulus'] and e_PAGE <>'tagcloud.php'){
-
-//var so = new SWFObject("'.e_PLUGIN.'/tagcloud/cumulus/tagcloud.swf", "'.$pref['tags_menuname'].'", "'.$pref['tags_cumwidth'].'", "'.$pref['tags_cumheight'].'", "'.$pref['tags_cumspeed'].'", "'.$pref['tags_cumbackcolour'].'");
-
-  if ($pref['tags_cumtransparent']){$trans='so.addParam("wmode", "transparent");';}
-  $text ='<div id="flashcontent">'.$text.'</div>
-   	<script type="text/javascript">
-                var so = new SWFObject("'.e_PLUGIN.'/tagcloud/cumulus/tagcloud.swf", "'.$pref['tags_menuname'].'", "'.$pref['tags_cumwidth'].'", "'.$pref['tags_cumheight'].'", "7", "#'.$pref['tags_cumbackcolour'].'");
-                '.$trans.'
-		so.addVariable("tcolor", "0x'.$pref['tags_cumcolour'].'");
-		so.addVariable("mode", "tags");
-		so.addVariable("distr", "true");
-		so.addVariable("tspeed", "'.$pref['tags_cumspeed'].'");
-		so.addVariable("tagcloud", "'.$xml.'");
-		so.write("flashcontent");
-	</script>
-  ';
-}
-else{
-   $text = $tp->parseTemplate($htmlout)."\n";
-}
-
+ 
 return $text;
