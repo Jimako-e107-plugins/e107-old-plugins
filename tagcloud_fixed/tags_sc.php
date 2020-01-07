@@ -1,4 +1,5 @@
-parse_str($parm);
+<?php
+   parse_str($parm);
 
    global $tp,$sql,$post_info,$forum,$meta;;
    include_lan(e_PLUGIN.'tagcloud/languages/'.e_LANGUAGE.'/lan_tagcloud.php');
@@ -205,4 +206,4 @@ $string .= "</table>";
    $text = $tp->parseTemplate($string)."\n";
 
 
-return $text;
+?>

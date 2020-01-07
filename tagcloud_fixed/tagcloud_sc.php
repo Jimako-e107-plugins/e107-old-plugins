@@ -1,4 +1,5 @@
-parse_str($parm);
+<?php 
+   parse_str($parm);
    //require_once("../../class2.php");
    //eg {TAGCLOUD=20|news} would show 30 news tags
 
@@ -58,5 +59,6 @@ parse_str($parm);
  
  
 $text = $tp->parseTemplate($htmlout)."\n";
+
+?>
  
-return $text;
