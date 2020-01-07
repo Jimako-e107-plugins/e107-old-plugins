@@ -8,7 +8,7 @@ ErrorDocument 403 /error.php?403
 ErrorDocument 404 /error.php?404
 ErrorDocument 500 /error.php?500
 
-#RewriteRule ^tags-(.*).html$ plugins/tagcloud/tagcloud.php?$1 [L] 
+#RewriteRule ^tags-(.*).html$ e107_plugins/tagcloud/tagcloud.php?$1 [L] 
 
-#RewriteRule ^sef-(.+)?.html(.*)$ plugins/tagcloud/tagcloud.php?$1 [L] ^M
-#RewriteRule ^sef.html plugins/tagcloud/tagcloud.php [L]
+#RewriteRule ^sef-(.+)?.html(.*)$ e107_plugins/tagcloud/tagcloud.php?$1 [L] ^M
+#RewriteRule ^sef.html e107_plugins/tagcloud/tagcloud.php [L]

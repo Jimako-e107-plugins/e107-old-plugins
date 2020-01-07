@@ -44,8 +44,8 @@ class e107tagcloud
                                 LIMIT
                                    ".$no."";
                       //echo "$query";
-                      $sql ->db_Select_gen($query);
-	              while ($row = $sql->db_fetch())
+                      $sql ->gen($query);
+	              while ($row = $sql->fetch())
                      {
 	              $ret[$row['Tag_Name']] = $row['quant'];
                      }

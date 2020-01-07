@@ -57,10 +57,10 @@ $text = "
    Tag_Config_Field_Table
    Tag_Config_Field_Datestamp*/
 
-if($sql->db_select("tag_config","*"))
+if($sql->select("tag_config","*"))
           { $cnt = 0;
             $cnt++;
-            while ($config = $sql->db_fetch())
+            while ($config = $sql->fetch())
                  {
                  //build up existing form rows
                  $text .= "

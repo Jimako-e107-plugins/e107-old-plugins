@@ -36,9 +36,9 @@ If (ADMIN)
 
 
    
-   if($sql->db_select("tag_main","*","Tag_Type = '".$area."' AND Tag_Item_ID =".$id." ORDER BY Tag_Rank"))
+   if($sql->select("tag_main","*","Tag_Type = '".$area."' AND Tag_Item_ID =".$id." ORDER BY Tag_Rank"))
           {
-            while ($tags = $sql->db_fetch())
+            while ($tags = $sql->fetch())
                  {
                  $tagtemp  = preg_replace("#_#"," ",$tags['Tag_Name']);
                  $tagtext .=  $tagtemp.", ";

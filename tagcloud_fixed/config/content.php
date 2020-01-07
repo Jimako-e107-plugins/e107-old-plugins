@@ -40,8 +40,8 @@ function search_content($row) {
 		WHERE c.content_id = '".$row['content_id']."' ";
 	}
 	//echo "qry: $qry";
-	$sql -> db_Select_gen($qry);
-	$cat = $sql -> db_Fetch();
+	$sql -> gen($qry);
+	$cat = $sql -> fetch();
 
 	$res['detail'] = "Posted on ".$con -> convert_date($row['content_datestamp'], "long")." in ".$cat['content_heading'];
 	return $res;

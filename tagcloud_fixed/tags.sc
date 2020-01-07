@@ -92,9 +92,9 @@ if ($TAGMOD){
                  ORDER BY
                   Tag_Rank";
 
-       if ($sql->db_select_gen("$query"))
+       if ($sql->gen("$query"))
        {
-         while ($othertags = $sql->db_fetch())
+         while ($othertags = $sql->fetch())
          {
              $link = $tagcloud->MakeSEOLink($othertags['Tag_Name']);
              $TAGS     .= "<a ".$class." href='".$link."'>".preg_replace("#_#"," ",$othertags['Tag_Name'])."</a>   &nbsp;&nbsp;";
@@ -105,22 +105,39 @@ if ($TAGMOD){
        }
        else
        {
-
-        if($pref['tags_autogen'])
-        {
+        if($pref['tags_autogen'])     //JM rewritten to use v2 data 
+        {        $keywords =  array();
                 //auto generate tags if there are none:
                  if (e_PAGE=='news.php') {
-                   $news_item = getcachedvars('current_news_item');
-                   $param     = getcachedvars('current_news_param');
+                   //$news_item = getcachedvars('current_news_item');   
+									 $sc = e107::getScBatch('news');    
+									 $news_item = $sc->getScVar('news_item');          
+                   //$param     = getcachedvars('current_news_param'); why?
                    $ystring    = $tp -> toHTML($news_item['news_body'], TRUE, 'parse_sc, fromadmin', $news_item['news_author']);
+                   $keywords = explode(",",$news_item["news_meta_keywords"]); 
                  }
+                 elseif (e_PAGE=='page.php' AND  $_GET['id'] > 0 ) {   
+								   $sc   = e107::getScBatch('page', null, 'cpage');
+        					 $page_item = $sc->getVars('cpage');       print_a($page_item);      
+                   $keywords = explode(",",$page_item["page_metakeys"]); 
+                 }
+                  elseif (e_CURRENT_PLUGIN =='download' AND $_GET['action'] == 'view' AND  $_GET['id'] > 0 ) {        //this works only after constants fix
+                    $sc   = e107::getScBatch('download',true);
+										$download_item = $sc->getVars('view');       
+                    $keywords = explode(",",$download_item["download_keywords"]); 
+                 }
+                  elseif (e_PAGE=='pcontent.php') {  
+                    //not tested
+                    //$content_item = getcachedvars('current_content_item');  
+                    //$keywords = explode(",",$download_item["content_meta"]); 
+                 }  
                  elseif (e_PAGE=='forum_viewtopic.php') {
-                   //uncomment to auto gen on your forum - read the note in the readme before doing this!
-                   //$ystring    = $post_info['thread_thread'];
+                   //uncomment to auto gen on your forum - read the note in the readme before doing this!  other solution is needed
+                   //$ystring    = $post_info['thread_thread']; 
                  }
                  //else {continue;}   //caused an error
 
-                 $keywords =  array();
+                 
                  $limit    = 0;
                  $time     = time();
 
@@ -143,9 +160,9 @@ if ($TAGMOD){
 
 
                    //---now tags are there get them again
-                   if ($sql->db_select("tag_main","*","Tag_Item_ID = ".$Tag_Item_ID." and Tag_Type ='".$Tag_Type."' ORDER BY Tag_Rank" ,  TRUE))
+                   if ($sql->select("tag_main","*","WHERE Tag_Item_ID = ".$Tag_Item_ID." and Tag_Type ='".$Tag_Type."' ORDER BY Tag_Rank" ,  TRUE))
                          {
-                             while ($othertags = $sql->db_fetch())
+                             while ($othertags = $sql->fetch())
                              {
                                  $link = $tagcloud->MakeSEOLink($othertags['Tag_Name']);
                                  $TAGS     .= "<a ".$class." href='".$link."'>".preg_replace("#_#"," ",$othertags['Tag_Name'])."</a>   &nbsp;&nbsp;";

@@ -19,10 +19,10 @@
 
 
 if (isset($_POST['updateonoff'])) {
-        if($sql->db_select("tag_config","*"))
+        if($sql->select("tag_config","*"))
           { $cnt = 0;
             $cnt++;
-            while ($config = $sql->db_fetch())
+            while ($config = $sql->fetch())
                  {
                   $tagid = $config['Tag_Config_ID'];
                   if($_POST['tags_cloud'.$tagid]){$flag1=1;}else{$flag1=0;}
@@ -202,7 +202,7 @@ $text .= "
 //  ON OFF
 
 
-if($sql->db_select("tag_config","*"))
+if($sql->select("tag_config","*"))
           { $cnt = 0;
             $cnt++;
 $text = "<div style='text-align:center'>
@@ -214,7 +214,7 @@ $text = "<div style='text-align:center'>
 	  <td class='forumheader3'>Global on/off (will also switch off in cloud)</td>
 	</tr>
 ";
-            while ($config = $sql->db_fetch())
+            while ($config = $sql->fetch())
                  {
                  //build up existing form rows
                  if ($config['Tag_Config_CloudFlag'] == 1)  {$check1 = 'checked';} else {$check1='';}

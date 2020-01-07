@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 //TAGCLOUD PLUGIN COPYRIGHT 2007-2009 jezza101
 //www.jezza101.co.uk
@@ -80,9 +80,9 @@ else {
       //tag exists, start building the output
 
       //load config into array
-      if($sql->db_select("tag_config","Tag_Config_Type"))    //,"Tag_Config_Flag = 1")) //switching off areas?
+      if($sql->select("tag_config","Tag_Config_Type"))    //,"Tag_Config_Flag = 1")) //switching off areas?
           {
-            while ($row = $sql->db_fetch())
+            while ($row = $sql->fetch())
                   {
                   $tag_type =$row['Tag_Config_Type'];
                   include_once(e_PLUGIN."tagcloud/config/".$tag_type.".php");
@@ -97,7 +97,7 @@ else {
       //print_r($config['download']);
 
       //loop through the items in the tag list from tag_main
-      while ($tagrow = $sql2->db_fetch())
+      while ($tagrow = $sql2->fetch())
        {
                 $TAGS          = "";
                 $tag_type      = $tagrow['Tag_Type'];
@@ -114,8 +114,8 @@ else {
                               WHERE   ".$where." AND ".$id_field." = ".$tagrow['Tag_Item_ID'];     //echo "<p>$sql_query<p>";
 
                 //echo "<p>Q:$sql_query<p>";
-                $itemrow = $sql->db_select_gen($sql_query);
-                $itemrow = $sql->db_fetch();
+                $itemrow = $sql->gen($sql_query);
+                $itemrow = $sql->fetch();
 
                         $handler = "search_".$tagrow['Tag_Type'] ;
                         $res = call_user_func($handler, $itemrow);
@@ -133,9 +133,9 @@ else {
                         $DETAIL     = $res['detail'];
 
                         //get other tags for output
-                        $sql->db_select("tag_main","*","Tag_Item_ID = ".$tagrow['Tag_Item_ID']." and Tag_Name <> '".$tagrow['Tag_Name']."' and Tag_Type ='".$tagrow['Tag_Type']."' ORDER BY Tag_Rank" ,  TRUE);
+                        $sql->select("tag_main","*","Tag_Item_ID = ".$tagrow['Tag_Item_ID']." and Tag_Name <> '".$tagrow['Tag_Name']."' and Tag_Type ='".$tagrow['Tag_Type']."' ORDER BY Tag_Rank" ,  TRUE);
                         $TAGS  .= "<span class='".$pref['tags_style_link']."'>";
-                        while ($othertags = $sql->db_fetch())
+                        while ($othertags = $sql->fetch())
                               {
                               $link = $tagcloud->MakeSEOLink($othertags['Tag_Name']);
                               //$meta .= $othertags['Tag_Name'].' ';
@@ -148,7 +148,7 @@ else {
 
       }
 
-       $total = $sql -> db_Select("tag_main", "*", "Tag_Name = '".$tag_db."'");
+       $total = $sql -> select("tag_main", "*", "Tag_Name = '".$tag_db."'");
 
        //build up nextprev parameter
        $url       = e_SELF.'?'.$tag_db.'.[FROM]';

@@ -14,7 +14,7 @@ if (!defined('e107_INIT')) { exit; }
 
 
 $eplug_name = "tagcloud";
-$eplug_version = "1.01";
+$eplug_version = "1.2.0";
 $eplug_author = "Jezza101";
 $eplug_folder = "tagcloud";
 
@@ -55,7 +55,6 @@ $eplug_prefs = array(
         'tags_min_size'    => 100,
         'tags_overwrite'   => 0,
         'tags_credit'      => 1,
-        'tags_yahoolookups'=> 100,
         'tags_adminmod'    => 0,
         'tags_usermod'     => 0,
         'tags_autogen'     => 0,
