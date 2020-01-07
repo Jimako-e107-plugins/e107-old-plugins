@@ -38,3 +38,6 @@ Note: in this repository because plugin name conflict needs to be solved at firs
 
 ### Removed
 - hardcoded metatags
+
+### Updated
+- SEO URLs. Old way is saved with new e_url addons. Fully configurable like before. No htaccess is needed. 

@@ -10,8 +10,11 @@
 
 //-----initialise
 
-   require_once("../../class2.php");
-
+if(!defined('e107_INIT'))
+{
+	require_once('../../class2.php');
+}
+ 
 	$cache_tag = "tagcloud_";
 
 // See if the page is already in the cache

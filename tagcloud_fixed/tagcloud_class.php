@@ -89,9 +89,13 @@ class e107tagcloud
     {
       global $pref;
               if ($pref['tags_useseo'])
-                               {$link = //SITEURLBASE.
+                               {   
+															   $data = array('tagcloud_key'=> preg_replace("#_#", $pref['tags_tagspace'], substr($tag_db,0,100)));															   
+																 $link = e107::url('tagcloud', 'tag', $data);        print_a($data);
+															/*	 $link = //SITEURLBASE.
                                      //e_HTTP.$pref['tags_seolink'].ereg_replace("[^A-Za-z0-9]", $pref['tags_tagspace'], substr($tag,0,100)).$pref['tags_fileext']  ;}
-                                     e_HTTP.$pref['tags_seolink'].preg_replace("#_#", $pref['tags_tagspace'], substr($tag_db,0,100)).$pref['tags_fileext']  ;}
+                                     e_HTTP.$pref['tags_seolink'].preg_replace("#_#", $pref['tags_tagspace'], substr($tag_db,0,100)).$pref['tags_fileext']  ;*/
+															}  
                else
                                {$link = e_PLUGIN_ABS."tagcloud/tagcloud.php?".$tag_db;}
         //echo "T:$link<p>";
