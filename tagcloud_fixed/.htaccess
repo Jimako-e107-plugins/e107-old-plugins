@@ -1,0 +1,14 @@
+RewriteEngine on
+RewriteBase /
+AddDefaultCharset UTF-8
+
+ErrorDocument 400 /error.php?400
+ErrorDocument 401 /error.php?401
+ErrorDocument 403 /error.php?403
+ErrorDocument 404 /error.php?404
+ErrorDocument 500 /error.php?500
+
+#RewriteRule ^tags-(.*).html$ plugins/tagcloud/tagcloud.php?$1 [L] 
+
+#RewriteRule ^sef-(.+)?.html(.*)$ plugins/tagcloud/tagcloud.php?$1 [L] ^M
+#RewriteRule ^sef.html plugins/tagcloud/tagcloud.php [L]

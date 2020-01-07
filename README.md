@@ -805,13 +805,32 @@ Requires the e107 Helper Project to be installed.
 source: https://e107.org/plugins/?id=226
 =======
 
-Simply Tagcloud menu v1.1
+### e107: Simply Tagcloud menu v1.1
 by Jezza101
 
-Top Tag tagclouds for e107
-by Jezza101
-source: http://gnu.su/
-it's not on e107.org
+Simple tag cloud example, not tested
+
+https://e107.org/plugins/?id=311
+
+Original site: not available 
+
+=======
+
+### e107: Top Tag tagclouds for e107
+A fully featured Tagword system
+source: e107  version 2.1.2
+
+Original files from e107.org (3646---tagcloud_v1.01) It's not there anymore. 
+Author: Jezzy101 
+Original site: not available 
+
+Not able to use because conflict with core plugin name
+  
+=======
+
+### e107: Tagwords plugin for e107
+
+2.1.3:  Tagwords plugin removed from core, replaced by TagCloud plugin (introduced in v2.1.2)
 
 =======
 
