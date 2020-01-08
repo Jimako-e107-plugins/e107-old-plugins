@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e107Plugin name="Page Stat v2.1" lan="LAN_PST1" version="2.1.1" date="2016-05-19" compatibility="2.0" installRequired="true" >
+	<author name="Ajdar / Jimako " url="https://github.com/Jimmi08/pagestat" />
+	<summary>This plugin show number of the news extended visits</summary>
+	<description lan="LAN_PST20">This plugin show number of the news extended visits.</description>
+	<category>misc</category>
+	<keywords>
+		<word>news</word>
+		<word>statistics</word>
+		<word>visits</word>
+	</keywords> 
+	<adminLinks>
+		<link url='admin_config.php' description='Configure PageStat Plugin' icon='images/icon_32.png' iconSmall='images/icon_16.png' primary='true' >LAN_CONGIGURE</link>
+	</adminLinks>
+	<pluginPrefs>
+		<pref name="pst_active">0</pref>
+		<pref name="pst_title">LAN_PST10</pref>
+	</pluginPrefs>
+</e107Plugin>
