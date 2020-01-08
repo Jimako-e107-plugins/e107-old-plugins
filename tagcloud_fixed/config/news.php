@@ -17,11 +17,12 @@ $table = "news AS n LEFT JOIN #news_category AS c ON n.news_category = c.categor
 
 function search_news($row) {
 	global $con;
-	$res['link'] = $row['news_allow_comments'] ? "news.php?item.".$row['news_id'] : "comment.php?comment.news.".$row['news_id'];
+	//$res['link'] = $row['news_allow_comments'] ? "news.php?item.".$row['news_id'] : "comment.php?comment.news.".$row['news_id'];
+	$res['link'] = 	e107::getUrl()->create('news/view/item', $row, array('full' => 1));
 	$res['pre_title'] = $row['category_name']." | ";
 	$res['title'] = $row['news_title'];
 	$res['summary'] = $row['news_body'].' '.$row['news_extended'];
-	$res['detail'] = "Posted on ".$con -> convert_date($row['news_datestamp'], "long");
+	$res['detail'] = LAN_TG010 ." ".$con -> convert_date($row['news_datestamp'], "long");
 	return $res;
 }
 

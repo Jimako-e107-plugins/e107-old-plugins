@@ -32,7 +32,9 @@ else {
    require_once(e_PLUGIN.'tagcloud/tagcloud_class.php');
    $tagcloud = new e107tagcloud;
    require_once(e_PLUGIN."tagcloud/tagcloud_shortcodes.php");
-   include_once(e_PLUGIN."tagcloud/tagcloud_template.php");
+   //include_once(e_PLUGIN."tagcloud/tagcloud_template.php");
+   $template   = e107::getTemplate('tagcloud'); 
+ 
    require_once(e_HANDLER."ren_help.php");
 
    $con = new convert;
@@ -58,7 +60,8 @@ else {
 
 //------------------------
 //---header
-
+   $header = $template['default']['header'];
+   
    $tagtext .= $tp->parseTemplate($header, TRUE, $tagcloud_shortcodes)."\n";
 
 
@@ -120,7 +123,7 @@ else {
                 $itemrow = $sql->gen($sql_query);
                 $itemrow = $sql->fetch();
 
-                        $handler = "search_".$tagrow['Tag_Type'] ;
+                        $handler = "search_".$tagrow['Tag_Type'] ;   
                         $res = call_user_func($handler, $itemrow);
 
                         //ADD:checks to see if these fields are populated, ie what happens
@@ -147,7 +150,9 @@ else {
                         $TAGS  .= "</span>";
 
                         if ($pref['tags_adminmod'] and ADMIN) {$TAGS .= "<a href='".e_PLUGIN."tagcloud/tagedit.php?".$tagrow['Tag_Type'].".".$tagrow['Tag_Item_ID']."'>(edit tags)</a>";}
-                        $tagtext .= $tp->parseTemplate($bodyt, TRUE, $tagcloud_shortcodes)."\n";
+                        $bodyt = $template['default']['body'];
+
+												$tagtext .= $tp->parseTemplate($bodyt, TRUE, $tagcloud_shortcodes)."\n";
 
       }
 
@@ -176,7 +181,7 @@ else {
            $tagtext .= $credit;
         }
 //--------------------------------------------------------------
-
+        $footer = $template['default']['footer'];
         $tagtext .= $tp->parseTemplate($footer, TRUE, $tagcloud_shortcodes)."\n";
 
 }

@@ -25,4 +25,6 @@ define("LAN_TG6", "more tags");   //
 define("LAN_TG8", "");   //
 define("LAN_TG9", "");   //
 
+define("LAN_TG010", "Posted on");
+
 ?>
