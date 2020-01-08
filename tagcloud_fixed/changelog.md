@@ -35,6 +35,7 @@ Functionality without USE SEO links works.
 ## [2.0.0] -  working on updated version.
 
 Note: in this repository because plugin name conflict needs to be solved at first 
+Supported plugins (in progress) : news, page, download, forum, pcontent
 
 ### Removed
 - hardcoded metatags
@@ -42,3 +43,15 @@ Note: in this repository because plugin name conflict needs to be solved at firs
 ### Updated
 - SEO URLs. Old way is saved with new e_url addons. Fully configurable like before. No htaccess is needed. 
 - global shortcodes workaround. e_shortcode addon used.
+- new template v2 way
+
+### Fixed
+- part fix messed up constants in version 2 (3/5): news, page, download
+- part for correct SEF-URL (1/5): news, 
+
+
+
+
+TODO:
+update: $con -> convert_date
+

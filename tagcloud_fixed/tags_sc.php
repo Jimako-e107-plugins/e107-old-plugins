@@ -1,7 +1,7 @@
 <?php
    parse_str($parm);
 
-   global $tp,$sql,$post_info,$forum,$meta;;
+   global $tp,$sql,$post_info,$forum,$meta,$pref;
    include_lan(e_PLUGIN.'tagcloud/languages/'.e_LANGUAGE.'/lan_tagcloud.php');
    //$TAGS ="";
    require_once(e_PLUGIN.'tagcloud/tagcloud_class.php');
@@ -23,27 +23,37 @@
 
 
 //--- NEED TO MAKE THIS GENERIC
-
+		 print_a(e_PAGE);
    //detect news page:
-   if($news_item = getcachedvars('current_news_item'))
-   {$Tag_Item_ID = $news_item['news_id'];
+   if(e_PAGE == "news.php")  
+   {
+	  $sc = e107::getScBatch('news');    
+		$news_item = $sc->getScVar('news_item'); 
+		$Tag_Item_ID = $news_item['news_id'];
     $Tag_Type    = 'news';}
 
    //detect page
-   if(e_PAGE=='page.php'){
-      $tmp          = explode(".", e_QUERY);
-      $Tag_Item_ID  = intval($tmp[0]);
+   elseif (e_PAGE=='page.php' AND  $_GET['id'] > 0 ) {   
+      //$tmp          = explode(".", e_QUERY);
+      $sc   = e107::getScBatch('page', null, 'cpage');
+      $page_item = $sc->getVars('cpage');       print_a($page_item);     
+      //$Tag_Item_ID  = intval($tmp[0]);
+      $Tag_Item_ID  = $page_item["page_id"];
       $Tag_Type     = 'page';
          }
 
    //detect download view
-   if(e_PAGE=='download.php'){
-      $tmp          = explode(".", e_QUERY);
-      $Tag_Item_ID  = intval($tmp[1]);
+   //if(e_PAGE=='download.php'){
+   elseif (e_CURRENT_PLUGIN =='download' AND $_GET['action'] == 'view' AND  $_GET['id'] > 0 ) {        //this works only after constants fix
+     // $tmp          = explode(".", e_QUERY);
+     // $Tag_Item_ID  = intval($tmp[1]);
+     $sc   = e107::getScBatch('download',true);
+	   $download_item = $sc->getVars('view'); 
+	   $Tag_Item_ID  = $download_item['download_id'];
       $Tag_Type     = 'download';
          }
 
-   //detect forum
+   //detect forum                             //TODO
    if(e_PAGE=='forum_viewtopic.php'){
       if ($post_info['user_id'] != '0' && $post_info['user_name'] === USERNAME && check_class($pref['tags_usermod'])){$TAGMOD=TRUE;}
       $posturl = e_SELF."?".e_QUERY."#post_{$post_info['thread_id']}";
@@ -51,7 +61,7 @@
       $Tag_Type     = 'forum';
          }
 
-   //detect content
+   //detect content                   //TODO
    if(e_PAGE=='content.php'){
 
       $tmp          = explode(".", e_QUERY);
@@ -63,11 +73,11 @@
 //-----------------------------------
 //-- update tags
 
-if ($TAGMOD){
+if ($TAGMOD){                
     $upd = 'tagupdate'.$Tag_Item_ID;
     $tgs = 'tags'.$Tag_Item_ID;
-
-    if (isset($_POST[$upd])) {
+                                                  
+    if (isset($_POST[$upd])) {         
       $tagcloud->tags_to_db($_POST[$tgs],$Tag_Type,$Tag_Item_ID);
       }
  }

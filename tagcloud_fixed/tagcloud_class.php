@@ -63,7 +63,7 @@ class e107tagcloud
 
 
   	function tags_to_db($list,$area,$id)
-	{
+	{                               
           global $sql,$tp;
                  $tmp    = explode(",",$list);
                  $sql->db_delete("tag_main","Tag_Type = '".$area."' AND Tag_Item_ID =".$id);
@@ -78,7 +78,7 @@ class e107tagcloud
                   $updatetag = preg_replace ("#\s#","_",$updatetag);
 
                   if ($updatetag <>''){
-                     $insertsting = "null,".$id.",'".$area."','".$updatetag."',".$cnt.",$time";
+                     $insertsting = "null,".$id.",'".$area."','".$updatetag."',".$cnt.",$time";   
                      $sql->db_insert("tag_main",$insertsting);
                      }
                   }

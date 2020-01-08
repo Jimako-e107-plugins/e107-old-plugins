@@ -81,8 +81,8 @@ else {
               B.Tag_Config_CloudFlag = 1     and
               Tag_Name               = '".$tag_db."' ORDER BY Tag_Rank LIMIT ".$from.",".$view;
 
-   if ($sql2->db_select_gen($query)) //validates $tag_db
-{
+   if ($resulttags = $sql2->retrieve($query, true)) //validates $tag_db
+{           
       //tag exists, start building the output
 
       //load config into array
@@ -103,7 +103,8 @@ else {
       //print_r($config['download']);
 
       //loop through the items in the tag list from tag_main
-      while ($tagrow = $sql2->fetch())
+      //while ($tagrow = $sql2->fetch())
+      foreach($resulttags AS $tagrow)
        {
                 $TAGS          = "";
                 $tag_type      = $tagrow['Tag_Type'];
@@ -121,21 +122,22 @@ else {
 
                 //echo "<p>Q:$sql_query<p>";
                 $itemrow = $sql->gen($sql_query);
-                $itemrow = $sql->fetch();
+                $itemrow = $sql->fetch($sql_query);
 
                         $handler = "search_".$tagrow['Tag_Type'] ;   
                         $res = call_user_func($handler, $itemrow);
-
+ 
                         //ADD:checks to see if these fields are populated, ie what happens
                         //if content has no title?
 
-                        $TITLE      = "<a href = '".e_BASE.$res['link']."'>".$res['title']."</a>";
+												// $res['link'] has to be full url, there is no other option with sef-url site 
+                        $TITLE      = "<a href = '".$res['link']."'>".$res['title']."</a>";
                         $PRETITLE   = $res['pretitle'];                                           //echo "PRETITLE<p>$PRETITLE";
                         $PRESUMMARY = $res['pre_summary'];                                        //echo "PRESUMMARY<p>$PRESUMMARY";
                         $SUMMARY    = $res['summary'];
                         $SUMMARY    = $tp->toHTML($SUMMARY, TRUE, 'constants');
                         $SUMMARY    = $tp->html_truncate($SUMMARY,$pref['tags_preview'],"");   //echo "SUMMARY<p>$SUMMARY";
-                        $SUMMARY   .= "...<a href='".e_BASE.$res['link']."'>".LAN_TG7."</a>";
+                        $SUMMARY   .= "...<a href='".$res['link']."'>".LAN_TG7."</a>";
                         $DETAIL     = $res['detail'];
 
                         //get other tags for output
