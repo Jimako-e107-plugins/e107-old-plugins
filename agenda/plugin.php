@@ -149,7 +149,7 @@ if (!class_exists("agendaPluginUpgradeHelper")) {
       var $pluginVersion;
       function agendaPluginUpgradeHelper() {
          $this->sql = new e107HelperDB();
-         if($this->sql->select("plugin", "plugin_version", "plugin_name='Agenda'")) {
+         if($this->sql->db_Select("plugin", "plugin_version", "plugin_name='Agenda'")) {
             $row = $this->sql->db_Fetch();
             $this->pluginVersion = $row["plugin_version"];
          } else {

@@ -33,7 +33,7 @@ function agendaGetDayEntries($day_ds) {
 function agendaSetFilterSQL() {
    global $agenda, $agn_sql1, $agn_field, $currentUser;
    if ($currentUser) {  // Only logged on users can use filter
-      $agn_sql1->select($agenda->getUserTable(), "*", " WHERE usr_id=".$currentUser["user_id"], true, $agenda->isDebug());
+      $agn_sql1->db_Select($agenda->getUserTable(), "*", "usr_id=".$currentUser["user_id"], true, $agenda->isDebug());
       if ($agn_urow = $agn_sql1->db_Fetch()) {
          extract($agn_urow, EXTR_OVERWRITE);
       } else {
@@ -156,7 +156,7 @@ function agendaDrawNavigation($next, $prev, $centertext) {
    global $pref, $agenda, $agn_sql1, $agn_navformcapt, $agn_navformname, $agn_navformtype, $agn_navformvalu, $agn_navformjs;
 
    if (isset($pref['agenda_nav_on_main']) && $pref['agenda_nav_on_main'] == "Y") {
-      $agn_monthentries  = $agn_sql1->db_Count($agenda->getAgendaTable(), "(*)", "where agn_start>=".$agenda->getTodayMonthStartDS()." and agn_end<".$agenda->getTodayMonthEndDS());
+      $agn_monthentries  = $agn_sql1->db_Count($agenda->getAgendaTable(), "(*)", "where start>=".$agenda->getTodayMonthStartDS()." and end<".$agenda->getTodayMonthEndDS());
 
       $defaultview = ($agenda->getP1() == "view") ? $agenda->getP2() : "0";
       $colspan = 0;
@@ -173,6 +173,7 @@ function agendaDrawNavigation($next, $prev, $centertext) {
       $text .= $rs->user_extended_element_edit($agn_navformname[2]."|".$agn_navformtype[2]."|".$agn_navformvalu[2], "", $agn_navformname[2], $agn_navformjs[2]);
       $text .= "</td>";
       $colspan++;
+
       if (check_class($pref['agenda_add_entry'])) {
          // Add entry type combo box
          $text .= "<td class='forumheader3' style='text-align:center;'>".$agn_navformcapt[3];
@@ -257,7 +258,7 @@ function agendaDrawFormRow($rs, $item, $value="") {
          }
          case "calendartime" : {
             if (!strpos($value, "-")) {
-               $bits = preg_split("/,/", $value);
+               $bits = split(",", $value);
                $value = date("d-m-Y,H.i", $value);
             }
             break;
@@ -276,7 +277,7 @@ function agendaDrawFormRow($rs, $item, $value="") {
 function agendaEntryAdd() {
    global $agenda, $agn_sql1, $agn_field, $agn_required_fields, $agn_required_fields_timed;
 
-   $agn_sql1->select($agenda->getTypeTable(), "*", "typ_id=".$agenda->getP5(), "default", $agenda->isDebug());
+   $agn_sql1->db_Select($agenda->getTypeTable(), "*", "typ_id=".$agenda->getP5(), true, $agenda->isDebug());
    if ($trow = $agn_sql1->db_Fetch()) {
       extract($trow, EXTR_OVERWRITE);
       $allfields = array_merge($agn_required_fields, $agn_required_fields_timed[$typ_timed], array_filter(explode(",", $typ_fields), "agendaRemoveBlank"));
@@ -317,8 +318,7 @@ function agendaEntryEdit() {
          $allfields = array_merge($agn_required_fields, $agn_required_fields_timed[$typ_timed], array_filter(explode(",", $typ_fields), "agendaRemoveBlank"));
 
          $text = agendaDrawNavigation("", "", AGENDA_LAN_33." $typ_name");
-         $text  = "<div style='width:100%'";
-				 $text .= "<table style='width:100%' class='fborder' cellspacing='0' cellpadding='0' summary='*'>";
+         $text .= "<table style='width:100%' class='fborder' cellspacing='0' cellpadding='0' summary='*'>";
 
          $rs = new agenda_form;
          $text .= "<div style='text-align:center'><form method='post' action='".e_SELF."?save.".$agenda->getP2().".".$agenda->getP3().".".$agenda->getP4().".".$agenda->getP5()."'>";

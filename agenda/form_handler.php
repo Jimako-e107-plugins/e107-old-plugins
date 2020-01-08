@@ -22,8 +22,8 @@
 | $Author: Neil $
 +---------------------------------------------------------------+
 */
-if (file_exists(e_PLUGIN."e107helpers/calendar/calendar_class.php")) {
-   require_once(e_PLUGIN."e107helpers/calendar/calendar_class.php");
+if (file_exists(e_HANDLER."calendar/calendar_class.php")) {
+   require_once(e_HANDLER."calendar/calendar_class.php");
 }
 
 class agenda_form {
@@ -148,7 +148,7 @@ class agenda_form {
             $ret ="<select class='tbox' style='width:200px' name='$fieldname' id='$fieldname'><option></option>";
             $fieldid = $row[$u_values[1]];
             $fieldvalue = $row[$u_values[2]];
-            $sql -> select($u_values[0],"*"," $u_values[1] !='' ORDER BY $u_values[2]");
+            $sql -> db_Select($u_values[0],"*","$u_values[1] !='' ORDER BY $u_values[2]");
             while($row = $sql-> db_Fetch()) {
                $fieldid = $row[$u_values[1]];
                $fieldvalue = $row[$u_values[2]];
@@ -158,7 +158,7 @@ class agenda_form {
             $ret .= "</select>";
             break;
          case "table-readonly":
-            $sql -> select($u_values[0],"*"," $u_values[1] = '$presetvalue'");
+            $sql -> db_Select($u_values[0],"*"," $u_values[1] = '$presetvalue'");
             $row = $sql -> db_Fetch();
             $fieldvalue = $row[$u_values[2]];
             $fieldvalue .= ($u_values[3])? " - ".$row[$u_values[3]]:"";
@@ -184,8 +184,8 @@ class agenda_form {
          case "image" :
             $folder = $u_value;
             $handle = opendir($folder);
-            while ($file = readdir($handle)) {       
-               if (is_file($folder.$file) && (preg_match("%".".jpg"."%i",$file) || preg_match("%".".gif"."%i",$file) || preg_match("%".".png"."%i",$file))) {
+            while ($file = readdir($handle)) {
+               if (is_file($folder.$file) && (eregi(".jpg",$file) || eregi(".gif",$file) || eregi(".png",$file))) {
                   $iconlist[] = $file;
                }
             }
@@ -211,7 +211,7 @@ class agenda_form {
             $ret .= "<option value='254' $checked > Administrators Only </option>";
             $checked = ($presetvalue == 255)? " selected" : "";
             $ret .= "<option value='255' $checked > No One (inactive) </option>";
-            $sql -> select('userclass_classes',"userclass_id, userclass_name"," ORDER BY userclass_name", "no_where");
+            $sql -> db_Select('userclass_classes',"userclass_id, userclass_name"," ORDER BY userclass_name", "no_where");
             while($row = $sql-> db_Fetch()) {
                extract($row);
                $checked = ($userclass_id == $presetvalue)? " selected " : "";

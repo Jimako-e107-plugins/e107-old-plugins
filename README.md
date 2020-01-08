@@ -7,6 +7,18 @@ https://chrome.google.com/webstore/detail/gitzip-for-github/ffabmkklhbepgcgfonab
 
 =======
 
+###  AACGC Download Tracker by M@CH!N3 
+
+Description: Download Tracker plugin that shows all downloads on a page with number of times downloaded, click each download to view who and when they download it.
+
+Update for e107 V2 and active use:
+https://github.com/Jimmi08/e107-free-plugins-by-e107sk/tree/master/aacgc_dltracker
+
+Support:
+https://www.e107sk.com/forum/
+
+=======
+
 ###  AACGC Arcade Addins by M@CH!N3 
 
 description: A plugin to implement an arcade in e107 with high score tables. 
@@ -32,11 +44,23 @@ Php version:  compatible with php7
 
 =======
 
+### AACGC Event Countdowns   by M@CH!N3
+
+source: https://github.com/AACGC/AACGC-Event-Countdowns
+
+Description: Countdown timers to events of your choice
+
+Fixed version:  done for somebody
+
+=======
+
 ### AACGC Item List  by M@CH!N3
 
 source: https://github.com/AACGC/Item-List
 
-Update for 2.1.2 https://github.com/Jimmi08/Item-List
+Description: Item List plugin that allows admin to list items with image, name, details, and optional price in different categories and sub-categories.
+
+Fixed version: attempt fix for 2.0 in 2014, not used anymore
 
 =======
 
@@ -48,6 +72,8 @@ source:  https://github.com/AACGC/AACGC-Member-of-the-Month
 
 just backup
 
+Description: Select a member of your clan/community as Member of the month and it will be displayed on a menu. Page included that shows all previouse members of the month. Gold Orbs supported
+
 =======
 
 ### AACGC Public News  by M@CH!N3
@@ -58,14 +84,23 @@ source: https://github.com/AACGC/AACGC-Public-News
 
 just backup
 
-=======
-
-### AACGC Event Countdowns   by M@CH!N3
-
-source: https://github.com/AACGC/AACGC-Event-Countdowns
+Description: Allows users, guests, or userclasses submit news posts and lists them on pages and menus.
 
 =======
 
+### Advance Online Menu by eleljrk
+
+just backup
+
+=======
+
+### Advanced Bbcodes by The_Death_Raw
+
+Description: Can install new bbcodes in your e107 website.
+
+Fixed:  working version for 2.1.0, not used anymore
+
+=======
 
 ### Advanced Medal System V1.2 by Marc Peppler, Updated version 1.3, 1.4 by garyt
 
@@ -81,23 +116,80 @@ http://www.bugrain.com/e107_plugins/psilo/psilo.php?artifact.345
 
 Agenda is a calendar, appointment and event organiser.
 
-state: fixed all visible errors 
-
-compatible: 2.1.6
+Fixed:  fixed all visible errors , compatible: 2.1.6
 
 =======
 
-###  Birthday Menu (e107 v7x) 
+### Alternate ranks v0.1 by Veskoto
+
+just backup
+
+=======
+
+### Another Online Menu by Richard Perry
+
+http://www.greycube.com
+
+just backup
+
+=======
+ 
+### Auto Assign (e107 v7x) by Father Barry
+
+just backup
+
+=======
+
+###  Birthday Menu (e107 v7x) by Father Barry
+
 Description: A Simple configurable birthday menu. Uses e107 extended field for birthday. Can also send an email or PM to users on their birthday.
 
 Author credit: Barry Keal (c) 2003 - 2008
-
-
-Original:
- this is empty, not found on www.keal.org.uk
- https://github.com/G4HDU-plugins-v1/birthday
  
-State: runs with 2.1.8, trying to create new version
+Updated version: https://github.com/Jimmi08/e107-free-plugins-by-e107sk/tree/master/birthday
+
+Support:
+https://www.e107sk.com/forum/
+
+=======
+
+### Room Booking System Two / Meeting Room Booking System (MRBS)) by Ian Beaver, modified by Barry Keal
+
+just backup
+=======
+
+###  Bugtracker3 (e107 v7x) by bugrain
+
+Source: bugrain.com/e107_plugins/psilo/psilo.php?artifact.2
+
+Decription: Manage bugs and feature requests.
+
+Requires the e107 Helper Project to be installed.
+
+Just backup
+
+=======
+
+###  Calendar menu  by e107 Inc
+
+Source: original core e107 V1 plugin, just backup of 1.0.4 version
+
+Information:
+https://www.e107sk.com/documentation/calendar-menu-plugin/?cat.51
+
+Support:
+https://www.e107sk.com/forum/
+
+Updated version:  https://github.com/Jimmi08/e107-free-plugins-by-e107sk/tree/master/calendar_menu
+Other version:  https://github.com/e107inc/calendar_menu
+
+=======
+
+###  Category Links Menu Plugin by acidfire
+
+just backup
+
+=======
 
 ### Challenge Us by udesigns
  
@@ -115,8 +207,9 @@ EDIT:  the author's site is not available anymore
 
 state: just backup 
 
-=======
+Fixed version: fixed errors for 2.3 and php 7.2, in progress
 
+=======
 
 ###  cl_widgets
 
@@ -124,15 +217,33 @@ state: just backup
 
 =======
 
-###  Clan Members e107  by udesigns
+### Clan Members Basic 1.0   by udesigns
 
-still able download: http://www.udesigns.be/shop-i79-e107-clan-members
+Source: https://e107.org/plugins/?id=476
+
+Credit:  Untergang from udesigns.be
 
 state: just backup 
 
-note: needs to use e107_images/clan for images and a lot of extra stuff
+Note: see plugins above from the same author. 
 
 EDIT:  the author's site is not available anymore
+
+* THERE IS AVAILABLE FULL VERSION for 0.7 - courtesy from Untergang *
+
+=======
+
+### Clan Members 1.0   by udesigns
+
+Source: unknown
+
+Credit:  Untergang from udesigns.be
+
+state: just backup 
+
+EDIT:  the author's site is not available anymore
+
+Update: there is available updated version for php 7.2
 
 =======
 
@@ -140,7 +251,7 @@ EDIT:  the author's site is not available anymore
 
 description:  Complete Clan Management Plugin
 
-state: just backup 
+state: just backup , probably not full plugin
 
 =======
 
@@ -156,21 +267,36 @@ EDIT:  the author's site is not available anymore
 
 =======
 
-###  Calender menu plugin
+### Contact V2 by Mohamed Anouar Achoukhy
 
-just backup of 1.0.4 version
-
-Available sources of new version:
-
- https://github.com/e107inc/calendar_menu
- https://github.com/Jimmi08/calendar_menu
- 
- Information:
- https://www.e107.sk/knowledge_base/calendar-menu-plugin/?cat.51
- Support:
- https://www.e107.sk/forum/calendar-menu/
+Just backup
 
 =======
+
+### Contact Form by bugrain (www.bugrain.plus.com)
+
+Just backup
+
+=======
+
+### Content plugin
+
+Source: original core e107 V1 plugin, just backup of 1.0.4 version
+
+Updated version is not released. 
+
+=======
+
+### Creative-Writer for version 0.7 by Father Barry
+
+original:
+
+fixed version is part. fixed plugin for new plugin and extended for fanfiction drabbles, never finished, they decided go for efiction script
+
+Just backup
+
+=======
+
 
 ### Delete me v 1.7 Barry Keal
 
@@ -224,6 +350,23 @@ not point to fix it, this functionality is in core now
 
 =======
 
+### e107Slider for version 0.7 by xenthemes
+
+forked originally from https://github.com/nickypn/e107Slider
+
+but author site is not available anymore 
+
+=======
+
+### eversion plugin for version 0.7 by Father Barry
+
+forked originally from https://github.com/yesszus/eversion
+
+e_version plugin is my own copy, no idea from where 
+
+backup version from 08/2016
+=======
+
 ### FAQ Plugin  by Father Barry 
 
 Version: 4.9
@@ -236,7 +379,16 @@ state: available fixed version for php 7.0 and e107 2.2.0 ! Only fixes, nothing 
 
 version from e107-german.de : 4.2    - not available anymore
 
- 
+=======
+
+### fbox plugin Corllete Lab Feature Box v1.0
+
+Author: SecretR
+
+source: e107.org
+
+compatible:  e107v1+
+
 =======
 
 ### Glossary e107 plugin v1.91 rc4 by  Shirka
@@ -275,6 +427,16 @@ version from e107-german.de 4.1
 ###  Image gallery
 
 just backup
+
+=======
+
+### JbClan for version 0.7 by jbWebWare  2013
+
+Source: https://github.com/jbWebWare/jbClan
+
+Site is down.
+
+added some old fix 
 
 =======
 
@@ -462,7 +624,9 @@ Author credit: Oyabun
 
 Original: from e107.org
  
-Update for version 2:  https://www.e107.sk/download/17/signup-secure-v1-3-original-made-by-oyabun
+Update for version 2:  https://github.com/Jimmi08/e107-free-plugins-by-e107sk/tree/master/signup_secure
+
+Support:  https://www.e107sk.com/forum/
  
 =======
 
@@ -473,6 +637,12 @@ original version: 20-Nov-2008
 ~~not possible just fix it, used JSHelper plugin for admin area~~
 
 compatible: 2.1.6
+
+=======
+
+###  TG Link To Us
+			
+source: e107-german.de
 
 =======
 
@@ -519,11 +689,8 @@ To use, you need to get the Application ID here.
 
 =======
 
-###  TG Link To Us
-			
-source: e107-german.de
 
-=======
+**************  end of alphabetically ordered list ************** 
 
 ###  shop_e107
 			
@@ -842,33 +1009,7 @@ Milad Pazouki
 
 =======
 
-### e107: Clan Members Basic 1.0  
 
-Source: https://e107.org/plugins/?id=476
-
-Credit:  Untergang from udesigns.be
-
-state: just backup 
-
-Note: see plugins above from the same author. 
-
-EDIT:  the author's site is not available anymore
-
-* THERE IS AVAILABLE FULL VERSION for 0.7 - courtesy from Untergang *
-
-=======
-
-### e107: Clan Members 1.0  
-
-Source: unknown
-
-Credit:  Untergang from udesigns.be
-
-state: just backup 
-
-EDIT:  the author's site is not available anymore
-
-=======
 
 ### Roster by Carl Taylor 
 
@@ -977,52 +1118,9 @@ compatible: e107.org
 
 =======
 
-### Corllete Lab Feature Box v1.0
-
-Author: SecretR
-
-source: e107.org
-
-compatible:  e107v1+
-
-=======
-
-### e107Slider for version 0.7 by xenthemes
-
-forked originally from https://github.com/nickypn/e107Slider
-
-but author site is not available anymore 
-
-=======
-
-### eversion plugin for version 0.7 by Father Barry
-
-forked originally from https://github.com/yesszus/eversion
-
-e_version plugin is my own copy, no idea from where 
-
-backup version from 08/2016
-=======
-
-### JbClan for version 0.7 by jbWebWare  2013
-
-Source: https://github.com/jbWebWare/jbClan
-
-Site is down.
-
-added some old fix 
-
-=======
 
 
-### Creative-Writer for version 0.7 by Father Barry
 
-original:
-
-fix is part fixed plugin for new plugin and extended for fanfiction drabbles, never finished, they decided go for efiction script
-
-
-=======
 
 
 ### Ratings

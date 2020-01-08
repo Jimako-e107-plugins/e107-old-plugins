@@ -53,7 +53,7 @@
          $text .= $rs->user_extended_element_edit($agn_navformname[6]."|".$agn_navformtype[6]."|".$agn_navformvalu[6], "", $agn_navformname[6], $agn_navformjs[6]);
          $text .= "</div>";
 
-         e107::getRender()->tablerender($pref["agenda_nav_menu_title"], $text);
+         $ns->tablerender($pref["agenda_nav_menu_title"], $text);
       }
    }
 ?>

@@ -85,17 +85,13 @@
          }
 
          // Control and hidden from user fields
-         //$colstr[] = "agn_type";
-         //$valstr[] = "'$type'";
-         //$colstr[] = "agn_author";
-         //$valstr[] = "'".USERID.".".USERNAME."'";
-         //$colstr[] = "agn_datestamp";
-         //$valstr[] = "'".time()."'";
-         $tmp['data']['agn_datestamp'] = $type;
-         $tmp['data']['agn_type'] = $agenda->getP5();
-				 $tmp['data']['agn_author'] = USERID.".".USERNAME;
-				  
-					
+         $colstr[] = "agn_type";
+         $valstr[] = "'$type'";
+         $colstr[] = "agn_author";
+         $valstr[] = "'".USERID.".".USERNAME."'";
+         $colstr[] = "agn_datestamp";
+         $valstr[] = "'".time()."'";
+
          $qry = "(".implode(", ", $colstr).") values (".implode(", ", $valstr).")";
 
          $text = "<e107helperajax>";
@@ -108,9 +104,8 @@
 
          $text .= "<response type='timedmessage' msecs='3000'><![CDATA[";
          $mysql = new e107HelperDB();
-         //$res = $mysql->db_InsertPart($agenda->getAgendaTable(), $tmp, $agenda->isDebug());
-         $res 	= $mysql->insert($agenda->getAgendaTable(), $tmp, $agenda->isDebug());
-         $text .= $res ? AGENDA_LAN_MSG_00 : AGENDA_LAN_MSG_01."(".mysqli_error().")";
+         $res = $mysql->db_InsertPart($agenda->getAgendaTable(), $qry, $agenda->isDebug());
+         $text .= $res ? AGENDA_LAN_MSG_00 : AGENDA_LAN_MSG_01."(".mysql_error().")";
          $text .= "]]></response>";
 
          $text .= "</e107helperajax>";
@@ -151,7 +146,7 @@
          global $agenda;
          $sql = new db();
          $qry = "";
-         $update = $sql->select($agenda->getUserTable(), "usr_id", " WHERE usr_id=".USERID, true, $agenda->isDebug());
+         $update = $sql->db_Select($agenda->getUserTable(), "usr_id", "usr_id=".USERID, true, $agenda->isDebug());
          if (strlen($types)) {
             $qry[]  = "51:$types";
          }
@@ -176,7 +171,7 @@
          $text = "<e107helperajax>";
          if ($res === false) {
             $text .= "<response type='alert'>";
-            $text .= "Failure: $qry, ".mysqli_error();
+            $text .= "Failure: $qry, ".mysql_error();
          } else {
             $text .= "<response type='timedmessage'>";
             $text .= AGENDA_LAN_138;
@@ -190,7 +185,7 @@
          global $agenda;
          $sql = new db();
          $qry = "";
-         $update = $sql->select($agenda->getUserTable(), "usr_id", " WHERE usr_id=".USERID, true, $agenda->isDebug());
+         $update = $sql->db_Select($agenda->getUserTable(), "usr_id", "usr_id=".USERID, true, $agenda->isDebug());
          if ($update) {
             $qry  = "usr_filter_state='$filter'";
             $res = $sql->db_Update($agenda->getUserTable(), $qry, $agenda->isDebug());
@@ -204,7 +199,7 @@
          global $agenda;
          $sql = new e107HelperDB();
 
-         $sql->select($agenda->getAgendaTable(), "agn_responses", " WHERE agn_id=$id", true);
+         $sql->db_Select($agenda->getAgendaTable(), "agn_responses", "agn_id=$id", true);
          if ($row = $sql->db_Fetch()) {
             $agn_responses = array();
             if (strlen($row["agn_responses"])) {
@@ -240,7 +235,7 @@
          if ($userid=="") {
             $userid = USERID;
          }
-         $sql->select($agenda->getAgendaTable(), "agn_responses", " WHERE agn_id=$id", true);
+         $sql->db_Select($agenda->getAgendaTable(), "agn_responses", "agn_id=$id", true);
          if ($row = $sql->db_Fetch()) {
             $agn_responses = array();
             if (strlen($row["agn_responses"])) {
@@ -278,7 +273,7 @@
       function sendEmail($id, $emailTo, $subject="", $emailMessage="") {
          global $agenda;
          $sql = new e107HelperDB();
-         if ($sql->select($agenda->getAgendaTable(), "*", " WHERE agn_id=$id", true)) {
+         if ($sql->db_Select($agenda->getAgendaTable(), "*", "agn_id=$id", true)) {
             $row = $sql->db_Fetch();
             extract($row);
             $agn_responses = strlen($agn_responses) > 0 ? explode(",", $agn_responses) : array();
@@ -354,7 +349,7 @@
       function getFieldsForType($type, $messageid="") {
          global $agenda, $agn_required_fields, $agn_required_fields_timed;
          $mysql = new e107HelperDB();
-         if ($mysql->select($agenda->getTypeTable(), "typ_name, typ_fields, typ_timed", " WHERE typ_id=$type", true, $agenda->isDebug())
+         if ($mysql->db_Select($agenda->getTypeTable(), "typ_name, typ_fields, typ_timed", "typ_id=$type", true, $agenda->isDebug())
          && $row = $mysql->db_Fetch()) {
             extract($row, EXTR_OVERWRITE);
             $this->_currentTypeName = $typ_name;
@@ -369,7 +364,7 @@
             $text .= "<response type='killdialog' id='agenda_quick_add'>";
             $text .= "</response>";
             $text .= "<response type='timedmessage' msecs='3000'><![CDATA[";
-            $text .= "Failed (".mysqli_error().")";
+            $text .= "Failed (".mysql_error().")";
             $text .= "]]></response>";
             $text .= "</e107helperajax>";
             $this->printXML($text);

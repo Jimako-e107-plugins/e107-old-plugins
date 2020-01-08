@@ -24,10 +24,10 @@ require(e_PLUGIN."agenda/agenda_variables.php");
 $pageid  = "readme";
 $caption = AGENDA_LAN_ADMIN_09;
 
-/*if (file_exists(e_PLUGIN."updatecheckerx/updatechecker.php")) {
-   require_once(e_PLUGIN."updatecheckerx/updatechecker.php");
+if (file_exists(e_PLUGIN."updatechecker/updatechecker.php")) {
+   require_once(e_PLUGIN."updatechecker/updatechecker.php");
    $text .= updateChecker(AGENDA_LAN_NAME, AGENDA_LAN_VER, "http://www.bugrain.plus.com/e107plugins/agenda.ver", "|");
-} */
+}
 
 $text .= "<div style='padding:5px;'>".
 AGENDA_LAN_NAME." v".AGENDA_LAN_VER." by bugrain (agenda@bugrain.plus.com)<br>

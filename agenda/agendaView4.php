@@ -20,7 +20,7 @@
    } else {
       $text .= agendaDrawDate($tmp);
    }
-	 
+
    for ($month=0; $month<12; $month++) {
       if (intval($month/3)*3 == $month/3*3) {
          $text .= "<div style='width:100%'><table width='100%'><tr><td valign='top'>";
@@ -28,7 +28,7 @@
          $text .= "</td><td valign='top'>";
       }
 
-      $text .= "<table class='fborder table-small-calendar'><tr>";
+      $text .= "<table cellpadding='0' cellspacing='1' style='width:100%' class='fborder'><tr>";
       // Display month
       $text .= "<td colspan='7' class='".$agenda->getPrefHeaderCSS()."' style='text-align:center'><span class='smalltext'>".$agenda->getMonthNameFromNum($month, true)."</span></td>";
       $text .= "</tr><tr>";

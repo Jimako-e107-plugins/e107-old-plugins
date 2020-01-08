@@ -21,7 +21,7 @@
    if (isset($_POST['setsubs'])) {
       $cats = $_POST['event_list'];
       $subs = $_POST['event_subd'];
-      $agn_sql1->db_Delete("agenda_subs", " WHERE subs_userid='".USERID."'");
+      $agn_sql1->db_Delete("agenda_subs", "subs_userid='".USERID."'");
       foreach($cats as $ix) {
          if ($subs[$ix]) {
             $agn_sql1->db_Insert("agenda_subs", "0, '".USERID."', '".$ix."'");
@@ -37,14 +37,14 @@
 
    // Get a list of categories currently subscribed to by this user
    $subs = array();
-   $agn_sql1->select($agenda->getSubsTable(), "subs_cat", " WHERE subs_userid='".USERID."'", true, $agenda->isDebug());
+   $agn_sql1->db_Select($agenda->getSubsTable(), "subs_cat", "subs_userid='".USERID."'", true, $agenda->isDebug());
    while ($agn_srow = $agn_sql1->db_Fetch()) {
       extract($agn_srow);
       $subs[] = $subs_cat;
    }
 
    // Get list of categories that have subscriptions and are visible to this member
-   if ($agn_sql1->select($agenda->getCategoryTable(), "*", " WHERE cat_subs>0 and find_in_set(cat_class,'".$e107Helper->getUserClassList()."') order by cat_name asc", true, $agenda->isDebug())) {
+   if ($agn_sql1->db_Select($agenda->getCategoryTable(), "*", "cat_subs>0 and find_in_set(cat_class,'".$e107Helper->getUserClassList()."') order by cat_name asc", true, $agenda->isDebug())) {
       while ($agn_crow = $agn_sql1->db_Fetch()) {
          extract($agn_crow);
          $text .= "<tr>";
