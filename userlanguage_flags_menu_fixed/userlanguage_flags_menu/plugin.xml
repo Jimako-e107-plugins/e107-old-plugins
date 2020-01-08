@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e107Plugin name="Userlanguage Flags Menu" lan="USLFM_P_1" version="2.1.2" date="2016-03-21" compatibility="2.0" installRequired="true" >
+	<author name="JmoRava / Jimako" url="https://github.com/Jimmi08/userlanguage_flags_menu" />
+	<summary lan="USLFM_P_2">This menu selection allows users to choose the language translation.</summary>
+	<description lan="USLFM_P_2"></description>
+	<keywords>
+		<word>menu</word>
+		<word>language</word>
+	</keywords>
+	<category>tools</category>
+	<copyright>http://www.e107.funsite.cz/</copyright>
+	<adminLinks>
+		<link url="admin_config.php" description="" icon="/images/logo_32.png" iconSmall="/images/logo_16.png" icon128="" primary="true" >LAN_CONFIGURE</link>
+	</adminLinks>
+	<pluginPrefs>
+		<pref name='lanflags_title_on'>0</pref>
+		<pref name='lanflags_typ'>0</pref>
+		<pref name='lanflags_size'>32</pref>
+		<pref name='lanflags_render'>0</pref>
+		<pref name='lanflags_aling'>0</pref>
+	</pluginPrefs>
+</e107Plugin>
