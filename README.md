@@ -5,20 +5,11 @@ Just backup
 https://chrome.google.com/webstore/detail/gitzip-for-github/ffabmkklhbepgcgfonabamgnfafbdlkn
 
 
-=======
 
-###  AACGC Download Tracker by M@CH!N3 
-
-Description: Download Tracker plugin that shows all downloads on a page with number of times downloaded, click each download to view who and when they download it.
-
-Update for e107 V2 and active use:
-https://github.com/Jimmi08/e107-free-plugins-by-e107sk/tree/master/aacgc_dltracker
-
-Support:
-https://www.e107sk.com/forum/
 
 =======
 
+## aacgc_arcade_addins
 ###  AACGC Arcade Addins by M@CH!N3 
 
 description: A plugin to implement an arcade in e107 with high score tables. 
@@ -30,7 +21,8 @@ Php version:  not compatible with php7
 
 =======
 
-###  AACGC Clan Listing by M@CH!N3 
+## aacgc_clan_listing
+### AACGC Clan Listing by M@CH!N3 
 
 source: https://github.com/AACGC/AACGC-Clan-Listing
 
@@ -44,6 +36,20 @@ Php version:  compatible with php7
 
 =======
 
+## aacgc_dltracker
+###  AACGC Download Tracker by M@CH!N3 
+
+Description: Download Tracker plugin that shows all downloads on a page with number of times downloaded, click each download to view who and when they download it.
+
+Update for e107 V2 and active use:
+https://github.com/Jimmi08/e107-free-plugins-by-e107sk/tree/master/aacgc_dltracker
+
+Support:
+https://www.e107sk.com/forum/
+
+=======
+
+## aacgc_eventcountdowns, aacgc_eventcountdowns_fixed
 ### AACGC Event Countdowns   by M@CH!N3
 
 source: https://github.com/AACGC/AACGC-Event-Countdowns
@@ -54,6 +60,7 @@ Fixed version:  done for somebody
 
 =======
 
+## aacgc_itemlist, aacgc_itemlist_fixed
 ### AACGC Item List  by M@CH!N3
 
 source: https://github.com/AACGC/Item-List
@@ -64,6 +71,7 @@ Fixed version: attempt fix for 2.0 in 2014, not used anymore
 
 =======
 
+## aacgc_motm
 ### AACGC MOTM  by M@CH!N3
 
 original version: 2.9
@@ -76,6 +84,7 @@ Description: Select a member of your clan/community as Member of the month and i
 
 =======
 
+## aacgc_pnews
 ### AACGC Public News  by M@CH!N3
 
 original version: 1.9
@@ -88,12 +97,14 @@ Description: Allows users, guests, or userclasses submit news posts and lists th
 
 =======
 
+## advance_online_menu
 ### Advance Online Menu by eleljrk
 
 just backup
 
 =======
 
+## advanced_bbcodes,advanced_bbcodes_fixed
 ### Advanced Bbcodes by The_Death_Raw
 
 Description: Can install new bbcodes in your e107 website.
@@ -102,12 +113,14 @@ Fixed:  working version for 2.1.0, not used anymore
 
 =======
 
+## advmedsys
 ### Advanced Medal System V1.2 by Marc Peppler, Updated version 1.3, 1.4 by garyt
 
 just backup
 
 =======
 
+## agenda, agenda_fixed
 ### Agenda v1.7 b2 by bugrain
 
 original version: 20-May-2008
@@ -120,12 +133,14 @@ Fixed:  fixed all visible errors , compatible: 2.1.6
 
 =======
 
+## alt_rank
 ### Alternate ranks v0.1 by Veskoto
 
 just backup
 
 =======
 
+## aonline_menu
 ### Another Online Menu by Richard Perry
 
 http://www.greycube.com
@@ -134,12 +149,14 @@ just backup
 
 =======
  
+## auto_assign
 ### Auto Assign (e107 v7x) by Father Barry
 
 just backup
 
 =======
 
+## bday_menu
 ###  Birthday Menu (e107 v7x) by Father Barry
 
 Description: A Simple configurable birthday menu. Uses e107 extended field for birthday. Can also send an email or PM to users on their birthday.
@@ -153,11 +170,13 @@ https://www.e107sk.com/forum/
 
 =======
 
+## bookingroom
 ### Room Booking System Two / Meeting Room Booking System (MRBS)) by Ian Beaver, modified by Barry Keal
 
 just backup
 =======
 
+## bugtracker3
 ###  Bugtracker3 (e107 v7x) by bugrain
 
 Source: bugrain.com/e107_plugins/psilo/psilo.php?artifact.2
@@ -170,6 +189,7 @@ Just backup
 
 =======
 
+## calendar_menu
 ###  Calendar menu  by e107 Inc
 
 Source: original core e107 V1 plugin, just backup of 1.0.4 version
@@ -185,12 +205,14 @@ Other version:  https://github.com/e107inc/calendar_menu
 
 =======
 
+## categorylink_menu
 ###  Category Links Menu Plugin by acidfire
 
 just backup
 
 =======
 
+## challengeus
 ### Challenge Us by udesigns
  
 still able download: http://www.udesigns.be/shop-i82-e107-challenge-us
@@ -203,6 +225,7 @@ EDIT:  the author's site is not available anymore
 
 =======
 
+## chatbox2_menu, chatbox2
 ### CHATBOX II by Billy Smith http://www.vitalogix.com
 
 state: just backup 
@@ -233,6 +256,7 @@ EDIT:  the author's site is not available anymore
 
 =======
 
+## clanmembers, clanmembers_fixed
 ### Clan Members 1.0   by udesigns
 
 Source: unknown
@@ -247,6 +271,7 @@ Update: there is available updated version for php 7.2
 
 =======
 
+## clansystem
 ### ClanSystem by Sherwood McGowan & Shannon Kamer 
 
 description:  Complete Clan Management Plugin
@@ -255,6 +280,7 @@ state: just backup , probably not full plugin
 
 =======
 
+## clanwars
 ###  Clan Wars by udesigns
 
 still able download: http://www.udesigns.be/shop-i80-e107-clan-wars
@@ -265,6 +291,16 @@ note: needs to use e107_images/clan for images and a lot of extra stuff
 
 EDIT:  the author's site is not available anymore
 
+=======
+
+## classmembership
+### Class Membership by Barry Keal
+
+just backup
+
+Updated version: https://github.com/Jimmi08/e107-free-plugins-by-e107sk/tree/master/classmembership
+
+Support: 
 =======
 
 ### Contact V2 by Mohamed Anouar Achoukhy
