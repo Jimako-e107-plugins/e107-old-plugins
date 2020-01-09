@@ -1,6 +1,6 @@
 <?php
 
-
+/*  TEMP FILE to see what else left to move to plugin.xml */
 
 //TAGCLOUD PLUGIN COPYRIGHT 2007-2008 jezza101
 //www.jezza101.co.uk
@@ -18,8 +18,7 @@ $eplug_version = "2.0.0";
 $eplug_author = "Jezza101";
 $eplug_folder = "tagcloud";
 
-$eplug_icon = $eplug_folder."/images/icon_32.png";
-$eplug_icon_small = $eplug_folder."/images/icon_16.png";
+ 
 
 $eplug_url = "http://www.jezza101.co.uk";
 $eplug_email = "jezza101@gmail.com";
@@ -40,38 +39,7 @@ $eplug_upgrade_done = "Upgrade successful...";
 // List of comment_type ids used by this plugin. -----------------------------
 $eplug_comment_ids = array("tagcloud");
 
-// List of preferences -----------------------------------------------------------------------------------------------
-$eplug_prefs = array(
-	'tags_number'      => 20,
-	'tags_update'      => 0,
-	'tags_peritem'     => 5,
-	'tags_preview'     => 200,
-        'tags_style_cloud' => 'tagcloud',
-        'tags_style_item'  => 'tagitem',
-        'tags_style_link'  => 'taglink',
-        'tags_max_size'    => 250,
-        'tags_min_size'    => 100,
-        'tags_overwrite'   => 0,
-        'tags_credit'      => 1,
-        'tags_adminmod'    => 0,
-        'tags_usermod'     => 0,
-        'tags_autogen'     => 0,
-        'tags_emetaforum'  => 1,
-        'tags_max_colour'  => 'ffffff',
-        'tags_min_colour'  => 'ffffff',
-        'tags_tagspace'    => '_',
-        'tags_seolink'     => 'tags-',
-        'tags_fileext'     => '.html',
-        'tags_menuname'    => 'Tagcloud',
-        'tags_emetanews'   => 1,
-        'tags_errortag'    => 200,
-        'tags_cumwidth'    => 100,
-        'tags_cumheight'   => 200,
-        'tags_cumcolour'   => '000000',
-        'tags_cumbackcolour'   => 'ffffff',
-        'tags_cumtransparent'  => 0,
-        'tags_cumspeed'    => 100
-);
+
 
 // List of table names -----------------------------------------------------------------------------------------------
 
