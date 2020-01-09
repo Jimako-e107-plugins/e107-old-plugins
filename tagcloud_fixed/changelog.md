@@ -54,12 +54,15 @@ Supported plugins (in progress) : news, page, download, forum, pcontent
 - part fix for correct SEF-URL (1/5): news, 
 - part fix for after front editing URL (2/5): news, page 
 
-
+### New
+- separated SEO settings as separate item in menu
+- separated Addons settings as separate item in menu
 
 TODO:
 update: $con -> convert_date, $con = new convert;
 Prefs:  frontend  
 Admin rewrite: prefs, styling, maintenance, readme, tables overview (new) 
-Remove old site mentions (not available): frontend, readme, prefs 
+Remove old site mentions (not available): frontend, readme, prefs , tags_credit
 Remove template overwritting, it's not possible anymore: tags_emetanews, tags_emetaforum, tags_emetadownload
+- what is admin_table file for?
 

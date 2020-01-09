@@ -26,32 +26,7 @@ require_once(e_HANDLER."userclass_class.php");
 
 //-------------------------------------------------------
 //----------------  Handle form posting
-
-if (isset($_POST['updateonoff'])) {
-        if($sql->select("tag_config","*"))
-          { $cnt = 0;
-            $cnt++;
-            while ($config = $sql->fetch())
-                 {
-                  $tagid = $config['Tag_Config_ID'];
-                  if($_POST['tags_cloud'.$tagid]){$flag1=1;}else{$flag1=0;}
-                  if($_POST['tags_onoff'.$tagid]){$flag2=1;}else{$flag2=0;}
-                  $sql2->db_update("tag_config","Tag_Config_CloudFlag =".$flag1.",Tag_Config_OnOffFlag =".$flag2." WHERE Tag_Config_ID =".$tagid);
-                 }
-           }
-}
-
-if (isset($_POST['updateseosettings'])) {
-        $plugPrefs['tags_tagspace']   = ($_POST['tags_tagspace']   ? $_POST['tags_tagspace']   : '-');
-        $plugPrefs['tags_useseo']     = ($_POST['tags_useseo']     ? $_POST['tags_useseo']     : 0);
-        $plugPrefs['tags_seolink']    = ($_POST['tags_seolink']    ? $_POST['tags_seolink']    : '');
-        $plugPrefs['tags_fileext']    = ($_POST['tags_fileext']    ? $_POST['tags_fileext']    : '');
-	//savex_prefs();
-	e107::getPlugConfig('tagcloud')->setPref($plugPrefs) -> save(false, true); 
-	$e107cache->clear("tagcloud");
-	$message = 'Settings Saved!';
-}
-
+ 
 if (isset($_POST['updatesettings'])) {
 
 	$plugPrefs['tags_number']        = ($_POST['tags_number']        ? $_POST['tags_number']        : 20 );
@@ -86,13 +61,10 @@ if (isset($_POST['updatesettings'])) {
 $tags_number   = $plugPrefs['tags_number'];
 $tags_preview  = $plugPrefs['tags_preview'];
 $tags_menuname = $plugPrefs['tags_menuname'];
-$tags_seolink  = $plugPrefs['tags_seolink'];
-$tags_tagspace = $plugPrefs['tags_tagspace'];
-$tags_fileext  = $plugPrefs['tags_fileext'];
 $tags_adminmod = $plugPrefs['tags_adminmod'];
 $tags_usermod  = $plugPrefs['tags_usermod'];
 $tags_errortag = $plugPrefs['tags_errortag'];
-if ($plugPrefs['tags_useseo'])             {$tags_useseo         ='checked';}
+
 if ($plugPrefs['tags_credit'])             {$tags_credit         ='checked';}
 if ($plugPrefs['tags_emetaforum'])         {$tags_emetaforum     ='checked';}
 if ($plugPrefs['tags_emetanews'])          {$tags_emetanews      ='checked';}
@@ -209,101 +181,7 @@ $text .= "
    $ns->tablerender("Prefs", $text);
 
 
-//---------------------------------------------------------------------
-//  ON OFF
-
-
-if($sql->select("tag_config","*"))
-          { $cnt = 0;
-            $cnt++;
-$text = "<div style='text-align:center'>
-	<form method='post' action='".e_SELF."' id='cfgform'>
-	<table style='".ADMIN_WIDTH."' class='fborder'>
-	<tr>
-	  <td></td>
-	  <td class='forumheader3'>Include in Cloud</td>
-	  <td class='forumheader3'>Global on/off (will also switch off in cloud)</td>
-	</tr>
-";
-            while ($config = $sql->fetch())
-                 {
-                 //build up existing form rows
-                 if ($config['Tag_Config_CloudFlag'] == 1)  {$check1 = 'checked';} else {$check1='';}
-                 if ($config['Tag_Config_OnOffFlag'] == 1)  {$check2 = 'checked';} else {$check2='';}
-                 $text .= "
-                       	<tr>
-	                <td class='forumheader3' style='width:40%'>".$config['Tag_Config_Type']."</td>
-	                <td class='forumheader3' style='width:30%'>
-	                <input class='tbox' type='checkbox' name='tags_cloud".$config['Tag_Config_ID']."' ".$check1." />
-	                </td>
-	                <td class='forumheader3' style='width:30%'>
-	                <input class='tbox' type='checkbox' name='tags_onoff".$config['Tag_Config_ID']."' ".$check2." />
-	                </td>
-	                </tr>
-                        ";
-            }
-$text .= "
-	<tr>
-	<td  class='forumheader' colspan='3' style='text-align:center'>
-	<input class='button' type='submit' name='updateonoff' value='Save Settings' />
-	</td>
-	</tr>
-          </table>
-	  </form>
-	  </div>";
-   $ns->tablerender("Tag Content areas On/Off control", $text);
-
-}
-
-
-
-
-//---------------------------------------------
-   $text=" <div style='text-align:center'>
-	<form method='post' action='".e_SELF."' id='cfgform'>
-	<table style='".ADMIN_WIDTH."' class='fborder'>
-
-	<tr>
-	<td class='forumheader3' style='width:40%'>Use SEO Links:</td>
-	<td class='forumheader3' style='width:60%'>
-	<input class='tbox' type='checkbox' name='tags_useseo' ".$tags_useseo." />
-	</td>
-	</tr>
-
-	<tr>
-	<td class='forumheader3' style='width:40%'>SEO Link structure: <div style='text-align:right'>".SITEURLBASE.e_HTTP."</div></td>
-	<td class='forumheader3' style='width:60%'>
-	<input  class='tbox' type='text' name='tags_seolink' value = '".$tags_seolink."' SIZE='50' MAXLENGTH='50'/>
-	</td>
-	</tr>
-
-	<tr>
-	<td class='forumheader3' style='width:40%'>File extension:</td>
-	<td class='forumheader3' style='width:60%'>
-	<input  class='tbox' type='text' name='tags_fileext' value = '".$tags_fileext."' SIZE='6' MAXLENGTH='6'/>
-	</td>
-	</tr>
-	
-	<tr>
-	<td class='forumheader3' style='width:40%'>Replace space with:</td>
-	<td class='forumheader3' style='width:60%'>
-	<input  class='tbox' type='text' name='tags_tagspace' value = '".$tags_tagspace."' SIZE='1' MAXLENGTH='1'/>
-	</td>
-	</tr>
-
-	<tr>
-	<td  class='forumheader' colspan='2' style='text-align:center'>
-	<input class='button' type='submit' name='updateseosettings' value='Save Settings' />
-	</td>
-	</tr>
-	
-
-        </table>
-	</form>
-	</div>";
-
-   $ns->tablerender("SEO Prefs", $text);
-
+ 
    require_once(e_ADMIN."footer.php");
 ?>
 

@@ -26,7 +26,9 @@ class leftblock_adminArea extends e_admin_dispatcher
 	protected $adminMenu = array(                                                                                
 		'config/prefs'		=> array('caption'=> "Preferences", 'perm' => 'P',  'url'=>'admin_config.php'),
 		'style/prefs'		=> array('caption'=> "Tag Style", 	'perm' => 'P',  'url'=>'admin_style.php'),
-		'maintenance/page'	=> array('caption'=> "Maintenance", 'perm' => 'P',  'url'=>'admin_maintenance.php'),	
+		'maintenance/page'	=> array('caption'=> "Maintenance", 'perm' => 'P',  'url'=>'admin_maintenance.php'),
+		'urlconfig/page'	=> array('caption'=> "SEO Prefs", 'perm' => 'P',  'url'=>'admin_urlconfig.php'),
+		'addons/page'	=> array('caption'=> "Addons settings", 'perm' => 'P',  'url'=>'admin_addons.php'),	
 		'readme/page'		=> array('caption'=> "Read Me", 	'perm' => 'P',  'url'=>'admin_readme.php'),						
 	);
 

@@ -10,6 +10,7 @@
 **
 */
 
+/* Note: it's easier this maintain prefs than in xml file, after final version, they could be moved there */
 
 if(!class_exists("tagcloud_setup"))
 {
@@ -30,31 +31,31 @@ if(!class_exists("tagcloud_setup"))
 				'tags_update'      => 0,
 				'tags_peritem'     => 5,
 				'tags_preview'     => 200,
-        'tags_style_cloud' => 'tagcloud',
-        'tags_style_item'  => 'tagitem',
-        'tags_style_link'  => 'taglink',
-        'tags_max_size'    => 250,
-        'tags_min_size'    => 100,
-        'tags_overwrite'   => 0,
-        'tags_credit'      => 1,
-        'tags_adminmod'    => 0,
-        'tags_usermod'     => 0,
-        'tags_autogen'     => 0,
-        'tags_emetaforum'  => 1,
-        'tags_max_colour'  => 'ffffff',
-        'tags_min_colour'  => 'ffffff',
-        'tags_tagspace'    => '_',
-        'tags_seolink'     => 'tags-',
-        'tags_fileext'     => '.html',
-        'tags_menuname'    => 'Tagcloud',
-        'tags_emetanews'   => 1,
-        'tags_errortag'    => 200,
-        'tags_cumwidth'    => 100,
-        'tags_cumheight'   => 200,
-        'tags_cumcolour'   => '000000',
-        'tags_cumbackcolour'   => 'ffffff',
-        'tags_cumtransparent'  => 0,
-        'tags_cumspeed'    => 100
+				'tags_style_cloud' => 'tagcloud',
+				'tags_style_item'  => 'tagitem',
+				'tags_style_link'  => 'taglink',
+				'tags_max_size'    => 250,
+				'tags_min_size'    => 100,
+				'tags_overwrite'   => 0,
+				'tags_credit'      => 1,
+				'tags_adminmod'    => 0,
+				'tags_usermod'     => 0,
+				'tags_autogen'     => 0,
+				'tags_emetaforum'  => 1,
+				'tags_max_colour'  => 'ffffff',
+				'tags_min_colour'  => 'ffffff',
+				'tags_tagspace'    => '_',
+				'tags_seolink'     => 'tags-',
+				'tags_fileext'     => '.html',
+				'tags_menuname'    => 'Tagcloud',
+				'tags_emetanews'   => 1,
+				'tags_errortag'    => 200,
+				'tags_cumwidth'    => 100,
+				'tags_cumheight'   => 200,
+				'tags_cumcolour'   => '000000',
+				'tags_cumbackcolour'   => 'ffffff',
+				'tags_cumtransparent'  => 0,
+				'tags_cumspeed'    => 100
 			);
 			
 			$tags_prefs = e107::getPlugConfig('tagcloud', '', false);
@@ -111,11 +112,12 @@ if(!class_exists("tagcloud_setup"))
 				{
 				  $query = "DROP TABLE ".MPREFIX.$tags_query.";";     
 					e107::getDB()->gen($query);
-				}	
-			}		
- 
-		}		
-		
+				}
+				 
+			   e107::getDb()->delete('core', "e107_name='plugin_tagcloud'");	
+				
+			 }		
+		}
 		// List of table names -----------------------------------------------------------------------------------------------
 
 
