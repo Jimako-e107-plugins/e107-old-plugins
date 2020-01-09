@@ -46,19 +46,20 @@ Supported plugins (in progress) : news, page, download, forum, pcontent
 - new template v2 way
 - new shortcodes v2 way
 - plugin.php updated to plugin.xml and plugin setup
-- new prefs way (2/5) : installation, addons
-- admin rewrite ( 1/5 ) : files organization,  
+- new prefs way (4/5) : installation, addons, admin, menu
+- admin rewrite (2/7) : files organization,  admin menu
 
 ### Fixed
 - part fix messed up constants in version 2 (3/5): news, page, download
 - part fix for correct SEF-URL (1/5): news, 
-- part fix for after front editing URL (2/7): news, page 
+- part fix for after front editing URL (2/5): news, page 
 
 
 
 TODO:
 update: $con -> convert_date, $con = new convert;
-Prefs: admin, frontend, menu
-Admin rewrite: admin menu, prefs, styling, maintenance, readme, tables overview (new) 
+Prefs:  frontend  
+Admin rewrite: prefs, styling, maintenance, readme, tables overview (new) 
 Remove old site mentions (not available): frontend, readme, prefs 
+Remove template overwritting, it's not possible anymore: tags_emetanews, tags_emetaforum, tags_emetadownload
 

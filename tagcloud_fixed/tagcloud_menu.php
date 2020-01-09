@@ -12,8 +12,10 @@
          <div style='text-align:center;'><a href='".e_PLUGIN_ABS."tagcloud/tagcloud.php'>".LAN_TG6."</a></div>
          " ;
  $text = $tp->parseTemplate($text)."\n";
+ 
+ $caption = e107::getPlugConfig('tagcloud')->getPref('tags_menuname');
 
- $ns -> tablerender($pref['tags_menuname'], $text);
+ $ns -> tablerender($caption, $text);
 
 ?>
 

@@ -1,6 +1,20 @@
 <?php
 
-   require_once("../../../class2.php");
+require_once("admin_leftblock.php");
+
+if (!getperms("P")) {
+	header("location:".e_HTTP."index.php");
+	exit;
+}
+ 
+class currentplugin_adminArea extends leftblock_adminArea
+{
+       
+}
+  
+new currentplugin_adminArea();
+
+
    require_once(e_PLUGIN.'tagcloud/tagcloud_class.php');
    $tagcloud = new e107tagcloud;
 

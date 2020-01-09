@@ -1,22 +1,31 @@
 <?php
 
-   require_once("../../../class2.php");
-   require_once(e_PLUGIN.'tagcloud/tagcloud_class.php');
-   $tagcloud = new e107tagcloud;
+require_once("admin_leftblock.php");
 
-   if (!getperms("P")) {
-      header("location:".e_HTTP."index.php");
-      exit;
-   }
+if (!getperms("P")) {
+	header("location:".e_HTTP."index.php");
+	exit;
+}
+ 
+class currentplugin_adminArea extends leftblock_adminArea
+{
+       
+}
+
+new currentplugin_adminArea();
+ 
+require_once(e_PLUGIN.'tagcloud/tagcloud_class.php');
+$tagcloud = new e107tagcloud;
 
 
-   require_once(e_ADMIN."auth.php");
-   require_once(e_HANDLER."userclass_class.php");
-   //echo $pref['tags_adminmod'];
+$plugPrefs = e107::getPlugConfig('tagcloud')->getPref();
+ 
+require_once(e_ADMIN."auth.php");
+require_once(e_HANDLER."userclass_class.php");
+   //echo $plugPrefs['tags_adminmod'];
 
 //-------------------------------------------------------
 //----------------  Handle form posting
-
 
 if (isset($_POST['updateonoff'])) {
         if($sql->select("tag_config","*"))
@@ -33,35 +42,37 @@ if (isset($_POST['updateonoff'])) {
 }
 
 if (isset($_POST['updateseosettings'])) {
-        $pref['tags_tagspace']   = ($_POST['tags_tagspace']   ? $_POST['tags_tagspace']   : '-');
-        $pref['tags_useseo']     = ($_POST['tags_useseo']     ? $_POST['tags_useseo']     : 0);
-        $pref['tags_seolink']    = ($_POST['tags_seolink']    ? $_POST['tags_seolink']    : '');
-        $pref['tags_fileext']    = ($_POST['tags_fileext']    ? $_POST['tags_fileext']    : '');
- 	save_prefs();
+        $plugPrefs['tags_tagspace']   = ($_POST['tags_tagspace']   ? $_POST['tags_tagspace']   : '-');
+        $plugPrefs['tags_useseo']     = ($_POST['tags_useseo']     ? $_POST['tags_useseo']     : 0);
+        $plugPrefs['tags_seolink']    = ($_POST['tags_seolink']    ? $_POST['tags_seolink']    : '');
+        $plugPrefs['tags_fileext']    = ($_POST['tags_fileext']    ? $_POST['tags_fileext']    : '');
+	//savex_prefs();
+	e107::getPlugConfig('tagcloud')->setPref($plugPrefs) -> save(false, true); 
 	$e107cache->clear("tagcloud");
 	$message = 'Settings Saved!';
 }
 
 if (isset($_POST['updatesettings'])) {
 
-	$pref['tags_number']        = ($_POST['tags_number']        ? $_POST['tags_number']        : 20 );
-	$pref['tags_preview']       = ($_POST['tags_preview']       ? $_POST['tags_preview']       : 200 );
-	$pref['tags_errortag']      = ($_POST['tags_errortag']      ? $_POST['tags_errortag']      : 500 );
-        $pref['tags_credit']        = ($_POST['tags_credit']        ? $_POST['tags_credit']        : 0);
-        $pref['tags_adminmod']      = ($_POST['tags_adminmod']      ? $_POST['tags_adminmod']      : 0);
-        $pref['tags_usermod']       = ($_POST['tags_usermod']       ? $_POST['tags_usermod']       : 0);
-        $pref['tags_emetaforum']    = ($_POST['tags_emetaforum']    ? $_POST['tags_emetaforum']    : 0);
-        $pref['tags_emetanews']     = ($_POST['tags_emetanews']     ? $_POST['tags_emetanews']     : 0);
-        $pref['tags_emetadownload'] = ($_POST['tags_emetadownload'] ? $_POST['tags_emetadownload'] : 0);
-        $pref['tags_autogen']       = ($_POST['tags_autogen']       ? $_POST['tags_autogen']       : 0);
-        $pref['tags_menuname']      = ($_POST['tags_menuname']      ? $_POST['tags_menuname']      : '');
+	$plugPrefs['tags_number']        = ($_POST['tags_number']        ? $_POST['tags_number']        : 20 );
+	$plugPrefs['tags_preview']       = ($_POST['tags_preview']       ? $_POST['tags_preview']       : 200 );
+	$plugPrefs['tags_errortag']      = ($_POST['tags_errortag']      ? $_POST['tags_errortag']      : 500 );
+        $plugPrefs['tags_credit']        = ($_POST['tags_credit']        ? $_POST['tags_credit']        : 0);
+        $plugPrefs['tags_adminmod']      = ($_POST['tags_adminmod']      ? $_POST['tags_adminmod']      : 0);
+        $plugPrefs['tags_usermod']       = ($_POST['tags_usermod']       ? $_POST['tags_usermod']       : 0);
+        $plugPrefs['tags_emetaforum']    = ($_POST['tags_emetaforum']    ? $_POST['tags_emetaforum']    : 0);
+        $plugPrefs['tags_emetanews']     = ($_POST['tags_emetanews']     ? $_POST['tags_emetanews']     : 0);
+        $plugPrefs['tags_emetadownload'] = ($_POST['tags_emetadownload'] ? $_POST['tags_emetadownload'] : 0);
+        $plugPrefs['tags_autogen']       = ($_POST['tags_autogen']       ? $_POST['tags_autogen']       : 0);
+        $plugPrefs['tags_menuname']      = ($_POST['tags_menuname']      ? $_POST['tags_menuname']      : '');
 
         //echo "ORDER".$_POST['order'];
-        if     ($_POST['order'] =='alpha'){$pref['tags_order']   = 'alpha';}
-        elseif ($_POST['order'] =='date') {$pref['tags_order']   = 'date';}
-        else   {$pref['tags_order']   = 'random';}
-        //echo "<p>pref:".$pref['tags_order'];
-	save_prefs();
+        if     ($_POST['order'] =='alpha'){$plugPrefs['tags_order']   = 'alpha';}
+        elseif ($_POST['order'] =='date') {$plugPrefs['tags_order']   = 'date';}
+        else   {$plugPrefs['tags_order']   = 'random';}
+        //echo "<p>pref:".$plugPrefs['tags_order'];
+	//savex_prefs();
+	e107::getPlugConfig('tagcloud')->setPref($plugPrefs) -> save(false, true); 
 	$e107cache->clear("tagcloud");
 	$message = 'Settings Saved!';
 }
@@ -72,24 +83,24 @@ if (isset($_POST['updatesettings'])) {
 	$ns->tablerender("", "<div style='text-align:center'><b>".$message."</b></div>");
 }
 
-$tags_number   = $pref['tags_number'];
-$tags_preview  = $pref['tags_preview'];
-$tags_menuname = $pref['tags_menuname'];
-$tags_seolink  = $pref['tags_seolink'];
-$tags_tagspace = $pref['tags_tagspace'];
-$tags_fileext  = $pref['tags_fileext'];
-$tags_adminmod = $pref['tags_adminmod'];
-$tags_usermod  = $pref['tags_usermod'];
-$tags_errortag = $pref['tags_errortag'];
-if ($pref['tags_useseo'])             {$tags_useseo         ='checked';}
-if ($pref['tags_credit'])             {$tags_credit         ='checked';}
-if ($pref['tags_emetaforum'])         {$tags_emetaforum     ='checked';}
-if ($pref['tags_emetanews'])          {$tags_emetanews      ='checked';}
-if ($pref['tags_emetadownload'])      {$tags_emetadownload  ='checked';}
-if ($pref['tags_autogen'])            {$tags_autogen        ='checked';}
-if ($pref['tags_order']=='random')     {$tags_orderrandom    ='checked';}
-if ($pref['tags_order']=='alpha')      {$tags_orderalpha     ='checked';}
-if ($pref['tags_order']=='date')       {$tags_orderdate      ='checked';}
+$tags_number   = $plugPrefs['tags_number'];
+$tags_preview  = $plugPrefs['tags_preview'];
+$tags_menuname = $plugPrefs['tags_menuname'];
+$tags_seolink  = $plugPrefs['tags_seolink'];
+$tags_tagspace = $plugPrefs['tags_tagspace'];
+$tags_fileext  = $plugPrefs['tags_fileext'];
+$tags_adminmod = $plugPrefs['tags_adminmod'];
+$tags_usermod  = $plugPrefs['tags_usermod'];
+$tags_errortag = $plugPrefs['tags_errortag'];
+if ($plugPrefs['tags_useseo'])             {$tags_useseo         ='checked';}
+if ($plugPrefs['tags_credit'])             {$tags_credit         ='checked';}
+if ($plugPrefs['tags_emetaforum'])         {$tags_emetaforum     ='checked';}
+if ($plugPrefs['tags_emetanews'])          {$tags_emetanews      ='checked';}
+if ($plugPrefs['tags_emetadownload'])      {$tags_emetadownload  ='checked';}
+if ($plugPrefs['tags_autogen'])            {$tags_autogen        ='checked';}
+if ($plugPrefs['tags_order']=='random')     {$tags_orderrandom    ='checked';}
+if ($plugPrefs['tags_order']=='alpha')      {$tags_orderalpha     ='checked';}
+if ($plugPrefs['tags_order']=='date')       {$tags_orderdate      ='checked';}
 
 
 

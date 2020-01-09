@@ -1,25 +1,32 @@
 <?php
 
-   require_once("../../../class2.php");
-   require_once(e_PLUGIN.'tagcloud/tagcloud_class.php');
-   $tagcloud = new e107tagcloud;
+require_once("admin_leftblock.php");
 
-   if (!getperms("P")) {
-      header("location:".e_HTTP."index.php");
-      exit;
-   }
+if (!getperms("P")) {
+	header("location:".e_HTTP."index.php");
+	exit;
+}
+ 
+class currentplugin_adminArea extends leftblock_adminArea
+{
+       
+}
+  
+new currentplugin_adminArea();
+
+require_once(e_PLUGIN.'tagcloud/tagcloud_class.php');
+$tagcloud = new e107tagcloud;
 
 
-   require_once(e_ADMIN."auth.php");
-
+$plugPrefs = e107::getPlugConfig('tagcloud')->getPref();
+ 
+require_once(e_ADMIN."auth.php");
+require_once(e_HANDLER."userclass_class.php");
 
 
 //-------------------------------------------------------
 //----------------  Handle form posting
-
-
-
-
+ 
 if (isset($_POST['menu'])) {
 
  $query ="select distinct menu_path from #menus
@@ -45,11 +52,11 @@ if (isset($_POST['minlen'])) {
    $query = "Delete 
               #tag_main
              where 
-              CHAR_LENGTH(Tag_Name) <".$pref['tags_minlen'];
+              CHAR_LENGTH(Tag_Name) <".$plugPrefs['tags_minlen'];
 
-   $cnt = $sql->db_delete("tag_main","CHAR_LENGTH(Tag_Name) <".$pref['tags_minlen']);
+   $cnt = $sql->db_delete("tag_main","CHAR_LENGTH(Tag_Name) <".$plugPrefs['tags_minlen']);
 
-   $message = $cnt." tags less than ".$pref['tags_minlen']." characters long removed";
+   $message = $cnt." tags less than ".$plugPrefs['tags_minlen']." characters long removed";
 }
 
 
@@ -76,7 +83,7 @@ $text = "<div style='text-align:center'>
 	</tr>
 	
 	<tr>
-	<td class='forumheader3' style='width:40%'>Remove tags less than min pref:<br>(Currently set at:".$pref['tags_minlen'].")</td>
+	<td class='forumheader3' style='width:40%'>Remove tags less than min pref:<br>(Currently set at:".$plugPrefs['tags_minlen'].")</td>
         <td class='forumheader3' style='width:60%'>
 	<input class='button' type='submit' name='minlen' value='Delete' />
 	</td>

@@ -1,12 +1,19 @@
 <?php
-   // Remember that we must include class2.php
-   require_once("../../../class2.php");
+require_once("admin_leftblock.php");
 
-   // Check current user is an admin, redirect to main site if not
-   if (!getperms("P")) {
-      header("location:".e_HTTP."index.php");
-      exit;
-   }
+if (!getperms("P")) {
+	header("location:".e_HTTP."index.php");
+	exit;
+}
+ 
+class currentplugin_adminArea extends leftblock_adminArea
+{
+       
+}
+  
+new currentplugin_adminArea();
+
+ 
 
    // Include page header stuff for admin pages
    require_once(e_ADMIN."auth.php");
