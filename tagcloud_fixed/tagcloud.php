@@ -31,7 +31,8 @@ else {
    include_lan(e_LANGUAGEDIR.e_LANGUAGE.'/lan_search.php');
    require_once(e_PLUGIN.'tagcloud/tagcloud_class.php');
    $tagcloud = new e107tagcloud;
-   require_once(e_PLUGIN."tagcloud/tagcloud_shortcodes.php");
+   //require_once(e_PLUGIN."tagcloud/tagcloud_shortcodes.php");
+   $tagcloud_shortcodes = e107::getScBatch('tagcloud', 'tagcloud');    
    //include_once(e_PLUGIN."tagcloud/tagcloud_template.php");
    $template   = e107::getTemplate('tagcloud'); 
  

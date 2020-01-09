@@ -44,6 +44,7 @@ Supported plugins (in progress) : news, page, download, forum, pcontent
 - SEO URLs. Old way is saved with new e_url addons. Fully configurable like before. No htaccess is needed. 
 - global shortcodes workaround. e_shortcode addon used.
 - new template v2 way
+- new shortcodes v2 way
 
 ### Fixed
 - part fix messed up constants in version 2 (3/5): news, page, download
@@ -53,5 +54,5 @@ Supported plugins (in progress) : news, page, download, forum, pcontent
 
 
 TODO:
-update: $con -> convert_date
+update: $con -> convert_date, $con = new convert;
 
