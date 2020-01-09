@@ -38,65 +38,12 @@ $eplug_upgrade_done = "Upgrade successful...";
 
 // List of comment_type ids used by this plugin. -----------------------------
 $eplug_comment_ids = array("tagcloud");
-
-
-
-// List of table names -----------------------------------------------------------------------------------------------
-
-$eplug_table_names = array(
-"tag_main","tag_config"
-);
-
-$eplug_tables = array("
-CREATE TABLE ".MPREFIX."tag_main (
-`Tag_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-`Tag_Item_ID` INT NOT NULL,
-`Tag_Type` VARCHAR( 8 ) NOT NULL,
-`Tag_Name` VARCHAR( 50 ) NOT NULL,
-`Tag_Rank` INT NULL,
-`Tag_Created` INT NULL ,
-INDEX ( `Tag_Item_ID` , `Tag_Type`)
-) ENGINE=MyISAM;",
-
-"CREATE TABLE ".MPREFIX."tag_config (
-`Tag_Config_ID`                    INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-`Tag_Config_Flag`                  INT NOT NULL,
-`Tag_Config_CloudFlag`             INT NOT NULL,
-`Tag_Config_OnOffFlag`             INT NOT NULL,
-`Tag_Config_Type`                  varchar(20) NOT NULL
-) ENGINE=MYISAM;",
-"INSERT INTO ".MPREFIX."tag_config VALUES (NULL, '1','1','1', 'news');",
-"INSERT INTO ".MPREFIX."tag_config VALUES (NULL, '1','1','1', 'page');",
-"INSERT INTO ".MPREFIX."tag_config VALUES (NULL, '0','1','1', 'forum');",
-"INSERT INTO ".MPREFIX."tag_config VALUES (NULL, '0','1','1', 'download');",
-"INSERT INTO ".MPREFIX."tag_config VALUES (NULL, '0','1','1', 'content');"
-);
+ 
 
 // Create a link in main menu (yes=TRUE, no=FALSE) -------------------------------------------------------------
 $eplug_link = FALSE;
 
-//myplugin_install()
-
-$upgrade_alter_tables = array(
-
-"DROP TABLE ".MPREFIX."tag_config;",
-"
-CREATE TABLE ".MPREFIX."tag_config (
-`Tag_Config_ID`                    INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-`Tag_Config_Flag`                  INT NOT NULL,
-`Tag_Config_CloudFlag`             INT NOT NULL,
-`Tag_Config_OnOffFlag`             INT NOT NULL,
-`Tag_Config_Type`                  varchar(20) NOT NULL
-) ENGINE=MyISAM;",
-"INSERT INTO ".MPREFIX."tag_config VALUES (NULL, '1','1','1', 'news');",
-"INSERT INTO ".MPREFIX."tag_config VALUES (NULL, '1','1','1', 'page');",
-"INSERT INTO ".MPREFIX."tag_config VALUES (NULL, '0','1','1', 'forum');",
-"INSERT INTO ".MPREFIX."tag_config VALUES (NULL, '0','1','1', 'download');",
-"INSERT INTO ".MPREFIX."tag_config VALUES (NULL, '0','1','1', 'content');"
-);
-
-//myplugin_uninstall()
-
+ 
 
 ?>
 

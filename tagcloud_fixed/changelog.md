@@ -45,14 +45,17 @@ Supported plugins (in progress) : news, page, download, forum, pcontent
 - global shortcodes workaround. e_shortcode addon used.
 - new template v2 way
 - new shortcodes v2 way
+- plugin.php updated to plugin.xml and plugin setup
+- new prefs way (2/5) : installation, addons
 
 ### Fixed
 - part fix messed up constants in version 2 (3/5): news, page, download
-- part for correct SEF-URL (1/5): news, 
-
+- part fix for correct SEF-URL (1/5): news, 
+- part fix for after front editing URL (2/5): news, page 
 
 
 
 TODO:
 update: $con -> convert_date, $con = new convert;
+Prefs: admin,  frontend, menu
 

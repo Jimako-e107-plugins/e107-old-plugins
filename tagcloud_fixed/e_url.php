@@ -30,10 +30,10 @@ class tagcloud_url
 	var $seolink = '';
 
 	function __construct() {
-	 global $pref;
+	 $plugPrefs = e107::getPlugConfig('tagcloud')->getPref();
  
-	 $this->seolink =  $pref['tags_seolink'];
-	 $this->fileext =  $pref['tags_fileext'];
+	 $this->seolink =  $plugPrefs['tags_seolink'];
+	 $this->fileext =  $plugPrefs['tags_fileext'];
 	}
 	
 	function config()

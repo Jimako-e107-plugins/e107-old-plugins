@@ -60,7 +60,64 @@ if(!class_exists("tagcloud_setup"))
 			$tags_prefs = e107::getPlugConfig('tagcloud', '', false);
 			$tags_prefs -> setPref($eplug_prefs) -> save(false, true);
 		 
+
+			$eplug_tables = array("
+			CREATE TABLE ".MPREFIX."tag_main (
+			`Tag_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+			`Tag_Item_ID` INT NOT NULL,
+			`Tag_Type` VARCHAR( 20 ) NOT NULL,
+			`Tag_Name` VARCHAR( 50 ) NOT NULL,
+			`Tag_Rank` INT NULL,
+			`Tag_Created` INT NULL ,
+			INDEX ( `Tag_Item_ID` , `Tag_Type`)
+			) ENGINE=MyISAM;",
+			
+			"CREATE TABLE ".MPREFIX."tag_config (
+			`Tag_Config_ID`                    INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+			`Tag_Config_Flag`                  INT NOT NULL,
+			`Tag_Config_CloudFlag`             INT NOT NULL,
+			`Tag_Config_OnOffFlag`             INT NOT NULL,
+			`Tag_Config_Type`                  varchar(20) NOT NULL
+			) ENGINE=MYISAM;",
+			
+			"INSERT INTO ".MPREFIX."tag_config VALUES (NULL, '1','1','1', 'news');",
+			"INSERT INTO ".MPREFIX."tag_config VALUES (NULL, '1','1','1', 'page');",
+			"INSERT INTO ".MPREFIX."tag_config VALUES (NULL, '0','1','1', 'forum');",
+			"INSERT INTO ".MPREFIX."tag_config VALUES (NULL, '0','1','1', 'download');",
+			"INSERT INTO ".MPREFIX."tag_config VALUES (NULL, '0','1','1', 'content');"
+			);			
+			
+			
+			foreach ($eplug_tables as $tags_query)
+			{
+				e107::getDB()->gen($tags_query);
+			}
+	
 			
 		}
+		
+		
+		function uninstall_post($var)
+		{    
+		  $delete_tables = e107::getSingleton('e107plugin')->unInstallOpts['delete_tables'];   
+			 
+		  if (vartrue($delete_tables, FALSE))   {   
+				
+				$eplug_table_names = array(
+				"tag_main","tag_config"
+				);
+				
+				foreach ($eplug_table_names as $tags_query)
+				{
+				  $query = "DROP TABLE ".MPREFIX.$tags_query.";";     
+					e107::getDB()->gen($query);
+				}	
+			}		
+ 
+		}		
+		
+		// List of table names -----------------------------------------------------------------------------------------------
+
+
   }
 }
