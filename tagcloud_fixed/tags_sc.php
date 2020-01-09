@@ -9,7 +9,8 @@
    if (check_class($pref['tags_adminmod']))
                    {$TAGMOD=TRUE;}  else {$TAGMOD=FALSE;}
 
-   $posturl = e_SELF."?".e_QUERY;
+   //$posturl = e_SELF."?".e_QUERY;
+   $posturl = e_REQUEST_URL;
 
    //$a = e_QUERY;$b = e_SELF;  $id = $pageID;
    //$TAGS .= "Query: $a";
@@ -23,7 +24,7 @@
 
 
 //--- NEED TO MAKE THIS GENERIC
-		 print_a(e_PAGE);
+		// print_a(e_PAGE);
    //detect news page:
    if(e_PAGE == "news.php")  
    {
@@ -36,7 +37,7 @@
    elseif (e_PAGE=='page.php' AND  $_GET['id'] > 0 ) {   
       //$tmp          = explode(".", e_QUERY);
       $sc   = e107::getScBatch('page', null, 'cpage');
-      $page_item = $sc->getVars('cpage');       print_a($page_item);     
+      $page_item = $sc->getVars('cpage');        
       //$Tag_Item_ID  = intval($tmp[0]);
       $Tag_Item_ID  = $page_item["page_id"];
       $Tag_Type     = 'page';

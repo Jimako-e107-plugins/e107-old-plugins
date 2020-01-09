@@ -1,6 +1,6 @@
 <?php
    // Remember that we must include class2.php
-   require_once("../../class2.php");
+   require_once("../../../class2.php");
 
    // Check current user is an admin, redirect to main site if not
    if (!getperms("P")) {

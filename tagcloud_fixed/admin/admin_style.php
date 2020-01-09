@@ -1,6 +1,6 @@
 <?php
 
-   require_once("../../class2.php");
+   require_once("../../../class2.php");
    require_once(e_PLUGIN.'tagcloud/tagcloud_class.php');
    $tagcloud = new e107tagcloud;
 
