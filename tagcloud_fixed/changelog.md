@@ -40,6 +40,8 @@ Supported plugins (in progress) : news, page, download, forum, pcontent
 ### Removed
 - hardcoded metatags
 - Russian translation
+- removed template overwritting, it's not possible anymore: tags_emetanews, tags_emetaforum, tags_emetadownload
+- remove old site mentions (not available): frontend,  prefs, makelinks 
 
 ### Updated
 - SEO URLs. Old way is saved with new e_url addons. Fully configurable like before. No htaccess is needed. 
@@ -53,30 +55,25 @@ Supported plugins (in progress) : news, page, download, forum, pcontent
 - updated date handler ($con)
 
 ### Fixed
-- part fix messed up constants in version 2 (3/5): news, page, download
-- part fix for correct SEF-URL (1/5): news, 
-- part fix for after front editing URL (2/5): news, page 
+- part fix messed up constants in version 2 (4/5): news, page, download, forum
+- part fix for correct SEF-URL (4/5): news, page, download, forum
+- part fix for after front editing URL (4/5): news, page, download, forum 
 
 ### New
 - separated SEO settings as separate item in menu
 - separated Addons settings as separate item in menu
 - fully templated tags cloud display (on main page and menu), all visual setting as shortcodes for templating (not hardcoded anymore)
 - e_url addon support (pretty url for plugin itself)
-
-
+ 
 TODO:
  
 - adminarea rewrite: prefs, styling, maintenance, readme, tables overview (new) 
 
-- remove old site mentions (not available): frontend, readme, prefs , tags_credit
-
-- remove template overwritting, it's not possible anymore: tags_emetanews, tags_emetaforum, tags_emetadownload
+- update readme
 
 - what is admin_table file for?
 
-- SEF-URL support
-
-- remove global variables  $tp, $sql 
+- remove global variables  $post_info,$forum,$meta, globals in batch shortcodes
 
 - global shortcodes: {TAGS}
 

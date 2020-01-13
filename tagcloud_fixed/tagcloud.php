@@ -26,7 +26,7 @@ if(!defined('e107_INIT'))
 	}
 else {
 
-   global $tp;
+   $tp = e107::getParser();
    if (!defined("USER_WIDTH")){ define("USER_WIDTH","width:95%"); }
    include_lan(e_LANGUAGEDIR.e_LANGUAGE.'/lan_search.php');
    require_once(e_PLUGIN.'tagcloud/tagcloud_class.php');
@@ -121,7 +121,7 @@ else {
                 //echo "<p>Q:$sql_query<p>";
                 $itemrow = $sql->gen($sql_query);
                 $itemrow = $sql->fetch($sql_query);
-
+										 
                         $handler = "search_".$tagrow['Tag_Type'] ;   
                         $res = call_user_func($handler, $itemrow);
  
@@ -139,7 +139,7 @@ else {
                         $DETAIL     = $res['detail'];
 
                         //get other tags for output
-                        $sql->select("tag_main","*","Tag_Item_ID = ".$tagrow['Tag_Item_ID']." and Tag_Name <> '".$tagrow['Tag_Name']."' and Tag_Type ='".$tagrow['Tag_Type']."' ORDER BY Tag_Rank" ,  TRUE);
+                        $sql->select("tag_main","*","WHERE Tag_Item_ID = ".$tagrow['Tag_Item_ID']." and Tag_Name <> '".$tagrow['Tag_Name']."' and Tag_Type ='".$tagrow['Tag_Type']."' ORDER BY Tag_Rank" ,  TRUE);
                         $TAGS  .= "<span class='".$plugPrefs['tags_style_link']."'>";
                         while ($othertags = $sql->fetch())
                               {
@@ -166,21 +166,7 @@ else {
        $tagtext .= $tp->parseTemplate("{NEXTPREV={$parms}}");
        $tagtext .= "</div>";
        //$link = preg_replace("# #","-",$tag_display);
-
-//-------------------------------------------------------------
-       //CREATE SOME BACKLINKS FOR THE AUTHOR :)
-
-       //this plugin took hundreds of hours to write, I don't ask for anything other than a few backlinks on a couple of keywords :)!
-       //these links will only appear on a handful of pages only where relevant
-
-       //ONLY SHOWS IF YOU TICK THE SHOW LINK BOX :)
-       if ($plugPrefs['tags_credit'])
-       {
-           //$credit = "<p><center><a style='font-size:85%' href='http://gnu.su'>Jezza101`s e107 tagcloud plugin</a></center><p>";
-           $credit = $tagcloud->makelinks($tag_display);
-           $tagtext .= $credit;
-        }
-//--------------------------------------------------------------
+ 
         $footer = $template['default']['footer'];
         $tagtext .= $tp->parseTemplate($footer, TRUE, $tagcloud_shortcodes)."\n";
 

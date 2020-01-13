@@ -2,13 +2,13 @@
 
    require_once("../../class2.php");
    require_once(HEADERF);
-   global $tp;
+   $tp = e107::getParser();
  
    include_lan(e_PLUGIN.'tagcloud/languages/'.e_LANGUAGE.'/lan_tagcloud.php');
 
 
 //allows the edit of a set of tags from the front end
-If (ADMIN)
+if (ADMIN)
 {
 
    $tmp    = explode(".", e_QUERY);

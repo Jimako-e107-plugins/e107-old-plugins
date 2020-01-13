@@ -32,12 +32,12 @@ if (isset($_POST['updatesettings'])) {
 	$plugPrefs['tags_number']        = ($_POST['tags_number']        ? $_POST['tags_number']        : 20 );
 	$plugPrefs['tags_preview']       = ($_POST['tags_preview']       ? $_POST['tags_preview']       : 200 );
 	$plugPrefs['tags_errortag']      = ($_POST['tags_errortag']      ? $_POST['tags_errortag']      : 500 );
-        $plugPrefs['tags_credit']        = ($_POST['tags_credit']        ? $_POST['tags_credit']        : 0);
+ 
         $plugPrefs['tags_adminmod']      = ($_POST['tags_adminmod']      ? $_POST['tags_adminmod']      : 0);
         $plugPrefs['tags_usermod']       = ($_POST['tags_usermod']       ? $_POST['tags_usermod']       : 0);
-        $plugPrefs['tags_emetaforum']    = ($_POST['tags_emetaforum']    ? $_POST['tags_emetaforum']    : 0);
-        $plugPrefs['tags_emetanews']     = ($_POST['tags_emetanews']     ? $_POST['tags_emetanews']     : 0);
-        $plugPrefs['tags_emetadownload'] = ($_POST['tags_emetadownload'] ? $_POST['tags_emetadownload'] : 0);
+ 
+ 
+ 
         $plugPrefs['tags_autogen']       = ($_POST['tags_autogen']       ? $_POST['tags_autogen']       : 0);
         $plugPrefs['tags_menuname']      = ($_POST['tags_menuname']      ? $_POST['tags_menuname']      : '');
 
@@ -65,10 +65,7 @@ $tags_adminmod = $plugPrefs['tags_adminmod'];
 $tags_usermod  = $plugPrefs['tags_usermod'];
 $tags_errortag = $plugPrefs['tags_errortag'];
 
-if ($plugPrefs['tags_credit'])             {$tags_credit         ='checked';}
-if ($plugPrefs['tags_emetaforum'])         {$tags_emetaforum     ='checked';}
-if ($plugPrefs['tags_emetanews'])          {$tags_emetanews      ='checked';}
-if ($plugPrefs['tags_emetadownload'])      {$tags_emetadownload  ='checked';}
+ 
 if ($plugPrefs['tags_autogen'])            {$tags_autogen        ='checked';}
 if ($plugPrefs['tags_order']=='random')     {$tags_orderrandom    ='checked';}
 if ($plugPrefs['tags_order']=='alpha')      {$tags_orderalpha     ='checked';}
@@ -114,28 +111,7 @@ $text = "<div style='text-align:center'>
       	".r_userclass('tags_usermod', $tags_usermod, 'off', 'member,classes,nobody')."
 	</td>
 	</tr>
-
-      	<tr>
-	<td class='forumheader3' style='width:40%'>Attempt override forum template</td>
-	<td class='forumheader3' style='width:60%'>
-	<input class='tbox' type='checkbox' name='tags_emetaforum' ".$tags_emetaforum." />
-	</td>
-	</tr>
-
-      	<tr>
-	<td class='forumheader3' style='width:40%'>Attempt override news template</td>
-	<td class='forumheader3' style='width:60%'>
-	<input class='tbox' type='checkbox' name='tags_emetanews' ".$tags_emetanews." />
-	</td>
-	</tr>
-
-      	<tr>
-	<td class='forumheader3' style='width:40%'>Attempt override download template</td>
-	<td class='forumheader3' style='width:60%'>
-	<input class='tbox' type='checkbox' name='tags_emetadownload' ".$tags_emetadownload." />
-	</td>
-	</tr>
-
+ 	 
       	<tr>
 	<td class='forumheader3' style='width:40%'>Auto generate tags when none are found for content being displayed (news only atm)</td>
 	<td class='forumheader3' style='width:60%'>
@@ -158,13 +134,7 @@ $text = "<div style='text-align:center'>
         Date: <input type='radio' name='order' value='date' $tags_orderdate>
 	</td>
 	</tr>
-
-      	<tr>
-	<td class='forumheader3' style='width:40%'>This plugin is free, all I ask is for a credit link back to my site on the <a href='".e_PLUGIN."tagcloud/tagcloud.php'>tags</a> page. However if you do not want to help me out you can remove the link by unticking the box:<br>(Please tick!)</td>
-	<td class='forumheader3' style='width:60%'>
-	<input class='tbox' type='checkbox' name='tags_credit' ".$tags_credit." />
-	</td>
-	</tr>
+ 
         ";
 
 

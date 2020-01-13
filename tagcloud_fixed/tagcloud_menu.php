@@ -1,6 +1,6 @@
 <?php
 
- global $tp;
+ 
  if (!defined('e107_INIT')) { exit; }
 
 //if we can pass to this the "tag_item_id" values from the current pages {TAGS} SC
@@ -16,11 +16,11 @@
  $param =  "number=".e107::pref('tags', 'tags_errortag'); 	
  
  $text = "{TAGCLOUD: ".$param."&template=menu}" ;        
- $text = $tp->parseTemplate($text);
+ $text = e107::getParser()->parseTemplate($text);
  
  $caption = e107::getPlugConfig('tagcloud')->getPref('tags_menuname');
 
- $ns -> tablerender($caption, $text);
+ e107::getRender() -> tablerender($caption, $text);
 
 ?>
 

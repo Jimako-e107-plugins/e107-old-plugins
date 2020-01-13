@@ -70,7 +70,8 @@ if (!class_exists('e107tagcloud')) {
 
 		function tags_to_db($list,$area,$id)
 		{								
-			global $sql,$tp;
+			$sql = e107::getDb();
+			$tp = e107::getParser();
 			$tmp	= explode(",",$list);
 			$sql->db_delete("tag_main","Tag_Type = '".$area."' AND Tag_Item_ID =".$id);
 			$cnt = 0;
@@ -123,7 +124,7 @@ if (!class_exists('e107tagcloud')) {
 
 		function tagtodb($tag) //expects?
 		{
-			global $tp;
+			$tp = e107::getParser();
 			$plugPrefs = e107::getPlugConfig('tagcloud')->getPref();
 			//generates a URL style tag from.... anything?
 
@@ -177,30 +178,7 @@ if (!class_exists('e107tagcloud')) {
 			
 			return $gradient;
 		}
-
-		function makelinks ($tag){	//THIS MAKES A BACKLINKS FOR SPECIFIC TAG PAGES IF AUTHOR LINK CHECK BOX IS TICKED!
-				$hintsxml = '<taglinks>
-														<hint>Plugin</hint><anchor>E107 Plugins</anchor><site>jezza101.co.uk</site><hint>Blog</hint><anchor>How to build a blog</anchor><site>blogercise.com</site><hint>Website</hint><anchor>How to build a website</anchor><site>blogercise.com</site><hint>Adsense</hint><anchor>Make money with adsense</anchor><site>blogercise.com/search-engine-optimisation-basics</site><hint>Google</hint><anchor>SEO for beginners</anchor><site>blogercise.com/search-engine-optimisation-basics</site><hint>Money</hint><anchor>Make money online</anchor><site>blogercise.com</site><hint>Flare</hint><anchor>Flared trousers</anchor><site>flaredtrousers.co.uk</site><hint>Trousers</hint><anchor>Seventies Trousers</anchor><site>flaredtrousers.co.uk</site><hint>Fashion</hint><anchor>Hot fashion trends</anchor><site>flaredtrousers.co.uk</site><hint>Netbook</hint><anchor>Netbook accessories</anchor><site>sammynetbook.com/netbook-accessories-upgrades-addons</site><hint>Nc10</hint><anchor>Samsung NC10</anchor><site>sammynetbook.com/samsung-nc10-netbook-best-deals</site><hint>Nc20</hint><anchor>Samsung NC20</anchor><site>sammynetbook.com/samsung-nc20-netbook-best-deals</site><hint>Eee</hint><anchor>Netbooks</anchor><site>SammyNetbook.com</site><hint>Wind</hint><anchor>Portable PCs</anchor><site>SammyNetbook.com</site><hint>Aspire</hint><anchor>Ultra portables</anchor><site>SammyNetbook.com</site><hint>Notebook</hint><anchor>Samsung Notebooks</anchor><site>sammynotebook.com</site><hint>Q210</hint><anchor>Samsung Q210 Notebook</anchor><site>sammynotebook.com</site><hint>Q310</hint><anchor>Samsung Q310 Notebook</anchor><site>sammynotebook.com</site><hint>SSD</hint><anchor>Samsung SSD Storage</anchor><site>SammySSD.com</site><hint>Mobile</hint><anchor>Samsung Mobile Phones</anchor><site>sammymobile.com</site><hint>Phone</hint><anchor>Samsung Phones</anchor><site>sammymobile.com</site><hint>Pixon</hint><anchor>Samsung Pixon Phone</anchor><site>sammymobile.com/reviews/samsung-pixon</site><hint>Iphone</hint><anchor>Mobile Phones</anchor><site>sammymobile.com</site><hint>Omnia</hint><anchor>Samsung Omnia Phone</anchor><site>sammymobile.com/reviews/samsung-omnia</site><hint>Tocco</hint><anchor>Samsung Tocco Phone</anchor><site>sammymobile.com/reviews/samsung-tocco</site><hint>Q1</hint><anchor>Samsung Q1</anchor><site>Sammyumpc.com</site><hint>TV</hint><anchor>Samsung TVs</anchor><site>sammytelevisions.com</site><hint>Television</hint><anchor>Samsung Televisions</anchor><site>sammytelevisions.com</site><hint>Mp3</hint><anchor>Samsung Home Entertainment</anchor><site>sammyhome.com</site><hint>DVD</hint><anchor>Samsung DVD Players</anchor><site>sammyhome.com</site><hint>Blue-ray</hint><anchor>Blue Ray Players</anchor><site>sammyhome.com</site><hint>Laptop</hint><anchor>Samsung Laptops</anchor><site>Sammylaptop.com</site><hint>X360</hint><anchor>Samsung X360 Laptop</anchor><site>Sammylaptop.com/reviews/samsung-x360</site><hint>X460</hint><anchor>Samsung X460 Laptop</anchor><site>Sammylaptop.com/reviews/samsung-x460</site><hint>Camera</hint><anchor>Samsung Cameras</anchor><site>sammydigitalcamera.com</site><hint>Photo</hint><anchor>Camera Blog</anchor><site>sammydigitalcamera.com</site><hint>Digital</hint><anchor>Digital cameras</anchor><site>sammydigitalcamera.com</site><hint>SLR</hint><anchor>SLR Cameras</anchor><site>sammydigitalcamera.com</site><hint>Q1EX</hint><anchor>Samsung Q1</anchor><site>samsungq1ex.com</site><hint>Kindle</hint><anchor>Kindle Blog</anchor><site>kindleblog.co.uk</site><hint>Ebook</hint><anchor>Buy an ebook reader</anchor><site>buyebookreader.co.uk</site><hint>Read</hint><anchor>Free ebooks</anchor><site>buyebookreader.co.uk</site><hint>British</hint><anchor>Top British Stuff</anchor><site>topbritish.com</site><hint>UK</hint><anchor>Top UK Stuff</anchor><site>topbritish.com</site><hint>Sex</hint><anchor>Home sex change</anchor><site>homesexchange.com</site><hint>History</hint><anchor>Book guide</anchor><site>historybooks.to-buy.co.uk</site><hint>Book</hint><anchor>History Books</anchor><site>historybooks.to-buy.co.uk</site><hint>E107</hint><anchor>E107 hints and tips</anchor><site>jezza101.co.uk</site>
-														<hint>Tag</hint><anchor>Tagcloud Plugin</anchor><site>jezza101.co.uk</site><hint>Buy</hint><anchor>Bargains and deals</anchor><site>to-buy.co.uk</site><hint>Shop</hint><anchor>Online shops</anchor><site>to-buy.co.uk</site><hint>Dad</hint><anchor>How to be a good dad</anchor><site>whohasdad.com</site><hint>Father</hint><anchor>How to be a good father</anchor><site>whohasdad.com</site><hint>Exercise</hint><anchor>Treadmill guide</anchor><site>treadmillsexercise.com</site><hint>Homes</hint><anchor>Home Exchanges</anchor><site>homesexchange.com</site><hint>N110</hint><anchor>Samsung N110</anchor><site>sammynetbook.com</site><hint>N310</hint><anchor>Samsung N310</anchor><site>sammynetbook.com</site><hint>Samsung</hint><anchor>Samsung Wiki</anchor><site>sammywiki.com</site><hint>Forum</hint><anchor>Samsung Forum</anchor><site>sammywiki.com/forum</site><hint>wiki</hint><anchor>Samsung Wiki</anchor><site>sammywiki.com/wiki</site>
-										</taglinks>';
-				$xml = $hintsxml;
-				$key = 0;
-				//print_r($xml);
-				foreach	($xml->hint as $hint)
-				{
-					$anchor = $xml->anchor[$key];
-					$site	 = $xml->site[$key];
-					//echo ":$hint:$anchor:$site:$tag:<p>";
-					if (stristr($tag, strval($hint))){
-						$credit = "<p><center><a style='font-size:85%' href='http://www.$site'>$anchor</a></center><p>";
-						return	$credit;
-							}
-					$key++;
-				}
-				return	"<p><center><a style='font-size:85%' href='http://www.jezza101.co.uk'>e107 plugins tagcloud</a></center><p>";
-		}
-
-
+ 
 		//PARANOIA :)
 		function html2txt($document)
 		{

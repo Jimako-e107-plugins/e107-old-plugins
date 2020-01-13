@@ -52,11 +52,8 @@ $tags_menuname = $plugPrefs['tags_menuname'];
 $tags_adminmod = $plugPrefs['tags_adminmod'];
 $tags_usermod  = $plugPrefs['tags_usermod'];
 $tags_errortag = $plugPrefs['tags_errortag'];
-
-if ($plugPrefs['tags_credit'])             {$tags_credit         ='checked';}
-if ($plugPrefs['tags_emetaforum'])         {$tags_emetaforum     ='checked';}
-if ($plugPrefs['tags_emetanews'])          {$tags_emetanews      ='checked';}
-if ($plugPrefs['tags_emetadownload'])      {$tags_emetadownload  ='checked';}
+ 
+ 
 if ($plugPrefs['tags_autogen'])            {$tags_autogen        ='checked';}
 if ($plugPrefs['tags_order']=='random')     {$tags_orderrandom    ='checked';}
 if ($plugPrefs['tags_order']=='alpha')      {$tags_orderalpha     ='checked';}

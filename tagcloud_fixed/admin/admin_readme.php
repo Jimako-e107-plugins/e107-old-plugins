@@ -21,10 +21,7 @@ new currentplugin_adminArea();
    // Our informative text
    $text = "
    <b>Top Tags Tagcloud Plugin BETA v1.0</b>
-   <p>
-   Keep up to date on e107 and related news and <b>be the first</b> to know when my <b>new releases</b> are available:
-   <p><a href='http://feeds.feedburner.com/Jezza101'>Subscribe to my <b>RSS News feed</b> now!</a>
-   <p>
+   
    <p>
    <br>
    <b>Getting started:</b>

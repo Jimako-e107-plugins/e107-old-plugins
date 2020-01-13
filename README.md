@@ -1165,6 +1165,10 @@ Author: Jezzy101
 Original site: not available 
 
 Not able to use because conflict with core plugin name
+
+FIXED: fixed version 2.0.0, most things updated, no visible errors, see changelog
+
+NEW version:  plugin needs new name 
   
 =======
 

@@ -14,7 +14,7 @@ $order = "content_datestamp  DESC";
 $table = "pcontent";
 
 function search_content($row) {
-	global $sql;
+	$sql = e107::getDb();
 	$res['link'] = e_PLUGIN."content/content.php?content.".$row['content_id'];
 	$res['pre_title'] = "";
 	$res['title'] = $row['content_heading'];
