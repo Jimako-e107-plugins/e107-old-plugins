@@ -1,12 +1,13 @@
 <?php
    parse_str($parm);
 
-   global $tp,$sql,$post_info,$forum,$meta,$pref;
+   global $tp,$sql,$post_info,$forum,$meta ;
+   $plugPrefs = e107::getPlugConfig('tagcloud')->getPref();
    include_lan(e_PLUGIN.'tagcloud/languages/'.e_LANGUAGE.'/lan_tagcloud.php');
    //$TAGS ="";
    require_once(e_PLUGIN.'tagcloud/tagcloud_class.php');
    $tagcloud = new e107tagcloud;
-   if (check_class($pref['tags_adminmod']))
+   if (check_class($plugPrefs['tags_adminmod']))
                    {$TAGMOD=TRUE;}  else {$TAGMOD=FALSE;}
 
    //$posturl = e_SELF."?".e_QUERY;
@@ -56,7 +57,7 @@
 
    //detect forum                             //TODO
    if(e_PAGE=='forum_viewtopic.php'){
-      if ($post_info['user_id'] != '0' && $post_info['user_name'] === USERNAME && check_class($pref['tags_usermod'])){$TAGMOD=TRUE;}
+      if ($post_info['user_id'] != '0' && $post_info['user_name'] === USERNAME && check_class($plugPrefs['tags_usermod'])){$TAGMOD=TRUE;}
       $posturl = e_SELF."?".e_QUERY."#post_{$post_info['thread_id']}";
       $Tag_Item_ID  = $post_info['thread_id'];
       $Tag_Type     = 'forum';
@@ -90,7 +91,7 @@ if ($TAGMOD){
 
 
        //this gets wrapped in a table
-       $TAGS .= "<tr><td class='".$pref['tags_style_item']."'>";
+       $TAGS .= "<tr><td class='".$plugPrefs['tags_style_item']."'>";
 
        $query = "SELECT
                   A.*
@@ -117,7 +118,7 @@ if ($TAGMOD){
        }
        else
        {
-        if($pref['tags_autogen'])     //JM rewritten to use v2 data 
+        if($plugPrefs['tags_autogen'])     //JM rewritten to use v2 data 
         {        $keywords =  array();
                 //auto generate tags if there are none:
                  if (e_PAGE=='news.php') {
@@ -157,11 +158,11 @@ if ($TAGMOD){
                      {
                      foreach ($keywords as $word)
                       {
-                       if ($limit>=$pref['tags_peritem']){continue;}
-                       if (strlen($word)<=$pref['tags_minlen']){continue;}
+                       if ($limit>=$plugPrefs['tags_peritem']){continue;}
+                       if (strlen($word)<=$plugPrefs['tags_minlen']){continue;}
 
                        $needle    = ','.$word.',';
-                       $haystack  = ','.$pref['excludelist'].',';
+                       $haystack  = ','.$plugPrefs['excludelist'].',';
                        $word      = preg_replace ("#\s#","_",$word);                         //echo  "$needle and $haystack</span>";
                        $pos       = strpos($haystack,$needle);
                        if ($pos===false){

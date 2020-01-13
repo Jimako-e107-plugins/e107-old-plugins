@@ -87,14 +87,14 @@ class e107tagcloud
 
     function MakeSEOLink($tag_db) //expects a db tag
     {
-      global $pref;
-              if ($pref['tags_useseo'])
+      $plugPrefs = e107::getPlugConfig('tagcloud')->getPref();
+              if ($plugPrefs['tags_useseo'])
                                {        
 															/*	 $link = //SITEURLBASE.
-                                     //e_HTTP.$pref['tags_seolink'].ereg_replace("[^A-Za-z0-9]", $pref['tags_tagspace'], substr($tag,0,100)).$pref['tags_fileext']  ;}
-                                     e_HTTP.$pref['tags_seolink'].preg_replace("#_#", $pref['tags_tagspace'], substr($tag_db,0,100)).$pref['tags_fileext']  ;*/
+                                     //e_HTTP.$plugPrefs['tags_seolink'].ereg_replace("[^A-Za-z0-9]", $plugPrefs['tags_tagspace'], substr($tag,0,100)).$plugPrefs['tags_fileext']  ;}
+                                     e_HTTP.$plugPrefs['tags_seolink'].preg_replace("#_#", $plugPrefs['tags_tagspace'], substr($tag_db,0,100)).$plugPrefs['tags_fileext']  ;*/
                                      
-															   $data = array('tagcloud_key'=> preg_replace("#_#", $pref['tags_tagspace'], substr($tag_db,0,100)));															   
+															   $data = array('tagcloud_key'=> preg_replace("#_#", $plugPrefs['tags_tagspace'], substr($tag_db,0,100)));															   
 																 $link = e107::url('tagcloud', 'tag', $data);                                        
 															}  
                else
@@ -114,10 +114,11 @@ class e107tagcloud
 
     function tagtodb($tag) //expects?
     {
-      global $pref,$tp;
+      global $tp;
+      $plugPrefs = e107::getPlugConfig('tagcloud')->getPref();
        //generates a URL style tag from.... anything?
 
-             if (strlen($pref['tags_tagspace'])<1){$spc='_';}else{$spc = $pref['tags_tagspace'];}
+             if (strlen($plugPrefs['tags_tagspace'])<1){$spc='_';}else{$spc = $plugPrefs['tags_tagspace'];}
              $tag         = URLDECODE($tag);
              $tag         = $tp->toDB($tag);    //if anything nasty is in the url it will be escaped
              $tag         = $this->html2txt($tag);   //overkill?
@@ -127,7 +128,7 @@ class e107tagcloud
       return $tag;
     }
     //function tagtourl($tag_db) //expects a db tag
-    //{ global $pref;      return $tag_url;     }
+    //{ global $plugPrefs;      return $tag_url;     }
 
 //-------------------------------------------------------------------
 

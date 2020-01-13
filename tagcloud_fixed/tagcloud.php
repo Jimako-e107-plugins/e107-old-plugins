@@ -137,13 +137,13 @@ else {
                         $PRESUMMARY = $res['pre_summary'];                                        //echo "PRESUMMARY<p>$PRESUMMARY";
                         $SUMMARY    = $res['summary'];
                         $SUMMARY    = $tp->toHTML($SUMMARY, TRUE, 'constants');
-                        $SUMMARY    = $tp->html_truncate($SUMMARY,$pref['tags_preview'],"");   //echo "SUMMARY<p>$SUMMARY";
+                        $SUMMARY    = $tp->html_truncate($SUMMARY,$plugPrefs['tags_preview'],"");   //echo "SUMMARY<p>$SUMMARY";
                         $SUMMARY   .= "...<a href='".$res['link']."'>".LAN_TG7."</a>";
                         $DETAIL     = $res['detail'];
 
                         //get other tags for output
                         $sql->select("tag_main","*","Tag_Item_ID = ".$tagrow['Tag_Item_ID']." and Tag_Name <> '".$tagrow['Tag_Name']."' and Tag_Type ='".$tagrow['Tag_Type']."' ORDER BY Tag_Rank" ,  TRUE);
-                        $TAGS  .= "<span class='".$pref['tags_style_link']."'>";
+                        $TAGS  .= "<span class='".$plugPrefs['tags_style_link']."'>";
                         while ($othertags = $sql->fetch())
                               {
                               $link = $tagcloud->MakeSEOLink($othertags['Tag_Name']);
@@ -152,7 +152,7 @@ else {
                               }
                         $TAGS  .= "</span>";
 
-                        if ($pref['tags_adminmod'] and ADMIN) {$TAGS .= "<a href='".e_PLUGIN."tagcloud/tagedit.php?".$tagrow['Tag_Type'].".".$tagrow['Tag_Item_ID']."'>(edit tags)</a>";}
+                        if ($plugPrefs['tags_adminmod'] and ADMIN) {$TAGS .= "<a href='".e_PLUGIN."tagcloud/tagedit.php?".$tagrow['Tag_Type'].".".$tagrow['Tag_Item_ID']."'>(edit tags)</a>";}
                         $bodyt = $template['default']['body'];
 
 												$tagtext .= $tp->parseTemplate($bodyt, TRUE, $tagcloud_shortcodes)."\n";
@@ -177,7 +177,7 @@ else {
        //these links will only appear on a handful of pages only where relevant
 
        //ONLY SHOWS IF YOU TICK THE SHOW LINK BOX :)
-       if ($pref['tags_credit'])
+       if ($plugPrefs['tags_credit'])
        {
            //$credit = "<p><center><a style='font-size:85%' href='http://gnu.su'>Jezza101`s e107 tagcloud plugin</a></center><p>";
            $credit = $tagcloud->makelinks($tag_display);
@@ -189,9 +189,9 @@ else {
 
 }
 else {
-      if (!isset($pref['tags_errortag'])){$pref['tags_errortag']=200;}
-      $tagtext  = $tp->parseTemplate("{TAGCLOUD=".$pref['tags_errortag']."}", TRUE, $tagcloud_shortcodes); //LAN_TG1;  //'Tag not found';
-      $pagehead = $pref['tags_menuname'];  //"Error!";
+      if (!isset($plugPrefs['tags_errortag'])){$plugPrefs['tags_errortag']=200;}
+      $tagtext  = $tp->parseTemplate("{TAGCLOUD=".$plugPrefs['tags_errortag']."}", TRUE, $tagcloud_shortcodes); //LAN_TG1;  //'Tag not found';
+      $pagehead = $plugPrefs['tags_menuname'];  //"Error!";
       //PLEASE LEAVE THIS LINK
       //THIS PLUGIN REPRESENTS MANY HOURS OF WORK, ALL I ASK IN RETURN IS ONE LINK BACK TO MY SITE :)
       //USE OF THIS PLUGIN IS CONDITIONAL ON LINKING TO MY SITE SOMEWHERE :)

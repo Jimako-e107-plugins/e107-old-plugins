@@ -46,7 +46,7 @@ Supported plugins (in progress) : news, page, download, forum, pcontent
 - new template v2 way
 - new shortcodes v2 way
 - plugin.php updated to plugin.xml and plugin setup
-- new prefs way (4/5) : installation, addons, admin, menu
+- new prefs way (5/5) : installation, addons, admin, menu, frontend
 - admin rewrite (2/7) : files organization,  admin menu
 
 ### Fixed
@@ -59,10 +59,15 @@ Supported plugins (in progress) : news, page, download, forum, pcontent
 - separated Addons settings as separate item in menu
 
 TODO:
-update: $con -> convert_date, $con = new convert;
-Prefs:  frontend  
-Admin rewrite: prefs, styling, maintenance, readme, tables overview (new) 
-Remove old site mentions (not available): frontend, readme, prefs , tags_credit
-Remove template overwritting, it's not possible anymore: tags_emetanews, tags_emetaforum, tags_emetadownload
+- update: $con -> convert_date, $con = new convert;
+ 
+- adminarea rewrite: prefs, styling, maintenance, readme, tables overview (new) 
+
+- remove old site mentions (not available): frontend, readme, prefs , tags_credit
+
+- remove template overwritting, it's not possible anymore: tags_emetanews, tags_emetaforum, tags_emetadownload
+
 - what is admin_table file for?
+
+- SEF-URL support
 

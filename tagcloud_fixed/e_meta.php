@@ -1,6 +1,8 @@
 <?php
- 
-if (e_PAGE == "news.php" && $pref['tags_emetanews']) {
+
+$plugPrefs = e107::getPlugConfig('tagcloud')->getPref(); 
+
+if (e_PAGE == "news.php" && $plugPrefs['tags_emetanews']) {
         //echo "meta started";
 
 	//require_once(THEME."theme.php");
@@ -12,7 +14,7 @@ if (e_PAGE == "news.php" && $pref['tags_emetanews']) {
 }
 
 
-if (e_PAGE == "forum_viewtopic.php" && $pref['tags_emetaforum']) {
+if (e_PAGE == "forum_viewtopic.php" && $plugPrefs['tags_emetaforum']) {
 	require_once(e_PLUGIN."forum/templates/forum_viewtopic_template.php");
 
 	$forum_old = "{PROFILEIMG}";
@@ -21,7 +23,7 @@ if (e_PAGE == "forum_viewtopic.php" && $pref['tags_emetaforum']) {
 	$FORUMREPLYSTYLE  = str_replace($forum_old, $forum_new, $FORUMREPLYSTYLE);
 }
 
-if (e_PAGE == "download.php" && $pref['tags_emetadownload']) {
+if (e_PAGE == "download.php" && $plugPrefs['tags_emetadownload']) {
 
 	include_once(THEME."theme/download_template.php");
 
@@ -33,7 +35,7 @@ if (e_PAGE == "download.php" && $pref['tags_emetadownload']) {
 
 
 /*   --rendering content fails?
-if (e_PAGE == "content.php" && $pref['tags_emetadownload']) {
+if (e_PAGE == "content.php" && $plugPrefs['tags_emetadownload']) {
 
 	include_once(e_PLUGIN."content/templates/default/content_content_template.php");
 

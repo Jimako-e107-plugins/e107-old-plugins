@@ -3,8 +3,10 @@
    //require_once("../../class2.php");
    //eg {TAGCLOUD=20|news} would show 30 news tags
 
-   global $tp,$class2,$pref;
+   global $tp,$class2;
    require_once(e_PLUGIN.'tagcloud/tagcloud_class.php');
+   $plugPrefs = e107::getPlugConfig('tagcloud')->getPref();
+   
    $tagcloud = new e107tagcloud;
 
    $tmp    = explode("|",$parm);
@@ -12,25 +14,25 @@
    $tagtyp = substr($tmp[1],0,10);  //security
    $tagord = substr($tmp[2],0,10);  //security
 
-   if ($parm) {$tagcount = $parm;} else {$parm = $pref['tags_number'];}
-   if (strlen($tagord)<1){$tagord=$pref[tags_order];}
+   if ($parm) {$tagcount = $parm;} else {$parm = $plugPrefs['tags_number'];}
+   if (strlen($tagord)<1){$tagord=$plugPrefs['tags_order'];}
 
 
    $tags = $tagcloud->get_cloud_list($tagcnt,$tagtyp,$tagord);
    //returns tag_name and number quant
-   $max_size = $pref['tags_max_size']; // max font size in %
-   $min_size = $pref['tags_min_size']; // min font size in %
+   $max_size = $plugPrefs['tags_max_size']; // max font size in %
+   $min_size = $plugPrefs['tags_min_size']; // min font size in %
 
    $max_qty = max(array_values($tags));
    $min_qty = min(array_values($tags));
    $spread = $max_qty - $min_qty;
-   $colour  = $tagcloud->gradient($pref['tags_min_colour'],$pref['tags_max_colour'],$spread);
+   $colour  = $tagcloud->gradient($plugPrefs['tags_min_colour'],$plugPrefs['tags_max_colour'],$spread);
    //$colour  = $tagcloud->gradient('87CEFA','483D8B',$spread);
    if (0 == $spread) { // we don't want to divide by zero
        $spread = 1;
        }
        $step = ($max_size - $min_size)/($spread);
-       $htmlout = "<div class='".$pref['tags_style_cloud']."'>";
+       $htmlout = "<div class='".$plugPrefs['tags_style_cloud']."'>";
        $xml     = "<tags>";
        foreach ($tags as $key => $value) {
 //UTF-8
