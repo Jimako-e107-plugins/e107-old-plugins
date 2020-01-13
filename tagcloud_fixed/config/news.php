@@ -22,7 +22,7 @@ function search_news($row) {
 	$res['pre_title'] = $row['category_name']." | ";
 	$res['title'] = $row['news_title'];
 	$res['summary'] = $row['news_body'].' '.$row['news_extended'];
-	$res['detail'] = LAN_TG010 ." ".$con -> convert_date($row['news_datestamp'], "long");
+	$res['detail'] = LAN_TG010 ." ".e107::getDate()->convert_date($row['news_datestamp'], "long");
 	return $res;
 }
 

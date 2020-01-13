@@ -14,7 +14,7 @@ $order = "content_datestamp  DESC";
 $table = "pcontent";
 
 function search_content($row) {
-	global $con, $sql;
+	global $sql;
 	$res['link'] = e_PLUGIN."content/content.php?content.".$row['content_id'];
 	$res['pre_title'] = "";
 	$res['title'] = $row['content_heading'];
@@ -43,7 +43,7 @@ function search_content($row) {
 	$sql -> gen($qry);
 	$cat = $sql -> fetch();
 
-	$res['detail'] = "Posted on ".$con -> convert_date($row['content_datestamp'], "long")." in ".$cat['content_heading'];
+	$res['detail'] = "Posted on ".e107::getDate()->convert_date($row['content_datestamp'], "long")." in ".$cat['content_heading'];
 	return $res;
 }
 

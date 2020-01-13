@@ -37,9 +37,7 @@ else {
    $template   = e107::getTemplate('tagcloud'); 
  
    require_once(e_HANDLER."ren_help.php");
-
-   $con = new convert;
-
+ 
    include_lan(e_PLUGIN.'tagcloud/languages/'.e_LANGUAGE.'/lan_tagcloud.php');
 
 //ECHO "<P>DECODE:".URLDECODE(e_QUERY)."<P>" ;

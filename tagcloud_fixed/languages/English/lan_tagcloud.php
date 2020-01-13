@@ -16,9 +16,7 @@ define("LAN_TG3", "Edit Tags");   //
 //tags.sc
 define("LAN_TG4", "(add tags)");   //
 define("LAN_TG5", "Update");   //
-
-
-
+ 
 
 //not used
 define("LAN_TG8", "");   //

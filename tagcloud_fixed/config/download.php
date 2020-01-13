@@ -16,8 +16,8 @@ $order = "download_datestamp DESC";
 $table = "download AS d LEFT JOIN #download_category AS c ON d.download_category = c.download_category_id";
 
 function search_download($row) {
-	global $con;
-	$datestamp = $con -> convert_date($row['download_datestamp'], "long");
+ 
+	$datestamp = e107::getDate()->convert_date($row['download_datestamp'], "long");
 	$res['link'] = "download.php?view.".$row['download_id'];
 	$res['pre_title'] = $row['download_category_name']." | ";
 	$res['title'] = $row['download_name'];

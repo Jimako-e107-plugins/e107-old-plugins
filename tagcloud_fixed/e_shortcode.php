@@ -11,8 +11,6 @@ if(!defined('e107_INIT'))
 	exit;
 }
 
-
-
 class tagcloud_shortcodes extends e_shortcode
 {
  
@@ -23,9 +21,8 @@ class tagcloud_shortcodes extends e_shortcode
 	}
 	
 	function sc_tagcloud($parm = '')
-	{ 
-				
-				require_once(e_PLUGIN.'tagcloud/tagcloud_class.php');
+	{ 		
+		require_once(e_PLUGIN.'tagcloud/tagcloud_class.php');
         $tagcloud = new e107tagcloud;
         $plugPrefs = e107::getPlugConfig('tagcloud')->getPref();
 
@@ -63,23 +60,23 @@ class tagcloud_shortcodes extends e_shortcode
         
         $htmlout = e107::getParser()->simpleParse($tagcloud->tagsTemplates[$templatekey]['header'], $var);
  
-				foreach ($tags as $key => $value) {
+        foreach ($tags as $key => $value) 
+        {
             //UTF-8
             $size     = $min_size + (($value - $min_qty) * $step);
             $link     = $tagcloud->MakeSEOLink($key);
             $search_link = mb_convert_encoding($link, 'utf-8', 'windows-1251');
             $search_link = str_replace("_","+",$search_link);
             $key      = preg_replace("#_#"," ",$key);
-            
-            
-	 				  $tagcloud->tagsShortcodes->setVars(array(
-			      'size' => $size,
-			      'key' => $key,
-			      'link' => $link,  
-			      'value' => $value,
-			      'color' => $colour[$value]
-			      ));            
- 
+    
+            $tagcloud->tagsShortcodes->setVars(array(
+                'size' => $size,
+                'key' => $key,
+                'link' => $link,  
+                'value' => $value,
+                'color' => $colour[$value]
+            ));            
+
             $htmlout .= e107::getParser()->parseTemplate($tagcloud->tagsTemplates[$templatekey]['item'], true, $tagcloud->tagsShortcodes);
               
         }

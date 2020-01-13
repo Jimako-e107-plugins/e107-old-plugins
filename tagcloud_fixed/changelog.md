@@ -50,6 +50,7 @@ Supported plugins (in progress) : news, page, download, forum, pcontent
 - new prefs way (5/5) : installation, addons, admin, menu, frontend
 - admin rewrite (2/7) : files organization,  admin menu
 - global shortcodes (1/2): {TAGCLOUD}
+- updated date handler ($con)
 
 ### Fixed
 - part fix messed up constants in version 2 (3/5): news, page, download
@@ -64,7 +65,6 @@ Supported plugins (in progress) : news, page, download, forum, pcontent
 
 
 TODO:
-- update: $con -> convert_date, $con = new convert;
  
 - adminarea rewrite: prefs, styling, maintenance, readme, tables overview (new) 
 
@@ -76,7 +76,7 @@ TODO:
 
 - SEF-URL support
 
-- remove global variables $con, $tp, $sql 
+- remove global variables  $tp, $sql 
 
 - global shortcodes: {TAGS}
 

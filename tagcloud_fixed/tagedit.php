@@ -3,7 +3,7 @@
    require_once("../../class2.php");
    require_once(HEADERF);
    global $tp;
-   $con = new convert;
+ 
    include_lan(e_PLUGIN.'tagcloud/languages/'.e_LANGUAGE.'/lan_tagcloud.php');
 
 

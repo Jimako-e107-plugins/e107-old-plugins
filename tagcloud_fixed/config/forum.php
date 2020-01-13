@@ -18,8 +18,8 @@ $table = "forum_t AS t LEFT JOIN #user AS u ON SUBSTRING_INDEX(t.thread_user,'.'
 
 
 function search_forum($row) {
-	global $con;
-	$datestamp = $con -> convert_date($row['thread_datestamp'], "long");
+ 
+	$datestamp = e107::getDate()->convert_date($row['thread_datestamp'], "long");
 	if ($row['thread_parent']) {
 		$title = $row['parent_name'];
 	} else {

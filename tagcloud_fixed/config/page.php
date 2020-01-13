@@ -22,7 +22,7 @@ function search_page($row) {     print_a($row);
 	$res['pre_title'] = "";
 	$res['title'] = $row['page_title'];
 	$res['summary'] = $row['page_text'];
-	$res['detail'] = "Posted on ".$con -> convert_date($row['page_datestamp'], "long");
+	$res['detail'] = "Posted on ".e107::getDate()->convert_date($row['page_datestamp'], "long");
 	return $res;
 }
 
