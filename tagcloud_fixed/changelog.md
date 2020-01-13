@@ -71,3 +71,5 @@ TODO:
 
 - SEF-URL support
 
+- remove global variables
+
