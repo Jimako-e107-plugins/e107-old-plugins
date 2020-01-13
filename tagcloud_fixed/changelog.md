@@ -76,7 +76,7 @@ TODO:
 
 - SEF-URL support
 
-- remove global variables
+- remove global variables $con, $tp, $sql 
 
 - global shortcodes: {TAGS}
 
