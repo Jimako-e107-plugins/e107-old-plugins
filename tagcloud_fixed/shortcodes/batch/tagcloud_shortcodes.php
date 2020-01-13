@@ -16,6 +16,11 @@
  * Class plugin_tagcloud_tagcloud_shortcodes
  * Local shortcodes
  */
+ 
+
+
+ 
+ 
 class plugin_tagcloud_tagcloud_shortcodes extends e_shortcode
 {
  
@@ -98,6 +103,35 @@ class plugin_tagcloud_tagcloud_shortcodes extends e_shortcode
 		 $ret = $DETAIL;
 		return $ret;
 		}
+		
+
+		
+		/* {TAGSIZE} */
+		function sc_tagsize($parm='') {      
+	   return  $this->var['size'];
+	  }
+
+	  /* {TAGKEY} */	  
+		function sc_tagkey($parm='') {
+	   return  $this->var['key'];
+	  }
+	  
+	  /* {TAGTITLE} */
+		function sc_tagtitle($parm='') {   
+		 if($this->var['value']) return 'title="'.$this->var['value'].' things tagged with '.$this->var['key'].'"';
+	   return  '';
+	  }  
+	  
+	  /* {TAGCOLOR} */
+		function sc_tagcolor($parm='') {
+		 if($this->var['color']) return 'color:#'.$this->var['color'].';';
+	   return  '';
+	  }  
+	  
+	  /* {TAGLINK} */
+		function sc_taglink($parm='') {
+	   return  $this->var['link'];
+	  }
  
 }
  

@@ -70,8 +70,7 @@ else {
 //---body
 
 
-   $sql2 = new db;
-
+ 
    $query = "SELECT
               Tag_Item_ID, Tag_Type
              FROM
@@ -81,8 +80,8 @@ else {
              WHERE
               B.Tag_Config_CloudFlag = 1     and
               Tag_Name               = '".$tag_db."' ORDER BY Tag_Rank LIMIT ".$from.",".$view;
-
-   if ($resulttags = $sql2->retrieve($query, true)) //validates $tag_db
+	
+   if ($resulttags = e107::getDb()->retrieve($query, true)) //validates $tag_db
 {           
       //tag exists, start building the output
 
@@ -189,8 +188,9 @@ else {
 
 }
 else {
+ 
       if (!isset($plugPrefs['tags_errortag'])){$plugPrefs['tags_errortag']=200;}
-      $tagtext  = $tp->parseTemplate("{TAGCLOUD=".$plugPrefs['tags_errortag']."}", TRUE, $tagcloud_shortcodes); //LAN_TG1;  //'Tag not found';
+      $tagtext  = $tp->parseTemplate("{TAGCLOUD=".$plugPrefs['tags_errortag']."}" ); //LAN_TG1;  //'Tag not found';
       $pagehead = $plugPrefs['tags_menuname'];  //"Error!";
       //PLEASE LEAVE THIS LINK
       //THIS PLUGIN REPRESENTS MANY HOURS OF WORK, ALL I ASK IN RETURN IS ONE LINK BACK TO MY SITE :)

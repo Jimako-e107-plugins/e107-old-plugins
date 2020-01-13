@@ -39,6 +39,7 @@ Supported plugins (in progress) : news, page, download, forum, pcontent
 
 ### Removed
 - hardcoded metatags
+- Russian translation
 
 ### Updated
 - SEO URLs. Old way is saved with new e_url addons. Fully configurable like before. No htaccess is needed. 
@@ -48,6 +49,7 @@ Supported plugins (in progress) : news, page, download, forum, pcontent
 - plugin.php updated to plugin.xml and plugin setup
 - new prefs way (5/5) : installation, addons, admin, menu, frontend
 - admin rewrite (2/7) : files organization,  admin menu
+- global shortcodes (1/2): {TAGCLOUD}
 
 ### Fixed
 - part fix messed up constants in version 2 (3/5): news, page, download
@@ -57,6 +59,9 @@ Supported plugins (in progress) : news, page, download, forum, pcontent
 ### New
 - separated SEO settings as separate item in menu
 - separated Addons settings as separate item in menu
+- fully templated tags cloud display (on main page and menu), all visual setting as shortcodes for templating (not hardcoded anymore)
+- e_url addon support (pretty url for plugin itself)
+
 
 TODO:
 - update: $con -> convert_date, $con = new convert;
@@ -72,4 +77,6 @@ TODO:
 - SEF-URL support
 
 - remove global variables
+
+- global shortcodes: {TAGS}
 

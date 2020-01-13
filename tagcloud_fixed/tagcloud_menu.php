@@ -11,7 +11,12 @@
  $text = "{TAGCLOUD=15}
          <div style='text-align:center;'><a href='".e_PLUGIN_ABS."tagcloud/tagcloud.php'>".LAN_TG6."</a></div>
          " ;
- $text = $tp->parseTemplate($text)."\n";
+         
+ //: number=$number&type=news&order=&template='menu'
+ $param =  "number=".e107::pref('tags', 'tags_errortag'); 	
+ 
+ $text = "{TAGCLOUD: ".$param."&template=menu}" ;        
+ $text = $tp->parseTemplate($text);
  
  $caption = e107::getPlugConfig('tagcloud')->getPref('tags_menuname');
 

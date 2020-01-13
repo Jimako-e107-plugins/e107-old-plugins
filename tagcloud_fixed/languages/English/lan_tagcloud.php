@@ -17,8 +17,7 @@ define("LAN_TG3", "Edit Tags");   //
 define("LAN_TG4", "(add tags)");   //
 define("LAN_TG5", "Update");   //
 
-//tag menu
-define("LAN_TG6", "more tags");   //
+
 
 
 //not used

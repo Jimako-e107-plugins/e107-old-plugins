@@ -2,9 +2,7 @@
 
 
 if (!defined('e107_INIT')) { exit; }
-
-
-
+ 
 
 $header   ="
         <div style='text-align:center'>
@@ -40,4 +38,25 @@ $footer ="
 //add google search, eg click button google returns results + ads.
 
 $TAGCLOUD_TEMPLATE['default']['footer'] = $footer;
+ 
+ 
+/*
+  $htmlout .= '<a href="'.$link.'" style="font-size: '.$size.'%;color:#'.$colour[$value].';"';
+  $key      = preg_replace("#_#"," ",$key);
+  $htmlout .=  'title="'.$value.' things tagged with '.$key.'"';
+  $htmlout .=  '>'.$key.'</a>   ';
+*/ 
+ 
+/* NOTE:  tags_style_cloud - simpleParse, Uppercase f.e. {TAGLINK} - parseTemplate with batch shortcodes */
+ 
+$TAGCLOUD_TEMPLATE['list']['header'] = "<div class='{tags_style_cloud}'>";
+$TAGCLOUD_TEMPLATE['list']['item'] = '<a href="{TAGLINK}" style="font-size: {TAGSIZE}%;color:#{TAGCOLOR};"';
+$TAGCLOUD_TEMPLATE['list']['item'] .=  'title="{TAGTITLE} things tagged with {TAGKEY}" >{TAGKEY}</a> ';
+ 
+$TAGCLOUD_TEMPLATE['list']['footer'] = "</div>";
+
+$TAGCLOUD_TEMPLATE['menu']['header'] =  "<div class='{tags_style_cloud}'>";
+$TAGCLOUD_TEMPLATE['menu']['item'] = $TAGCLOUD_TEMPLATE['list']['item'] ; 
+$TAGCLOUD_TEMPLATE['menu']['footer'] = "<div style='text-align:center;'><a href='{tag_main_page}'>".LAN_TG6."</a></div>";
+
 ?>

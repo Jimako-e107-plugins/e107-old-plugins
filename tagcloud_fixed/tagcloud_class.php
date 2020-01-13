@@ -8,12 +8,19 @@ if (!class_exists('e107tagcloud')) {
 	
 	class e107tagcloud
 	{
-	
-
+	  var $tagsTemplates = array();
+	  var $tagsShortcodes = array();
+	  var $tagsPrefs = array();
+	  
+		function __construct() {
+		  $this->tagsTemplates 	= e107::getTemplate('tagcloud');  
+		  $this->tagsShortcodes = e107::getScBatch('tagcloud', 'tagcloud');
+		  $this->tagsPrefs 			= e107::getPlugConfig('tagcloud')->getPref(); 
+		}
+		
 		function get_cloud_list($no,$ty,$order)
 		{
-			global $sql;
-
+ 
 			switch ($order) {
 				case "random":
 					$ordersql = "rand()";
@@ -49,7 +56,7 @@ if (!class_exists('e107tagcloud')) {
 					LIMIT
 						".$no."";
 						//echo "$query";
-			$records = $sql ->retrieve($query, true);
+			$records = e107::getDb()->retrieve($query, true);
 			foreach ($records AS $row)
 			{
 			$ret[$row['Tag_Name']] = $row['quant'];

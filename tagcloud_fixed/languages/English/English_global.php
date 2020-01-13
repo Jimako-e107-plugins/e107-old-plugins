@@ -11,3 +11,5 @@ define("LAN_PLUGIN_TAGCLOUD_SUMMARY", 	"A fully featured Tags system inspired by
 define("LAN_PLUGIN_TAGCLOUD_DESCRIPTION", 	"Top Tag tagclouds for e107 CMS inspired by jezza101");
 
 
+//tag menu
+define("LAN_TG6", "more tags");   //
