@@ -16,7 +16,7 @@
 +---------------------------------------------------------------+
 */
    require(e_PLUGIN."agenda/agenda_variables.php");
-	 
+
    $text = "<div style='width:100%;text-align:center'>";
 
    // Count entries as we go through then replace the placeholder token with the real value
@@ -30,7 +30,7 @@
    $text .= "</tr><tr >";
 
    $dayInWeek = 1;
-   
+
    // Display blank entries before month start
    for ($count=0; $count<$agenda->getMonthFirstDayOffset($agenda->getTodayMonthStartDS()); $count++) {
       $text .= "<td class='smalltext'> </td>";
@@ -89,7 +89,7 @@
          $text .= "</td>";
       }
    }
- 
+
    // Display blank entries after month end
    for ($count=$dayInWeek; $count<7; $count++) {
       $text .= "<td class='smalltext'> </td>";
@@ -98,6 +98,6 @@
    $text .= "</tr></table></div>";
 
    $text = str_replace("@@@@@", $agn_entry_count, $text);
-	          
-   e107::getRender()->tablerender($GLOBALS['agenda']->getTodayMonthNameAndYearNum(), $text);
+
+   $ns->tablerender($GLOBALS['agenda']->getTodayMonthNameAndYearNum(), $text);
 ?>

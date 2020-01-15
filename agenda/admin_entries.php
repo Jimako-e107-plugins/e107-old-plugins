@@ -40,7 +40,7 @@
       $ns -> tablerender("", "<div style='text-align:center'><b>".$message."</b></div>");
    }
 
-   $table_total = $agn_sql1->select($agenda->getAgendaTable(), "*");
+   $table_total = $agn_sql1->db_Select($agenda->getAgendaTable(), "*");
 
    $text = "<div style='text-align:center'>
       <form method='post' action='".e_SELF."' id='myexistingform'>

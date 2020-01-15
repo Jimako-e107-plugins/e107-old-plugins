@@ -94,7 +94,7 @@
                }
                case "agn_owner" : {
                   $tmp = explode(".", $agn_owner);
-                  if (preg_match("%"."[0-9]+"."%", $tmp[0])) {
+                  if (ereg("[0-9]+", $tmp[0])) {
                      $tmp = "<a href='".e_BASE."user.php?id.".$tmp[0]."'>".$tmp[1]."</a>";
                   } else {
                      $tmp = $agn_owner;

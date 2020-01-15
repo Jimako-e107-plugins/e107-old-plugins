@@ -15,11 +15,7 @@
 | $Author: Neil $
 +---------------------------------------------------------------+
 */
-if (!defined('e107_INIT'))
-{
-	require_once("../../class2.php");
-}
-
+   require_once("../../class2.php");
    require_once(HEADERF);
    require(e_PLUGIN."agenda/agenda_variables.php");
    require(e_PLUGIN."agenda/agendaUtils.php");
@@ -34,7 +30,7 @@ if (!defined('e107_INIT'))
 
    $text = generateJS();
    $pagetitle = isset($pref["agenda_page_title"]) && strlen($pref["agenda_page_title"]) > 0 ? $pref["agenda_page_title"] : AGENDA_LAN_NAME;
- 
+
    $agn_error = "";
    switch ($agenda->getP1()) {
       case "add" : {
@@ -79,8 +75,7 @@ if (!defined('e107_INIT'))
 
             if (isset($_POST['id'])) { // Update
                $qry = $agenda->getTableJoin()."where e.agn_id=".$agenda->getP3();
-               if ($agn_sql1->gen($qry, $agenda->isDebug()) && $agn_erow = $agn_sql1->db_Fetch()) {
-
+               if ($agn_sql1->db_Select_gen($qry, $agenda->isDebug()) && $agn_erow = $agn_sql1->db_Fetch()) {
                   extract($agn_erow, EXTR_OVERWRITE);
                   $allfields = array_merge($agn_required_fields, $agn_required_fields_timed[$typ_timed], array_filter(explode(",", $typ_fields), "agendaRemoveBlank"));
 
@@ -125,13 +120,11 @@ if (!defined('e107_INIT'))
                   $res = false;
                }
             } else { // Add new
-                                              
-                  
-               $agn_sql1->select($agenda->getTypeTable(), "*", " WHERE typ_id=".$agenda->getP5(), true, $agenda->isDebug());
+               $agn_sql1->db_Select($agenda->getTypeTable(), "*", "typ_id=".$agenda->getP5(), true, $agenda->isDebug());
                if ($trow = $agn_sql1->db_Fetch()) {
                   extract($trow, EXTR_OVERWRITE);
                   $allfields = array_merge($agn_required_fields, $agn_required_fields_timed[$typ_timed], array_filter(explode(",", $typ_fields), "agendaRemoveBlank"));
- 
+
                   // Process all fields for this type
                   for ($i=0; $i<count($allfields); $i++) {
                      $field = $agn_field[$allfields[$i]];
@@ -145,28 +138,20 @@ if (!defined('e107_INIT'))
                      }
                      $colstr[] = $field["name"];
                      $inpstr[] = "'".$value."'";
-                     $tmp['data'][$field["name"]] = $value;
                   }
                }
 
-              // Control and hidden from user fields
-              // $colstr[] = "agn_type";
-              // $inpstr[] = "'".$agenda->getP5()."'";
-              // $colstr[] = "agn_author";
-              // $inpstr[] = "'".USERID.".".USERNAME."'";
-              // $colstr[] = "agn_datestamp";
-              // $inpstr[] = "'".time()."'";
+               // Control and hidden from user fields
+               $colstr[] = "agn_type";
+               $inpstr[] = "'".$agenda->getP5()."'";
+               $colstr[] = "agn_author";
+               $inpstr[] = "'".USERID.".".USERNAME."'";
+               $colstr[] = "agn_datestamp";
+               $inpstr[] = "'".time()."'";
 
                $qry = "(".implode(", ", $colstr).") values (".implode(", ", $inpstr).")";
                $agn_sql1 = new e107HelperDB();
-               
-               $tmp['data']['agn_datestamp'] = time();
-               $tmp['data']['agn_type'] = $agenda->getP5();
-							 $tmp['data']['agn_author'] = USERID.".".USERNAME;
-							  
-							 $res = $agn_sql1->insert($agenda->getAgendaTable(), $tmp, $agenda->isDebug());
-				 
-              // $res = $agn_sql1->db_InsertPart($agenda->getAgendaTable(), $qry, $agenda->isDebug());		 
+               $res = $agn_sql1->db_InsertPart($agenda->getAgendaTable(), $qry, $agenda->isDebug());
                $agenda->setP3($res);
             }
 
@@ -184,7 +169,7 @@ if (!defined('e107_INIT'))
                   $text = agendaEntryAdd();
                }
             } else {
-               $mysqlerror = mysqli_error();
+               $mysqlerror = mysql_error();
                // Add/update was maybe OK
                agendaSendEmail(isset($_POST['id']) ? "update" : "add", $agenda->getP3());
                if ($res) {
@@ -226,7 +211,7 @@ if (!defined('e107_INIT'))
       }
       case "register" : {
          $pagetitle .= " : ".AGENDA_LAN_127;
-         $agn_sql1->select($agenda->getAgendaTable(), "agn_responses", " WHERE agn_id=".$agenda->getP3(), true, $agenda->isDebug());
+         $agn_sql1->db_Select($agenda->getAgendaTable(), "agn_responses", "agn_id=".$agenda->getP3(), true, $agenda->isDebug());
          $agn_erow = $agn_sql1->db_Fetch();
          $agn_responses = array();
          if (strlen($agn_erow["agn_responses"])) {
@@ -247,15 +232,15 @@ if (!defined('e107_INIT'))
             }
          }
          $tmp = $agn_sql1->db_Update($agenda->getAgendaTable(), "agn_responses='".implode(",", $agn_responses)."' where agn_id=".$agenda->getP3(), $agenda->isDebug());
-         if (!$tmp && strlen(mysqli_error())) {
-            print "<br>$tmp, error: ".$agn_sql1->dbError()."..".mysqli_error();
+         if (!$tmp && strlen(mysql_error())) {
+            print "<br>$tmp, error: ".$agn_sql1->dbError()."..".mysql_error();
          }
          require_once(e_PLUGIN."agenda/agendaViewItem.php");
          break;
       }
       case "setfilter" : {
          $rs = new agenda_form;
-         $update = $agn_sql1->select($agenda->getUserTable(), "*", " WHERE usr_id=".$currentUser["user_id"], true, $agenda->isDebug());
+         $update = $agn_sql1->db_Select($agenda->getUserTable(), "*", "usr_id=".$currentUser["user_id"], true, $agenda->isDebug());
          for ($i=0; $i<count($agn_filter_fields); $i++) {
             $value = $rs->getfieldvalue($agn_field[$agn_filter_fields[$i]]["name"], $agn_field[$agn_filter_fields[$i]]["type"], $agenda->isDebug());
             if (strlen($value) > 0) {
@@ -277,7 +262,7 @@ if (!defined('e107_INIT'))
       }
       case "typehelp" : {
          $pagetitle .= " : ".AGENDA_LAN_34;
-         $agn_sql1->select($agenda->getTypeTable(), "*", "order by typ_name", "no-where", $agenda->isDebug());
+         $agn_sql1->db_Select($agenda->getTypeTable(), "*", "order by typ_name", false, $agenda->isDebug());
          $text  = "<div style='text-align:center'>";
          $text .= "<table style='width:100%' class='fborder'>";
          $text .= "<tr style='vertical-align:top'><td class='".$agenda->getPrefHeaderCSS()."'>".AGENDA_LAN_MSG_02."</td></tr>";

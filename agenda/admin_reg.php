@@ -111,7 +111,7 @@
 
    // Get details from DB if Edit, otherwise set from POST data
    if (isset($_POST['edit'])) {
-      $agn_sql1->select($agenda->getRegTable(), "*", " WHERE $primaryid='".$_POST['existing']."'", true, $agenda->isDebug());
+      $agn_sql1->db_Select($agenda->getRegTable(), "*", "$primaryid='".$_POST['existing']."'", true, $agenda->isDebug());
       $row = $agn_sql1->db_Fetch();
    } else {
       if (isset($_POST['add']) || isset($_POST['update'])) {
@@ -121,7 +121,7 @@
 
    // Try the delete
    if (isset($_POST['delete'])) {
-      //$agn_sql1->select($agenda->getAgendaTable(), "*", " WHERE agn_category='".$_POST['existing']."'", true, $agenda->isDebug());
+      //$agn_sql1->db_Select($agenda->getAgendaTable(), "*", "category='".$_POST['existing']."'", true, $agenda->isDebug());
       //if (!$agn_sql1->db_Fetch()) {
          $msg = ($agn_sql1->db_Delete($agenda->getRegTable(), "$primaryid='".$_POST['existing']."'", $agenda->isDebug())) ? LAN_DELETED : LAN_DELETED_FAILED;
       //} else {
@@ -131,12 +131,12 @@
    }
 
    // Draw the form
-   /*if (file_exists(e_PLUGIN."updatecheckerx/updatechecker.php")) {
-      require_once(e_PLUGIN."updatecheckerx/updatechecker.php");
+   if (file_exists(e_PLUGIN."updatechecker/updatechecker.php")) {
+      require_once(e_PLUGIN."updatechecker/updatechecker.php");
       $text .= updateChecker(AGENDA_LAN_NAME, AGENDA_LAN_VER, "http://www.bugrain.plus.com/e107plugins/agenda.ver", "|");
-   } */
+   }
 
-   if (!file_exists(e_PLUGIN."e107helpers/calendar/calendar_class.php")) {
+   if (!file_exists(e_HANDLER."calendar/calendar_class.php")) {
       $text .= "<div style='text-align:center'>";
       $text .= AGENDA_LAN_104;
       $text .= AGENDA_LAN_105;
@@ -152,7 +152,7 @@
 
    $text .= "<tr><td colspan='2' class='forumheader' style='text-align:center'>";
 
-   $table_total = $agn_sql1->select($agenda->getRegTable(), "*", "order by reg_question asc", "no-where", $agenda->isDebug());
+   $table_total = $agn_sql1->db_Select($agenda->getRegTable(), "*", "order by reg_question asc", "", $agenda->isDebug());
    if (!$table_total) {
       $text .= LAN_EMPTY;
    } else {

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e107Plugin name="tagcloud" lan="LAN_PLUGIN_TAGCLOUD_NAME" version="2.0" date="2020-01-09" compatibility="2.3" installRequired="true" >
+	<author name="Jimako " url="https://www.e107sk.com/" />
+	<summary lan="LAN_PLUGIN_TAGCLOUD_SUMMARY">A fully featured Tags system inspired by jezza101</summary>
+	<description lan="LAN_PLUGIN_TAGCLOUD_DESCRIPTION">Top Tag tagclouds for e107 CMS inspired by jezza101</description>
+	<keywords>
+		<word>SEO</word>
+		<word>news</word>
+		<word>tags</word>
+	</keywords>
+	<category>content</category>
+	<copyright>https://www.e107sk.com/</copyright>
+	<adminLinks>
+		<link url="admin/admin_config.php" description="" icon="images/icon_32.png" iconSmall="images/icon_16.png" icon128="" primary="true" >LAN_CONFIGURE</link>
+	</adminLinks>
+</e107Plugin>

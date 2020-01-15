@@ -1,0 +1,39 @@
+## Version 2.0.1 
+- FIXED fix textarea field (wysiwyg)
+
+
+## Version 2.0.0  
+
+- FIXED some sql queries  
+- FIXED parser from 0.6 version
+- UPDATED frontpage by new standards
+- ADDED e_dashboard by new standards
+- REMOVED deprecated e_latest and e_status
+- REWRITTEN shortcodes and template system
+- ADDED plugin.xml, removed plugin.php
+- ADDED new admin_ui by new standards 
+- FIXED missing images
+- REMOVED glossary_ver.php
+ 
+## Planned
+Not working:
+- PLANNED fix somehow linkwords functionality
+~~- PLANNED fix textarea field (wysiwyg)~~
+
+Not updated:
+- PLANNED Convert LAN files (inclunding filenames and paths) to V2 standards
+- PLANNED Change the user field. Change the old v1 (1.NAME) to V2 (1 - user id only) and use USER core functions to retrieve username...
+- PLANNED update e_list.php
+- PLANNED Rewriting of templates and shortcodes, make use of wrappers, mainly in the alphabet button filter...
+
+New functionality:
+- PLANNED Enable image (or images) in definitons. Needs to be made a custom media manager categorie (in plugin.xml) and a database field...
+- PLANNED Allow definition linkwords to be rendered as several options: as a link, as a link AND tooltip, as a tooltip only.
+  - Enable to show link in tooltip or no...
+- PLANNED Code cleanup:
+  - Delete unused functions / methods
+  - Use traits for commonly used functions, instead of classes...
+  - Reuse the admin_config code to render the frontend edit / create definition form, maybe?
+  - Check files / classes redundancy and overhead...
+  - Simplify code. Unnest functions inside single line functions, etc
+- PLANNED Old legacy files cleanup

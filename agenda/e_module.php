@@ -35,7 +35,7 @@ initialization of agenda_class as it needs to know user classes for the logged o
 //
 //   //// Reset everything for testing
 //   $agn_sql1->db_Update($agenda->getCategoryTable(), "cat_last=0, cat_today=0 where cat_id>0");
-//   print mysqli_error();
+//   print mysql_error();
 //
 //   // Check to see if we need to send out emails for future entries
 //   $qry[1] = "

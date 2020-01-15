@@ -1,0 +1,68 @@
+.doc-content-box {
+ 
+}
+.doc-content-box > ul > li{
+    list-style-type: none;
+}
+.doc-index{
+    padding: 10px 5px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eeeeee;
+}
+.doc-index .label{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.doc-index span.label{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.doc-index-block{
+    padding: 10px 5px;
+}
+.doc-index-block:after{
+    content: '';
+    height: 0;
+    display: block;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #ffffff;
+}
+.index-item{
+    margin-bottom: 20px;
+}
+.index-header,
+.index-header > a,
+.class-name{
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace !important;
+}
+.index-desc,
+.class-desc{
+    margin-left: 20px;
+    font-size: 13px;
+}
+
+table#createDef {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.tbox {
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
