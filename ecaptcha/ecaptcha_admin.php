@@ -19,7 +19,7 @@
 
 //------------------------------------------------------------------------------------------------------------+
 
-  if ($_POST)
+  if ($_POST['ecaptcha_admin_submit'])
   {
     $pref['ecaptcha_type_signup']            = $_POST['ecaptcha_type_signup'];
     $pref['ecaptcha_type_guests']            = $_POST['ecaptcha_type_guests'];
@@ -301,7 +301,7 @@
 
   <tr>
     <td colspan='2' style='text-align:center'>
-      <input class='button' type='submit' name='config_submit' value='".LAN_ECAP_ADM_SUBMIT."' />
+      <input class='button' type='submit' name='ecaptcha_admin_submit' value='".LAN_ECAP_ADM_SUBMIT."' />
       <br />
       <br />
       <br />
