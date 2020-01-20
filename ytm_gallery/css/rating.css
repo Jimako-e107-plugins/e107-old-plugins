@@ -1,0 +1,106 @@
+/*
++---------------------------------------------------------------+
+|        YouTube Gallery v4.01 - by Erich Radstake
+|        http://www.erichradstake.nl
+|        info@erichradstake.nl
+|
+|        This is a module for the e107 .7+ website system
+|        Copyright Steve Dunstan 2001-2002
+|        http://e107.org
+|        jalist@e107.org
+|
+|        Released under the terms and conditions of the
+|        GNU General Public License (http://gnu.org).
+|
+|
+|        In this page I included the rating css from:
+|        ryan masuga, masugadesign.com
+|        ryan@masugadesign.com
+|        Licensed under a Creative Commons Attribution 3.0 License.
+|        http://creativecommons.org/licenses/by/3.0/
+|        See readme.txt for full credit details.
+|
++---------------------------------------------------------------+
+*/
+
+.ratingblock {
+	display:block;
+	border-bottom:0px solid #000000;
+	padding-bottom:8px;
+	margin-bottom:8px;
+	}
+
+.loading {
+	height: 23px;
+	background: url('../images/working.gif') 50% 50% no-repeat;
+	}
+	
+.unit-rating { /* the UL */
+	list-style:none;
+ 	margin: 0px auto;
+	padding:0px;
+	height: 23px;
+	position: relative;
+	background: url('../images/1.gif') top left repeat-x;
+	}
+
+	
+
+.unit-rating li{
+    text-indent: -90000px;
+	padding:0px;
+	margin:0px;
+	/*\*/
+	float: left;
+	/* */
+	}
+	
+.unit-rating li a {
+	outline: none;
+	display:block;
+	width:23px;
+	height: 23px;
+	text-decoration: none;
+	text-indent: -9000px;
+	z-index: 20;
+	position: absolute;
+	padding: 0px;
+	}
+	
+.unit-rating li a:hover{
+	background: url('../images/1.gif') left center;
+	z-index: 2;
+	left: 0px;
+	}
+
+.unit-rating a.r1-unit{left: 0px;}
+.unit-rating a.r1-unit:hover{width:23px;}
+.unit-rating a.r2-unit{left:23px;}
+.unit-rating a.r2-unit:hover{width: 46px;}
+.unit-rating a.r3-unit{left: 46px;}
+.unit-rating a.r3-unit:hover{width: 69px;}
+.unit-rating a.r4-unit{left: 69px;}
+.unit-rating a.r4-unit:hover{width: 92px;}
+.unit-rating a.r5-unit{left: 92px;}
+.unit-rating a.r5-unit:hover{width: 115px;}
+.unit-rating a.r6-unit{left: 115px;}
+.unit-rating a.r6-unit:hover{width: 138px;}
+.unit-rating a.r7-unit{left: 138px;}
+.unit-rating a.r7-unit:hover{width: 161px;}
+.unit-rating a.r8-unit{left: 161px;}
+.unit-rating a.r8-unit:hover{width: 184px;}
+.unit-rating a.r9-unit{left: 184px;}
+.unit-rating a.r9-unit:hover{width: 207px;}
+.unit-rating a.r10-unit{left: 207px;}
+.unit-rating a.r10-unit:hover{width: 230px;}
+
+.unit-rating li.current-rating {
+	background: url('../images/1.gif') left bottom;
+	position: absolute;
+	height: 23px;
+	display: block;
+	text-indent: -9000px;
+	z-index: 1;
+	}
+
+

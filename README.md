@@ -1332,3 +1332,17 @@ Original:  greycube.com
 just backup
 
 ======= 
+
+## ytm_gallery
+###  YouTube Gallery v4.01 - by Erich Radstake
+Courtesy of akogo
+
+Fixed version ? 
+https://github.com/yesszus/ytm_gallery
+
+======= 
+
+## textsizer
+Textsizer
+
+Courtesy of akogo
