@@ -43,9 +43,10 @@ $text .= "<table style='width:100%' class='forumheader3'>
 
 $text .= "<table style='width:100%' class='forumheader3'>";
 
-$sql->gen("SELECT * FROM ".MPREFIX."clan_listing_cat ORDER BY clan_cat_order ASC");
-while($row = $sql->fetch()){
-
+//$sql->gen("SELECT * FROM ".MPREFIX."clan_listing_cat ORDER BY clan_cat_order ASC");
+//while($row = $sql->fetch()){
+$rows =  e107::getDb()->retrieve("SELECT * FROM ".MPREFIX."clan_listing_cat ORDER BY clan_cat_order ASC", true);
+foreach($rows as $row){
 $sql2 = e107::getDb();
 $sql2->gen("select clan_cat, count(clan_id) as cls from ".MPREFIX."clan_listing where clan_cat='".intval($row['clan_cat_id'])."';");
 $clanic = $sql2->fetch();
