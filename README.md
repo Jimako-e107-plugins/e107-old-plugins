@@ -720,12 +720,8 @@ just backup
 ## latestrelease_menu
 ### Latest Release Menu for e107 v7xx - by Father Barry
 
-Version: 2.8
+ARCHIVED
 
-Source: https://osdn.net/projects/sfnet_e107german/releases/
-
-Just backup
- 
 =======
 
 
