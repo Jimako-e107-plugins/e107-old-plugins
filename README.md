@@ -39,13 +39,7 @@ Php version:  compatible with php7
 ## aacgc_dltracker
 ###  AACGC Download Tracker by M@CH!N3 
 
-Description: Download Tracker plugin that shows all downloads on a page with number of times downloaded, click each download to view who and when they download it.
-
-Update for e107 V2 and active use:
-https://github.com/Jimmi08/e107-free-plugins-by-e107sk/tree/master/aacgc_dltracker
-
-Support:
-https://www.e107sk.com/forum/
+TRASHED
 
 =======
 

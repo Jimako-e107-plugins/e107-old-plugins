@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e107Plugin name="AACGC Download Tracker" lan="AACGC Download Tracker" version="2.0.0" date="2019-07-09" compatibility="2.0" installRequired="true" >
+	<author name="Jimako" url="https://www.e107sk.com/" />
+	<summary lan="">Download Tracker plugin that shows all downloads on a page with number of times downloaded </summary>
+	<description lan="">Download Tracker plugin that shows all downloads on a page with number of times downloaded, click each download to view who and when they download it</description>
+	<keywords>
+		<word>files</word>
+		<word>content</word>
+		<word>download</word>
+	</keywords>
+	<category>content</category>
+	<copyright>https://www.e107sk.com/</copyright>
+	<adminLinks>
+		<link url="admin/admin_config.php" description="" icon="images/icon_32.png" iconSmall="images/icon_16.png" icon128="images/icon_64.png" primary="true" >LAN_CONFIGURE</link>
+	</adminLinks>
+	<pluginPrefs>
+		<pref name='dltracker_enable_avatar'>1</pref>
+		<pref name='dltracker_enable_gold'>0</pref>
+		<pref name='dltracker_enable_profile'>1</pref>
+		<pref name='dltracker_pagetitle'>Download Tracker</pref>
+		<pref name='dltracker_avatar_size'>25</pref>
+		<pref name='dltracker_rendperpage'>25</pref>		
+	</pluginPrefs>
+</e107Plugin>
