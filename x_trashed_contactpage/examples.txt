@@ -1,0 +1,21 @@
+
+e107::pref('contactpage', 'contact_adress');
+e107::pref('contactpage', 'contact_phone');
+
+
+$textworkinghours =  e107::pref('contactpage', 'text_business_hours');
+$textworkinghours =  e107::getParser()->toHTML($textworkinghours,'','TITLE');
+$workinghours =  e107::pref('contactpage', 'business_hours');
+$workinghours =  e107::getParser()->toHTML($workinghours,'','TITLE');
+
+
+if(THEME_LAYOUT == 'contact'  )    {
+  $googlemapsapikey = e107::pref('contactpage', 'googlemapsapikey');
+	e107::js("url", "https://maps.google.com/maps/api/js?key={$googlemapsapikey}", 'jquery', 2);	
+	e107::js("theme", "js/gmap3.min.js", 'jquery', 2);
+} 
+
+
+$mapmarker 		 = e107::pref('contactpage', 'mapmarker', FALSE);  
+if($mapmarker)  	{  $mapmarker = e107::getParser()->replaceConstants($mapmarker);    } 
+else { $mapmarker 		 =  THEME.'images/marker.png' ;  }  
