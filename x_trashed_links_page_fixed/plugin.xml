@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e107Plugin name="Links" lan="LCLAN_PLUGIN_LAN_1" version="2.3.4" date="2020-04-01" compatibility="2.0" installRequired="true" >
+	<author name="Jimako" />
+	<summary lan="LCLAN_PLUGIN_LAN_2">Links Page For Displaying External Web Links by e107 Inc.</summary>
+	<description lan="LCLAN_PLUGIN_LAN_2">Links Page For Displaying External Web Links by e107 Inc.</description>
+	<keywords>
+		<word>links</word>
+		<word>page</word>
+	</keywords>
+	<category>content</category>
+	<copyright>GPL+WTFPL</copyright>
+	<adminLinks>
+		<link url="admin_config.php" description="LCLAN_PLUGIN_LAN_3" icon="images/linkspage_32.png" 
+    iconSmall="images/linkspage_16.png" primary="true" >LCLAN_PLUGIN_LAN_3</link>
+	</adminLinks>
+	<siteLinks>
+		<link url="links_page/links" perm="everyone"  sef="index" description="Links Page" >LCLAN_PAGETITLE_1</link>
+	</siteLinks>
+	<pluginPrefs>
+		<pref name='link_page_categories'>1</pref>
+		<pref name='link_submit'>0</pref> 
+		<pref name='link_submit_class'>255</pref>   
+		<pref name='link_submit_directpost'>0</pref>      
+		<pref name='link_nextprev'>1</pref>
+		<pref name='link_nextprev_number'>20</pref>
+		<pref name='link_comment'>0</pref>
+		<pref name='link_rating'>0</pref> 
+ 		<pref name='link_display_navigator'>1</pref>     
+		<pref name='link_navigator_frontpage'>1</pref>  
+		<pref name='link_navigator_submit'>1</pref>    
+		<pref name='link_navigator_manager'>1</pref>    
+		<pref name='link_navigator_refer'>1</pref>  
+		<pref name='link_navigator_rated'>1</pref>    
+		<pref name='link_navigator_allcat'>1</pref>    
+		<pref name='link_navigator_category'>1</pref>
+		<pref name='link_manager'>0</pref> 
+		<pref name='link_manager_class'></pref> 
+		<pref name='link_directpost'>0</pref> 
+		<pref name='link_directdelete'>0</pref>     
+		<pref name='link_cat_icon'>1</pref>
+		<pref name='link_cat_desc'>1</pref>
+		<pref name='link_cat_amount'>1</pref>
+		<pref name='link_cat_total'>1</pref>
+		<pref name='link_cat_empty'>1</pref>
+		<pref name='link_cat_sort'>link_category_name</pref>
+		<pref name='link_cat_order'>ASC</pref>
+		<pref name='link_cat_resize_value'>50</pref>         
+		<pref name='link_icon'>1</pref>
+		<pref name='link_referal'>1</pref>
+		<pref name='link_desc'>1</pref>    
+		<pref name='link_sort'>order</pref>
+		<pref name='link_order'>ASC</pref>
+		<pref name='link_open_all'>5</pref>    
+		<pref name='link_resize_value'>100</pref>
+ 		<pref name='link_refer_minimum'></pref>
+		<pref name='link_rating_minimum'></pref>        
+		<pref name='link_menu_caption'>Link menu</pref>   
+		<pref name='link_menu_navigator_frontpage'>1</pref>
+		<pref name='link_menu_navigator_submit'>1</pref>
+		<pref name='link_menu_navigator_manager'>1</pref>
+		<pref name='link_menu_navigator_refer'>1</pref>
+		<pref name='link_menu_navigator_rated'>1</pref>
+		<pref name='link_menu_navigator_links'>1</pref>
+		<pref name='link_menu_navigator_category'>1</pref> 
+		<pref name='link_menu_navigator_caption'>Navigator</pref>   
+		<pref name='link_menu_navigator_rendertype'>1</pref>    
+		<pref name='link_menu_category'>1</pref>
+		<pref name='link_menu_category_amount'>1</pref>
+		<pref name='link_menu_category_caption'>Categories</pref>
+		<pref name='link_menu_category_rendertype'>1</pref>    
+		<pref name='link_menu_recent'>1</pref>
+		<pref name='link_menu_recent_category'></pref>
+		<pref name='link_menu_recent_description'></pref> 
+		<pref name='link_menu_recent_caption'>Recent list</pref>
+		<pref name='link_menu_recent_number'>5</pref>   
+	</pluginPrefs>
+</e107Plugin>
