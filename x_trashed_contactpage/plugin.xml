@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e107Plugin name="Contact Page Extended" lan="LAN_001" version="1.1" date="2017-04-10" compatibility="2.0" installRequired="true" >
+	<author name="Jimako" url="http://www.e107.sk/" />
+	<summary lan="">Contact page extended</summary>
+	<description lan="">Contact page extended</description>
+	<keywords>
+		<word>information</word>
+		<word>contact</word>
+		<word>page</word>
+	</keywords>
+	<category>content</category>
+	<copyright>e107.sk</copyright>
+	<adminLinks>
+		<link url="admin_config.php" description="" icon="images/_icon_32.png" iconSmall="images/_icon_16.png" icon128="images/_icon_128.png" primary="true" >LAN_CONFIGURE</link>		<link url="admin_config.php" description="" icon="contact-icon.png" iconSmall="" icon128="" primary="true" >LAN_CONFIGURE</link>
+	</adminLinks>
+	<pluginPrefs>
+		<pref name='contact_name'>Company name</pref>
+		<pref name='contact_email'>Company email</pref>
+		<pref name='contact_phone'>Company phone</pref>
+		<pref name='contact_fax'>Company fax</pref>
+		<pref name='contact_mobile'>Company mobile</pref>
+		<pref name='business_hours'></pref>
+		<pref name='contact_address'>Company address</pref>
+		<pref name='text_contact_info'>Contact Info</pref>
+		<pref name='text_business_hours'>Business Hours</pref>
+		<pref name='text_contact_title'>We Want To Hear From You</pref>
+		<pref name='text_contact_subtitle'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec vehicula felis, ac porttitor lacus. Nam at dui diam. Quisque mollis vulputate lectus nec dictum. Suspendisse luctus, ipsum a dapibus iaculis, tortor velit ornare odio, ut laoreet arcu lorem at libero. Mauris sit amet nunc enim.</pref>
+		<pref name='google_maps_embed'></pref>	
+		<pref name='mapmarker'></pref>	
+	</pluginPrefs>
+</e107Plugin>
