@@ -1,0 +1,120 @@
+Kader der Mannschaft:  in der Liga:  Saison: 
+-------------------------------------------------------------------------------
+8;1;1;0;;Rütten, Malte;|
+8;1;1;27;;Jakob, Bastian;|
+8;1;1;31;15.02.1984;Peußer, Christian;|
+8;1;2;3;04.06.1989;Hoffmann, Lucas;|
+8;1;2;4;23.12.1981;Frings, Rainer;|
+8;1;2;7;20.07.1987;Pering, Daniel;|
+8;1;2;13;19.10.1988;Hellwig, Marco;|
+8;1;2;16;12.05.1983;van Eck, Philipp;|
+8;1;2;22;;Blumentritt, Steve;|
+8;1;2;23;01.10.1980;Gellrich, Jens Thore;|
+8;1;2;44;;Ackermann, Boris;|
+8;1;3;0;13.11.1980;Philipp, Christian;|
+8;1;3;9;10.03.1992;Preuß, Yannik;|
+8;1;3;10;19.08.1980;Neuß, Mario;|
+8;1;3;11;23.07.1989;Ernst, Sven;|
+8;1;3;18;27.12.1989;Heiser, Simon;|
+8;1;3;19;;Warda, Manuel;|
+8;1;3;21;03.09.1986;Zeh, Christopher;|
+8;1;3;30;10.07.1969;Wilmshöfer, André ;|
+8;1;3;37;10.07.1983;Angermann, Ingo;|
+8;1;3;67;10.05.1986;Roth, Manuel;|
+8;1;3;69;14.09.1983;Höfgen, Mike;|
+8;1;3;71;04.01.1986;Schrills, Holger;|
+8;1;3;78;02.08.1978;Marten, Hagen;|
+8;1;3;87;19.10.1990;Brings, Kevin;|
+8;1;3;91;11.04.1991;Schmitz, Christian;|
+8;1;9;1;24.04.1960;Malz, Uwe;|
+8;1;9;2;;Spychala, Josef;|
+8;1;9;3;12.06.1968;Jost, Udo;|
+8;1;10;0;04.08.1962;Kalinowski, Eddy;|
+----------------------------------06.09.11  16:39--------------------------------
+
+
+Kader der Mannschaft:  in der Liga:  Saison: 
+-------------------------------------------------------------------------------
+9;1;1;1;01.01.1970;Ohmann, Constantin;|
+9;1;1;27;16.09.1987;Tebbe, Christian;|
+9;1;1;48;21.09.1984;Kamp, Maurice;|
+9;1;2;4;01.01.1970;Spielmann, Lars;|
+9;1;2;5;01.01.1970;Moesgen, Lukas;|
+9;1;2;7;01.01.1970;Brandt, Tilo;|
+9;1;2;11;01.01.1970;Engelsmann, Marc;|
+9;1;2;14;29.07.1989;Boosen, Andreas;|
+9;1;2;18;01.01.1970;Mühlenberg, Tim;|
+9;1;2;22;01.01.1970;Mahnke, Lars;|
+9;1;2;68;;Fontaine, Patrik;|
+9;1;2;69;01.01.1970;;|
+9;1;2;77;01.01.1970;Dickopf, Dominik;|
+9;1;3;2;21.10.1984;Skupina, Dennis;|
+9;1;3;8;01.01.1970;Arnold, Andreas;|
+9;1;3;9;01.01.1970;Mackenstein, Pascal;|
+9;1;3;13;04.01.1981;Bissmann, Dennis;|
+9;1;3;15;20.06.1986;Lesage, Dennis;|
+9;1;3;16;01.01.1970;Arnold, Alexander;|
+9;1;3;17;01.01.1970;Schneider, Kim;|
+9;1;3;19;01.01.1970;Kalisch, Michael;|
+9;1;3;20;;Kajer, Dimitry;|
+9;1;3;21;01.01.1970;Benken, Hendrik;|
+9;1;3;24;;Spazier, Patrick;|
+9;1;3;28;20.12.1988;Weyand, Sarah;|
+9;1;3;44;01.01.1970;Gemein, Julian;|
+9;1;3;55;01.01.1970;Radunski, Niklas;|
+9;1;3;78;01.01.1970;Deckert, Max;|
+9;1;3;84;;Spazier, Benjamin;|
+9;1;3;88;05.07.1991;Krüger, Martin;|
+9;1;3;90;20.09.1990;Mommers, Marc;|
+9;1;3;91;01.01.1970;Erlenhardt, Mark;|
+9;1;9;0;01.01.1970;Emersic, Andrej;|
+----------------------------------06.09.11  16:41--------------------------------
+
+
+Kader der Mannschaft:  in der Liga:  Saison: 
+-------------------------------------------------------------------------------
+10;1;1;29;14.02.1992;Nilges, Oliver;|
+10;1;1;39;06.03.1986;Henning, Domenik;|
+10;1;2;24;09.01.1992;Baum, Jerome;|
+10;1;2;37;10.08.1971;Brux, Arno;|
+10;1;2;46;07.02.1990;Staudt, Fabian;|
+10;1;2;55;03.06.1991;Kajer, Richard;|
+10;1;2;59;22.04.1987;Ackers, Gerrit;|
+10;1;3;7;10.09.1977;Schroll, André;|
+10;1;3;9;21.02.1982;Reimann, Carsten;|
+10;1;3;10;16.12.1982;Holzki, Matthias;|
+10;1;3;13;03.05.1991;Olesko, Markus;|
+10;1;3;19;01.01.1970;Schmetz, Sascha;|
+10;1;3;20;12.09.1984;Holstein, Dennis;|
+10;1;3;21;01.01.1970;Stockenschneider, Jan;|
+10;1;3;22;11.08.1991;Bergmann, Andreas;|
+10;1;3;26;04.04.1982;Stetz, Karl;|
+10;1;3;50;26.12.1988;Köster, Christoph;|
+10;1;3;60;08.02.1991;Roosen, Tobias;|
+10;1;3;67;06.07.1991;Bisel, Lukas;|
+10;1;9;0;09.06.1958;Lang, Karel;|
+----------------------------------06.09.11  16:41--------------------------------
+
+
+Kader der Mannschaft:  in der Liga:  Saison: 
+-------------------------------------------------------------------------------
+6;1;1;30;20.09.1987;Werth, Sören;|
+6;1;1;33;;Arndt, Tobias;|
+6;1;2;2;02.09.1982;Keyser, Nicolas;|
+6;1;2;7;01.01.1970;Kundrun, Kolja;|
+6;1;2;9;13.02.1985;Sprenger, Stefan;|
+6;1;2;20;;Eickhoff, Steffen;|
+6;1;2;52;;Fisahn, Konrad;|
+6;1;3;16;27.11.1981;Buschmann, Jan;|
+6;1;3;25;01.01.1970;König, Gordon;|
+6;1;3;27;13.12.1982;Sprenger, Christian;|
+6;1;3;29;;Neuschröer, Corvin;|
+6;1;3;67;01.01.1970;Ehlert, Thomas;|
+6;1;3;70;;Beck, Andrej;|
+6;1;3;77;20.12.1989;Siering, Jan;|
+6;1;3;88;17.02.1986;Sprenger, Sebastian;|
+6;1;3;91;01.01.1970;Seume, Till;|
+6;1;9;0;01.01.1970;Höcker, Burkhard;|
+----------------------------------06.09.11  16:42--------------------------------
+
+

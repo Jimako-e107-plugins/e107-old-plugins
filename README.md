@@ -1334,3 +1334,31 @@ https://github.com/yesszus/ytm_gallery
 Textsizer
 
 Courtesy of akogo
+
+======= 
+
+***RuSsE***
+e107 League 0.75
+Courtesy of e1074ax.de
+
+======= 
+
+***RuSsE***
+News Slider
+Courtesy of e1074ax.de
+
+======= 
+
+***RuSsE***
+
+Mein kleines Onlineshop
+Courtesy of e1074ax.de
+
+======= 
+
+***RuSsE***
+
+4xA-LNM (Last- News- Menu) version 0.5.1  
+Courtesy of e1074ax.de
+
+======= 

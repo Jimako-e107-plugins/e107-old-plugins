@@ -1,0 +1,26 @@
+.stickytooltip{
+box-shadow: 5px 5px 8px #818181; /*shadow for CSS3 capable browsers.*/
+webkit-box-shadow: 5px 5px 8px #818181;
+moz-box-shadow: 5px 5px 8px #818181;
+display:none;
+position:absolute;
+display:none;
+border:0px solid black; /*Border around tooltip*/
+background:transparent url(../images/player_bg.png) no-repeat;
+padding-top:4px;
+padding-left:4px;
+padding-right:20px;
+padding_bottom:10px;
+text-align:left;
+font-weight:bold;
+z-index:3000;
+}
+
+
+.stickytooltip .stickystatus{ /*Style for footer bar within tooltip*/
+background:black;
+color:white;
+padding-top:5px;
+text-align:center;
+font:bold 11px Arial;
+}
