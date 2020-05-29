@@ -1,0 +1,58 @@
+.eg_border 
+{
+	border: 1px #808080 solid;
+	font-size: 8pt;
+	padding: 1px;
+	text-align: center;
+}
+.eg_side_border 
+{
+	border-left:1px #808080 solid;
+	border-right:1px #808080 solid;
+	font-size:8pt;
+	padding:1px;
+}
+.eg_leftcell_border
+{
+	border-left:1px #808080 solid;
+	border-top:1px #808080 solid;
+	border-bottom:1px #808080 solid;
+	font-size:8pt;
+	padding:1px;
+}
+table 
+{
+	border-collapse: collapse;
+}
+.page 
+{
+	text-decoration: none;
+}
+a.page:hover 
+{
+	text-decoration: underline;
+	color: #000099;
+}
+.boldText 
+{
+	font-weight: bold;
+    font-size: 8pt;
+	text-align: center;
+}
+a.albums 
+{
+	font-size: 8pt; 
+    color: #0000FF;
+	text-decoration: none;
+}
+a.albums:hover 
+{
+    text-decoration: underline;
+    color: #000099;
+}
+.currentAlbum 
+{
+    font-size: 12pt; 
+    color: #000000;
+    text-decoration: none;
+}
