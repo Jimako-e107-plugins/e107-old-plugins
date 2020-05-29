@@ -1416,3 +1416,8 @@ Courtesy of e1074ax.de
 
 =======
 
+Auction by bugrain (www.bugrain.plus.com)
+
+Auction plugin for holding online auctions
+
+=======

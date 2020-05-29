@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="auction_admin_prefs_20_form" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <div name="auction_header_owner" text="AUC_ADMIN_PREFS_NOTIFY_OWNER">
+         <style name="font-weight">bold</style>
+      </div>
+
+      <list name="auction_notify_owner_bid" label="AUC_ADMIN_PREFS_NOTIFY_BID" prompt="AUC_ADMIN_PREFS_NOTIFY_BID_1" help="AUC_ADMIN_PREFS_NOTIFY_BID_2" class="tbox">
+         <default var="e107pref"/>
+         <value key="AUCC_NOTIFY_KEY_0">AUC_LAN_NOTIFY_VALUE_0</value>
+         <value key="AUCC_NOTIFY_KEY_1">AUC_LAN_NOTIFY_VALUE_1</value>
+         <value key="AUCC_NOTIFY_KEY_2">AUC_LAN_NOTIFY_VALUE_2</value>
+         <value key="AUCC_NOTIFY_KEY_3">AUC_LAN_NOTIFY_VALUE_3</value>
+      </list>
+
+      <div name="auction_header_poster" text="AUC_ADMIN_PREFS_NOTIFY_POSTER">
+         <style name="font-weight">bold</style>
+      </div>
+
+      <list name="auction_notify_poster_bid" label="AUC_ADMIN_PREFS_NOTIFY_BID" prompt="AUC_ADMIN_PREFS_NOTIFY_BID_1" help="AUC_ADMIN_PREFS_NOTIFY_BID_2" class="tbox">
+         <default var="e107pref"/>
+         <value key="AUCC_NOTIFY_KEY_0">AUC_LAN_NOTIFY_VALUE_0</value>
+         <value key="AUCC_NOTIFY_KEY_1">AUC_LAN_NOTIFY_VALUE_1</value>
+         <value key="AUCC_NOTIFY_KEY_2">AUC_LAN_NOTIFY_VALUE_2</value>
+         <value key="AUCC_NOTIFY_KEY_3">AUC_LAN_NOTIFY_VALUE_3</value>
+      </list>
+
+   </form>
+
+</e107HelperForm>
