@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="yellowpages_categories_form" type="HELPER_FORM_TYPE_DB_ROW">
+
+      <dbdetails>
+         <dbtable>yellowpages_category</dbtable>
+         <index>yell_cat_id</index>
+         <data>yell_cat_name, yell_cat_parent_id</data>
+         <order>yell_cat_name asc</order>
+         <liststyle>tbox</liststyle>
+         <dbformatcallback class='yellowpages'>yellCategoryFormatDropDown</dbformatcallback>
+      </dbdetails>
+
+      <text name="yell_cat_name" label="YELP_LAN_CAT_01_0" prompt="YELP_LAN_CAT_01_1" class="tbox">
+         <default var="db"/>
+         <mandatory>true</mandatory>
+         <attribute name='size'>50</attribute>
+         <maxlength>100</maxlength>
+      </text>
+
+      <list name="yell_cat_section_id" label="YELP_LAN_CAT_05_0" prompt="YELP_LAN_CAT_05_1" class="tbox">
+         <default var="db"/>
+         <listcallback>yell_cb_catSection</listcallback>
+         <callbackparam name="all">true</callbackparam>
+      </list>
+
+      <list name="yell_cat_parent_id" label="YELP_LAN_CAT_04_0" prompt="YELP_LAN_CAT_04_1" class="tbox">
+         <default var="db"/>
+         <listcallback>yell_cb_parentCategory</listcallback>
+         <callbackparam name="all">false</callbackparam>
+      </list>
+
+      <textarea name="yell_cat_description" label="YELP_LAN_CAT_02_0" prompt="YELP_LAN_CAT_02_1" class="tbox">
+         <default var="db"/>
+         <style name="width">95%</style>
+         <attribute name="rows">5</attribute>
+         <attribute name="cols">120</attribute>
+         <bbcodes>1</bbcodes>
+      </textarea>
+
+      <image name="yell_cat_icon" label="YELP_LAN_CAT_03_0" prompt="YELP_LAN_CAT_03_1" class="tbox">
+         <default var="db"/>
+         <dir>e_IMAGE</dir>
+         <attribute name="size">60</attribute>
+      </image>
+
+   </form>
+
+</e107HelperForm>

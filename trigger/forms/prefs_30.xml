@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="trigger_filter" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <checkbox name="trigger_naa_enabled" label="TRIGGER_LAN_PREFS_30_1" prompt="TRIGGER_LAN_PREFS_30_1p" help="TRIGGER_LAN_PREFS_30_1h" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <accesstable name="trigger_naa_submit_class" label="TRIGGER_LAN_PREFS_30_2" prompt="TRIGGER_LAN_PREFS_20_2p" help="TRIGGER_LAN_PREFS_20_2h" class="tbox">
+         <default var="e107pref">255</default>
+      </accesstable>
+
+      <accesstable name="trigger_naa_view_class" label="TRIGGER_LAN_PREFS_30_2" prompt="TRIGGER_LAN_PREFS_20_2p" help="TRIGGER_LAN_PREFS_20_2h" class="tbox">
+         <default var="e107pref">255</default>
+      </accesstable>
+
+      <textarea name="trigger_naa_append_text" label="TRIGGER_LAN_PREFS_30_4" prompt="TRIGGER_LAN_PREFS_30_4p" help="TRIGGER_LAN_PREFS_30_4h" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="rows">7</attribute>
+         <style name="width">95%</style>
+         <bbcodes>true</bbcodes>
+      </textarea>
+
+      <checkbox name="trigger_naa_append_poster" label="TRIGGER_LAN_PREFS_30_5" prompt="TRIGGER_LAN_PREFS_30_5p" help="TRIGGER_LAN_PREFS_30_5h" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="trigger_naa_allow_comments" label="TRIGGER_LAN_PREFS_30_6" prompt="TRIGGER_LAN_PREFS_30_6p" help="TRIGGER_LAN_PREFS_30_6h" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="trigger_naa_delete_submitted" label="TRIGGER_LAN_PREFS_30_7" prompt="TRIGGER_LAN_PREFS_30_7p" help="TRIGGER_LAN_PREFS_30_7h" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <textarea name="trigger_naa_autoapproved_message" label="TRIGGER_LAN_PREFS_30_8" prompt="TRIGGER_LAN_PREFS_30_8p" help="TRIGGER_LAN_PREFS_30_8h" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="rows">7</attribute>
+         <style name="width">95%</style>
+         <bbcodes>true</bbcodes>
+      </textarea>
+
+   </form>
+
+</e107HelperForm>

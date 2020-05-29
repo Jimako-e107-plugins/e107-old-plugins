@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="yellowpages_admin_prefs_90_form" type="HELPER_FORM_TYPE_NO_BUTTONS">
+
+      <errorsattop value="true" />
+
+      <list name="yell_cat_section_id" label="YELP_LAN_IMPORT_05_0" prompt="YELP_LAN_IMPORT_05_1" class="tbox">
+         <default var="db"/>
+         <listcallback>yell_cb_catSection</listcallback>
+         <callbackparam name="all">true</callbackparam>
+      </list>
+
+      <checkbox name="yellowpages_import_merge" label="YELP_LAN_IMPORT_01_0" prompt="YELP_LAN_IMPORT_01_1" help="YELP_LAN_IMPORT_01_2" class="tbox">
+         <default></default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="yellowpages_copy_comments" label="YELP_LAN_IMPORT_02_0" prompt="YELP_LAN_IMPORT_02_1" help="YELP_LAN_IMPORT_02_2" class="tbox">
+         <default></default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="yellowpages_copy_ratings" label="YELP_LAN_IMPORT_03_0" prompt="YELP_LAN_IMPORT_03_1" help="YELP_LAN_IMPORT_03_2" class="tbox">
+         <default></default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="yellowpages_import_debug" label="YELP_LAN_IMPORT_04_0" prompt="YELP_LAN_IMPORT_04_1" help="YELP_LAN_IMPORT_04_2" class="tbox">
+         <default></default>
+         <value>1</value>
+      </checkbox>
+
+      <button name="yellowpages_import_go" label="YELP_LAN_IMPORT_00_0" prompt="YELP_LAN_IMPORT_00_1" help="YELP_LAN_IMPORT_00_2" class="button">
+         <value>YELP_LAN_IMPORT_00_3</value>
+         <event name="click">document.getElementById('yellowpages_admin_prefs_90_form').submit();</event>
+      </button>
+
+   </form>
+
+</e107HelperForm>

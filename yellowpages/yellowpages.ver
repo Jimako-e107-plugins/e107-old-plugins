@@ -1,0 +1,16 @@
+1
+|
+1.1
+|
+http://www.bugrain.plus.com/e107plugins/yellowpages_v1.1.zip
+|
+Highlights of Yellow Pages v1.1
+<ul>
+   <li>+ Now uses The e107 Helper Project plugin</li>
+   <li>+ Allow comments to be posted (by userclass)</li>
+   <li>+ Allow entries to be rated (by userclass)</li>
+   <li>+ Can now set various CSS styles in Admin preferences</li>
+   <li>* Ordering is not alphabetic within category</li>
+   <li>* Fatal error: Call to a member function on a non-object in search.php on line 13</li>
+   <li>* Hand pointer cursor when over 'expandit' areas.</li>
+</ul>

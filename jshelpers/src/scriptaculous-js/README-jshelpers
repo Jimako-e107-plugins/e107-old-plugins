@@ -1,0 +1,9 @@
+== jshelpers plugin for e107 - script.aculo.us web 2.0 javascript
+
+This distribution of script.aculo.us is a cut down version of the full distribution.
+
+The lib folder, containing the prototype.js source - has been removed. Prototype is
+included in it's own folder for thie e107 plugin.
+
+The test folder has been removed to reduce the size of the distributioin and to
+prevent unwanted HTML files being installed on an e107 site.

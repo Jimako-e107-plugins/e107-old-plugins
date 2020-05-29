@@ -1,0 +1,102 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="userjournals_prefs_form" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <checkbox name="userjournals_active" label="JOURNAL_A3" prompt="JOURNAL_A3_P" class="tbox">
+         <default var="e107pref"/>
+         <value>1</value>
+      </checkbox>
+
+      <text name="userjournals_page_title" label="JOURNAL_A13" prompt="JOURNAL_A13_P" class="tbox">
+         <default var="e107pref">UJ1</default>
+      </text>
+
+      <text name="userjournals_menu_title" label="JOURNAL_A14" prompt="JOURNAL_A14_P" class="tbox">
+         <default var="e107pref">UJ1</default>
+      </text>
+
+      <text name="userjournals_cat_menu_title" label="JOURNAL_A29" prompt="JOURNAL_A29_P" class="tbox">
+         <default var="e107pref">UJ94</default>
+      </text>
+
+      <accesstable name="userjournals_writers" label="JOURNAL_A11" prompt="JOURNAL_A11_P" class="tbox">
+         <default var="e107pref"/>
+      </accesstable>
+
+      <accesstable name="userjournals_readers" label="JOURNAL_A12" prompt="JOURNAL_A12_P" class="tbox">
+         <default var="e107pref"/>
+      </accesstable>
+
+      <accesstable name="userjournals_allowcomments" label="JOURNAL_A6" prompt="JOURNAL_A6_P" class="tbox">
+         <default var="e107pref"/>
+      </accesstable>
+
+      <accesstable name="userjournals_allowratings" label="JOURNAL_A15" prompt="JOURNAL_A15_P" class="tbox">
+         <default var="e107pref"/>
+      </accesstable>
+
+      <numeric name="userjournals_len_subject" label="JOURNAL_A19" prompt="JOURNAL_A19_P" class="tbox">
+         <default var="e107pref">30</default>
+         <minvalue>5</minvalue>
+      </numeric>
+
+      <numeric name="userjournals_len_preview" label="JOURNAL_A20" prompt="JOURNAL_A20_P" class="tbox">
+         <default var="e107pref">400</default>
+      </numeric>
+
+      <numeric name="userjournals_recent_entries" label="JOURNAL_A21" prompt="JOURNAL_A21_P" class="tbox">
+         <default var="e107pref">5</default>
+      </numeric>
+
+      <numeric name="userjournals_bloggers_menu_max" label="JOURNAL_A31" prompt="JOURNAL_A31_P" class="tbox">
+         <default var="e107pref">0</default>
+      </numeric>
+
+      <numeric name="userjournals_bloggers_per_page" label="JOURNAL_A32" prompt="JOURNAL_A32_P" class="tbox">
+         <default var="e107pref">0</default>
+      </numeric>
+
+      <numeric name="userjournals_blogs_per_page" label="JOURNAL_A33" prompt="JOURNAL_A33_P" class="tbox">
+         <default var="e107pref">0</default>
+      </numeric>
+
+      <checkbox name="userjournals_show_rss" label="JOURNAL_A22" prompt="JOURNAL_A22_P" class="tbox">
+         <default var="e107pref"/>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="userjournals_show_playing" label="JOURNAL_A23" prompt="JOURNAL_A23_P" class="tbox">
+         <default var="e107pref"/>
+         <value>1</value>
+      </checkbox>
+
+      <list name="userjournals_show_cats" label="JOURNAL_A25" prompt="JOURNAL_A25_P" class="tbox">
+         <default var="e107pref"/>
+         <value key="0">JOURNAL_A25_0</value>
+         <value key="1">JOURNAL_A25_1</value>
+         <value key="2">JOURNAL_A25_2</value>
+      </list>
+
+      <list name="userjournals_template" label="JOURNAL_A30" prompt="JOURNAL_A30_P" class="tbox">
+         <default var="e107pref"/>
+         <listcallback class='UserJournals'>getTemplates</listcallback>
+         <includeBlank>true</includeBlank>
+      </list>
+
+      <checkbox name="userjournals_show_mood" label="JOURNAL_A24" prompt="JOURNAL_A24_P" class="tbox">
+         <default var="e107pref"/>
+         <value>1</value>
+      </checkbox>
+
+      <list name="userjournals_report_blog" label="JOURNAL_A34" prompt="JOURNAL_A34_P" class="tbox">
+         <default var="e107pref"/>
+         <value key="0">JOURNAL_A34_0</value>
+         <value key="1">JOURNAL_A34_1</value>
+         <value key="2">JOURNAL_A34_2</value>
+         <value key="3">JOURNAL_A34_3</value>
+      </list>
+
+   </form>
+
+</e107HelperForm>

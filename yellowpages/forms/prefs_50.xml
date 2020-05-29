@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="yellopages_prefs_form" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <text name="yellowpages_page_title" label="YELP_LAN_PREF_01_0" prompt="YELP_LAN_PREF_01_1" class="tbox">
+         <default var="e107pref"/>
+         <mandatory>true</mandatory>
+      </text>
+
+      <text name="yellowpages_menu_title" label="YELP_LAN_PREF_02_0" prompt="YELP_LAN_PREF_02_1" class="tbox">
+         <default var="e107pref"/>
+      </text>
+
+      <text name="yellowpages_separator" label="YELP_LAN_PREF_16_0" prompt="YELP_LAN_PREF_16_1" class="tbox">
+         <default var="e107pref"/>
+         <attribute name='size'>5</attribute>
+         <attribute name='maxlength'>5</attribute>
+         <maxlength>5</maxlength>
+      </text>
+
+      <textarea name="yellowpages_welcome_text" label="YELP_LAN_PREF_15_0" prompt="YELP_LAN_PREF_15_1" class="tbox">
+         <default var="db"/>
+         <style name="width">95%</style>
+         <attribute name="rows">5</attribute>
+         <attribute name="cols">120</attribute>
+         <bbcodes>1</bbcodes>
+      </textarea>
+
+      <accesstable name="yellowpages_visibility" label="YELP_LAN_PREF_03_0" prompt="YELP_LAN_PREF_03_1" class="tbox">
+         <default var="e107pref"/>
+      </accesstable>
+
+      <dirlist name="yellowpages_logo_dir" label="YELP_LAN_PREF_05_0" prompt="YELP_LAN_PREF_05_1" class="tbox">
+         <default var="e107pref"/>
+         <dir>e_FILE</dir>
+      </dirlist>
+
+      <numeric name="yellowpages_logo_max_width" label="YELP_LAN_PREF_06_0" prompt="YELP_LAN_PREF_06_1" class="tbox">
+         <default var="e107pref"/>
+         <mandatory>true</mandatory>
+         <attribute name="size">4</attribute>
+         <minvalue>1</minvalue>
+         <maxvalue>9999</maxvalue>
+      </numeric>
+
+      <numeric name="yellowpages_subcategory_limit" label="YELP_LAN_PREF_13_0" prompt="YELP_LAN_PREF_13_1" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">2</attribute>
+         <minvalue>0</minvalue>
+         <maxvalue>99</maxvalue>
+      </numeric>
+
+      <text name="yellowpages_subcategory_limit_post" label="YELP_LAN_PREF_14_0" prompt="YELP_LAN_PREF_14_1" class="tbox">
+         <default var="e107pref"/>
+         <attribute name='size'>5</attribute>
+         <attribute name='maxlength'>5</attribute>
+         <maxlength>5</maxlength>
+      </text>
+
+      <accesstable name="yellowpages_allow_comments" label="YELP_LAN_PREF_11_0" prompt="YELP_LAN_PREF_11_1" class="tbox">
+         <default var="e107pref"/>
+      </accesstable>
+
+      <accesstable name="yellowpages_allow_ratings" label="YELP_LAN_PREF_12_0" prompt="YELP_LAN_PREF_12_1" class="tbox">
+         <default var="e107pref"/>
+      </accesstable>
+
+   </form>
+
+</e107HelperForm>

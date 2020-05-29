@@ -1421,3 +1421,34 @@ Auction by bugrain (www.bugrain.plus.com)
 Auction plugin for holding online auctions
 
 =======
+
+ JSHelper by bugrain (www.bugrain.plus.com)
+
+ Helper plugin to include JavaScript frameworks and libraries for use by other plugins.
+
+=======
+
+Timeout Popup by bugrain
+
+Configure Timeout Popup
+
+=======
+
+Trigger by bugrain (www.bugrain.plus.com)
+
+Calendar, appointment and event organiser.
+
+=======
+
+UserJournals plugin for e107 website system
+Authors: Del Rudolph, SKiTZ716, bkwon, bugrain
+ 
+Allows members of e107 site to maintain their own journals.
+
+=======
+
+Yellow Pages by bugrain (www.bugrain.plus.com)
+
+A complete business directory listing.
+
+=======

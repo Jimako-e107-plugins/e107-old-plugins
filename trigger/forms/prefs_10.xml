@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="trigger_filter" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <checkbox name="trigger_n2f_enabled" label="TRIGGER_LAN_PREFS_10_1" prompt="TRIGGER_LAN_PREFS_10_1p" help="TRIGGER_LAN_PREFS_10_1h" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="trigger_n2f_autopost" label="TRIGGER_LAN_PREFS_10_4" prompt="TRIGGER_LAN_PREFS_10_4p" help="TRIGGER_LAN_PREFS_10_4h" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <list name="trigger_n2f_forum_id" label="TRIGGER_LAN_PREFS_10_3" prompt="TRIGGER_LAN_PREFS_10_3p" help="TRIGGER_LAN_PREFS_10_3h" class="tbox">
+         <default var="db"/>
+         <listcallback class='trigger'>triggerForums</listcallback>
+      </list>
+
+      <textarea name="trigger_n2f_text" label="TRIGGER_LAN_PREFS_10_2" prompt="TRIGGER_LAN_PREFS_10_2p" help="TRIGGER_LAN_PREFS_10_2h" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="rows">7</attribute>
+         <style name="width">95%</style>
+         <bbcodes>true</bbcodes>
+      </textarea>
+
+      <checkbox name="trigger_n2f_inc_summary" label="TRIGGER_LAN_PREFS_10_6" prompt="TRIGGER_LAN_PREFS_10_6p" help="TRIGGER_LAN_PREFS_10_6h" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <integer name="trigger_n2f_inc_data" label="TRIGGER_LAN_PREFS_10_7" prompt="TRIGGER_LAN_PREFS_10_7p" help="TRIGGER_LAN_PREFS_10_7h" class="tbox">
+         <default var="e107pref">0</default>
+         <minvalue>0</minvalue>
+         <attribute name="size">5</attribute>
+         <attribute name="maxlength">5</attribute>
+      </integer>
+
+      <text name="trigger_n2f_inc_data_more" label="TRIGGER_LAN_PREFS_10_8" prompt="TRIGGER_LAN_PREFS_10_8p" help="TRIGGER_LAN_PREFS_10_8h" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">10</attribute>
+         <attribute name="maxlength">20</attribute>
+      </text>
+
+      <integer name="trigger_n2f_inc_extended" label="TRIGGER_LAN_PREFS_10_9" prompt="TRIGGER_LAN_PREFS_10_9p" help="TRIGGER_LAN_PREFS_10_9h" class="tbox">
+         <default var="e107pref">0</default>
+         <minvalue>0</minvalue>
+         <attribute name="size">5</attribute>
+         <attribute name="maxlength">5</attribute>
+      </integer>
+
+      <text name="trigger_n2f_inc_extended_more" label="TRIGGER_LAN_PREFS_10_10" prompt="TRIGGER_LAN_PREFS_10_10p" help="TRIGGER_LAN_PREFS_10_10h" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">10</attribute>
+         <attribute name="maxlength">20</attribute>
+      </text>
+
+      <text name="trigger_n2f_link" label="TRIGGER_LAN_PREFS_10_5" prompt="TRIGGER_LAN_PREFS_10_5p" help="TRIGGER_LAN_PREFS_10_5h" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">50</attribute>
+      </text>
+
+   </form>
+
+</e107HelperForm>

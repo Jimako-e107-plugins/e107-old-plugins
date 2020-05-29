@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="trigger_filter" type="HELPER_FORM_TYPE_E107_PREF">
+      <text name="trigger_separator" label="TRIGGER_LAN_PREFS_98_1" prompt="" help="" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">5</attribute>
+      </text>
+   </form>
+
+</e107HelperForm>

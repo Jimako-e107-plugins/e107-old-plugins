@@ -1,0 +1,174 @@
+#lightview * { margin: 0; padding: 0; background: none; border: 0; }
+#lightview {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	height: 150px;
+	width: 150px;
+	margin: -75px 0 0 -75px;
+}
+
+#lightview ul li { list-style-type: none; }
+#lightview .container { position: relative; width: 100%; height: 100%; }
+#lightview .button { cursor: pointer; text-decoration: none; border: none; }
+
+#lightview .sideButtons {
+	position: absolute;
+	top: 50%;
+	margin-top: -11px;
+	left: 0;
+	clear: both;
+	width: 100%;
+	height: 22px;
+}
+
+#lightview .sideButtons .prev { float: left; }
+#lightview .sideButtons .next { float: right; }
+#lightview .side { position: relative; overflow: hidden; }
+#lightview .side .wrapper { width: 100%; height: 100%; }
+#lightview .side .button { float: left; }
+
+#lightview .frames { width: 100%; height: 100%; position: relative; }
+#lightview .frames .frame {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	display: block;
+}
+#lightview .frames .top { top: 0; }
+#lightview .frames .bottom { bottom: 0; }
+
+#lightview .liquid { position: relative; float: left; width: 100%; overflow: hidden; clear: both; }
+#lightview .liquid .filler { position: absolute; height: 100%; width: 2px; top: 0; left: 50%; }
+
+#lightview .half {
+	display: block;
+	height: 100%;
+	clear: both;
+	line-height: 0px;
+}
+#lightview .half .corner { float: left; position: relative; }
+#lightview .half .corner canvas { }
+#lightview .tr, #lightview .br { float: right; }
+
+#lightview .fill {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#lightview .container .wrap { float: left; position: relative; width: 50%; height: 100%; overflow: hidden; }
+#lightview .container .right .wrap { float: right; }
+
+#lightview .corner { position: relative; }
+#lightview .corner canvas { position: relative; }
+#lightview .left .corner { float: left; }
+#lightview .right .corner { position: relative; float: right; }
+
+#lightview .center { position: relative; clear: both; height: 100%; overflow: hidden; }
+#lightview .wrapup { position: absolute; left: 0; height: 100%; width: 100%; overflow: hidden; }
+#lightview .wrapdown { position: relative; height: 100%; width: 100%; overflow: hidden; }
+#lightview .wrapcenter { position: relative; }
+
+#lightview .loading {
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -11px;
+	margin-left: -11px;
+}
+#lightview .loading .button {
+	float: left;
+	height: 100%;
+	width: 100%;
+}
+
+#lightview .mediaWrapper {
+	position: relative;
+	width: 100%;
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+
+#lightview .mediaWrapper img { position: relative; float: left; }
+
+#lightview .prevnext { position: absolute; top: 0; left: 0; height: 100%; width: 100%; }
+#lightview .prevnext .button { position: relative; height: 100%; width: 49%; display: block; }
+#lightview .prevnext .prev { float: left; }
+#lightview .prevnext .next { float: right; }
+
+#lightview .dataContainer {
+	clear: both;
+	position: relative;
+	width: 100%;
+	float: left;
+	font: 11px Arial, Helvetica, sans-serif;
+	color: #808080;
+}
+
+#lightview .close,
+#lightview .data { margin: 6px 0 0 0; }
+#lightview .top .close,
+#lightview .top .data { margin: 0 0 6px 0; }
+
+#lightview .close { float: right; overflow: hidden; }
+#lightview .close .button {	float: right; width: 100%; height: 100%; }
+
+#lightview .data {
+	position: relative;
+	float: left;
+	padding-bottom: 3px;
+	line-height: 13px;
+}
+
+#lightview .dataText div, #lightview .imgNumber div { margin-left: 3px; } /* simulates padding-left inside .data */
+#lightview .top .dataText div, #lightview .top .imgNumber div { margin-left: 0; }
+
+#lightview .data li { float: left; margin-top: 3px; }
+#lightview .dataText { width: 100%; }
+#lightview .dataText .title { font-weight: bold;}
+#lightview .dataText .caption { clear: both; }
+#lightview .imgNumber { color: #b8b8b8; margin-right: 5px; margin-top: 5px; }
+#lightview .slideshow { border-left: 1px solid #efefef; padding-left: 5px; margin-top: 5px; }
+#lightview .slideshow .button { /* play and stop */
+	float: left;
+	width: 43px;
+	height: 13px;
+	background-position: center left;
+	background-repeat: no-repeat;
+}
+
+#lightview .importWrapper { float: left; clear: both; }
+#lightview .importWrapper iframe { float: left; clear: both; }
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #000;
+}
+
+#overlay .closeable {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	background: #000; /* IE */
+}
+
+* html #lightview {
+	position: absolute;
+	margin-top: expression( -1 * this.offsetHeight / 2 + (document.documentElement ? document.documentElement.scrollTop : 0) + 'px');
+	margin-left: expression( -1 * this.offsetWidth / 2 + (document.documentElement ? document.documentElement.scrollLeft : 0) + 'px');
+}
+
+* html #overlay { /* IE6 */
+	position: absolute;
+	height: expression((document.body.scrollHeight > document.documentElement.scrollHeight ? document.body.scrollHeight : document.documentElement.scrollHeight) > document.body.offsetHeight ? (document.body.scrollHeight > document.documentElement.scrollHeight ? document.body.scrollHeight : document.documentElement.scrollHeight) : document.body.offsetHeight + 'px');
+	width: expression((document.body.scrollWidth > document.documentElement.scrollWidth ? document.body.scrollWidth : document.documentElement.scrollWidth) > document.body.offsetWidth ? (document.body.scrollWidth > document.documentElement.scrollWidth ? document.body.scrollWidth : document.documentElement.scrollWidth) : document.body.offsetWidth + 'px');
+}

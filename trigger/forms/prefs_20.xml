@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="trigger_filter" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <checkbox name="trigger_fup_enabled" label="TRIGGER_LAN_PREFS_20_1" prompt="TRIGGER_LAN_PREFS_20_1p" help="TRIGGER_LAN_PREFS_20_1h" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <accesstable name="trigger_fup_auto_approve" label="TRIGGER_LAN_PREFS_20_2" prompt="TRIGGER_LAN_PREFS_20_2p" help="TRIGGER_LAN_PREFS_20_2h" class="tbox">
+         <default var="e107pref">255</default>
+      </accesstable>
+
+      <accesstable name="trigger_fup_download_class" label="TRIGGER_LAN_PREFS_20_3" prompt="TRIGGER_LAN_PREFS_20_3p" help="TRIGGER_LAN_PREFS_20_3h" class="tbox">
+         <default var="e107pref">255</default>
+      </accesstable>
+
+      <accesstable name="trigger_fup_download_visible" label="TRIGGER_LAN_PREFS_20_4" prompt="TRIGGER_LAN_PREFS_20_4p" help="TRIGGER_LAN_PREFS_20_4h" class="tbox">
+         <default var="e107pref">255</default>
+      </accesstable>
+
+      <list name="trigger_fup_download_active" label="TRIGGER_LAN_PREFS_20_5" prompt="TRIGGER_LAN_PREFS_20_5p" help="TRIGGER_LAN_PREFS_20_5h" class="tbox">
+         <default var="e107pref">0</default>
+         <value key="0">DOWLAN_122</value>
+         <value key="1">DOWLAN_123</value>
+         <value key="2">DOWLAN_124</value>
+      </list>
+
+      <radio name="trigger_fup_comments" label="TRIGGER_LAN_PREFS_20_6" prompt="TRIGGER_LAN_PREFS_20_6p" help="TRIGGER_LAN_PREFS_20_6h" class="tbox">
+         <default var="e107pref">0</default>
+         <value key="0">LAN_NO</value>
+         <value key="1">LAN_YES</value>
+      </radio>
+
+      <checkbox name="trigger_fup_remove" label="TRIGGER_LAN_PREFS_20_7" prompt="TRIGGER_LAN_PREFS_20_7p" help="TRIGGER_LAN_PREFS_20_7h" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+   </form>
+
+</e107HelperForm>

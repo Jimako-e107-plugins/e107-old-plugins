@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="userjournals_categories_form" type="HELPER_FORM_TYPE_DB_ROW">
+      <dbdetails>
+         <dbtable>userjournals_categories</dbtable>
+         <index>userjournals_cat_id</index>
+         <data>userjournals_cat_name</data>
+         <order>userjournals_cat_name asc</order>
+         <liststyle>tbox</liststyle>
+      </dbdetails>
+
+      <text name="userjournals_cat_name" label="JOURNAL_A26" prompt="JOURNAL_A26_P" class="tbox">
+         <default var="db"/>
+         <mandatory>true</mandatory>
+         <maxlength>100</maxlength>
+      </text>
+
+      <image name="userjournals_cat_icon" label="JOURNAL_A27" prompt="JOURNAL_A27_P" class="tbox">
+         <default var="db"/>
+         <dir>e_IMAGE</dir>
+         <attribute name="size">60</attribute>
+      </image>
+<!--
+      <table name="userjournals_cat_parent_id" label="JOURNAL_A28" prompt="JOURNAL_A28_P" class="tbox">
+         <default var="db"/>
+         <value key="table">userjournals_categories</value>
+         <value key="columns">userjournals_cat_name</value>
+         <value key="order">userjournals_cat_dec ASC</value>
+         <includeBlank>true</includeBlank>
+      </table>
+-->
+   </form>
+
+</e107HelperForm>
