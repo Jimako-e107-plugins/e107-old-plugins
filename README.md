@@ -1362,3 +1362,57 @@ Courtesy of e1074ax.de
 Courtesy of e1074ax.de
 
 ======= 
+
+EMS v1.0 - by iNfLuX 
+EMS v1.7 - by ***RuSsE***
+
+Members search
+
+This Plugin permit it the member database with certain filters to scan.
+Courtesy of e1074ax.de
+
+======= 
+
+e107 LIGA-TIPP
+
+Author:***RuSsE*** 
+
+e107 LEAGUE-TAP is a additive Plugin to the e107 LEAGUE Plugin. It makes possible to deliver the registered users to the plays in the league hints.
+Courtesy of e1074ax.de
+
+======= 
+
+4xA-Sporttipps  v.0.9.5 - by ***RuSsE***
+
+To provide a Plugin around tapping rounds for verscheidene sport championships.
+Courtesy of e1074ax.de
+
+=======
+
+4xA-UTL (Users-Team-List or Website-Crew) v0.5 - by ***RuSsE*** 
+
+Ein Plugin, um die Benutzer die an der Hompage arbeiten ( so genannte Hompage-Crew ) anzuzeigen.
+Courtesy of e1074ax.de
+
+=======
+
+4xA-Formular v0.10 - by ***RuSsE*** (www.e107.4xA.de) 
+
+Courtesy of e1074ax.de
+
+=======
+
+4xA-EMS v0.7 - by ***RuSsE*** (www.e107.4xA.de) 29.10.2009
+
+A Plugin that it permits to filter the users after the approved Bunutzer data. 
+
+Courtesy of e1074ax.de
+
+=======
+
+4xA-UED v0.1 - by ***Operator99*** (www.e107.4xA.de) 04.06.2013
+
+"A plugin that helps efektiev the administrators to manage the user tables.
+
+=======
+
