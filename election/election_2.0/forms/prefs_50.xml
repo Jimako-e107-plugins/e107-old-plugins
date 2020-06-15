@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="election_admin_prefs_30_form" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <integer name="election_batch_prefs_candidate_repeats" label="ELEC_ADMIN_PREFS_CANDIDATES_PER_PAGE" prompt="ELEC_ADMIN_PREFS_CANDIDATES_PER_PAGE_1" help="ELEC_ADMIN_PREFS_CANDIDATES_PER_PAGE_2" class="tbox">
+         <default var="e107pref"/>
+         <mandatory>true</mandatory>
+         <minvalue>1</minvalue>
+         <attribute name="size">3</attribute>
+      </integer>
+
+      <span name="election_span1" text="ELEC_ADMIN_BATCH_PREFS_DESC">
+      </span>
+
+      <checkbox name="election_candidate_name_pref" label="ELEC_ADMIN_CANDIDATE_NAME" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="election_candidate_title_pref" label="ELEC_ADMIN_CANDIDATE_TITLE" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="election_candidate_election_ids_pref" label="ELEC_ADMIN_CANDIDIDATE_ELECTION" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="election_candidate_description_pref" label="ELEC_ADMIN_CANDIDATE_DESCRIPTION" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="election_candidate_icon_pref" label="ELEC_ADMIN_CANDIDATE_ICON" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="election_candidate_images_pref" label="ELEC_ADMIN_CANDIDATE_IMAGE" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="election_candidate_link_description_pref" label="ELEC_ADMIN_CANDIDATE_LINK_DESC" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="election_candidate_link_url_pref" label="ELEC_ADMIN_CANDIDATE_LINK_URL" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="election_candidate_template_pref" label="ELEC_ADMIN_CANDIDATE_TEMPLATE" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="election_candidate_vote_restriction_div_pref" label="ELEC_ADMIN_CANDIDATE_RESTRICTION_HEADER" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="election_candidate_vote_restriction_span_pref" label="ELEC_ADMIN_CANDIDATE_RESTRICTION_DESC" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="election_candidate_vote_restriction_field_pref" label="ELEC_ADMIN_CANDIDATE_RESTRICTION_FIELD" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="election_candidate_vote_restriction_value_pref" label="ELEC_ADMIN_CANDIDATE_RESTRICTION_VALUE" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+   </form>
+
+</e107HelperForm>
