@@ -77,7 +77,7 @@ class e107HelperTagObj {
    /**
     * Constructor
     */
-   function __construct($tagType, $formName) {
+   function __construct($tagType = '', $formName = '') {
       $this->_logger          = $GLOBALS["e107HelperLoggerFactory"]->getLogger(get_class($this));
       $this->_logger->setLevel(HELPER_LOGGER_OFF);
       $this->_tagType         = $tagType;
