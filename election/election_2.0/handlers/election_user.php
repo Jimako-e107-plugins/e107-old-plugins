@@ -38,7 +38,7 @@ class electionUser {
          $this->setViewElectionResults($election);
          $this->setVoteElection($election);
       }
-      $this->user = get_user_data(USERID);
+      $this->user = e107::user(USERID);
    }
    // Setters
    function setViewElection($election) {

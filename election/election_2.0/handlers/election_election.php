@@ -73,7 +73,7 @@ class electionElection {
       return $this->election["election_owner"];
    }
    function getOwner() {
-      $this->owner = varset($this->owner, get_user_data($this->getOwnerId()));
+      $this->owner = varset($this->owner, e107::user($this->getOwnerId()));
       return $this->owner["user_name"];
    }
    function getTemplate() {
