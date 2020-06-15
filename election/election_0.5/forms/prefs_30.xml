@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="election_candidate_admin_prefs_30_form" type="HELPER_FORM_TYPE_DB_ROW">
+
+      <errorsattop value="true" />
+
+      <dbdetails>
+         <dbtable>election_candidates</dbtable>
+         <index>election_candidate_id</index>
+         <data>election_candidate_name</data>
+         <order>election_candidate_name asc</order>
+         <liststyle>tbox</liststyle>
+      </dbdetails>
+
+      <batch occurs="1" class="fcaption" prefname="election_batch_prefs_candidate_repeats">
+         <text name="election_candidate_name" label="ELEC_ADMIN_CANDIDATE_NAME" prompt="ELEC_ADMIN_CANDIDATE_NAME_1" help="ELEC_ADMIN_CANDIDATE_NAME_2" class="tbox">
+            <default var="db"/>
+            <attribute name="size">50</attribute>
+            <maxlength>255</maxlength>
+         </text>
+
+         <text name="election_candidate_title" label="ELEC_ADMIN_CANDIDATE_TITLE" prompt="ELEC_ADMIN_CANDIDATE_TITLE_1" help="ELEC_ADMIN_CANDIDATE_TITLE_2" class="tbox">
+            <default var="db"/>
+            <attribute name="size">50</attribute>
+            <maxlength>255</maxlength>
+         </text>
+
+         <table name="election_candidate_election_ids" label="ELEC_ADMIN_CANDIDIDATE_ELECTION" prompt="ELEC_ADMIN_CANDIDIDATE_ELECTION_1" help="ELEC_ADMIN_CANDIDIDATE_ELECTION_2" class="tbox">
+            <default var="db">0</default>
+            <value key="table">election_elections</value>
+            <value key="columns">election_id, election_name</value>
+            <value key="order">election_name ASC</value>
+            <!--mandatory>true</mandatory-->
+            <!--attribute name="size">8</attribute-->
+            <!--multiple>true</multiple-->
+         </table>
+
+         <textarea name="election_candidate_description" label="ELEC_ADMIN_CANDIDATE_DESCRIPTION" prompt="ELEC_ADMIN_CANDIDATE_DESCRIPTION_1" help="ELEC_ADMIN_CANDIDATE_DESCRIPTION_2" class="tbox">
+            <default var="db"/>
+            <style name="width">95%</style>
+         </textarea>
+
+         <image name="election_candidate_icon" label="ELEC_ADMIN_CANDIDATE_ICON" prompt="ELEC_ADMIN_CANDIDATE_ICON_1" help="ELEC_ADMIN_CANDIDATE_ICON_2" class="tbox">
+            <default var="e107pref"/>
+            <dir>e_IMAGE</dir>
+            <attribute name="size">60</attribute>
+         </image>
+
+         <image name="election_candidate_images" label="ELEC_ADMIN_CANDIDATE_IMAGE" prompt="ELEC_ADMIN_CANDIDATE_IMAGE_1" help="ELEC_ADMIN_CANDIDATE_IMAGE_2" class="tbox">
+            <default var="e107pref"/>
+            <dir>e_IMAGE</dir>
+            <attribute name="size">60</attribute>
+         </image>
+
+         <text name="election_candidate_link_description" label="ELEC_ADMIN_CANDIDATE_LINK_DESC" prompt="ELEC_ADMIN_CANDIDATE_LINK_DESC_1" help="ELEC_ADMIN_CANDIDATE_LINK_DESC_2" class="tbox">
+            <default var="db"/>
+            <attribute name="size">50</attribute>
+            <maxlength>255</maxlength>
+         </text>
+
+         <text name="election_candidate_link_url" label="ELEC_ADMIN_CANDIDATE_LINK_URL" prompt="ELEC_ADMIN_CANDIDATE_LINK_URL_1" help="ELEC_ADMIN_CANDIDATE_LINK_URL_2" class="tbox">
+            <default var="db"/>
+            <attribute name="size">100</attribute>
+            <maxlength>255</maxlength>
+         </text>
+
+         <list name="election_candidate_template" label="ELEC_ADMIN_CANDIDATE_TEMPLATE" prompt="ELEC_ADMIN_CANDIDATE_TEMPLATE_1" help="ELEC_ADMIN_CANDIDATE_TEMPLATE_2" class="tbox">
+            <default var="db"/>
+            <listcallback class="election">formatTemplatesDropDown</listcallback>
+            <callbackparam name="templatetype">ELEC_ADMIN_TEMPLATE_TYPE_APP</callbackparam>
+         </list>
+
+         <div name="election_candidate_vote_restriction_div" text="ELEC_ADMIN_CANDIDATE_RESTRICTION_HEADER">
+            <style name="font-weight">bold</style>
+         </div>
+
+         <span name="election_candidate_vote_restriction_span" text="ELEC_ADMIN_CANDIDATE_RESTRICTION_DESC">
+         </span>
+
+         <table name="election_candidate_vote_restriction_field" label="ELEC_ADMIN_CANDIDATE_RESTRICTION_FIELD" prompt="ELEC_ADMIN_CANDIDATE_RESTRICTION_FIELD_1" help="ELEC_ADMIN_CANDIDATE_RESTRICTION_FIELD_2" class="tbox">
+            <default var="db"/>
+            <value key="table">user_extended_struct</value>
+            <value key="columns">user_extended_struct_name</value>
+            <value key="order">user_extended_struct_name ASC</value>
+            <includeBlank>true</includeBlank>
+         </table>
+
+         <text name="election_candidate_vote_restriction_value" label="ELEC_ADMIN_CANDIDATE_RESTRICTION_VALUE" prompt="ELEC_ADMIN_CANDIDATE_RESTRICTION_VALUE_1" help="ELEC_ADMIN_CANDIDATE_RESTRICTION_VALUE_2" class="tbox">
+            <default var="db"/>
+            <attribute name="size">100</attribute>
+            <maxlength>255</maxlength>
+         </text>
+      </batch>
+
+   </form>
+
+</e107HelperForm>

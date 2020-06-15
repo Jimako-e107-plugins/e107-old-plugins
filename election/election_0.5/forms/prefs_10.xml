@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="election_admin_prefs_10_form" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <text name="election_pagetitle" label="ELEC_ADMIN_PREFS_PAGE_TITLE" prompt="ELEC_ADMIN_PREFS_PAGE_TITLE_1" help="ELEC_ADMIN_PREFS_PAGE_TITLE_2" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">25</attribute>
+      </text>
+
+      <text name="election_separator" label="ELEC_ADMIN_PREFS_SEPARATOR" prompt="ELEC_ADMIN_PREFS_SEPARATOR_1" help="ELEC_ADMIN_PREFS_SEPARATOR_2" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">5</attribute>
+      </text>
+
+      <accesstable name="election_view_class" label="ELEC_ADMIN_PREFS_VIEW_CLASS" prompt="ELEC_ADMIN_PREFS_VIEW_CLASS_1" help="ELEC_ADMIN_PREFS_VIEW_CLASS_2" class="tbox">
+         <default var="e107pref"/>
+      </accesstable>
+
+      <checkbox name="election_tooltips" label="ELEC_ADMIN_PREFS_TOOLTIPS" prompt="ELEC_ADMIN_PREFS_TOOLTIPS_1" help="ELEC_ADMIN_PREFS_TOOLTIPS_2" class="tbox">
+         <default var="e107pref">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <list name="election_global_template" label="ELEC_ADMIN_PREFS_TEMPLATE" prompt="ELEC_ADMIN_PREFS_TEMPLATE_1" help="ELEC_ADMIN_PREFS_TEMPLATE_2" class="tbox">
+         <default var="e107pref"/>
+         <listcallback class="election">formatTemplatesDropDown</listcallback>
+         <callbackparam name="templatetype">ELEC_ADMIN_TEMPLATE_TYPE_APPS</callbackparam>
+      </list>
+
+      <list name="election_elections_order" label="ELEC_ADMIN_PREFS_ORDER" prompt="ELEC_ADMIN_PREFS_ORDER_1" help="ELEC_ADMIN_PREFS_ORDER_2" class="tbox">
+         <default var="e107pref"/>
+         <value key="ELECC_ELECTION_ORDER_KEY_0">ELEC_LAN_ELECTION_ORDER_VALUE_0</value>
+         <value key="ELECC_ELECTION_ORDER_KEY_1">ELEC_LAN_ELECTION_ORDER_VALUE_1</value>
+         <value key="ELECC_ELECTION_ORDER_KEY_2">ELEC_LAN_ELECTION_ORDER_VALUE_2</value>
+         <value key="ELECC_ELECTION_ORDER_KEY_3">ELEC_LAN_ELECTION_ORDER_VALUE_3</value>
+         <value key="ELECC_ELECTION_ORDER_KEY_4">ELEC_LAN_ELECTION_ORDER_VALUE_4</value>
+         <value key="ELECC_ELECTION_ORDER_KEY_5">ELEC_LAN_ELECTION_ORDER_VALUE_5</value>
+         <value key="ELECC_ELECTION_ORDER_KEY_6">ELEC_LAN_ELECTION_ORDER_VALUE_6</value>
+         <value key="ELECC_ELECTION_ORDER_KEY_7">ELEC_LAN_ELECTION_ORDER_VALUE_7</value>
+      </list>
+
+      <integer name="election_elections_per_page" label="ELEC_ADMIN_PREFS_CANDIDATES_PER_PAGE" prompt="ELEC_ADMIN_PREFS_CANDIDATES_PER_PAGE_1" help="ELEC_ADMIN_PREFS_CANDIDATES_PER_PAGE_2" class="tbox">
+         <default var="e107pref"/>
+         <mandatory>true</mandatory>
+         <minvalue>1</minvalue>
+         <attribute name="size">3</attribute>
+      </integer>
+
+      <integer name="election_candidates_per_page" label="ELEC_ADMIN_PREFS_ELECTIONS_PER_PAGE" prompt="ELEC_ADMIN_PREFS_ELECTIONS_PER_PAGE_1" help="ELEC_ADMIN_PREFS_ELECTIONS_PER_PAGE_2" class="tbox">
+         <default var="e107pref"/>
+         <mandatory>true</mandatory>
+         <minvalue>1</minvalue>
+         <attribute name="size">3</attribute>
+      </integer>
+
+   </form>
+
+</e107HelperForm>

@@ -1,0 +1,92 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="election_admin_prefs_20_form" type="HELPER_FORM_TYPE_DB_ROW">
+
+      <errorsattop value="true" />
+
+      <dbdetails>
+         <dbtable>election_elections</dbtable>
+         <index>election_id</index>
+         <data>election_name</data>
+         <order>election_name asc</order>
+         <liststyle>tbox</liststyle>
+      </dbdetails>
+
+      <text name="election_name" label="ELEC_ADMIN_ELECTION_NAME" prompt="ELEC_ADMIN_ELECTION_NAME_1" help="ELEC_ADMIN_ELECTION_NAME_2" class="tbox">
+         <default var="db"/>
+         <mandatory>true</mandatory>
+         <attribute name="size">50</attribute>
+         <maxlength>100</maxlength>
+      </text>
+
+      <textarea name="election_description" label="ELEC_ADMIN_ELECTION_DESCRIPTION" prompt="ELEC_ADMIN_ELECTION_DESCRIPTION_1" help="ELEC_ADMIN_ELECTION_DESCRIPTION_2" class="tbox">
+         <default var="db"/>
+         <style name="width">95%</style>
+      </textarea>
+
+      <image name="election_icon" label="ELEC_ADMIN_ELECTION_ICON" prompt="ELEC_ADMIN_ELECTION_ICON_1" help="ELEC_ADMIN_ELECTION_ICON_2" class="tbox">
+         <default var="e107pref"/>
+         <dir>e_IMAGE</dir>
+         <attribute name="size">60</attribute>
+      </image>
+
+      <calendartime name="election_start_date" label="ELEC_ADMIN_ELECTION_START_DATE" prompt="ELEC_ADMIN_ELECTION_START_DATE_1" help="ELEC_ADMIN_ELECTION_START_DATE_2" class="tbox">
+         <default var="db"></default>
+      </calendartime>
+
+      <calendartime name="election_end_date" label="ELEC_ADMIN_ELECTION_END_DATE" prompt="ELEC_ADMIN_ELECTION_END_DATE_1" help="ELEC_ADMIN_ELECTION_END_DATE_2" class="tbox">
+         <default var="db"></default>
+      </calendartime>
+
+      <textarea name="election_points_per_vote" label="ELEC_ADMIN_ELECTION_POINTS_PER_VOTE" prompt="ELEC_ADMIN_ELECTION_POINTS_PER_VOTE_1" help="ELEC_ADMIN_ELECTION_POINTS_PER_VOTE_2" class="tbox">
+         <default var="db"/>
+         <attribute name="cols">5</attribute>
+      </textarea>
+
+      <checkbox name="election_closed" label="ELEC_ADMIN_ELECTION_CLOSED" prompt="ELEC_ADMIN_ELECTION_CLOSED_1" help="ELEC_ADMIN_ELECTION_CLOSED_2" class="tbox">
+         <default var="db">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <accesstable name="election_view_class" label="ELEC_ADMIN_ELECTION_VIEW_CLASS" prompt="ELEC_ADMIN_ELECTION_VIEW_CLASS_1" help="ELEC_ADMIN_ELECTION_VIEW_CLASS_2" class="tbox">
+         <default var="db"/>
+      </accesstable>
+
+      <accesstable name="election_view_results_class" label="ELEC_ADMIN_ELECTION_RESULTS_CLASS" prompt="ELEC_ADMIN_ELECTION_RESULTS_CLASS_1" help="ELEC_ADMIN_ELECTION_RESULTS_CLASS_2" class="tbox">
+         <default var="db"/>
+      </accesstable>
+
+      <accesstable name="election_vote_class" label="ELEC_ADMIN_ELECTION_VOTE_CLASS" prompt="ELEC_ADMIN_ELECTION_VOTE_CLASS_1" help="ELEC_ADMIN_ELECTION_VOTE_CLASS_2" class="tbox">
+         <default var="db"/>
+      </accesstable>
+
+      <table name="election_owner" label="ELEC_ADMIN_ELECTION_OWNER" prompt="ELEC_ADMIN_ELECTION_OWNER_1" help="ELEC_ADMIN_ELECTION_OWNER_2" class="tbox">
+         <default var="db"/>
+         <listcallback class="election">electionFormatAppsOwnerDropDown</listcallback>
+      </table>
+
+      <checkbox name="election_ratings" label="ELEC_ADMIN_ELECTION_RATINGS" prompt="ELEC_ADMIN_ELECTION_RATINGS_1" help="ELEC_ADMIN_ELECTION_RATINGS_2" class="tbox">
+         <default var="db">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <checkbox name="election_comments" label="ELEC_ADMIN_ELECTION_COMMENTS" prompt="ELEC_ADMIN_ELECTION_COMMENTS_1" help="ELEC_ADMIN_ELECTION_COMMENTS_2" class="tbox">
+         <default var="db">0</default>
+         <value>1</value>
+      </checkbox>
+
+      <list name="election_template" label="ELEC_ADMIN_ELECTION_TEMPLATE" prompt="ELEC_ADMIN_ELECTION_TEMPLATE_1" help="ELEC_ADMIN_ELECTION_TEMPLATE_2" class="tbox">
+         <default var="db"/>
+         <listcallback class="election">formatTemplatesDropDown</listcallback>
+         <callbackparam name="templatetype">ELEC_ADMIN_TEMPLATE_TYPE_APP</callbackparam>
+      </list>
+
+      <textarea name="election_vote_restriction_text" label="ELEC_ADMIN_ELECTION_RESTRICTION_TEXT" prompt="ELEC_ADMIN_ELECTION_RESTRICTION_TEXT_1" help="ELEC_ADMIN_ELECTION_RESTRICTION_TEXT_2" class="tbox">
+         <default var="db"/>
+         <style name="width">95%</style>
+      </textarea>
+
+   </form>
+
+</e107HelperForm>
