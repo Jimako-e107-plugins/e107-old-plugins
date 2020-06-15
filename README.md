@@ -414,6 +414,8 @@ but author site is not available anymore
 ## e107helpers
 ### Helper Project v1.1b  by bugrain
 
+Development continues here:  https://github.com/e107inc/e107helpers
+
 original version: 20-Nov-2008
 
 state: fixed all visible errors
@@ -421,6 +423,7 @@ state: fixed all visible errors
 compatible: 2.1.6
 
 http://www.bugrain.com/e107_plugins/psilo/psilo.php?artifact.350
+
 
 =======
 
@@ -521,6 +524,12 @@ ePlayer is a media player plugin that allows media clips to be displayed by cate
 ePlayer is configurable from the Admin area of e107. Media clips ...
 
 not point to fix it, this functionality is in core now
+
+=======
+
+## election plugin
+
+Development continues here: https://github.com/e107inc/election
 
 =======
 
