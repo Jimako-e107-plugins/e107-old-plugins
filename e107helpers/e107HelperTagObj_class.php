@@ -590,7 +590,7 @@ class e107HelperTagObj {
     * @param
     * @return
     */
-   function getTag($formmode) {
+   function getTag($formmode='') {
       global $e107Helper;
 
       if ($this->_logger->isTrace()) {
