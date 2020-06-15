@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="e107plugin_template_admin_config_form" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <div name="helper_logger_header1" text="HELPER_LOGGER_PREFS_HDR_1">
+         <style name="font-weight">bold</style>
+         <style name="text-align">center</style>
+      </div>
+
+      <list name="helper_logger_level" label="HELPER_LOGGER_PREFS_01_0" prompt="HELPER_LOGGER_PREFS_01_1" help="HELPER_LOGGER_PREFS_01_2" class="tbox">
+         <default var="e107pref"/>
+         <value key="HELPER_LOGGER_OFF">HELPER_LOGGER_OFF_TEXT</value>
+         <value key="HELPER_LOGGER_FATAL">HELPER_LOGGER_FATAL_TEXT</value>
+         <value key="HELPER_LOGGER_ERROR">HELPER_LOGGER_ERROR_TEXT</value>
+         <value key="HELPER_LOGGER_WARN">HELPER_LOGGER_WARN_TEXT</value>
+         <value key="HELPER_LOGGER_INFO">HELPER_LOGGER_INFO_TEXT</value>
+         <value key="HELPER_LOGGER_DEBUG">HELPER_LOGGER_DEBUG_TEXT</value>
+         <value key="HELPER_LOGGER_TRACE">HELPER_LOGGER_TRACE_TEXT</value>
+      </list>
+
+   </form>
+
+</e107HelperForm>

@@ -531,6 +531,11 @@ not point to fix it, this functionality is in core now
 
 Development continues here: https://github.com/e107inc/election
 
+To get 0.7 work for 1.0.4 you need to change core:
+handlers/emote.php 
+and comment function r_emote()
+Calendar doesn't work, but you can change dates manually
+
 =======
 
 ## excel_reader
