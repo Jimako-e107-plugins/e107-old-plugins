@@ -125,18 +125,7 @@
    }
 
    $rs = new agenda_form;
-   /*if (file_exists(e_PLUGIN."updatecheckerx/updatechecker.php")) {
-      require_once(e_PLUGIN."updatecheckerx/updatechecker.php");
-      $text .= updateChecker(AGENDA_LAN_NAME, AGENDA_LAN_VER, "http://www.bugrain.plus.com/e107plugins/agenda.ver", "|");
-   } */
-
-   if (!file_exists(e_PLUGIN."e107helpers/calendar/calendar_class.php")) {
-      $text .= "<div style='text-align:center'>";
-      $text .= AGENDA_LAN_104;
-      $text .= AGENDA_LAN_105;
-      $text .= "</div>";
-   }
-
+ 
    $text .= "<div style='text-align:center'><form method='post' action='".e_SELF."'><table style='width:94%' class='fborder'>";
 
    for ($i=0; $i<count($prefcapt); $i++) {

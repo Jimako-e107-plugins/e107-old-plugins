@@ -122,8 +122,8 @@ define("AGENDA_LAN_100", "Installation successful...");
 define("AGENDA_LAN_101", "Upgrade successful...");
 define("AGENDA_LAN_102", ""); // No caption for Print button
 define("AGENDA_LAN_103", "Print");
-define("AGENDA_LAN_104", "Warning: DHTML Calendar is not installed. This is included in e107 v0.7. If you are running an earlier version of e107 you may want to install DHTML Calendar to allow Agenda to use extra functionality provided by DHTML Calendar.<br /><br />");
-define("AGENDA_LAN_105", "To obtain DHTML Calendar, read <a href='http://e107faq.org/e107_plugins/faq/faq.php?cat.15.204'>this FAQ</a> to get a e107 CVS release then copy the e107_handler/calendar folder to your e107 0.6xx e107_handlers folder.<br /><br />");
+//define("AGENDA_LAN_x104", "Warning: DxHTML Calendar is not installed. This is included in e107 v0.7. If you are running an earlier version of e107 you may want to install DxHTML Calendar to allow Agenda to use extra functionality provided by DxHTML Calendar.<br /><br />");
+//define("AGENDA_LAN_x105", "To obtain DxHTML Calendar, read <a href='http://e107faq.org/e107_plugins/faq/faq.php?cat.15.204'>this FAQ</a> to get a e107 CVS release then copy the e107_handler/calendar folder to your e107 0.6xx e107_handlers folder.<br /><br />");
 define("AGENDA_LAN_106", "You are not authorized to view ".AGENDA_LAN_NAME." pages.");
 define("AGENDA_LAN_107", "The entry could not be added due to the following reasons:");
 define("AGENDA_LAN_108", "Field is mandatory");

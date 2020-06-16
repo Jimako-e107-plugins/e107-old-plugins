@@ -22,10 +22,7 @@
 | $Author: Neil $
 +---------------------------------------------------------------+
 */
-if (file_exists(e_PLUGIN."e107helpers/calendar/calendar_class.php")) {
-   require_once(e_PLUGIN."e107helpers/calendar/calendar_class.php");
-}
-
+ 
 class agenda_form {
    function form_open($form_method, $form_action, $form_name="", $form_target = "", $form_enctype="") {
       $method  = ($form_method   ? "method='".$form_method."'"  : "");
@@ -323,16 +320,16 @@ class agenda_form {
             $ret.= "</select>";
             break;
          case "calendar":
-            $ret .= $this->formcalendar($fieldname, $presetvalue, $u_values[0]);
+            $ret .= $this->formcalendar($fieldname, $presetvalue, $u_values[0], 'date');
             break;
          case "time":
-            $ret .= $this->formtime($fieldname, $presetvalue, $u_values[0]);
+            $ret .= $this->formtime($fieldname, $presetvalue, $u_values[0], 'datetime');
             break;
          case "calendartime" :
             $preset = explode(",", $presetvalue);
             $ret .= $this->formcalendar($fieldname, $preset[0], $u_values[0]);
-            $ret .= "&nbsp;&nbsp;&nbsp;";
-            $ret .= $this->formtime($fieldname, $preset[1], $u_values[1]);
+            //$ret .= "&nbsp;&nbsp;&nbsp;";
+            //$ret .= $this->formtime($fieldname, $preset[1], $u_values[1]);
             break;
          case "button" :
             $ret .= "<input type='button' class='button' name='$u_name' id='$u_name' value='$u_value' $js />";
@@ -354,26 +351,20 @@ class agenda_form {
 
 // OTHER FUNCTIONS. ===================
 
-   function formcalendar($fieldname, $presetvalue, $value) {
+   function formcalendar($fieldname, $presetvalue, $value, $type = "datetime") {
       global $agenda, $pref;
-      if ($agenda->isDhtmlCalendar()) {
-         $cal = $agenda->getDhtmlCalendar();
-         unset($cal_options);
-         unset($cal_attrib);
-         $cal_options['firstDay']   = $pref["agenda_week_start"];
-         $cal_options['showsTime']  = false;
-         $cal_options['showOthers'] = true;
-         $cal_options['weekNumbers']= true;
-         $cal_options['ifFormat']   = "%d-%m-%Y";
-         $cal_attrib['class']       = "tbox";
-         $cal_attrib['size']        = "10";
-         $cal_attrib['name']        = $fieldname;
-         $cal_attrib['value']       = ($presetvalue !="")? $presetvalue : $value;
-         return $cal->make_input_field($cal_options, $cal_attrib);
-      } else {
-         $presetvalue = ($presetvalue !="")? $presetvalue : $value;
-         return "<input class='tbox' size='10' id='f-calendar-field-1' name='$fieldname' value='$presetvalue' type='text' />";
-      }
+
+		$attrib['type'] = $type;    
+        $attrib['size'] = ($type =="date")? "small" : "x-large"; 
+        $attrib['id'] = 'f-calendar-field-1';                        
+		$value   = ($presetvalue !="")? $presetvalue : $value;
+		$options = array(
+			'type' => 'datestamp', 
+			'data' => 'int',
+			'writeParms' => $attrib
+		); 
+		$text = e107::getForm()->renderElement($fieldname, $value, $options );
+		return $text;
    }
 
    function formtime($fieldname, $presetvalue, $value) {
@@ -421,21 +412,13 @@ class agenda_form {
            	}
            	break;
          case "calendar" :
-            $year  = substr($_POST[$name], 6, 4);
-            $month = substr($_POST[$name], 3, 2);
-            $day   = substr($_POST[$name], 0, 2);
-            $value = mktime(0,0,0,$month,$day,$year);
+            $value = (int) $_POST[$name];
             break;
          case "time" :
             $value = $_POST[$name."_h"] . $_POST[$name."_m"];
             break;
          case "calendartime" :
-            $year  = substr($_POST[$name], 6, 4);
-            $month = substr($_POST[$name], 3, 2);
-            $day   = substr($_POST[$name], 0, 2);
-            $hours = $_POST[$name."_h"];
-            $mins  = $_POST[$name."_m"];
-            $value = mktime($hours,$mins,0,$month,$day,$year);
+            $value = (int) $_POST[$name];
             break;
          case "multilist" :
          case "multilist2" :

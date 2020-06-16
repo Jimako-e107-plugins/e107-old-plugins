@@ -29,8 +29,7 @@ class Agenda {
 
    var $table_join;
    var $filter;
-   var $dhtmlcalendar;
-
+ 
    var $usr_filter_state;
 
    // private arrays
@@ -181,12 +180,7 @@ class Agenda {
       /// e107 0.7        left join #".$this->getTypeTable()." as t on e.agn_type = t.typ_id ";
 
       $this->filter = "";
-
-      if (class_exists("DHTML_Calendar")) {
-         $this->dhtmlcalendar = new DHTML_Calendar(false);
-      } else {
-         $this->dhtmlcalendar = false;
-      }
+ 
    }
 
    /**
@@ -939,17 +933,6 @@ class Agenda {
    function getPrefDayWithEntriesCSS() {
       global $pref;
       return $pref['agenda_day_with_entries_css'];
-   }
-
-   function getDhtmlCalendar() {
-      return $this->dhtmlcalendar;
-   }
-
-   function isDhtmlCalendar() {
-      if ($this->dhtmlcalendar) {
-         return true;
-      }
-      return false;
    }
 
    function isFiltered($row) {
