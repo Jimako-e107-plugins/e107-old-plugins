@@ -70,7 +70,8 @@ class e107helpers_developerElection {
       return $this->e107helpers_developer["e107helpers_developer_owner"];
    }
    function getOwner() {
-      $this->owner = varset($this->owner, get_user_data($this->getOwnerId()));
+      //$this->owner = varset($this->owner, getx_user_data($this->getOwnerId()));
+      $this->owner = varset($this->owner, e107::user($this->getOwnerId()));
       return $this->owner["user_name"];
    }
    function getTemplate() {

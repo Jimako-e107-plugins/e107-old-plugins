@@ -35,7 +35,8 @@ function search_bugtracker3($row) {
    global $pref;
 	global $con;
 
-	$user = get_user_data($row["bugtracker3_bugs_poster"]);
+	//$user = getx_user_data($row["bugtracker3_bugs_poster"]);
+	$user = e107::user($row["bugtracker3_bugs_poster"]);
 	$datestamp = $con->convert_date($row['bugtracker3_bugs_timestamp'], "long");
 
 	$res['link'] = e_PLUGIN."bugtracker3/bugtracker3.php?".BUGC_BUG_PAGE.".".$row["bugtracker3_bugs_id"];

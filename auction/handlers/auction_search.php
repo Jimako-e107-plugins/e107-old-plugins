@@ -35,7 +35,8 @@ function search_auction($row) {
    global $pref;
 	global $con;
 
-	$user = get_user_data($row["auction_lot_poster_id"]);
+	//$user = getx_user_data($row["auction_lot_poster_id"]);
+	$user = e107::user($row["auction_lot_poster_id"]);
 	$datestamp = $con->convert_date($row['auction_lot_update_timestamp'], "long");
 
 	$res['link'] = e_PLUGIN."auction/auction.php?".AUCC_LOT_PAGE.".".$row["auction_lot_id"];

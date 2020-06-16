@@ -75,7 +75,8 @@ class auctionLot {
       return $this->lot["auction_lot_poster_id"];
    }
    function getPoster() {
-      $user = get_user_data($this->getPosterId());
+      //$user = getx_user_data($this->getPosterId());
+      $user = e107::user($this->getPosterId());
       return $user["user_name"];
    }
    function getUpdateTimestamp() {
@@ -88,7 +89,8 @@ class auctionLot {
       return ($ui && isset($this->ui["ui_reserve"])) ? $this->ui["ui_reserve"] : $this->lot["auction_lot_reserve"];
    }
    function getUpdatePoster() {
-      $user = get_user_data($this->getPosterId());
+      //$user = getx_user_data($this->getPosterId());
+      $user = e107::user($this->getPosterId());
       return $user["user_name"];
    }
    function getBids() {

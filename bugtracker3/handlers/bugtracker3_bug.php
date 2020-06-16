@@ -59,21 +59,24 @@ class bugtracker3Bug {
       return $this->bug["bugtracker3_bugs_poster"];
    }
    function getPoster() {
-      $user = get_user_data($this->getPosterId());
+      //$user = getx_user_data($this->getPosterId());
+      $user = e107::user($this->getPosterId());
       return $user["user_name"];
    }
    function getLastUpdatePosterId() {
       return $this->bug["bugtracker3_bugs_last_update_poster"];
    }
    function getLastUpdatePoster() {
-      $user = get_user_data($this->getLastUpdatePosterId());
+      //$user = getx_user_data($this->getLastUpdatePosterId());
+      $user = e107::user($this->getLastUpdatePosterId());
       return $user["user_name"];
    }
    function getOwnerId($ui=false) {
       return ($ui && isset($this->ui["ui_owner"])) ? $this->ui["ui_owner"] : $this->bug["bugtracker3_bugs_owner"];
    }
    function getOwner($ui=false) {
-      $user = get_user_data($this->getOwnerId($ui));
+      //$user = getx_user_data($this->getOwnerId($ui));
+      $user = e107::user($this->getOwnerId($ui));
       return $user["user_name"];
    }
    function getApplicationId($ui=false) {

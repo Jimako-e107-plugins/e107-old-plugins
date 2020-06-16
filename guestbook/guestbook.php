@@ -428,7 +428,8 @@ function rendercomment($id)
 	}
 	else
 	{
-		if(!$user = get_user_data($uid))
+		//if(!$user = getx_user_data($uid))
+        if(!$user = e107::user($uid))
 		{
 			return FALSE;
 		}

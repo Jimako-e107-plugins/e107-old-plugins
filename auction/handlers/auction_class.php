@@ -530,7 +530,8 @@ class auction {
       }
       if ($ownerpref == AUCC_NOTIFY_KEY_2 || $ownerpref == AUCC_NOTIFY_KEY_3) {
          require_once(e_HANDLER."mail.php");
-         $user = get_user_data($auc->getOwnerId());
+         //$user = getx_user_data($auc->getOwnerId());
+         $user = e107::user($auc->getOwnerId());
 		   sendemail($user["user_email"], $subject, $message);
 		}
 		// Don't notify auc poster if they are the application owner
@@ -540,7 +541,8 @@ class auction {
          }
          if ($posterpref == AUCC_NOTIFY_KEY_2 || $posterpref == AUCC_NOTIFY_KEY_3) {
             require_once(e_HANDLER."mail.php");
-            $user = get_user_data($auc->getPosterId());
+            //$user = getx_user_data($auc->getPosterId());
+            $user = e107::user($auc->getPosterId());
 		      sendemail($user["user_email"], $subject, $message);
 		   }
 		}

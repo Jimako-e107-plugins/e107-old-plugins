@@ -904,7 +904,8 @@ SC_BEGIN AUC_BID_EMAIL_EDIT
    parse_str($parm, $parms);
    $value = "";
    if (USER) {
-      $user = get_user_data(USERID);
+      //$user = getx_user_data(USERID);
+      $user = e107::user(USERID);
       $value = $user["user_email"];
    }
    $text = "<input type='text' class='tbox' name='".AUCC_POST_ARRAY."[ui_email]' id='ui_email' size='40' maxlength='255' value='$value'/>";
@@ -918,7 +919,8 @@ SC_BEGIN AUC_BID_NAME_EDIT
    global $auction;
    parse_str($parm, $parms);
    if (USER) {
-      $user = get_user_data(USERID);
+      //$user = getx_user_data(USERID);
+      $user = e107::user(USERID);
       $value = $user["user_login"];
    }
    $text = "<input type='text' class='tbox' name='".AUCC_POST_ARRAY."[ui_name]' id='ui_name' size='30' maxlength='255' value='$value'/>";

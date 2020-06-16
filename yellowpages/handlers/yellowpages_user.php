@@ -37,7 +37,8 @@ class yellowpagesUser {
          $this->setViewyellowpages($yellowpages);
          $this->setVoteyellowpages($yellowpages);
       }
-      $this->user = get_user_data(USERID);
+      //$this->user = getx_user_data(USERID);
+      $this->user = e107::user(USERID);
    }
    // Setters
    function setViewyellowpages($yellowpages) {

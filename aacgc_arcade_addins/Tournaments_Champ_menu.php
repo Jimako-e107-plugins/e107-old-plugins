@@ -98,8 +98,8 @@ $count = 0;
 foreach ($statsp as $user => $s){
 
 
-$name = get_user_data($user);
-
+//$name = getx_user_data($user);
+$name = e107::user($user);
 if ($pref['arcadeaddin_enable_gold'] == "1"){
 $gold_obj = new gold();
 $tourchamp = "".$gold_obj->show_orb($name['user_id'])."";}

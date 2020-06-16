@@ -37,7 +37,8 @@
 			$rowheading	         = $this->parse_heading($row['userjournals_subject'], $mode);
 			$ICON		            = $bullet;
 			$HEADING	            = "<a href='".e_PLUGIN."userjournals_menu/userjournals.php?blog.".$row['userjournals_id']."' title='".$row['userjournals_subject']."'>".$rowheading."</a>";
-			$user                = get_user_data($row['userjournals_userid']);
+			//$user                = getx_user_data($row['userjournals_userid']);
+			$user                = e107::user(row['userjournals_userid']);
 			$AUTHOR	            = "<a href='".e_PLUGIN."userjournals_menu/userjournals.php?blogger.".$row['userjournals_userid'].".".$row["userjournals_username"]."' title='".$row['userjournals_username']."'>".$user["user_name"]."</a>";
 			$CATEGORY	         = "";
 			$DATE		            = ($arr[5] ? ($row['userjournals_timestamp'] > 0 ? $this->getListDate($row['userjournals_timestamp'], $mode) : "") : "");

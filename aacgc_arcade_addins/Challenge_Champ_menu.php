@@ -87,7 +87,8 @@ $count = 0;
 foreach ($statspoints as $user => $s) {
 
 if ($count != 1) {
-$name = get_user_data($user);
+//$name = getx_user_data($user);
+$name =e107::user($user);
 
 if ($pref['arcadeaddin_enable_gold'] == "1"){
 $gold_obj = new gold();

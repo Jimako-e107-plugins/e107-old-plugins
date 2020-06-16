@@ -56,7 +56,8 @@
          $rowheading          = $this->parse_heading($row['auction_lot_title'], $mode);
          $ICON                = $bullet;
          $HEADING             = "<a href='".e_PLUGIN."auction/auction.php?2.".$row['auction_lot_id']."' title='".$row['auction_lot_title']."'>".$rowheading."</a>";
-         $user                = get_user_data($row['auction_lot_poster_id']);
+         //$user                = getx_user_data($row['auction_lot_poster_id']);
+         $user                = e107::user($row['auction_lot_poster_id']);
          $AUTHOR              = "<a href='user.php?".$row['auction_lot_poster_id']."' title='".$row['auction_lot_poster_id']."'>".$user["user_name"]."</a>";
          $CATEGORY            = "<a href='".e_PLUGIN."auction/auction.php?1.".$row['auction_id']."'>".$row["auction_name"]."</a>";
          $DATE                = ($arr[5] ? ($row['auction_lot_update_timestamp'] > 0 ? $this->getListDate($row['auction_lot_update_timestamp'], $mode) : "") : "");

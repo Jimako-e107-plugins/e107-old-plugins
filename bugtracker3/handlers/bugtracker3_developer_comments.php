@@ -39,7 +39,8 @@ class bugtracker3DeveloperComment {
       return $this->devc["bugtracker3_devc_poster"];
    }
    function getPoster() {
-      $user = get_user_data($this->getPosterId());
+      //$user = getx_user_data($this->getPosterId());
+      $user = e107::user($this->getPosterId());
       return $user["user_name"];
    }
    function getComment() {

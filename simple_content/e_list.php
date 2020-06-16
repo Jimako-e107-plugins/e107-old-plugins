@@ -56,7 +56,8 @@
          $rowheading          = $this->parse_heading($row['simple_content_lot_title'], $mode);
          $ICON                = $bullet;
          $HEADING             = "<a href='".e_PLUGIN."simple_content/simple_content.php?2.".$row['simple_content_lot_id']."' title='".$row['simple_content_lot_title']."'>".$rowheading."</a>";
-         $user                = get_user_data($row['simple_content_lot_poster_id']);
+         //$user                = getx_user_data($row['simple_content_lot_poster_id']);
+         $user                = e107::user($row['simple_content_lot_poster_id']); 
          $AUTHOR              = "<a href='user.php?".$row['simple_content_lot_poster_id']."' title='".$row['simple_content_lot_poster_id']."'>".$user["user_name"]."</a>";
          $CATEGORY            = "<a href='".e_PLUGIN."simple_content/simple_content.php?1.".$row['simple_content_id']."'>".$row["simple_content_name"]."</a>";
          $DATE                = ($arr[5] ? ($row['simple_content_lot_update_timestamp'] > 0 ? $this->getListDate($row['simple_content_lot_update_timestamp'], $mode) : "") : "");

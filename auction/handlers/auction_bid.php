@@ -47,7 +47,8 @@ class auctionBid {
       return $this->bid["auction_bid_bidder_id"];
    }
    function getBidder() {
-      $user = get_user_data($this->getBidderId());
+      //$user = getx_user_data($this->getBidderId());
+      $user = e107::user($this->getBidderId());
       return $user["user_name"];
    }
    function getAmount() {

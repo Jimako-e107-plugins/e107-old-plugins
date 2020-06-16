@@ -67,7 +67,8 @@ if (!class_exists("UserJournals")) {
 
             switch ($ujop) {
                case "blogger" : {
-                  $user = get_user_data($ujp1);
+                  //$user = getx_user_data($ujp1);
+                  $user = e107::user($ujp1); 
                   $page = $this->BloggerPage($ujp1, $user["user_name"], $ujp2);
                   break;
                }
@@ -175,7 +176,8 @@ if (!class_exists("UserJournals")) {
          $text = "";
          if ($sql->db_Select("userjournals", "userjournals_userid, userjournals_entry", "userjournals_is_blog_desc=1 AND userjournals_userid=".$bloggerid)) {
             if ($uj_synopsis = $sql->db_Fetch()) {
-               $user = get_user_data($bloggerid);
+               //$user = getx_user_data($bloggerid);
+               $user = e107::user($bloggerid);
                $text .= $tp->parseTemplate($UJ_BLOGGER_SYNOPSIS, TRUE, $userjournals_shortcodes);
             }
          }
@@ -220,7 +222,8 @@ if (!class_exists("UserJournals")) {
             $text = $this->Message(UJ28);
          }
 
-         $user = get_user_data($row["userjournals_userid"]);
+         //$user = getx_user_data($row["userjournals_userid"]);
+         $user = e107::user($row["userjournals_userid"]);
          $caption = $pref["userjournals_page_title"].UJ25.$user["user_name"];
          return array($caption, $text);
       }

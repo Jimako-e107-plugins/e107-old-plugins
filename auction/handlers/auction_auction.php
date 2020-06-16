@@ -60,7 +60,8 @@ class auctionAuction {
       return $this->auction["auction_owner"];
    }
    function getOwner() {
-      $user = get_user_data($this->getOwnerId());
+      //$user = getx_user_data($this->getOwnerId());
+      $user = e107::user($this->getOwnerId());
       return $user["user_name"];
    }
    function getTemplate() {

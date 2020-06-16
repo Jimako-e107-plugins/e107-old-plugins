@@ -15,7 +15,8 @@ $userjournals_shortcodes = array_merge($userjournals_shortcodes, $user_shortcode
 SC_BEGIN UJ_BLOGGER_NAME
    global $uj_blog;
    $text = "";
-   if ($row = get_user_data($uj_blog["userjournals_userid"])) {
+   //if ($row = getx_user_data($uj_blog["userjournals_userid"])) {
+   if ($row = e107::user($uj_blog["userjournals_userid"])) { 
       $text = $row["user_name"];
    }
    return $text;
@@ -35,7 +36,8 @@ SC_END
 SC_BEGIN UJ_BLOGGER_MENU_LINK
    global $uj_blog;
    $gen2 = new convert();
-   if ($row = get_user_data($uj_blog["userjournals_userid"])) {
+   //if ($row = getx_user_data($uj_blog["userjournals_userid"])) {
+   if ($row = e107::user($uj_blog["userjournals_userid"])) {
       return "<a href='".e_PLUGIN."userjournals_menu/userjournals.php?blogger.".$uj_blog["userjournals_userid"]."'>".$row["user_name"]."</a><br/>".$gen2->convert_date($uj_blog["userjournals_timestamp"], "short");
    }
    return "";
@@ -45,7 +47,8 @@ SC_BEGIN UJ_BLOGGER_PICTURE
    global $pref, $tp, $uj_synopsis, $user, $user_shortcodes;
    $text = "";
    if (isset($pref['photo_upload']) && $pref['photo_upload']) {
-      if ($user = get_user_data($uj_synopsis["userjournals_userid"])) {
+      //if ($user = getx_user_data($uj_synopsis["userjournals_userid"])) {
+      if ($user = e107::user($uj_synopsis["userjournals_userid"])) {
          $text = $tp->parseTemplate("{USER_PICTURE}", TRUE, $user_shortcodes);
          if ($text == "LAN_408") {
             $text = "";
@@ -154,7 +157,8 @@ SC_END
 
 SC_BEGIN UJ_BLOG_BLOGGER_LINK
    global $uj_blog;
-   $user = get_user_data($uj_blog["userjournals_userid"]);
+   //$user = getx_user_data($uj_blog["userjournals_userid"]);
+   $user = e107::user($uj_blog["userjournals_userid"]);
    return "<a href='".e_PLUGIN."userjournals_menu/userjournals.php?blogger.".$uj_blog["userjournals_userid"]."'>".$user["user_name"]." ".UJ1."</a>";
 SC_END
 

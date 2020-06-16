@@ -58,7 +58,8 @@
          $rowheading          = $this->parse_heading($row['bugtracker3_bugs_summary'], $mode);
          $ICON                = $bullet;
          $HEADING             = "<a href='".e_PLUGIN."bugtracker3/bugtracker3.php?2.".$row['bugtracker3_bugs_id']."' title='".$row['bugtracker3_bugs_summary']."'>".$rowheading."</a>";
-         $user                = get_user_data($row['bugtracker3_bugs_poster']);
+         //$user                = getx_user_data($row['bugtracker3_bugs_poster']);
+         $user                = e107::user($row['bugtracker3_bugs_poster']);
          $AUTHOR              = "<a href='user.php?".$row['bugtracker3_bugs_poster']."' title='".$row['bugtracker3_bugs_poster']."'>".$user["user_name"]."</a>";
          $CATEGORY            = "<a href='".e_PLUGIN."bugtracker3/bugtracker3.php?1.".$row['bugtracker3_apps_id']."'>".$row["bugtracker3_apps_name"]."</a>";
          $DATE                = ($arr[5] ? ($row['bugtracker3_bugs_timestamp'] > 0 ? $this->getListDate($row['bugtracker3_bugs_timestamp'], $mode) : "") : "");

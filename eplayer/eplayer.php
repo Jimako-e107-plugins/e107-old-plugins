@@ -388,7 +388,8 @@ if (!defined('e107_INIT'))
       $from    = $tmp[2];
       $view    = $tmp[3];
 
-      $user  = get_user_data($owner);
+      //$user  = getx_user_data($owner);
+      $user  = e107::user(($owner);
       $ep_text .= "<tr><td colspan='3' class='np' style='text-align:left'><a href='eplayer.php?usrl.$from.$view'>&lt;&lt; ".EPLAYER_LAN_22." ".EPLAYER_LAN_55."</a></td></tr>";
 
       if ($user["user_image"]) {
@@ -452,7 +453,8 @@ if (!defined('e107_INIT'))
       $ep_text .= "<tr><td colspan='4' class='forumheader'>".EPLAYER_LAN_55."</td></tr>";
       $ucount = $sql2->db_Select_gen("SELECT distinct(owner) FROM ".MPREFIX."$eplayertable WHERE category=0 ORDER BY owner LIMIT $from,$view");
       while ($row = $sql2->db_Fetch()) {
-         $user  = get_user_data($row["owner"]);
+         //$user  = getx_user_data($row["owner"]);
+         $user  = e107::user(($row["owner"]);
          $ep_text .= "<tr>";
          $ep_text .= "<td class='forumheader3' style='text-align:center;width:20%;'>";
          $ep_text .= "<a href='eplayer.php?usrg".$row["owner"].".0.$clipsPerPage'>";
@@ -493,7 +495,8 @@ if (!defined('e107_INIT'))
       $id      = $tmp[$ix+1];
       $from    = $tmp[$ix+2];
       $view    = $tmp[$ix+3];
-      $user = get_user_data($owner);
+      //$user = getx_user_data($owner);
+      $user = e107::user(($owner);
       $sql2->db_Select($eplayertable, "*", "id='$id'");
       list($id, $filename, $title, $category, $datestamp, $description, $icon, $width, $height, $author, $comment, $timestamp, $lastview, $viewcount) = $sql2->db_Fetch();
 

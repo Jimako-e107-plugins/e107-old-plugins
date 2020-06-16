@@ -578,7 +578,8 @@ function GetEntry()
 		$ext_pos = strrpos($image_name,'.');
 		$user_id = substr($image_name, $pos+1, $ext_pos-$pos-1);
 		$image_name = substr($image_name, 0, $pos).substr($image_name, $ext_pos);
-		if ($user = get_user_data($user_id)) {
+		//if ($user = getx_user_data($user_id)) {
+		if ($user = e107::user($user_id)) {
 			$user_name = $user['user_name'];
 		}
 		$image_name_incl_user = $image_name." (".EG_CORE_31." <a href='".e_BASE."user.php?id.".$user_id."'>".$user_name."</a>)";

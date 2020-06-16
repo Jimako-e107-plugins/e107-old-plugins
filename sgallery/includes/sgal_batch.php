@@ -232,7 +232,8 @@ $parms= $parm ? explode('%%', $parm) : array('','','');
 $tmp = explode('.', $sgal_item['sgal_user']);
 if($tmp[0])
 {
-	$udata = get_user_data($tmp[0]);
+	//$udata = getx_user_data($tmp[0]);
+    $udata = e107::user($tmp[0]);
 	$uname = $udata['user_login'] ? $tp->toHTML($udata['user_login'], TRUE, "no_make_clickable") : ($udata['user_name'] ? $tp->toHTML($udata['user_name'], TRUE, "no_make_clickable") : $tmp[1]);
 }
 else $uname = varset($tmp[1], 'n/a');

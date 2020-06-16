@@ -307,7 +307,8 @@
             for ($i=0; $i<count($agn_responses); $i++) {
                $split = explode("=", $agn_responses[$i]);
                if (preg_match($pattern, $split[1])) {
-                  $user = get_user_data($split[0]);
+                  //$user = getx_user_data($split[0]);
+                  $user = e107::user($split[0]);
       		      if (sendemail($user["user_email"], strlen($subject) ? $subject : $agn_title, $msg)) {
       		         $ok++;
       		         $res .= "id=".$split[0]." ".$user["user_email"]." ok, ";

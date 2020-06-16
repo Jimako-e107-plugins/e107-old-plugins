@@ -825,7 +825,8 @@ class bugtracker3 {
       }
       if ($ownerpref == BUGC_NOTIFY_KEY_2 || $ownerpref == BUGC_NOTIFY_KEY_3) {
          require_once(e_HANDLER."mail.php");
-         $user = get_user_data($app->getOwnerId());
+         //$user = getx_user_data($app->getOwnerId());
+         $user = e107::user($app->getOwnerId());
 		   sendemail($user["user_email"], $subject, $message);
 		}
 		// Don't notify bug poster if they are the application owner
@@ -835,7 +836,8 @@ class bugtracker3 {
          }
          if ($posterpref == BUGC_NOTIFY_KEY_2 || $posterpref == BUGC_NOTIFY_KEY_3) {
             require_once(e_HANDLER."mail.php");
-            $user = get_user_data($bug->getPosterId());
+            //$user = getx_user_data($bug->getPosterId());
+            $user = e107::user($bug->getPosterId());
 		      sendemail($user["user_email"], $subject, $message);
 		   }
 		}
