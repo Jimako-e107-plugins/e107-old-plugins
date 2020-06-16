@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<e107HelperForm version="1.0">
+
+   <form name="e107plugin_template_admin_config_form" type="HELPER_FORM_TYPE_E107_PREF">
+
+      <div name="helper_style_header1" text="HELPER_STYLE_PREFS_HDR_1">
+         <style name="font-weight">bold</style>
+         <style name="text-align">center</style>
+      </div>
+
+      <text name="helper_style_label_class" label="HELPER_STYLE_PREFS_01_0" prompt="HELPER_STYLE_PREFS_01_1" help="HELPER_STYLE_PREFS_01_2" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">30</attribute>
+      </text>
+
+      <text name="helper_style_prompt_class" label="HELPER_STYLE_PREFS_02_0" prompt="HELPER_STYLE_PREFS_02_1" help="HELPER_STYLE_PREFS_02_2" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">30</attribute>
+      </text>
+
+      <text name="helper_style_help_class" label="HELPER_STYLE_PREFS_03_0" prompt="HELPER_STYLE_PREFS_03_1" help="HELPER_STYLE_PREFS_03_2" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">30</attribute>
+      </text>
+
+      <text name="helper_style_message_class" label="HELPER_STYLE_PREFS_04_0" prompt="HELPER_STYLE_PREFS_04_1" help="HELPER_STYLE_PREFS_04_2" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">30</attribute>
+      </text>
+
+      <text name="helper_style_error_class" label="HELPER_STYLE_PREFS_05_0" prompt="HELPER_STYLE_PREFS_05_1" help="HELPER_STYLE_PREFS_05_2" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">30</attribute>
+      </text>
+
+      <div name="helper_style_header2" text="HELPER_STYLE_PREFS_HDR_2">
+         <style name="font-weight">bold</style>
+         <style name="text-align">center</style>
+      </div>
+
+      <text name="helper_style_submit_style" label="HELPER_STYLE_PREFS_06_0" prompt="HELPER_STYLE_PREFS_06_1" help="HELPER_STYLE_PREFS_06_2" class="tbox">
+         <default var="e107pref"/>
+         <attribute name="size">30</attribute>
+      </text>
+
+   </form>
+
+</e107HelperForm>
