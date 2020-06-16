@@ -247,7 +247,7 @@ class e107HelperTagObj {
     * @param $new    the default value
     * @param $force  force the value as the default value
     */
-   function setDefault($new, $force=false) {
+   function setDefault($new, $force=false) {        
       if (!isset($this->_default) || $force===true) {
          $this->_default = $new;
       }
@@ -439,7 +439,7 @@ class e107HelperTagObj {
     * @param
     * @return
     */
-   function getDefault($asAtt=true) {
+   function getDefault($asAtt=true) {      
       if (strlen($this->_default) > 0) {
          if ($asAtt) {
             return " value='".$this->_default."'";
@@ -542,9 +542,9 @@ class e107HelperTagObj {
       }
 
       $value = "";
-
+    
       // Always use user input data if form has been submitted (for refreshing form when there are errors)
-      if (isset($_REQUEST[$this->_formName])){
+      if (isset($_REQUEST[$this->_formName])){    
          if (isset($_REQUEST[$this->_attributes["name"]][$this->_getIX()])
           || isset($_FILES[$this->_attributes["name"]]["name"][$this->_getIX()]))
          {
@@ -558,7 +558,7 @@ class e107HelperTagObj {
             $value = $this->getDefault(false);
          }
       } else {
-         if ($this->_getCallback()) {
+         if ($this->_getCallback()) {       
             // Allow the application to set the values at runtime
             if ($this->_getCallbackClass()) {
                $this->setDefault(call_user_func(array($this->_getCallbackClass(), $this->_getCallback()), $this->_getParams()));
@@ -566,9 +566,9 @@ class e107HelperTagObj {
                $this->setDefault(call_user_func($this->_getCallback(), $this->_getParams()));
             }
          }
-         if ($asAtt) {
+         if ($asAtt) {     
             $value = $this->getDefault();
-         } else {
+         } else {            
             $value = $this->getDefault(false);
          }
       }
@@ -651,13 +651,18 @@ class e107HelperTagObj {
             break;
          }
          case "calendar" : {
-            $text .= $this->_calendarTag();
+            $text .= e107::getDate()->convert_date($this->getCurrentValue(false), 'inputdate');
+            $text .= "<br>";
+            $text .= $this->getCurrentValue(false);
+            $text .= $this->_calendarTag("date");
             break;
          }
          case "calendartime" : {
-            $text .= $this->_calendarTag();
+            $text .= e107::getDate()->convert_date($this->getCurrentValue(false), 'inputdatetime');
+            $text .= "<br>";
+            $text .= $this->_calendarTag("datetime");
             $text .= "&nbsp;&nbsp;&nbsp;";
-            $text .= $this->_timeTag(true);
+            //$text .= $this->_timeTag(true);
             break;
          }
          case "checkbox" : {
@@ -827,32 +832,21 @@ class e107HelperTagObj {
     * @param
     * @return
     */
-   function _calendarTag() {
-      if (class_exists("DHTML_Calendar")) {
-         $cal = new DHTML_Calendar();
-         $options['firstDay']   = 1;
-         $options['showsTime']  = false;
-         $options['showOthers'] = true;
-         $options['weekNumbers']= true;
-         $options['ifFormat']   = "%d-%m-%Y";
-         $attrib['class']       = $this->_getClass(false);
-         $attrib['size']        = "13";
-         $attrib['maxlength']   = "10";
-         $attrib['name']        = $this->getID()."[".$this->_getIX()."]";
-         if (strlen($this->getCurrentValue(false)) > 0) {
-            $attrib['value']       = date("d-m-Y", $this->getCurrentValue(false));
-         } else {
-            $attrib['value']       = date("d-m-Y", time());
-         }
-         return $cal->make_input_field($options, $attrib);
-      } else {
-         $text .= "<input type='text size='10' id='f-calendar-field-1'";
-         $text .= $this->_getClass();
-         $text .= $this->getID();
-         $text .= date("d-m-Y", $this->getCurrentValue(false));
-         $text .= "/>";
-         return $text;
-      }
+   function _calendarTag($type = "date") {
+		$id = $this->getID()."[".$this->_getIX()."]";       
+		$attrib['type'] = $type;                           
+		if ($this->getCurrentValue(false) > 0) {
+			$value       = $this->getCurrentValue(false);
+		} else {
+			$value      = time();
+		}
+		$options = array(
+			'type' => 'datestamp', 
+			'data' => 'int',
+			'writeParms' => $attrib
+		); 
+		$text = e107::getForm()->renderElement($id, $value, $options );
+		return $text;
    }
 
    /*
@@ -1580,25 +1574,17 @@ class e107HelperTagObj {
       }
 
       // Get the value to save references to the $_REQUEST superglobal
-      $formvalue = $_REQUEST[$name][$this->_getIX()];
-      //debug($formvalue);
-      switch ($this->_tagType) {
+      $formvalue = $_REQUEST[$name][$this->_getIX()];    
+      //debug($formvalue);  
+      switch ($this->_tagType) { 
          case "calendar" :
-            $year  = substr($formvalue, 6, 4);
-            $month = substr($formvalue, 3, 2);
-            $day   = substr($formvalue, 0, 2);
-            $value = mktime(0,0,0,$month,$day,$year);
+            $value = $formvalue; 
             break;
          case "calendartime" :
-            $year  = substr($formvalue, 6, 4);
-            $month = substr($formvalue, 3, 2);
-            $day   = substr($formvalue, 0, 2);
-            $hours = $_REQUEST[$name."_h"][$this->_getIX()];
-            $mins  = $_REQUEST[$name."_m"][$this->_getIX()];
-            $value = mktime($hours,$mins,0,$month,$day,$year);
+            $value = $formvalue;   
             break;
          case "date" :
-         case "datestamp" :
+         case "datestamp" :        
             $year  = $name."_year";
             $month = $name."_month";
             $day   = $name."_day";

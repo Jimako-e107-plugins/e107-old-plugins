@@ -32,14 +32,6 @@ if (!defined("e107_INIT")) {
 // include the e107 Helper JavaScript
 echo "<script type='text/javascript' src='".e_PLUGIN_ABS."e107helpers/e107helper.js'></script>\n";
 
-// Include DHTML Calendar JavaScript
-//TODO do we need to include the DHTML Calendar class if not already included here?
-if (!class_exists("DHTML_Calendar")) {
-   require_once(e_PLUGIN."e107helpers/calendar/calendar_class.php");
-   $temp = new DHTML_Calendar(true);
-   echo $temp->load_files();
-}
-
 // Make sure the e107 Ajax JavaScript is included
 global $footer_js;
 $footer_js[] = e_PLUGIN_ABS.'e107helpers/e_ajax.js';

@@ -61,16 +61,7 @@
       require_once(e_HANDLER."rate_class.php");
       require_once(e_HANDLER."ren_help.php");
       require_once(e_HANDLER."emote.php");
-
-      // Include DHTML calendar class if not already defined
-      $incDHTMLCalendarJS = false;
-      if (!class_exists("DHTML_Calendar")) {
-         if (file_exists(e_PLUGIN."e107helpers/calendar/calendar_class.php")) {
-            require_once(e_PLUGIN."e107helpers/calendar/calendar_class.php");
-            $incDHTMLCalendarJS = true;
-         }
-      }
-
+ 
       // Include the e107HelperStatusInfo class if not already defined
       if (!class_exists("e107HelperStatusInfo")) {
          if (file_exists(e_PLUGIN."e107helpers/e107HelperStatusInfo_class.php")) {
