@@ -249,15 +249,7 @@ state: just backup
 
 ### Clan Members Basic 1.0   by udesigns
 
-Source: https://e107.org/plugins/?id=476
-
-Credit:  Untergang from udesigns.be
-
-state: just backup 
-
-Note: see plugins above from the same author. 
-
-EDIT:  the author's site is not available anymore
+TRASHED
 
 * THERE IS AVAILABLE FULL VERSION for 0.7 - courtesy from Untergang *
 
@@ -266,15 +258,11 @@ EDIT:  the author's site is not available anymore
 ## clanmembers, clanmembers_fixed
 ### Clan Members 1.0   by udesigns
 
-Source: unknown
+TRASHED
 
-Credit:  Untergang from udesigns.be
+there is updated version for e107 2.2 and PHP 7
 
-state: just backup 
-
-EDIT:  the author's site is not available anymore
-
-Update: there is available updated version for php 7.2
+More info: https://www.e107sk.com/
 
 =======
 
@@ -740,15 +728,12 @@ Just backup
 ## lgsl
 ###   Live Game Server List v5.7  by Richard Perry 
 
-Description: LGSL shows live game server info on your website.
-See the screenshot below to see an example setup.
+TRASHED 
 
-Author credit: Richard Perry
+there is updated version for e107 2.2 and PHP 7
 
-MAP IMAGES FOR LGSL ARE IN A SEPERATE DOWNLOAD HERE:
-http://www.greycube.com/site/download.php?view.60
+More info: https://www.e107sk.com/
 
-REPLACED BY UPDATED e107 VERSION for 5.10.3 from  https://github.com/tltneon/lgsl
 
 ======= 
 
