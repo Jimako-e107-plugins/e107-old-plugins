@@ -805,12 +805,12 @@ source: e107-german.de
 
 ## onlineinfo_menu
 ### Online advanced info menu by TheMadMonk
-just backup 
 
-Source: 8.5.1 https://e107.org/plugins/?iframe=1&id=366
-Source: 8.5.3 https://osdn.net/projects/sfnet_e107german/releases/
+TRASHED
 
-There is new plugin for this. 
+there is updated version for e107 2.2 and PHP 5.6
+
+More info: https://www.e107sk.com/
 
 =======
 
