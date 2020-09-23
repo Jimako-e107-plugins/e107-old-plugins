@@ -290,13 +290,11 @@ state: just backup , probably not full plugin
 ## clanwars
 ###  Clan Wars by udesigns
 
-still able download: http://www.udesigns.be/shop-i80-e107-clan-wars
+TRASHED
 
-state: just backup 
+there is updated version for e107 2.2 and PHP 7
 
-note: needs to use e107_images/clan for images and a lot of extra stuff
-
-EDIT:  the author's site is not available anymore
+More info: https://www.e107sk.com/
 
 =======
 
