@@ -166,14 +166,13 @@ just backup
 ## bday_menu
 ###  Birthday Menu (e107 v7x) by Father Barry
 
-Description: A Simple configurable birthday menu. Uses e107 extended field for birthday. Can also send an email or PM to users on their birthday.
+TRASHED
 
-Author credit: Barry Keal (c) 2003 - 2008
- 
-Updated version: https://github.com/Jimmi08/e107-free-plugins-by-e107sk/tree/master/birthday
+there is updated version for e107 2.2 and PHP 7
 
-Support:
-https://www.e107sk.com/forum/
+
+
+More info: https://www.e107sk.com/
 
 =======
 
