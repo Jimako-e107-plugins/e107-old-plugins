@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e107Plugin name="UserJournals" lan="LAN_JOURNAL_A0" version="2.0.0" date="2020-11-22" compatibility="2.0" installRequired="true" >
+	<author name="Jimako" url="https://www.e107sk.com/" />
+	<summary lan="LAN_JOURNAL_A0_SUM">UserJournals plugin for e107 website system by burgrain </summary>
+	<description lan="LAN_JOURNAL_A0_DESC">UserJournals plugin for e107 website system by burgrain</description>
+	<keywords>
+		<word>generic</word>
+		<word>information</word>
+		<word>blogs</word>
+	</keywords>
+	<category>content</category>
+	<copyright>GNU</copyright>
+	<adminLinks>
+		<link url="admin/admin_config.php" description="" icon="images/userjournals.png" 
+		iconSmall="images/userjournals_16.png" 
+		icon128="images/userjournals.pn" 
+		primary="true" >LAN_CONFIGURE</link>
+	</adminLinks>
+	<siteLinks>
+		<link url="{e_PLUGIN}userjournals_menu/userjournals.php" perm='everyone' lan=''>LAN_JOURNAL_A0</link>
+	</siteLinks>
+	<pluginPrefs>
+		<pref name='userjournals_active'>1</pref>
+		<pref name='userjournals_allowratings'>253</pref>
+		<pref name='userjournals_allowcomments'>253</pref>
+		<pref name='userjournals_bloggers_menu_max'>0</pref>
+		<pref name='userjournals_bloggers_per_page'>0</pref>
+		<pref name='userjournals_blogs_per_page'>30</pref>
+		<pref name='userjournals_cat_menu_title'>Blog Categories</pref>
+		<pref name='userjournals_len_subject'>30</pref>
+		<pref name='userjournals_len_preview'>400</pref>
+		<pref name='userjournals_menu_title'>Blogs</pref>
+		<pref name='userjournals_page_title'>Blogs</pref>
+		<pref name='userjournals_readers'>0</pref>
+		<pref name='userjournals_recent_entries'>5</pref>
+		<pref name='userjournals_report_blog'>0</pref>
+		<pref name='userjournals_show_cats'>0</pref>
+		<pref name='userjournals_show_mood'>0</pref>
+		<pref name='userjournals_show_playing'>1</pref>
+		<pref name='userjournals_show_rss'>0</pref>
+		<pref name='userjournals_writers'>0</pref>
+		<pref name='userjournals_template'></pref>	
+	</pluginPrefs>
+</e107Plugin>
+  

@@ -1337,6 +1337,10 @@ Authors: Del Rudolph, SKiTZ716, bkwon, bugrain
  
 Allows members of e107 site to maintain their own journals.
 
+Fixed for e107 2.3.0 and php 7.2
+
+https://github.com/WhiteGrizly/Userjournals
+
 =======
 
 Yellow Pages by bugrain (www.bugrain.plus.com)
