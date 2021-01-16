@@ -161,6 +161,22 @@ just backup
 
 just backup
 
+## Auto Assign to Class 1.5
+Author	Father Barry
+Author website	www.keal.me.uk
+Description	This plugin allows you to automatically assign new members to upto 5 predefined classes when they sign up.
+
+(V1.4 wasn't released)
+
+=======
+
+## Auto Promote V1.1.9
+Author	Father Barry
+Author website	www.keal.me.uk
+Description	Auto promote users class membership based on criteria
+
+Beta version
+
 =======
 
 ## bday_menu
@@ -357,6 +373,15 @@ Just backup
 
 =======
 
+## Custom Page Maker 1.1.7
+Author	Father Barry
+Author website	www.keal.me.uk
+Description	TEST version of the custom page plugin, replaces the core custom page creation.
+
+You need my PROTOTYPE plugin with this plugin. You must copy cpage.php to the root of your web site.
+
+=======
+
 ## deleteme
 ### Delete me v 1.7 Barry Keal
 
@@ -432,12 +457,20 @@ source: e107-german.de
 
 =======
 
+
+## e_Version 1.3
+Author	Father Barry
+Author website	www.keal.me.uk
+Description	A plugin to assist other plugin authors inform when plugin updates are available.
+ 
+=======
+
 ## e_version, eversion
 ### eversion plugin for version 0.7 by Father Barry
 
 eversion forked originally from https://github.com/yesszus/eversion
 
-e_version plugin is my own copy, no idea from where 
+
 
 backup version from 08/2016
  
@@ -593,6 +626,15 @@ Replacement:  https://github.com/Jimmi08/e107-free-plugins-by-e107sk/tree/master
 Support: https://www.e107sk.com/forum
 
 Documentation: https://www.e107sk.com/documentation/jm-google-ads-plugin/?cat.189
+
+=======
+
+## Google Translate Menu 1.4
+Author	Father Barry
+Author website	www.keal.me.uk
+Description	A translation menu for your site. Either use a menu or a shortcode.
+
+Adds many more languages and option in admin config for users to add new ones when htey become available.
 
 =======
 
@@ -794,6 +836,14 @@ just backup
 
 =======
 
+## My Level 1.4
+
+Author	Father Barry
+Author website	www.keal.me.uk
+Description	Latest incarnation of mylevel menu - hopefully ok but please reports any bugs in the bugtracker
+
+=======
+
 ## my_gallery
 ###  my_gallery
 			
@@ -851,10 +901,18 @@ just backup
 
 ## portfolio
 
-## prune_users
+=======
+
+## Prune Users 3.1
 ### Prune Inactive Users  by  Barry Keal
 
-original version: 27 September 2004
+Author	Father Barry
+Author website	www.keal.me.uk
+Description	A plugin to help maintain your user list. Select those users who have not visited your site or who have not made a forum posting in a specified number of days. Or those who have not made sufficient chat, or forum posts, comments and visits.
+
+Optionaly, email users you are going to delete before deletion or when they are deleted. You can change the email message in the language file.
+
+Always ensure you have a backup of your database before bulk deletion operations - just in case.
 
 just backup
 
@@ -1085,6 +1143,13 @@ Live-Ticker
 
 =======
 
+## Timed Userclass 1.1.2
+Author	Father Barry
+Author website	www.keal.me.uk
+Description	Add or delete users from classes on specific dates. Beta test version
+
+=======
+
 ## tglinktous
 ###  TG Link To Us by Frederick McAninch
 			
@@ -1130,6 +1195,16 @@ just backup
 ### User Flags Menu by  JmoRava, Oxigen 
  
 FIXED: updated for version 2.0
+
+=======
+
+## User Changed Settings 1.2
+
+Author	Father Barry
+Author website	www.keal.me.uk
+Description	A simple plugin which uses the e107 notify to advise when a user has changed their settings
+
+=======
 
 ## wglogin
 ###  wglogin 

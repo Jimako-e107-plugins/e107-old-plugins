@@ -1,0 +1,42 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: #fff;
+	color: #000;
+	font: 0.7em/160% "Lucida Grande", Arial, Helvetica, Verdana, sans-serif;
+	padding: 20px;
+}
+#newsticker {
+	background: #ffffaf;
+	position: relative;
+}
+#newsticker ul {
+	border: 1px solid #fcf498;
+	list-style: none;
+	min-height: 1.6em;
+	padding: 10px 15px;
+	padding-right: 30px;
+}
+* html #newsticker ul {
+	height: 1.6em;
+	overflow: visible;
+}
+#newsticker li.error {
+	color: #f00;
+}
+#newsticker #togglenewsticker {
+	background: transparent url("icon_closenewsticker.gif") no-repeat 0 0;
+	overflow: hidden;
+	position: absolute;
+	right: 10px;
+	top: 12px;
+	width: 14px;
+	height: 14px;
+	text-indent: 20px;
+	outline: none;
+}
+* html #newsticker #togglenewsticker {
+	right: 30px;
+}
