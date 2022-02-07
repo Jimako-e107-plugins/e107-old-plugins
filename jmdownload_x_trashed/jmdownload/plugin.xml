@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e107Plugin name="JM Downloads" lan="LAN_JMD_01" version="1.3.0" date="2020-02-02" compatibility="2.3" installRequired="true" >
+	<author name="Jimako" url="https://www.e107sk.com/" />
+	<summary lan="">Some missing features for download plugin</summary>
+	<description lan="">Way how to extend download plugin without changing core files </description>
+	<keywords>
+		<word>admin</word>
+		<word>download</word>
+		<word>menu</word>
+	</keywords>
+	<category>content</category>
+	<copyright>https://www.e107sk.com/</copyright>
+	<adminLinks>
+		<link url="admin/admin_download.php" description="" icon="images/icon64.png" iconSmall="images/icon32.png" icon128="images/icon128.png" primary="true" >LAN_CONFIGURE</link>
+	</adminLinks>
+	<pluginPrefs>
+		<pref name='menu_category'>1</pref>
+		<pref name='menu_date'>1</pref>
+		<pref name='menu_author'></pref>
+		<pref name='menu_adminlink'></pref>
+		<pref name='menu_maxchars'></pref>
+		<pref name='menu_size'></pref>
+	</pluginPrefs>	
+</e107Plugin>
