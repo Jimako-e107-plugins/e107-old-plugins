@@ -57,7 +57,7 @@ if(isset($_POST['find_username'])){
     $sql = e107::getDb(); 
 	$username = e107::getParser()->toDB($_POST['find_username']);
 
-	$sql->gen('SELECT user_id, user_name, user_email, user_hideemail FROM '.MPREFIX.'user WHERE user_name like \'%'.$username.'%\';');
+	$sql->gen('SELECT user_id, user_name, user_email, user_hideemail FROM '.MPREFIX.'user WHERE user_name like \'%'.$username.'%\' AND user_ban = 0 ;');
 
 	$row = $sql->fetch();
 
