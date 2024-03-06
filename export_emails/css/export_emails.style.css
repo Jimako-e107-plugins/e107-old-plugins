@@ -1,0 +1,20 @@
+.export-emails-status-msg-true {
+	border: solid 1px #006600;
+	background: #99FF66 url(../images/message/correct.png) 10px 5px no-repeat;
+	color: #222222;
+	text-align: left;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: 12px 0 0 70px;
+	min-height: 32px;
+}
+.export-emails-status-msg-false {
+	border: solid 1px #FF0000;
+	background: #FF3A3A url(../images/message/incorrect.png) 10px 5px no-repeat;
+	color: #222222;
+	text-align: left;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: 12px 0 0 70px;
+	min-height: 32px;
+}
