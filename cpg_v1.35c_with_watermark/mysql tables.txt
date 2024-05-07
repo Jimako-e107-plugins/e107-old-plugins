@@ -1,0 +1,4 @@
+insert into e107_CPG_config (name, value) values ('enable_watermark', '1');
+insert into e107_CPG_config (name, value) values ('where_put_watermark', 'bottomright');
+insert into e107_CPG_config (name, value) values ('watermark_file', '/your/full/path/to/logo.png');
+insert into e107_CPG_config (name, value) values ('which_files_to_watermark', 'both');

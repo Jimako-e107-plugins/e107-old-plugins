@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Coppermine Photo Gallery - README</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<style type="text/css">
+<!--
+body {
+        font-family : Verdana, Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        background : #F7F7F7 ;
+        color : Black;
+        margin: 20px;
+}
+
+td {
+        font-size: 12px;
+}
+
+h1{
+        font-weight: bold;
+        font-size: 22px;
+        font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+        text-decoration: none;
+        line-height : 120%;
+        color : #000000;
+}
+
+h2 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        color: #0E72A4;
+        text-decoration: underline;
+}
+
+h3 {
+        font-weight: bold;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        text-decoration: underline;
+}
+
+p {
+        font-family : Verdana, Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        margin: 10px 10px 0px 0px;
+}
+
+pre {
+        font-family : "Courier New", Courier, mono;
+        font-size: 12px;
+        margin: 10px 10px 0px 0px;
+        font-style: normal;
+        background-color: #E0E0E0;
+        border: 1px solid #999999;
+        padding: 5px;
+}
+
+ul {
+        margin-left: 5px;
+        margin-right: 0px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 0px;
+}
+
+li {
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        padding: 0px;
+        list-style-position: outside;
+        list-style-type: disc;
+}
+-->
+</style>
+</head>
+
+<body>
+<h1><img src="../images/coppermine_logo.png" width="300" height="75" /></h1>
+<h1>Coppermine Photo Gallery v1.2.0 - RC2</h1>
+<p>Coppermine Photo Gallery is a picture gallery script. Users can upload pictures
+  with a web browser (thumbnails are created on the fly), rate pictures, add comments
+  and send e-cards. The admins can manage the galleries and batch add pictures
+  that have been uploaded on the server by FTP.</p>
+<p>Images are stored in albums and albums can be grouped by categories. The script
+  supports multiple users and each user can possibly have its own set of albums.</p>
+<p>The script also supports multiple languages and has a theme system. It uses
+  PHP, a MySQL database and the GD library (version 1.x or 2.x) or ImageMagick
+  to make the thumbnails. An install script makes the installation fast and simple.</p>
+
+<p><a href="#what">What is required</a><br />
+<a href="#how">How To Install The Script</a><br />
+<a href="#getting">Getting Started</a>
+<a href="#changing">Changing the content of the main page</a><br />
+<a href="#formatting">Formatting album and image descriptions</a><br />
+<a href="#xp">Using Windows XP Web Publishing Wizard with Coppermine</a><br />
+<a href="#creating">Creating your own themes</a><br />
+<a href="#safe">Safe mode issues</a><br />
+<a href="#smtp">Using SMTP to send emails</a><br />
+<a href="#10">Upgrading from version 1.0</a><br />
+<a href="#11">Upgrading from releases of version 1.1</a><br />
+<a href="#integrating">Integrating the script with your bulletin board</a><br />
+<a href="#translating">Translating Coppermine into other languages</a><br />
+<a href="#credits">Credits
+</p>
+
+<a name="what"></a>
+<h2>What is required</h2>
+<ul>
+  <li>A web server that supports PHP (the script should work with any version
+    &gt;= 4.1.0)</li>
+  <li>A MySQL database</li>
+  <li>PHP compiled with the support for the GD library or the ImageMagick &quot;convert&quot;
+    utility in order to make thumbnails and reduced size images</li>
+</ul>
+<a name="how"></a>
+<h2>How to install the script</h2>
+<ul>
+  <li>Unpack the archive preserving the directory structure</li>
+  <li>Uploads all files onto your webserver</li>
+  <li>Run the install script on your server (http://your_server/coppermine_dir/install.php)
+    and follow the instructions</li>
+</ul>
+<a name="getting"></a>
+<h2>Getting started</h2>
+<p>Login with the admin username and password, click on the &quot;admin mode&quot;
+  link if it is visible, go to the <b>Config</b> page and start to configure your
+  gallery. Note that even if you are a member of the administrator group, you
+  need to be in &quot;admin mode&quot; to configure your gallery.</p>
+<p>Use the <b>anonymous</b> group to define what non-regsitered users can and
+  can't do.</p>
+<p>Use the &quot;<b>Album Manager</b>&quot; (&quot;Albums&quot; link in the admin
+  menu) in to create and order your albums.</p>
+<p>Use the <b>properties</b> of an album to modify its description and permissions.
+</p>
+<p>In order for a user to be allowed to upload a picture in album two conditions
+  must be met:</p>
+<ul>
+  <li> The user must be part of a group that can upload picture.</li>
+  <li>There must be at least one album where &quot;<b>Visitors can upload pictures</b>&quot;
+    has been set to &quot;<b>Yes</b>&quot;.</li>
+</ul>
+<p>The same apply to <b>picture rating</b> and <b>comment posting</b>.</p>
+<p>If you have installed the script succesfully but are having trouble getting
+  it working properly you can enable the &quot;<b>debug mode</b>&quot; on the
+  <b>config page</b>. In this mode, the script outputs most of the warning/error
+  messages produced by PHP in addition to some debug information. This can provide
+  valuable information to understand what is wrong.</p>
+<a name="changing"></a>
+<h2>Changing the content of the main page</h2>
+<p>On the config page, you have an option called &quot;<b>The content of the main
+  page</b>&quot;. Here you can define what is displayed on the main page of the
+  script.</p>
+<p>The default value is &quot;<b>catlist/alblist/random,2/lastup,2</b>&quot;</p>
+<p>You can use the following &quot;codes&quot;</p>
+<ul>
+  <li>'<b>catlist</b>': category list</li>
+  <li>'<b>alblist</b>': album list</li>
+  <li>'<b>random</b>': random pictures</li>
+  <li>'<b>lastup</b>': last uploads</li>
+  <li>'<b>topn</b>': most viewed</li>
+  <li>'<b>toprated</b>': top rated</li>
+  <li>'<b>lastcom</b>': last comments </li>
+  <li>'<b>breadcrumb</b>': Breadcrumbs </li>
+  <li>'<b>lastalb</b>': last uploaded to Albums</li>
+  <li>'<b>anycontent</b>': Display contents output by anycontent.php</li>
+</ul>
+<p></p>
+<p>The <b>,2</b> means 2 rows of thumbnails</p>
+<a name="formatting"></a>
+<h2>Formatting album and image descriptions</h2>
+<p>Coppermine understands the following bbCodes (the same bbCodes that are used
+  by phpBB) in image and album description</p>
+<ul>
+  <li>[b]<b>bold</b>[/b]</li>
+  <li>[i]<i>italic</i>[/i]</li>
+  <li>[url=http://url]<a href="javascript:;">URL text</a>[/url]</li>
+  <li>[email]<a href="javascript:;">user@domain.tld</a>[/email]</li>
+</ul>
+<a name="xp"></a>
+<h2>Using Windows XP Web Publishing Wizard with Coppermine</h2>
+<p>If you are using Windows XP, you can use its built-in web publishing wizard
+  to upload your photos to your gallery.</p>
+<p>Once you have properly installed the script on your server, call the xp_publish.php
+  file from your web browser (<a href="javascript: ;">http://your_site.com/coppermine_dir/xp_publish.php</a>).</p>
+<p>The script displays some information on how to do the installation on the client
+  side and how to use the Wizard. Basically you will need to download a small
+  file created by the script that needs to be loaded into your Windows registry.</p>
+<a name="creating"></a>
+<h2>Creating your own themes</h2>
+<p>Coppermine themes are stored in the &quot;<b>themes</b>&quot; directory, they
+  consist of 3 files : </p>
+<ul>
+  <li>&quot;<b>template.html</b>&quot; the main template in plain HTML.</li>
+  <li>&quot;<b>style.css</b>&quot; the stylesheet associated with the template</li>
+  <li>&quot;<b>theme.php</b>&quot; the PHP theme file</li>
+</ul>
+<p>To create a new template the best solution is to use an existing one as a basis.
+  Do do that make copy of the folder of the theme you want to use as a basis then
+  edit the &quot;<b>template.html</b>&quot; and &quot;<b>template.php</b>&quot;
+  files and replace all occurences of &quot;<b>themes/old_theme_dir</b>&quot;
+  with &quot;<b>themes/new_theme_dir</b>&quot; in order for the links to point
+  to the correct place.</p>
+<p>When editing the &quot;<b>template.html</b>&quot; file do not remove the elements
+  between <b>{}</b> these are the placeholders used by the script. Also keep in
+  mind that despite this file being located in the &quot;<b>themes/your_theme_dir</b>&quot;
+  directory, it must be build like if it was in the main directory of the script.
+  Practically to load an image, you must use <i>&lt;img src=&quot;themes/theme_dir/images/image.gif&quot;
+  alt=&quot;&quot;/&gt;</i> and not <i>&lt;img src=&quot;images/image.gif&quot;
+  alt=&quot;&quot;/&gt;.</i> The same apply for the &quot;<b>theme.php</b>&quot;
+  file.</p>
+  <p>Also, make sure not to delete the line <i>&lt;script type="text/javascript" src="scripts.js"&gt;&lt;/script&gt;</i> that is needed for the full-size pop-ups and other stuff related to JavaScript.</p>
+<p>If you are using an HTML editor to make your template, the best solution is
+  that you copy the &quot;<b>template.html</b>&quot; file into the main directory
+  of the script and edit it there. If the script find a file named &quot;<b>template.html</b>&quot;
+  in the main directory it will load it instead of the one of the theme directory.
+  Once you have finished your editings, move the file back to the directory of
+  your theme.</p>
+<p>To modify the colors, fonts, font sizes, etc... used by the script, edit the
+  &quot;<b>style.css</b>&quot; stylesheet. If you want to increase or decrease
+  the size of the fonts you can simply modify the line with : <i>table { font-size:
+  12px; }</i>. Most of the font sizes used by the script are defined as a percentage
+  of this size.</p>
+<p>The &quot;<b>theme.php</b>&quot; file contains all the HTML templates used
+  by the script. You can also edit them. When making modifications to these templates,
+  don't touch the lines with <i>&lt;!-- BEGIN xxx --&gt;</i> and <i>&lt;!-- END
+  xxx --&gt;</i>.</p>
+<a name="safe"></a>
+<h2>Safe mode issues</h2>
+<p>A significant number of webhost on the Internet run PHP in safe mode. Coppermine
+  runs without any problem in safe mode and with the &quot;open basedir restriction&quot;
+  active, provided safe mode is properly configured. Unfortunately on many hosts,
+  safe mode is not configured properly.</p>
+<p>If your webhost is running PHP in safe mode but is misconfigured, you may need
+  to do the following :</p>
+<ul>
+  <li>With a FTP program, change the mode of Coppermine's &quot;<b>include</b>&quot;
+    directory on your server to <b>0777</b>.</li>
+  <li>Do the same for the &quot;<b>albums</b>&quot; and &quot;<b>userpics</b>&quot;
+    directories.</li>
+  <li>Check that at the beginning the the &quot;<b>include/config.inc.php</b>&quot;
+    file, you have a line with : &quot;<b>define('SILLY_SAFE_MODE', 1);</b>&quot;</li>
+</ul>
+<a name="smtp"></a>
+<h2>Using SMTP to send emails</h2>
+<p>By default the script uses the PHP built-in <b>mail</b> function to send emails.
+  In some cases, the PHP built-in function can't be used.</p>
+<p> If in order to send emails with PHP you need to supply a <b>hostname</b>,
+  a <b>username</b> and a <b>password</b>, you need to edit the file &quot;<b>include/mailer.inc.php</b>&quot;
+  and put the correct values there (<i>$CONFIG['smtp_host'] = 'smtp.somewhere.com';
+  $CONFIG['smtp_username'] = 'username'; $CONFIG['smtp_password'] = 'password';</i>).
+  If you don't need a username and password to connect to your SMTP server, just
+  leave them blank.</p>
+<p></p>
+<a name="10"></a>
+<h2>Upgrading from version 1.0</h2>
+
+<p>If you already have installed version 1.0 and you want to transfer your albums
+  to version 1.2 proceed in the following way:</p>
+<ul>
+  <li> Install version 1.2 normally in a directory different from the one where
+    you installed v 1.0. Note that in order to use the upgrade script, <b>tables
+    for version 1.0 and 1.2 must be stored in the same database</b>.</li>
+  <li>Copy the &quot;<b>albums</b>&quot; directory of version 1.0 into the directory
+    where you installed version 1.2</li>
+  <li>The upgrade script assumes that you used the &quot;<b>CPG_</b>&quot; prefix
+    for tables (default value) when you installed version 1.0, if this is not
+    the case, edit upgrade-1.0-to-1.2.php and edit the $prefix10 variable.</li>
+  <li>Login to your 1.2 Gallery, enter the admin mode</li>
+  <li>Call the upgrade script, http://yousitename/coppermine_dir/upgrade-1.0-to-1.2.php</li>
+  <li><b>The upgrade from 1.0 to 1.2 is a two-step process.</b> You must click the link which comes up on the bottom of the page to complete the upgrade!.</li>
+        <li><b>Delete upgrade-1.0-to-1.2.php from your server</b>.
+  <li>If you get an error, go to Coppermine 1.2 config page, enable debug mode,
+    try to call the upgrade script again and check what errors you get.</li>
+</ul>
+<p> <b>This upgrade process leaves your v1.0 gallery untouched </b></p>
+<a name="11"></a>
+<h2>Upgrading from releases of version 1.1</h2>
+        <ul>
+                <li>Backup your include/config.inc.php file and your "albums" directoy.</li>
+                <li>Unpack the archive</li>
+                <li>If the file <b>config.inc.php</b> exists in the <b>&quot;include&quot;</b> directory, delete it.</li>
+                <li>If the file <b>install.php</b> exists in the root directory, delete it.</li>
+                <li><b>Except for the "albums" directory</b>, upload all of the new files and directories making sure not to overwrite the include/config.inc.php file or the albums directory.</li>
+                <li>Call the upgrade script http://yousitename/coppermine_dir/update.php</li>
+                <li>Your upgrade should be complete.</li>
+        </ul>
+<a name="integrating"></a>
+<h2>Integrating the script with your bulletin board</h2>
+<p>Coppermine can be integrated with the following bulletin boards (eg. Coppermine
+  and your bulletin board will share the same user database)</p>
+<ul>
+  <li>phpBB 2</li>
+  <li>Invision Power Board</li>
+  <li>vBulletin</li>
+  <li>YaBB SE</li>
+</ul>
+<p>The login integration use your bulletin board cookies, therefore it won't work
+  if your board cookies are not visible by Coppermine. So unless you are an expert,
+  keep things simple and install Coppermine and your bulletin board on the same
+  domain. Example :</p>
+<ul>
+  <li>Bulletin board:<a href="javascript:;">http://yourdomain.com/board/</a></li>
+  <li>Coppermine:<a href="javascript:;">http://yourdomain.com/gallery/</a></li>
+</ul>
+<p>If you are using phpBB 2, go to the admin control panel and check that &quot;Cookie
+  domain&quot; corresponds to your domain, &quot;Cookie name&quot; is &quot;phpbb2mysql&quot;
+  and &quot;Cookie path&quot; is &quot;/&quot;.</p>
+<p>If you are using Invision Power Board, go to the &quot;admin control panel
+  / board settings / cookies&quot; and check that all fields are blank. If they
+  are not, you modified the default values and you are an expert.</p>
+<p>If you are using vBulletin, go to the &quot;admin control panel / vBulletin
+  options / HTTP Headers and output&quot; and check that the value for &quot;Cookie
+  Domain&quot; corresponds to your domain and that &quot;Path to save cookies&quot;
+  is &quot;/&quot;</p>
+<p>It is also recommended that you use the same database for your board and Coppermine.</p>
+<p>You will also need to perform the following operations after having unpacked
+  the archive on your harddrive and before uploading the files to your webserver
+  :</p>
+<p>Edit the file <i>include/init.inc.php</i>. At the beginning of the file you
+  will find the following lines :</p>
+<pre>// User database integration
+// Uncomment the applicable line if you want to use it
+// define('UDB_INTEGRATION', 'phpbb');
+// define('UDB_INTEGRATION', 'invisionboard');
+// define('UDB_INTEGRATION', 'vbulletin');</pre>
+<p>Un-comment the line that corresponds to the bulletin board you use (eg. remove
+  the &quot;//&quot; that are at the beginning of the line)</p>
+<pre>define('UDB_INTEGRATION', 'phpbb');</pre>
+<p>The go to the <i>bridge</i> directory and open the file that corresponds to
+  the bulletin board you use (eg. <i>phpbb.php</i>).</p>
+<p>At the beginning of the file there are a number a configuration values that
+  need to be set. For phpBB they are the following :</p>
+<pre>// database configuration
+define('PHPBB_DB_NAME','phpBB');     // The name of the database used by the board
+define('PHPBB_BD_HOST','localhost'); // The name of the database server
+define('PHPBB_DB_USERNAME','root');  // The username to use to connect to the    database
+define('PHPBB_DB_PASSWORD','');      // The password to use to connect to the database
+
+// The web path to your phpBB directory
+// In this example http://yoursite_name.com/phpBB2/
+define('PHPBB_WEB_PATH','/phpBB2/');</pre>
+<p>Modify them according to the configuration of your board and save the file.</p>
+<p>Upload all files onto your webserver and run the install script. Note that
+  the admin username and password you enter during the installation will be ignored
+  by the script. To login as an admin, you will need to use the admin username
+  and password of your board.</p>
+<p>Once you have completed the installation, login using the admin account of
+  your board. Go to the gallery, enter admin mode and click on the &quot;Groups&quot;
+  button. This will synchronize Coppermine groups with those of your board. The
+  permission you will see for each group will be completely messy, so take some
+  time to set them properly.</p>
+<p>Each time you add or delete a group in your board you will need to do the operation
+  above in order to keep the synchronisation of the groups.</p>
+<p>When you will try to login / logout or manage users from Coppermine, you will
+  be redirected to the corresponding page of your bulletin board. Once the login
+  or logout is performed you won't be redirected automatically to the gallery
+  because your board does not have any function for that. It's up to you to add
+  a link on your board to get you back to the gallery.</p>
+<a name="translating"></a>
+<h2>Translating Coppermine into other languages</h2>
+<p>Coppermine has a separate language file that make the translation of the
+  script much more easy. The language files are stored in the <b>lang </b>directory.
+  The files with the <b>utf-8</b> suffix are unicode encoded files. They are automatically
+  generated with the <b>iconv</b> program so there is no need for you to make
+  an unicode version of your translation.</p>
+<p>If you select an utf-8 language file as the default one, then the script will
+  be able to automatically select a language file based on the visitor browser
+  configuration. For instance if the default language file is danish-utf-8 and
+  an english visitor access your gallery, the english-utf-8 language file will
+  be used by the script.</p>
+<p> If you have translated Coppermine into a language not already supported, please visit the <a href="http://coppermine.sf.net">Coppermine Web Site</a> at Sourceforge and follow the instructions for submitting your language.</p>
+<p></p>
+<a name="credits"></a>
+<h2>Credits</h2>
+<h3>Language file translation :</h3>
+<p><b>Note</b> : if you have corrections to suggest on language files, mail them
+  directly to the author of the translation.</p>
+        <p>
+<p>The list for the CPG 1.2 translators can be found in <a href="credits.html">credits.html</a></p>
+
+<h3>Coppermine uses code from the following free softwares :</h3>
+<p><b>phpBB</b><br />
+  Author: phpBBGroup <br />
+  URL: <a href="http://www.phpbb.com/">http://www.phpbb.com/</a><br />
+</p>
+<p><b>phpMyAdmin</b><br />
+  Author: phpMyAdmin devel team<br />
+  URL: <a href="http://www.phpmyadmin.net/">http://www.phpmyadmin.net/</a><br />
+</p>
+<p><b>phpPhotoAlbum</b><br />
+  Author: Henning St&oslash;verud<br />
+  E-mail: <a href="mailto:%20henning@stoverud.com">henning@stoverud.com</a><br />
+  URL: <a href="http://www.stoverud.com/PHPhotoalbum/">http://www.stoverud.com/PHPhotoalbum/</a><br />
+</p>
+<h2>Known Issues</h2>
+<p>The following slight quirks and tiny issues are known and will be fixed in future releases.</p>
+<ul>
+        <li>Some drop down menus (particularly in configuration page) and other small text items are only available in English. (Language issue)</li>
+        <li>There have been requests for the configuration page to have multiple submit buttons instead of one single button at the bottom of the page. (Usability issue)</li>
+        <li>Odd behavior if "Back" button is used during installation. (Installation issue)</li>
+        <li>Various error messages while in debug mode. (Does not affect main CPG app)</li>
+        <li>Administrators can ban themselves making it necessary to fix directly in dB. (Usability issue.)</li>
+</ul>
+<h2>Copyright and disclaimer</h2>
+<p>This application is opensource software released under the <a href="http://www.gnu.org/copyleft/gpl.html">GPL</a>.
+</p>
+<p>BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY<br />
+  FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN<br />
+  OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES<br />
+  PROVIDE THE PROGRAM &quot;AS IS&quot; WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED<br />
+  OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF<br />
+  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS<br />
+  TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE<br />
+  PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING,<br />
+  REPAIR OR CORRECTION. </p>
+<p>Coppermine Photo Gallery is Copyright &copy; 2002, 2003 <a href="http://www.chezgreg.net/coppermine/">Gr&eacute;gory
+  DEMAR</a>, All Rights Reserved.<br />
+</p>
+</body>
+</html>
