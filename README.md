@@ -214,6 +214,8 @@ Requires the e107 Helper Project to be installed.
 
 Just backup
 
+Updated version: https://github.com/rica-carv/bugtracker3
+
 =======
 
 ## calendar_menu
