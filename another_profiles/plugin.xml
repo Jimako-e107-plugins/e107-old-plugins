@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e107Plugin name="Another Profiles" version="1.0.0" date="2016-10-02" compatibility="2.0" installRequired="true" xhtmlcompliant="true" >
+	<author name="Super - Ampi" email="support@freedigital.hu" url="http://freedigital.hu" />
+	<summary lan="AP_ADMIN_1">A plugin lehetőséget ad arra, hogy a tagok barátokat jelöljenek meg, képeket, videókat osszanak meg, saját profil zenét állítsanak be stb. ...</summary>
+	<description lan="AP_ADMIN_1"></description>
+	<category>users</category>
+	<readMe>readme.txt</readMe>
+	<adminLinks>
+		<link url='admin_menu.php' description='AP_ADMIN_2' icon='images/logo.jpg' iconSmall='images/logo_small.jpg' primary='true' >AP_ADMIN_2</link>	
+	</adminLinks>
+	<mainPrefs>
+		<pref name="profile_apcomments">5</pref>
+		<pref name="profile_frcol">4</pref>
+		<pref name="profile_allowguests">253</pref>
+		<pref name="profile_maxuploadsize">10000</pref>
+		<pref name="profile_avatarwidth">64</pref>
+		<pref name="profile_avatarheight"></pref>
+		<pref name="profile_indmaxuploadsize">2000</pref>
+		<pref name="profile_maxnovids">6</pref>
+		<pref name="profile_friends">ON</pref>
+		<pref name="profile_pics">ON</pref>
+		<pref name="profile_videos">ON</pref>
+		<pref name="profile_commentson">ON</pref>
+		<pref name="profile_stats">OFF</pref>
+		<pref name="profile_buttontype">No</pref>
+		<pref name="profile_redirect">No</pref>
+		<pref name="profile_mp3enabled">ON</pref>
+		<pref name="profile_mp3">Both</pref>
+		<pref name="profile_mp3size">8000</pref>
+		<pref name="profile_picviewsize">600</pref>
+		<pref name="profile_lightbox">No</pref>
+		<pref name="profile_lightwindowbox">No</pref>
+		<pref name="profile_lightview">No</pref>
+		<pref name="profile_clearbox">No</pref>
+		<pref name="profile_memberlist">No</pref>
+		<pref name="profile_maxpcomment">100</pref>
+		<pref name="profile_maxpiccomment">50</pref>
+		<pref name="profile_maxvidcomment">50</pref>
+		<pref name="profile_maxalbumnumber">6</pref>
+		<pref name="profile_maxpicnumber">20</pref>
+		<pref name="profile_kepekezet">No</pref>
+		<pref name="profile_redirect_usersettings">Yes</pref>
+		<pref name="profile_user_image">100</pref>
+		<pref name="profile_imagewidth">200</pref>
+		<pref name="profile_imageheight"></pref>
+		<pref name="profile_unreg">No</pref>
+		<pref name="profile_fr_req_sendpm">No</pref>
+		<pref name="profile_fr_req_sendemail">No</pref>
+		<pref name="profile_unreg_save">No</pref>
+		<pref name="profile_user_warn_support">No</pref>
+		<pref name="profile_imagick_support">No</pref>
+		<pref name="profile_member_info">No</pref>
+		<pref name="profile_fr_req_sendemail_all">0</pref>
+		<pref name="profile_fr_req_sendpm_all">0</pref>
+		<pref name="profile_comments_spy_num">50</pref>
+		<pref name="profile_comments_spy">254</pref>
+		<pref name="profile_comments_spy_pic_size">145</pref>
+		<pref name="profile_memberlist_order">ASC</pref>
+		<pref name="profile_memberlist_direction">user_name</pref>
+		<pref name="profile_memberlist_accept">253</pref>
+		<pref name="profile_memberlist_forum_info">ON</pref>
+		<pref name="profile_memberlist_comment_1_info">ON</pref>
+		<pref name="profile_memberlist_comment_info">ON</pref>
+		<pref name="profile_memberlist_pic_info">ON</pref>
+		<pref name="profile_memberlist_vid_info">ON</pref>
+		<pref name="profile_memberlist_mp3_info">ON</pref>
+		<pref name="profile_memberlist_column_avatar">ON</pref>
+		<pref name="profile_memberlist_column_online">ON</pref>
+		<pref name="profile_memberlist_column_email">ON</pref>
+		<pref name="profile_memberlist_column_join">ON</pref>
+		<pref name="profile_memberlist_column_lastvisit">ON</pref>
+		<pref name="profile_memberlist_column_visits">ON</pref>
+		<pref name="profile_memberlist_filter">0</pref>
+		<pref name="profile_memberlist_column_realname">OFF</pref>
+		<pref name="profile_memberlist_column_loginname">OFF</pref>
+		<pref name="profile_memberlist_column_timezone">OFF</pref>
+		<pref name="profile_memberlist_column_userip">OFF</pref>
+		<pref name="profile_member_ext_search">No</pref>
+		<pref name="profile_memberlist_color_up"></pref>
+		<pref name="profile_memberlist_color_down"></pref>
+		<pref name="profile_memberlist_class"></pref>
+		<pref name="profile_mp3_autoplay">No</pref>
+		<pref name="profile_mp3_loop">No</pref>
+		<pref name="profile_mp3_volume">160</pref>
+		<pref name="profile_top_class">254</pref>
+		<pref name="profile_top_x">20</pref>
+		<pref name="profile_top_level">No</pref>
+		<pref name="profile_top_forums">No</pref>
+		<pref name="profile_top_comments">No</pref>
+		<pref name="profile_top_chatbox">No</pref>
+		<pref name="profile_top_rate">No</pref>
+		<pref name="profile_top_profile">No</pref>
+		<pref name="profile_top_friends">No</pref>
+		<pref name="profile_top_noadmin">Yes</pref>
+		<pref name="profile_memberlist_bcard">line</pref>
+		<pref name="profile_bcard_column">3</pref>
+		<pref name="profile_top_bcard_column">1</pref>
+		<pref name="profile_bcard_css">auto</pref>
+		<pref name="profile_updateddirection">v</pref>
+		<pref name="profile_updatedtotal">3</pref>
+		<pref name="profile_updatedtotal_col">4</pref>
+		<pref name="profile_lastupdate_filter">253</pref>
+		<pref name="profile_piccol">3</pref>
+		<pref name="profile_memberlist_addtofriend">No</pref>
+		<pref name="profile_private_albums">No</pref>
+		<pref name="profile_videowidth">400</pref>
+		<pref name="profile_youtube">ON</pref>
+		<pref name="profile_vimeo">ON</pref>
+		<pref name="profile_metacafe">ON</pref>
+		<pref name="profile_indavideo">ON</pref>
+	</mainPrefs>
+	<management>
+	</management>
+</e107Plugin>

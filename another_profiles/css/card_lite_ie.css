@@ -1,0 +1,118 @@
+/*Card table style */
+#card_table {
+	border-spacing: 20px 10px;
+	width: 100%;
+}
+
+/*Card body style (user list) */
+.card_body {
+	border-width: thin;
+	border-style: solid;
+	border-color: #c7c7c7;
+	padding: 5px 5px 5px 5px;
+	width: 200px;
+	background-color: #FAFAFA;
+	vertical-align: bottom;
+	font-size: 10px;
+	font-family: arial, sans-serif;
+	color: #333;
+	line-height:180%;
+}
+
+/*Card table style (toplist) */
+.card_body_top {
+	border-width: thin;
+	border-style: solid;
+	border-color: #c7c7c7;
+	padding: 10px 5px 5px 5px;
+	width: 200px;
+	height: 150px;
+	background-color: #fefefe;
+	vertical-align: bottom;
+	font-size: 9px;
+	font-family: arial, sans-serif;
+	color: #333;
+}
+
+/*Avatar style */
+#card_picture {
+	float:right;
+	vertical-align: top;
+	width: 64px;
+	line-height:120%;
+}
+
+/*User name style */
+#card_name {
+	font-size: 17px;
+	font-family: arial, sans-serif;
+	color: #0a59a2;
+	text-decoration: none;
+	padding-bottom: 8px;
+	filter: Shadow(Color=#afafaf, Direction=135, Strength=2);
+	line-height:180%;
+}
+
+#card_name a {
+	color: #0a59a2;
+	text-decoration: none;
+}
+
+#card_name a:hover {
+	color: #1077d7;
+	text-decoration: none;
+}
+
+/*User online style */
+#card_online {
+	float:right;
+	padding-right: 5px;
+}
+
+/*User level style */
+#card_level {
+	font-size: 12px;
+	font-family: arial, sans-serif;
+	color: #333;
+	height: 20px;
+	filter: Shadow(Color=#afafaf, Direction=135, Strength=2);
+}
+
+/*User id style */
+#card_id {
+	filter: Shadow(Color=#afafaf, Direction=135, Strength=2);
+}
+
+/*User real name style */
+#card_real_name {
+	filter: Shadow(Color=#afafaf, Direction=135, Strength=2);
+}
+
+/*User login name style */
+#card_login_name {
+	filter: Shadow(Color=#afafaf, Direction=135, Strength=2);
+}
+
+/*User email style */
+#card_email {
+	padding-top: 20px;
+	filter: Shadow(Color=#afafaf, Direction=135, Strength=2);
+}
+
+/*User small pics (forum, comments, etch.) style */
+#card_pics {
+	background-color:  #549dd7;
+	padding: 3px 2px 0px 2px;
+	height: 20px;
+}
+
+/*User visits, lastvisit, join, etch. style */
+#card_visits {
+	filter: Shadow(Color=#afafaf, Direction=135, Strength=2);
+}
+
+/*User toplist bar style */
+#card_toplists {
+	padding-top: 55px;
+	vertical-align: bottom;
+}

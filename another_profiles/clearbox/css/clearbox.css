@@ -1,0 +1,295 @@
+#CB_ShowTh, #CB_Thumbs2, #CB_Thumbs, .CB_RoundPixBugFix, #CB_Padding, #CB_ImgContainer, #CB_PrevNext, #CB_ContentHide, #CB_LoadingImage, #CB_Text, #CB_Window, #CB_Image, #CB_TopLeft, #CB_Top, #CB_TopRight, #CB_Left, #CB_Content, #CB_Right, #CB_BtmLeft, #CB_Btm, #CB_BtmRight, #CB_Prev, #CB_Next, #CB_Prev:hover, #CB_Next:hover, #CB_CloseWindow, #CB_SlideShowS, #CB_SlideShowP, #CB_SlideShowBar, #CB_Email {
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	border: 0px;
+}
+
+#CB_iFrCont {
+	position: absolute;
+	width: 0px;
+	height: 0px;
+}
+
+#CB_HiddenText {
+	position: absolute;
+	visibility: hidden;
+	z-index: -1000;
+	top: -100px;
+	left: -1000px;
+}
+
+.CB_Sep {
+	color: #bbb;
+}
+
+.CB_TnThumbs {
+	width: 0px;
+	height: 0px;
+	border: 0px;
+	outline-style: none;
+	outline: 0px;
+	padding: 0;
+	margin: 0;
+	visibility: hidden;
+}
+
+.CB_BtmNav {
+	position: relative;
+	top: 4px;
+	border: 0;
+	padding: 0px 0px 0px 3px;
+}
+
+#CB_ImgHide {
+	position: absolute;
+	visibility: hidden;
+	z-index: 1098;
+	left: 0px;
+}
+
+#CB_ShowTh {
+	width: 100%;
+	height: 20%;
+	visibility: hidden;
+	position: absolute;
+	z-index: 1097;
+	bottom: 0px;
+	left: 0px;
+}
+
+#CB_Thumbs {
+	display: none;
+	height: 62px;
+	padding-top: 10px;
+	position: absolute;
+	z-index: 1100;
+	overflow: hidden;
+	bottom: 0px;
+	left: 0px;
+}
+
+#CB_Thumbs2 {
+	margin: auto 0;
+	height: 52px;
+	position: absolute;
+}
+
+.CB_ThumbsImg {
+	position: absolute;
+	border: 1px solid #fff;
+	cursor: pointer;
+}
+
+.CB_RoundPixBugFix {
+	display: block;
+	visibility: hidden;
+	font-family: arial;
+	font-size: 1pt;
+}
+
+#CB_ImgContainer {
+	position: relative;
+	width: 100%;
+}
+
+#CB_PrevNext {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	z-index: 1002;
+}
+
+#CB_NavPrev, #CB_NavNext {
+	visibility: hidden;
+	position: absolute;
+	z-index: 1001;
+	top: 47%;
+	cursor: pointer;
+}
+
+#CB_NavPrev {
+	left: 18px;
+}
+
+#CB_NavNext {
+	right: 15px;
+}
+
+#CB_ContentHide {
+	position: absolute;
+	z-index: 1000;
+	top: 0px;
+	left: 0px;
+}
+
+#CB_LoadingImage {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -12px;
+	margin-top: -12px;
+	visibility: hidden;
+}
+
+#CB_Text {
+	position: relative;
+	text-align: left;
+	overflow: hidden;
+}
+
+#CB_T1 {
+	height: 14px;
+	white-space: nowrap;
+	position: relative;
+}
+
+#CB_T2 {
+	margin-top: -1px;
+}
+
+#CB_TL {
+	position: relative;
+	background-color: #fff;
+	display: none;
+}
+
+#CB_Window {
+	left:50%;
+	position:absolute;
+	top:50%;
+	visibility:hidden;
+	z-index: 1100;
+	border-collapse: separate;
+}
+
+#CB_Image {
+	position: relative;
+}
+
+#CB_iFrame {
+	position: absolute;
+	width: 0px;
+	height: 0px;
+	z-index: 1003;
+}
+
+#CB_TopLeft {
+	background-image:url(../pic/s_topleft.png);
+	background-position:right bottom;
+}
+
+#CB_Top {
+	background-image:url(../pic/s_top.png);
+	background-position:left bottom;
+}
+
+#CB_TopRight {
+	background-image:url(../pic/s_topright.png);
+	background-position:left bottom;
+}
+
+#CB_Left {
+	background-image:url(../pic/s_left.png);
+	background-position:right top;
+}
+
+#CB_Content {
+	background-color: #fff;
+}
+
+#CB_Right {
+	background-image:url(../pic/s_right.png);
+	background-position:left top;
+}
+
+#CB_BtmLeft {
+	background-image:url(../pic/s_btmleft.png);
+	background-position:right top;
+}
+
+#CB_Btm {
+	background-image:url(../pic/s_btm.png);
+	background-position:left top;
+}
+
+#CB_BtmRight {
+	background-image:url(../pic/s_btmright.png);
+	background-position:left top;
+}
+
+#CB_Prev, #CB_Next {
+	background: transparent url(../pic/blank.gif) no-repeat scroll 0%;
+	display: block;	
+	width: 49%;
+	cursor: pointer;
+	outline-style: none;
+	outline: 0px;
+	z-index: 1102;
+}
+
+.CB_TextNav {
+	text-decoration: underline;
+	padding-right: 5px;
+	color: #999;
+	outline-style: none;
+	outline: 0px;
+	cursor: pointer;
+	border: none;
+}
+
+.CB_TextNav:hover {
+	text-decoration: underline;
+	color: #555;
+	border: none;
+}
+
+#CB_Prev {
+	float: left;
+	left: 0px;
+}
+
+#CB_Next {
+	float: right;
+	left: 0px;
+}
+
+#CB_Prev:hover {
+background:transparent;
+}
+
+#CB_Next:hover {
+background:transparent;
+}
+
+#CB_CloseWindow {
+	position: absolute;
+	right: -14px;
+	top: -10px;
+	z-index: 1104;
+	cursor: pointer;
+}
+
+#CB_SlideShowS, #CB_SlideShowP {
+	position: absolute;
+	left: -11px;
+	top: -10px;
+	z-index: 1104;
+	cursor: pointer;
+}
+
+#CB_SlideShowBar {
+	background-color: #fff;
+	width: 0px;
+	position: absolute;
+	height: 2px;
+	display: none;
+	z-index: 1102;
+}
+
+#CB_Email {
+	position: absolute;
+	right: 15px;
+}                              

@@ -1,0 +1,18 @@
+	ClearBox JS by pyro
+	
+	a script weboldala:	http://www.clearbox.hu
+	készítő e-mail címe:	georgekrupa(kukac)gmail(pont)com
+	készítő msn címe:	pyro(kukac)radiomax(pont)hu
+	support fórum 1:	http://www.sg.hu/listazas.php3?id=1172325655
+
+	LICENSZ FELTÉTELEK:
+
+	A ClearBox szabadon felhasználható bármilyen nem kereskedelmi jellegű honlapon, tehát olyanokon
+	amik nem kereskedelmi tevékenységet folytató cégek, vállalatok oldalai, amik nem tartalmaznak 
+	kereskedelmi jellegű szolgáltatást vagy	termék(ek) eladás(á)t, illetve reklámozás(á)t.
+	
+	A kereskedelmi jellegű honlapokon való felhasználásáról érdeklődjön a készítőnél!
+	
+	A ClearBox forráskódja (a paramétereket kivéve) kizárólag a készítő előzetes hozzájárulásával módosítható.
+	
+	A ClearBox a készítő beleegyezése nélkül pénzért harmadik félnek tovább nem adható!

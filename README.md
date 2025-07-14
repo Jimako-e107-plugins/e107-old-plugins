@@ -175,6 +175,14 @@ Original:  greycube.com
 just backup
 
 ======= 
+
+## another_profiles
+
+Another profiles- the extended e107 user profiles enable the members to tag friends, to share videos, to have their own music etc. ...
+
+https://github.com/yesszus/another_profiles
+
+
  
 ## auto_assign
 ### Auto Assign (e107 v7x) by Father Barry
