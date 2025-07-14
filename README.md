@@ -6,6 +6,9 @@ Just backup
 
 https://github.com/rica-carv/helpdesk3
 
+## e107helpers
+https://github.com/rica-carv/e107helpers
+
 
 ## For download only subfolder (one plugin) use extension for Chrome
 https://chrome.google.com/webstore/detail/gitzip-for-github/ffabmkklhbepgcgfonabamgnfafbdlkn
