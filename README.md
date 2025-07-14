@@ -1,6 +1,12 @@
 # e107-old-plugins
 Just backup 
 
+# available updates
+## helpdesk3
+
+https://github.com/rica-carv/helpdesk3
+
+
 ## For download only subfolder (one plugin) use extension for Chrome
 https://chrome.google.com/webstore/detail/gitzip-for-github/ffabmkklhbepgcgfonabamgnfafbdlkn
 
