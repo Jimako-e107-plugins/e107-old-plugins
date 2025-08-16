@@ -22,7 +22,7 @@ function DelChallenge(id) {
 	var sure = confirm(suredelchal);
 	
 	if(sure){
-		http.open("GET","admin.php?DelChallenge&cid=" + id+"&code="+Math.floor(Math.random()*99999),true);
+		http.open("GET",incfile+".php?DelChallenge&cid=" + id+"&code="+Math.floor(Math.random()*99999),true);
 		
 		http.onreadystatechange = function() {
 			if(http.readyState == 4) {

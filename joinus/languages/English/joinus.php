@@ -25,4 +25,8 @@ define("_FIELDSREQ","Fields marked with an * are required.");
 define("_AREMEMBER","You are already a member of this clan.");
 define("_HAVEAPPLIED","You&rsquo;ve already applied..");
 define("_LOGINORREGISTER", "Please <a href='../../login.php'>log in</a> or <a href='../../signup.php'>register</a> first.");
+define("_NEWJOINFOR", "There is a new join for game");
+define("_PRESS", "Press");
+define("_LINK", "Link");
+define("_TOSEEREQ", "to see the request");
 ?>

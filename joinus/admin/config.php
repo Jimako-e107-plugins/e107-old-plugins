@@ -17,14 +17,17 @@ if (!defined('JOIN_ADMIN') or !preg_match("/admin.php\?Config/i", $_SERVER['REQU
 ?>
 <link rel="stylesheet" href="includes/jquery.autocomplete.css" />
 <style type="text/css">
-.warstitle{
-	font-size:1.1em;
-	font-weight: bold;
-}
 #configtable td{
 	padding: 1px;
 }
 </style>
+<script type="text/javascript" src="includes/jquery.min.js"></script>
+<script type="text/javascript" src="includes/jquery.autocomplete.js"></script>
+<script type="text/javascript">
+	var join_jq = jQuery;
+	var suredeluser = "<?php echo _WSUREDELUSER;?>";
+</script>
+<script type="text/javascript" src="includes/config.js"></script>
 
 <?php
 	$text =  "<center>
@@ -33,8 +36,8 @@ if (!defined('JOIN_ADMIN') or !preg_match("/admin.php\?Config/i", $_SERVER['REQU
 	<form method='post' action='admin.php?SaveConfig'>
 	<table cellspacing='1' cellpadding='3' border='0' width='300' id='configtable'>
 	<tr>
-		<td align='left' nowrap>"._MAILTO.": </td>
-		<td align='left'><input type='text' name='mailto' value='".$conf['mailto']."' size='20' /></td>
+		<td align='left' nowrap>"._MAILTO.":<br />Seperated by a comma \",\"</td>
+		<td align='left'><textarea name='mailto' rows='3' cols='30'>".$conf['mailto']."</textarea></td>
 	</tr>
 	<tr>
 		<td align='left' nowrap>"._SENDMAIL.": </td>
@@ -51,28 +54,21 @@ if (!defined('JOIN_ADMIN') or !preg_match("/admin.php\?Config/i", $_SERVER['REQU
 		</tr>";
 	}
 	$text .= "<tr>
-			<td align='left' nowrap>"._POSTFORUMTHREAD.": </td>
-			<td align='left'><label><input type='radio' name='postthread' value='1' ".(($conf['postthread'])?"checked":"").">"._YES."</label>&nbsp;&nbsp;<label><input type='radio' name='postthread' value='0' ".(($conf['postthread'])?"":"checked").">"._NO."</label></td>
-		</tr>
-		<tr>
-			<td align='left' nowrap>"._POSTIN.": </td>
-			<td align='left'><select name='postin'>";
-			$sql1 = new db;
-			$sql->db_Select("forum", "*", "forum_parent!=0 and forum_sub=0");
-				while($row = $sql->db_Fetch()){
-					$text .= "<option value='".$row['forum_id']."'".($row['forum_id']==$conf['postin']?" selected":"").">".$row['forum_name']."</option>";
-					$sql1->db_Select("forum", "*", "forum_sub=".$row['forum_id']);
-					while($row2 = $sql1->db_Fetch()){
-						$text .= "<option value='".$row2['forum_id']."'".($row2['forum_id']==$conf['postin']?" selected":"").">&nbsp;&nbsp;-&nbsp;".$row2['forum_name']."&nbsp;</option>";
-					}
-				}
-			$text .= "</select></td>
-		</tr>
-		<tr>
-		<td align='left' nowrap>"._THREADTITLE.": </td>
-		<td align='left'><input type='text' name='threadtitle' value='".$conf['threadtitle']."' size='20' /></td>
+		<td align='left' valign='top'>"._SPECIALPRIVS.":</td>
+		<td align='left'><select multiple name='specialprivs' id='specialprivs' ondblclick='DelUser(this);' title='"._DBLCLCKTOREMOVE."' style='width:100%;height:70px;'>";
+		$specialprivs = explode(",",$conf['specialprivs']);
+		for($i=0;$i<count($specialprivs);$i++){
+			if($specialprivs[$i]!=""){
+				$text .= "<option>".$specialprivs[$i]."</option>";
+			}
+		}
+		$text .= "</select></td>
 	</tr>
-		<tr>
+	<tr>
+		<td align='left'>"._ADDUSRTOLIST.":</td>
+		<td align='left'><input id='newspecialprivs' name='newspecialprivs' value='".$conf['specialprivs']."' type='hidden'><input id='addtolist' type='text' style='width:96%;' title='"._CLCKONNAMETOADD."' onKeyPress='return submitenter(event);'></td>
+	</tr>
+	<tr>
 			<td align='left' colspan='2'>"._JOINTEXT.": </td>
 		</tr>
 		<tr>

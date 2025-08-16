@@ -23,6 +23,9 @@ define("_NEWCHASITE","There is a new application for your clan");
 define("_SRY","Sorry");
 define("_ALREADYCHALL","you allready challenged us");
 define("_FORA","for a");
-
-
+define("_FIELDSREQ","Fields marked with an * are required.");
+define("_NEWCHALFOR", "There is a new challenge for game");
+define("_PRESS", "Press");
+define("_LINK", "Link");
+define("_TOSEEREQ", "to see the challenge");
 ?>

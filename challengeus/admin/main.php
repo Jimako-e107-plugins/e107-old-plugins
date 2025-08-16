@@ -10,7 +10,9 @@
 | This file may not be redistributed in whole or significant part. |
 +------------------------------------------------------------------+
 */
-if (!(defined('CHAL_ADMIN') && preg_match("/admin\.php/i", $_SERVER['REQUEST_URI']))){
+if (!(defined('CHAL_ADMIN') && preg_match("/admin.php/i", $_SERVER['REQUEST_URI']))
+	 && 
+	!(defined('CHAL_MOD') && preg_match("/challengeus.php\?Mod/i", $_SERVER['REQUEST_URI']) && in_array(USERNAME, $conf['specialprivs']) && USER)) {
     die ("Access denied.");
 }
 ?>
@@ -20,14 +22,16 @@ if (!(defined('CHAL_ADMIN') && preg_match("/admin\.php/i", $_SERVER['REQUEST_URI
 	}
 </style>
 <script type="text/javascript">
+	var incfile = "<?php echo ($incfile !=""?$incfile:"admin");?>";
 	var suredelchal = "<?php echo _SUREDELCHAL;?>";
 	var errordelchal = "<?php echo _ERRORDELCHAL;?>";
 </script>
-<script type="text/javascript" src="includes/challenges.js"></script>
+<script type="text/javascript" src="includes/challenge.js"></script>
 <?php	
 $rows = $sql->db_Count("clan_challenges");
 $text = "<center><table><tr><td>";
 if($rows > 0){
+	$sql1 = new db;
 	$text .= "<table class='fborder'>
 				<tr>
 					<td class='forumheader2'><b>"._CHABY."</b></td>
@@ -46,14 +50,14 @@ if($rows > 0){
 			$chdate = $row['chdate'];
 			$chtime = $row['chtime'];
 			$date = $row['date'];
-			$link = "onclick=\"window.location='admin.php?Challenge&cid=$cid'\"";
+			$link = "onclick=\"window.location='".($incfile !=""?$incfile:"admin").".php?Challenge&cid=$cid'\"";
 			$text .= "<tr id='chal$cid' class='pointer'>
 						<td class='forumheader3' $link>$username</td>
 						<td class='forumheader3' $link>$clanname</td>
 						<td class='forumheader3' $link>";
 						if(intval($game) > 0 && $conf['linkwars']){
-							$sql->db_Select("clan_games", "gname", "gid='$game'");
-							$row = $sql->db_Fetch();
+							$sql1->db_Select("clan_games", "gname", "gid='$game'");
+							$row = $sql1->db_Fetch();
 							$text .= $row['gname'];
 						}else{
 							$text .= $game;

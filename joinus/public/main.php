@@ -27,7 +27,7 @@ $username = (USERNAME != "USERNAME" ? USERNAME : "");
 $sql->db_Select("user", "user_email", "user_id='".intval(USERID)."'");
 $row = $sql->db_Fetch();
 $email = $row['user_email'];
-$text = "<center><table id='jointable' width='320'><tr><td>
+$text = "<center><table id='jointable' width='370'><tr><td>
 	<form method=\"post\" action=\"joinus.php?Apply\">
 	<table>";
 if($conf['jointext'] !=""){
@@ -36,61 +36,42 @@ if($conf['jointext'] !=""){
   </tr>";
 }
   $text .= "<tr>
-    <td style='text-align: right;'><b>"._NICK."* :</b></td>
+    <td style='text-align: right;'><b>"._NICK."<span style='color:red;'>*</span> :</b></td>
     <td><input type='text' name='uname' value='$username' size=18></td>
   </tr>
   <tr>
-    <td style='text-align: right;'>&nbsp;<b>"._LOCATION."* :</b></td>
+    <td style='text-align: right;'>&nbsp;<b>"._LOCATION."<span style='color:red;'>*</span> :</b></td>
     <td><input type='text' name='location' value='$location' size=18></td>
   </tr>
   <tr>
-    <td style='text-align: right;'><b>"._EMAIL."* :</b></td>
+    <td style='text-align: right;'><b>"._EMAIL."<span style='color:red;'>*</span> :</b></td>
     <td><input type='text' name='email' value='$email' size=18></td>
   </tr>
   <tr>
-    <td style='text-align: right;'><b>"._XFIRE." :</b></td>
-    <td><input type='text' name='xfire' value='$xfire' size=18></td>
-  </tr>
-  <tr>
-    <td style='text-align: right;'><b>"._STEAM." :</b></td>
+    <td style='text-align: right;'><b>"._STEAM."<span style='color:red;'>*</span> :</b></td>
     <td><input type='text' name='steam' value='$steam' size=18></td>
   </tr>
   <tr>
-    <td style='text-align: right;'>&nbsp;<b>"._MSN." :</b></td>
-    <td><input type='text' name='msn' value='$msn' size=18></td>
+    <td style='text-align: right;'><b>"._CONNSPEED."<span style='color:red;'>*</span> :</b></td>
+    <td><input type='text' name='conn' value='$conn' size=18></td>
   </tr>
   <tr>
-    <td style='text-align: right;'>&nbsp;<b>"._AGE."* :</b></td>
+    <td style='text-align: right;'>&nbsp;<b>"._AGE."<span style='color:red;'>*</span> :</b></td>
     <td><input type='text' name='age' value='$age' size=18></td>
-  </tr>
-  <tr>
-    <td style='text-align: right;vertical-align:top;'><b>"._APPLYF."* :</b></td>
-    <td>";
-	if($conf['linkmembers']){
-		$sql->db_Select("clan_games","gname, gid", "inmembers='1' ORDER BY gname");
-		while($row = $sql->db_Fetch()){
-			$gid = $row['gid'];
-			$gname = $row['gname'];
-			$text .= "<label><input type='checkbox' name='games[]' value='$gid' />$gname</label><br />";
-		}
-	}else{	
-		$text .= "<input type='text' name='apply' value='$apply' size=18>";
-	}
-	$text .= "</td>
   </tr>
   <tr>
     <td style='text-align: right;'>&nbsp;<b>"._PCLANS." : </b></td>
     <td><input type='text' name='clans' value='$clans' size=18></td>
   </tr>
   <tr>
-    <td style='text-align: right;'><b>"._CONNSPEED."* :</b></td>
-    <td><input type='text' name='conn' value='$conn' size=18></td>
-  </tr>
-  <tr>
-    <td style='text-align: right;'>&nbsp;<b>"._MICRO."* :</b></td>
+    <td style='text-align: right;'>&nbsp;<b>"._MICRO."<span style='color:red;'>*</span> :</b></td>
     <td><select name ='micro'>
-			<option value='1'>"._YES."</option>	
-			<option value='0'>"._NO."</option>
+      <option value='5'>"._COD."</option>
+      <option value='4'>"._LOL."</option>
+      <option value='3'>"._TITAN."</option>
+      <option value='2'>"._BF."</option>
+			<option value='1'>"._CSGO."</option>	
+			<option value='0'>"._ANDET."</option>
 		</select>
 	</td>
   </tr>

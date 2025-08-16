@@ -10,13 +10,16 @@
 | This file may not be redistributed in whole or significant part. |
 +------------------------------------------------------------------+
 */
-if (!defined('JOIN_ADMIN') or !preg_match("/admin.php\?App/i", $_SERVER['REQUEST_URI'])) {
+if (!(defined('JOIN_ADMIN') && preg_match("/admin.php\?App/i", $_SERVER['REQUEST_URI'])) 
+	&& 
+	!(defined('JOIN_MOD') && preg_match("/joinus.php\?App/i", $_SERVER['REQUEST_URI']) && in_array(USERNAME, $conf['specialprivs']) && USER)) {
     die ("Access denied.");
 }
 ?>
 <script type="text/javascript">
 	var suredelapp = "<?php echo _SUREDELAPP;?>";
 	var errordelapp = "<?php echo _ERRORDELAPP;?>";
+	var incfile = "<?php echo ($incfile !=""?$incfile:"admin");?>";
 </script>
 <script type="text/javascript" src="includes/app.js"></script>
 <?php
@@ -31,26 +34,23 @@ $row = $sql->db_Fetch();
 	$age = $row['age'];
 	$location = $row['location'];
 	$clans = $row['clans'];
-	$apply = $row['apply'];
 	$conn = $row['conn'];
 	$micro = $row['micro'];
 	$extra = $row['extra'];
 	$appdate = $row['date'];
 
 if($micro == 1){
-	$micro = _YES;
+	$micro = _CSGO;
+}else if ($micro == 2){
+	$micro = _BF;
+}else if ($micro == 3){
+	$micro = _TITAN;
+}else if ($micro == 4){
+	$micro = _LOL;
+}else if ($micro == 5){
+	$micro = _COD;
 }else{
-	$micro = _NO;
-}
-$dot = explode(",", $apply);
-if($conf['linkmembers'] && intval($dot[0]) > 0){
-	$games = $apply;
-	$apply = "";
-	foreach($dot as $game){
-		$sql->db_Select("clan_games", "abbr, gname", "gid='$game'");
-		$row = $sql->db_Fetch();
-		$apply .= ($apply !=""?", ":"").($row['abbr'] !="" ? $row['abbr'] : $row['gname']);
-	}
+	$micro = _ANDET;
 }
 
 
@@ -64,16 +64,12 @@ $text = "<center><table class='fborder' width='300'>
 			<td class='forumheader3'><a href='mailto:$email'>$email</a></td>
 		</tr>
 		<tr>
-			<td class='forumheader2' nowrap><b>"._XFIRE.":</b> </td>
-			<td class='forumheader3'><a href='http://www.xfire.com/profile/$xfire' target='_blank'>$xfire</a></td>
-		</tr>
-		<tr>
 			<td class='forumheader2' nowrap><b>"._STEAM.":</b> </td>
 			<td class='forumheader3'>$steam</td>
 		</tr>
 		<tr>
-			<td class='forumheader2' nowrap><b>"._MSN.":</b> </td>
-			<td class='forumheader3'>$msn</td>
+			<td class='forumheader2' nowrap><b>"._CONNSPEED.":</b> </td>
+			<td class='forumheader3'>$conn</td>	
 		</tr>
 		<tr>
 			<td class='forumheader2' nowrap><b>"._AGE.":</b> </td>
@@ -86,14 +82,6 @@ $text = "<center><table class='fborder' width='300'>
 		<tr>
 			<td class='forumheader2' nowrap><b>"._PCLANS.": </b> </td>
 			<td class='forumheader3'>$clans</td>
-		</tr>
-		<tr>
-			<td class='forumheader2' nowrap><b>"._APPLYF.":</b> </td>
-			<td class='forumheader3'>$apply</td>
-		</tr>
-		<tr>
-			<td class='forumheader2' nowrap><b>"._CONNSPEED.":</b> </td>
-			<td class='forumheader3'>$conn</td>	
 		</tr>
 		<tr>
 			<td class='forumheader2' nowrap><b>"._MICRO.":</b> </td>
@@ -111,14 +99,9 @@ $text .= "<tr>
 	
 $text .= "</table><br /><br />";
 if($conf['linkmembers']){
-	$text .= "<form action='../clanmembers/admin.php?Userlist' method='post'>
-	<input type='hidden' value='$username' name='query' />
-	<input type='hidden' value='$games' name='games' />	
-	<input type='hidden' name='e-token' value='".e_TOKEN."' />
-	<input type='submit' class='button' value='Add to Clan Members List' />&nbsp;";
+	$text .= "<input type='submit' class='button' value='Add to Clan Members List' onclick=\"window.location='".($incfile !=""?$incfile:"admin").".php?AddCM&aid=$aid'\" />&nbsp;";
 }
-$text .= "<input type='button' class='button' value='"._DELLAPP."' onclick=\"DelApp($aid);\" />&nbsp;<input type='button' class='button' value='"._JUGOBACK."' onclick=\"window.location='admin.php'\" />";
-if($conf['linkmembers']) $text .= "</form>";
+$text .= "<input type='button' class='button' value='"._EDIT."' onclick=\"window.location='".($incfile !=""?$incfile:"admin").".php?EditApp&aid=$aid'\" />&nbsp;<input type='button' class='button' value='"._DEL."' onclick=\"DelApp($aid);\" />&nbsp;<input type='button' class='button' value='"._JUGOBACK."' onclick=\"window.location='".($incfile !=""?$incfile.".php?Mod":"admin.php")."'\" />";
 $text .= "</center>";
 
 $ns->tablerender(_JOINAPP,$text);

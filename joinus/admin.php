@@ -38,7 +38,7 @@ if($action == "") $action = "Main";
 $dot = explode("&", $action);
 $action = $dot[0];
 
-if($action != "DelApp") require_once(e_ADMIN.'auth.php');
+if($action != "DelApp" && $action != "Search") require_once(e_ADMIN.'auth.php');
 require_once(e_HANDLER."userclass_class.php");
 require_once(e_HANDLER."form_handler.php");
 require_once(e_HANDLER."ren_help.php");
@@ -50,7 +50,7 @@ define('JOIN_ADMIN', true);
 if(file_exists(e_PLUGIN."joinus/admin/".strtolower($action).".php") && ADMIN){
 	include(e_PLUGIN."joinus/admin/".strtolower($action).".php");
 }
-if($action != "DelApp") require_once(e_ADMIN.'footer.php');
+if($action != "DelApp" && $action != "Search") require_once(e_ADMIN.'footer.php');
 exit;
 
 ?>

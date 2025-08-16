@@ -81,7 +81,7 @@ $eplug_link_name = "Challenge Us";
 $eplug_link_url = e_PLUGIN.'challengeus/challengeus.php';
 
 // Text to display after plugin successfully installed ------------------------------------------------------------------
-$eplug_done = 'Your challenge us form is now installed';
+$eplug_done = 'Your join us form is now installed';
 
 /*$eplug_upgrade_done = 'Clan Wars successfully upgraded, now using version: '.$eplug_version;
 

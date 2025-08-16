@@ -10,7 +10,7 @@
 | This file may not be redistributed in whole or significant part. |
 +------------------------------------------------------------------+
 */
-header("location: joinus.php");
+header("location: challengeus.php");
 exit;
 
 ?>

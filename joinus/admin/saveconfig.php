@@ -18,13 +18,12 @@ $mailto = mysql_real_escape_string($_POST['mailto']);
 $sendmail = intval($_POST['sendmail']);
 $mustregister = intval($_POST['mustregister']);
 $linkmembers = intval($_POST['linkmembers']);
-$postthread = intval($_POST['postthread']);
-$postin = intval($_POST['postin']);
-$threadtitle = mysql_real_escape_string($_POST['threadtitle']);
 $jointext = mysql_real_escape_string($_POST['jointext']);
+$newspecialprivs = mysql_real_escape_string($_POST['newspecialprivs']);
+
 if (!isset($pref['plug_installed']['clanmembers'])) $linkmembers = 0;
 
-	$sql->db_Update("clan_joinus_config", "mailto='$mailto', sendmail='$sendmail', mustregister='$mustregister', linkmembers='$linkmembers', postthread='$postthread', postin='$postin', threadtitle='$threadtitle', jointext='$jointext', jointext='$jointext'");
+	$sql->db_Update("clan_joinus_config", "mailto='$mailto', sendmail='$sendmail', mustregister='$mustregister', linkmembers='$linkmembers', jointext='$jointext', specialprivs='$newspecialprivs'");
 
 	$ns->tablerender(_JOINUS, "<center><br />"._CONFIGSUC."</center>");
 	

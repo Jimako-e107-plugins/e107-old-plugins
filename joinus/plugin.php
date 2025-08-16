@@ -1,7 +1,7 @@
 <?php
 /*
 + -----------------------------------------------------------------+
-| e107: Join Us 1.01                                                |
+| e107: Join Us 1.0                                                |
 | ===========================                                      |
 |                                                                  |
 | Copyright (c) 2011 Untergang                                     |
@@ -16,7 +16,7 @@ if (!defined('e107_INIT')) { exit; }
 
 // Plugin info -------------------------------------------------------------------------------------------------------
 $eplug_name = 'Join Us';
-$eplug_version = '1.01';
+$eplug_version = '1.0';
 $eplug_author = 'Untergang';
 $eplug_url = 'http://www.udesigns.be';
 $eplug_email = '';
@@ -55,7 +55,7 @@ $eplug_tables = array(
 	username VARCHAR( 25 ) NOT NULL ,
 	email VARCHAR( 50 ) NOT NULL ,
 	xfire VARCHAR (50) NOT NULL,
-	steam VARCHAR (50) NOT NULL,
+	steam VARCHAR (60) NOT NULL,
 	msn VARCHAR( 50 ) NOT NULL ,
 	age INT( 3 ) NOT NULL ,
 	clans VARCHAR( 30 ) NOT NULL ,
@@ -66,16 +66,13 @@ $eplug_tables = array(
 	extra TEXT NOT NULL,
 	date INT( 15 ) NOT NULL)",
 "CREATE TABLE IF NOT EXISTS ".MPREFIX."clan_joinus_config (
-	  version varchar(10) NOT NULL,
-	  mailto varchar(25) DEFAULT NULL,
-	  sendmail tinyint(1) NOT NULL DEFAULT '0',
-	  mustregister tinyint(1) NOT NULL DEFAULT '1',
-	  linkmembers tinyint(1) NOT NULL DEFAULT '0',
-	  postthread tinyint(1) NOT NULL DEFAULT '0',
-	  postin int(11) NOT NULL,
-	  threadtitle varchar(50) NOT NULL DEFAULT '(username) Application',
-	  jointext text NOT NULL)",
-"INSERT INTO ".MPREFIX."clan_joinus_config (version) VALUES ('1.01')");	
+	version varchar(10) NOT NULL,
+	mailto VARCHAR (25) NULL,
+	sendmail tinyint(1) NOT NULL DEFAULT '0',
+	mustregister tinyint(1) NOT NULL DEFAULT '1',
+	linkmembers tinyint(1) NOT NULL DEFAULT '0',
+	jointext TEXT NOT NULL)",
+"INSERT INTO ".MPREFIX."clan_joinus_config (version) VALUES ('1.0')");	
 	
 // Create a link in main menu (yes=TRUE, no=FALSE) -------------------------------------------------------------
 $eplug_link = TRUE;
@@ -85,15 +82,12 @@ $eplug_link_url = e_PLUGIN.'joinus/joinus.php';
 // Text to display after plugin successfully installed ------------------------------------------------------------------
 $eplug_done = 'Your join us form is now installed';
 
-$eplug_upgrade_done = 'Join Us successfully upgraded, now using version: '.$eplug_version;
+/*$eplug_upgrade_done = 'Clan Wars successfully upgraded, now using version: '.$eplug_version;
 
 $upgrade_alter_tables = array(
-"ALTER TABLE ".MPREFIX."clan_joinus_config ADD postthread TINYINT (1) NOT NULL DEFAULT '0' AFTER linkmembers ,
- ADD postin INT (11) NOT NULL AFTER postthread ,
- ADD threadtitle VARCHAR (50) NOT NULL DEFAULT '(username) Application' AFTER postin",
- "UPDATE ".MPREFIX."clan_joinus_config SET version='1.01'"
+"ALTER TABLE ".MPREFIX."forum ADD forum_postclass TINYINT( 3 ) UNSIGNED DEFAULT '0' NOT NULL ;"
 );
-
+*/
 /*if (!function_exists('clanwars_uninstall')) {
 	function forum_uninstall() {
 		global $sql;

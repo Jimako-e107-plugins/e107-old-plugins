@@ -22,7 +22,7 @@ function DelApp(id) {
 	var sure = confirm(suredelapp);
 	
 	if(sure){
-		http.open("GET","admin.php?DelApp&aid=" + id+"&code="+Math.floor(Math.random()*99999),true);
+		http.open("GET",incfile+".php?DelApp&aid=" + id+"&code="+Math.floor(Math.random()*99999),true);
 		
 		http.onreadystatechange = function() {
 			if(http.readyState == 4) {

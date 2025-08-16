@@ -33,17 +33,28 @@ if (strstr(e_QUERY, "untrack"))
 	exit;
 }
 
+$sql -> db_Select("clan_joinus_config", "*");
+$conf = $sql -> db_Fetch();
+$conf['specialprivs'] = explode(",", $conf['specialprivs']);
+
 $action = e_QUERY;
+if($action == "" && in_array(USERNAME, $conf['specialprivs']) && USER) header("Location: joinus.php?Mod");
 if($action == "") $action = "Main";
 $dot = explode("&", $action);
 $action = $dot[0];
 
-$sql -> db_Select("clan_joinus_config", "*");
-$conf = $sql -> db_Fetch();
 
-require_once(HEADERF);
+if($action != "DelApp" && $action != "Search") require_once(HEADERF);
+$modfiles = array("Mod", "App", "DelApp", "AddCM", "EditApp", "SaveApp");
+
 if(USER or !$conf['mustregister']){
-	if($sql->db_Count("clan_members_info", "(*)", "WHERE userid='".USERID."'") > 0 && $conf['linkmembers']){
+	if(in_array($action, $modfiles) && in_array(USERNAME, $conf['specialprivs']) && USER){
+		define('JOIN_MOD', true);
+		$incfile = "joinus";
+		if($action == "Mod") $action = "Main";
+		if(file_exists(e_PLUGIN."joinus/admin/".strtolower($action).".php")) include(e_PLUGIN."joinus/admin/".strtolower($action).".php");
+		$text = "";
+	}elseif($sql->db_Count("clan_members_info", "(*)", "WHERE userid='".USERID."'") > 0 && $conf['linkmembers']){
 		$text = "<center>"._AREMEMBER.".</center>";
 	}else{
 		if($sql->db_Count("clan_applications", "(*)", "WHERE username='".USERNAME."'") > 0){
@@ -58,8 +69,9 @@ if(USER or !$conf['mustregister']){
 	$text = "<center>"._LOGINORREGISTER."</center>";
 }
 
+
 if($text) $ns->tablerender(_JOINUS, $text);
 
-require_once(FOOTERF);
+if($action != "DelApp" && $action != "Search") require_once(FOOTERF);
 exit;
 ?>

@@ -13,7 +13,6 @@
 if (!defined('CHAL_ADMIN') or !preg_match("/admin.php\?Config/i", $_SERVER['REQUEST_URI'])) {
     die ("Access denied.");
 }
-
 ?>
 <link rel="stylesheet" href="includes/jquery.autocomplete.css" />
 <style type="text/css">
@@ -25,7 +24,14 @@ if (!defined('CHAL_ADMIN') or !preg_match("/admin.php\?Config/i", $_SERVER['REQU
 	padding: 1px;
 }
 </style>
+<script type="text/javascript" src="includes/jquery.min.js"></script>
+<script type="text/javascript" src="includes/jquery.autocomplete.js"></script>
+<script type="text/javascript">
+	var join_jq = jQuery;
+	var suredeluser = "<?php echo _WSUREDELUSER;?>";
+</script>
 <script type="text/javascript" src="includes/config.js"></script>
+
 <?php
 	$text =  "<center>
 	<table align='center'><tr><td>		
@@ -33,8 +39,8 @@ if (!defined('CHAL_ADMIN') or !preg_match("/admin.php\?Config/i", $_SERVER['REQU
 	<form method='post' action='admin.php?SaveConfig'>
 	<table cellspacing='1' cellpadding='3' border='0' width='300' id='configtable'>
 	<tr>
-		<td align='left' nowrap>"._MAILTO.": </td>
-		<td align='left'><input type='text' name='mailto' value='".$conf['mailto']."' size='20' /></td>
+		<td align='left' nowrap>"._MAILTO.":<br />Seperated by a comma \",\"</td>
+		<td align='left'><textarea name='mailto' rows='3' cols='30'>".$conf['mailto']."</textarea></td>
 	</tr>
 	<tr>
 		<td align='left' nowrap>"._SENDMAIL.": </td>
@@ -78,7 +84,34 @@ if (!defined('CHAL_ADMIN') or !preg_match("/admin.php\?Config/i", $_SERVER['REQU
 				}
 			$text .= "</select>
 		</td>
-	  </tr>
+	  </tr>";
+	  $text .= "<tr>
+		<td align='left' valign='top'>"._SPECIALPRIVS.":</td>
+		<td align='left'><select multiple name='specialprivs' id='specialprivs' ondblclick='DelUser(this);' title='"._DBLCLCKTOREMOVE."' style='width:100%;height:70px;'>";
+		$specialprivs = explode(",",$conf['specialprivs']);
+		for($i=0;$i<count($specialprivs);$i++){
+			if($specialprivs[$i]!=""){
+				$text .= "<option>".$specialprivs[$i]."</option>";
+			}
+		}
+		$text .= "</select></td>
+	</tr>
+	<tr>
+		<td align='left'>"._ADDUSRTOLIST.":</td>
+		<td align='left'><input id='newspecialprivs' name='newspecialprivs' value='".$conf['specialprivs']."' type='hidden'><input id='addtolist' type='text' style='width:96%;' title='"._CLCKONNAMETOADD."' onKeyPress='return submitenter(event);'></td>
+	</tr>
+	  <tr>
+			<td align='left' colspan='2'>"._CHALLTEXT." (Danish): </td>
+		</tr>
+		<tr>
+			<td align='left' colspan='2'><textarea name='textdanish' style='width:100%;height:80px;'>".$conf['textdanish']."</textarea></td>
+		</tr>
+		<tr>
+			<td align='left' colspan='2'>"._CHALLTEXT." (English): </td>
+		</tr>
+		<tr>
+			<td align='left' colspan='2'><textarea name='textenglish' style='width:100%;height:80px;'>".$conf['textenglish']."</textarea></td>
+		</tr>
 	  </table>	
 	
 	</td></tr>
