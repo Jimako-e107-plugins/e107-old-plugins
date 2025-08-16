@@ -1,0 +1,16 @@
+17.12.07: PageEar v1.2b 
+ - Sometimes on first mouse over on the small peel the big peel image appeares to late. Fixed now.
+
+13.11.07: PageEar v1.2a 
+ - Sometimes the big peel dont opens. Changed the communication between the peel over localConnection 
+ - Nice soft fadein its now possible if peel is loaded.
+
+28.09.07: PageEar v1.2 
+ - Set pageear in left or right corner of the browser with the new var setDirection 
+
+18.09.07: PageEar v1.1a
+ - Open and close automaticly after X seconds  
+
+10.09.07:  PageEar v1.1 
+ - Fix pageear.js to avoid horizontal browser scrollbar
+ - Speed of the small pageear could be changed (1:fast to 4:slow) 
